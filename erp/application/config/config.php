@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/sistema/erp';
+$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/sistema/erp/';
 
 /*
 |--------------------------------------------------------------------------
