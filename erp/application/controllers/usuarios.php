@@ -26,7 +26,7 @@ class Usuarios extends CI_Controller {
         $this->data['menuConfiguracoes'] = 'Configurações';
         
         
-        $idusumestre = $this->session->userdata('idusumestre');
+        
         
     }
 
