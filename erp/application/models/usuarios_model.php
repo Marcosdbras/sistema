@@ -16,9 +16,12 @@ class Usuarios_model extends CI_Model {
 
     function get($perpage=0,$start=0,$one=false){
         
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->from('usuarios');
         $this->db->select('usuarios.*, permissoes.nome as permissao');
         $this->db->where('usuarios.mestre','N');
+        $this->db->where('idusumestre',$idusumestre);
         $this->db->limit($perpage,$start);
         $this->db->join('permissoes', 'usuarios.permissoes_id = permissoes.idPermissao', 'left');
   

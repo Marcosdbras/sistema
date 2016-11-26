@@ -81,5 +81,5 @@ if(!$results){?>
 </div>
 </div>
 
-<?php $idusumestre = $this->session->userdata('idusumestre');       echo 'dados do usuario mestre'.$idusumestre;?>	
+	
 <?php echo $this->pagination->create_links();}?>
