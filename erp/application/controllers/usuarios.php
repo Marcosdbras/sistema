@@ -24,6 +24,10 @@ class Usuarios extends CI_Controller {
         $this->load->model('usuarios_model', '', TRUE);
         $this->data['menuUsuarios'] = 'Usuários';
         $this->data['menuConfiguracoes'] = 'Configurações';
+        
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        echo 'dados do usuario mestre'.$idusumestre;
     }
 
     function index(){

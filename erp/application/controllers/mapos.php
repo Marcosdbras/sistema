@@ -116,15 +116,17 @@ class Mapos extends CI_Controller {
             $this->load->library('encrypt');   
             $senha = $this->encrypt->sha1($senha);
 
-            $idusumestre = $this->session->userdata('idusumestre');
-            echo $idusumestre;
+            
+            //$this->db->where('idusumestre',$idusumestre);
+            
+            
             
             
             $this->db->where('email',$email);
             $this->db->where('senha',$senha);
             $this->db->where('situacao',1);
             $this->db->where('mestre','N');
-            $this->db->where('idusumestre',$idusumestre);
+            
             $this->db->limit(1);
             $usuario = $this->db->get('usuarios')->row();
             if(count($usuario) > 0){
