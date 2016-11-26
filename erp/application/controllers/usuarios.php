@@ -86,7 +86,7 @@ class Usuarios extends CI_Controller {
 
             $this->load->library('encrypt');                       
             $data = array(
-                    'nome' => set_value('nome'),
+                                        'nome' => set_value('nome'),
 					'rg' => set_value('rg'),
 					'cpf' => set_value('cpf'),
 					'rua' => set_value('rua'),
@@ -99,8 +99,9 @@ class Usuarios extends CI_Controller {
 					'telefone' => set_value('telefone'),
 					'celular' => set_value('celular'),
 					'situacao' => set_value('situacao'),
-                    'permissoes_id' => $this->input->post('permissoes_id'),
-					'dataCadastro' => date('Y-m-d')
+                                        'permissoes_id' => $this->input->post('permissoes_id'),
+					'dataCadastro' => date('Y-m-d'),
+                                        'idusumestre' => $this->session->userdata('idusumestre') 
             );
            
 			if ($this->usuarios_model->add('usuarios',$data) == TRUE)
@@ -177,7 +178,8 @@ class Usuarios extends CI_Controller {
                         'telefone' => $this->input->post('telefone'),
                         'celular' => $this->input->post('celular'),
                         'situacao' => $this->input->post('situacao'),
-                        'permissoes_id' => $this->input->post('permissoes_id')
+                        'permissoes_id' => $this->input->post('permissoes_id'),
+                        'idusumestre' => $this->session->userdata('idusumestre')
                 );
             }  
 
@@ -196,7 +198,8 @@ class Usuarios extends CI_Controller {
                         'telefone' => $this->input->post('telefone'),
                         'celular' => $this->input->post('celular'),
                         'situacao' => $this->input->post('situacao'),
-                        'permissoes_id' => $this->input->post('permissoes_id')
+                        'permissoes_id' => $this->input->post('permissoes_id'),
+                        'idusumestre' => $this->session->userdata('idusumestre')
                 );
 
             }  
