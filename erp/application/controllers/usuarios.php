@@ -27,7 +27,7 @@ class Usuarios extends CI_Controller {
         
         
         $idusumestre = $this->session->userdata('idusumestre');
-        echo 'dados do usuario mestre'.$idusumestre;
+        
     }
 
     function index(){
