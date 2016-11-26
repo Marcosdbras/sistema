@@ -116,10 +116,17 @@ class Mapos extends CI_Controller {
             $this->db->where('email',$email);
             $this->db->where('senha',$senha);
             $this->db->where('situacao',1);
+            $this->db->where('mestre','N');
             $this->db->limit(1);
             $usuario = $this->db->get('usuarios')->row();
             if(count($usuario) > 0){
-                $dados = array('nome' => $usuario->nome, 'id' => $usuario->idUsuarios,'permissao' => $usuario->permissoes_id , 'logado' => TRUE);
+                $dados = array('nome' => $usuario->nome, 
+                               'id' => $usuario->idUsuarios,
+                               'permissao' => $usuario->permissoes_id, 
+                               'logado' => TRUE,
+                               'mestre'=>$usuario->mestre,
+                               'idusumestre'=>$usuario->idusumestre );
+                
                 $this->session->set_userdata($dados);
 
                 if($ajax == true){
