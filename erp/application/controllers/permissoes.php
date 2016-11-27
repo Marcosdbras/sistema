@@ -259,7 +259,7 @@ class Permissoes extends CI_Controller {
         //$this->db->where('permissoes_id', $id);
         //$this->db->delete('servi_os');
 
-        $this->permissoes_model->delete('permissoes','idpermissoes',$id);             
+        $this->permissoes_model->delete('permissoes','idPermissao',$id);             
         
 
         $this->session->set_flashdata('success','Permissão excluida com sucesso!');            
