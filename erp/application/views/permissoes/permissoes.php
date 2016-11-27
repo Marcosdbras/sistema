@@ -85,7 +85,7 @@ if(!$results){?>
  
 <!-- Modal -->
 <div id="modal-excluir" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <form action="<?php echo base_url() ?>index.php/permissoes/desativar" method="post" >
+  <form action="<?php echo base_url() ?>index.php/permissoes/excluir" method="post" >
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h5 id="myModalLabel">Desativar Permissão</h5>
