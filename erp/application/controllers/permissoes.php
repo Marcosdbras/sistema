@@ -161,7 +161,7 @@ class Permissoes extends CI_Controller {
         //    redirect('mapos');
         //}
         
-        //$this->session->set_flashdata('success', $this->uri->total_segments() );
+        $this->session->set_flashdata('success', $this->uri->total_segments() );
         
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
@@ -232,7 +232,7 @@ class Permissoes extends CI_Controller {
             );
 
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == TRUE) {
-                $this->session->set_flashdata('success', 'Permissão editada com sucesso! '.$this->uri->total_segments());
+                $this->session->set_flashdata('success', 'Permissão editada com sucesso!');
                 redirect(base_url() . 'index.php/permissoes/editar/'.$this->input->post('idPermissao'));
             } else {
                 $this->data['custom_error'] = '<div class="form_error"><p>Ocorreu um errro.</p></div>';
