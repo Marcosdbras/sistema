@@ -15,11 +15,11 @@ class Vendas_model extends CI_Model {
     
     function get($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array'){
         
-        $idusumestre = $this->session->userdata('idusumestre');
+        //$idusumestre = $this->session->userdata('idusumestre');
         
         $this->db->select($fields.', clientes.nomeCliente, clientes.idClientes');
         $this->db->from($table);
-        $this->db->where('idusumestre',$idusumestre);
+        //$this->db->where('idusumestre',$idusumestre);
         $this->db->limit($perpage,$start);
         $this->db->join('clientes', 'clientes.idClientes = '.$table.'.clientes_id');
         $this->db->order_by('idVendas','desc');
