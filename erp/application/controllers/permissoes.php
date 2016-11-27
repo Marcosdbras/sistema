@@ -246,7 +246,7 @@ class Permissoes extends CI_Controller {
 
     }
 	
-    function excluir(){
+    function desativar(){
 
         
         $id =  $this->input->post('id');
