@@ -14,7 +14,7 @@ class Os_model extends CI_Model {
     
     function get($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array'){
         
-        $idusumestre = $this->session->userdata('idusumestre');
+        $idusumestre = 'os'.$this->session->userdata('idusumestre');
         
         $this->db->select($fields.',clientes.nomeCliente');
         $this->db->from($table);
