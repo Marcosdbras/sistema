@@ -18,7 +18,7 @@ class Os_model extends CI_Model {
         
         $this->db->select($fields.',clientes.nomeCliente');
         $this->db->from($table);
-        $this->db->where($fields.'idusumestre',$idusumestre);
+        $this->db->where($table.'idusumestre',$idusumestre);
         $this->db->join('clientes','clientes.idClientes = os.clientes_id');
         $this->db->limit($perpage,$start);
         $this->db->order_by('idOs','desc');
