@@ -89,7 +89,8 @@ class Clientes extends CI_Controller {
                 'cidade' => set_value('cidade'),
                 'estado' => set_value('estado'),
                 'cep' => set_value('cep'),
-                'dataCadastro' => date('Y-m-d')
+                'dataCadastro' => date('Y-m-d'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->clientes_model->add('clientes', $data) == TRUE) {
@@ -134,7 +135,8 @@ class Clientes extends CI_Controller {
                 'bairro' => $this->input->post('bairro'),
                 'cidade' => $this->input->post('cidade'),
                 'estado' => $this->input->post('estado'),
-                'cep' => $this->input->post('cep')
+                'cep' => $this->input->post('cep'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->clientes_model->edit('clientes', $data, 'idClientes', $this->input->post('idClientes')) == TRUE) {

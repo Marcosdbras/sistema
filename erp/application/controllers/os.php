@@ -101,7 +101,8 @@ class Os extends CI_Controller {
                 'status' => set_value('status'),
                 'observacoes' => set_value('observacoes'),
                 'laudoTecnico' => set_value('laudoTecnico'),
-                'faturado' => 0
+                'faturado' => 0,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ( is_numeric($id = $this->os_model->add('os', $data, true)) ) {
@@ -135,7 +136,8 @@ class Os extends CI_Controller {
                 'defeito' => set_value('defeito'),
                 'status' => set_value('status'),
                 'observacoes' => set_value('observacoes'),
-                'laudoTecnico' => set_value('laudoTecnico')
+                'laudoTecnico' => set_value('laudoTecnico'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ( is_numeric($id = $this->os_model->add('os', $data, true)) ) {
@@ -192,7 +194,8 @@ class Os extends CI_Controller {
                 'observacoes' => $this->input->post('observacoes'),
                 'laudoTecnico' => $this->input->post('laudoTecnico'),
                 'usuarios_id' => $this->input->post('usuarios_id'),
-                'clientes_id' => $this->input->post('clientes_id')
+                'clientes_id' => $this->input->post('clientes_id'), 
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->os_model->edit('os', $data, 'idOs', $this->input->post('idOs')) == TRUE) {
@@ -307,6 +310,7 @@ class Os extends CI_Controller {
             'subTotal'=> $subtotal,
             'produtos_id'=> $produto,
             'os_id'=> $this->input->post('idOsProduto'),
+            'idusumestre' => $this->session->userdata('idusumestre')
         );
 
         if($this->os_model->add('produtos_os', $data) == true){
@@ -346,6 +350,7 @@ class Os extends CI_Controller {
         $data = array(
             'servicos_id'=> $this->input->post('idServico'),
             'os_id'=> $this->input->post('idOsServico'),
+            'idusumestre' => $this->session->userdata('idusumestre')
         );
 
         if($this->os_model->add('servicos_os', $data) == true){
@@ -547,7 +552,8 @@ class Os extends CI_Controller {
                 'baixado' => $this->input->post('recebido'),
                 'cliente_fornecedor' => set_value('cliente'),
                 'forma_pgto' => $this->input->post('formaPgto'),
-                'tipo' => $this->input->post('tipo')
+                'tipo' => $this->input->post('tipo'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->os_model->add('lancamentos',$data) == TRUE) { 

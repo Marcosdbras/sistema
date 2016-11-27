@@ -97,7 +97,8 @@ class Vendas extends CI_Controller {
                 'dataVenda' => $dataVenda,
                 'clientes_id' => $this->input->post('clientes_id'),
                 'usuarios_id' => $this->input->post('usuarios_id'),
-                'faturado' => 0
+                'faturado' => 0,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if (is_numeric($id = $this->vendas_model->add('vendas', $data, true)) ) {
@@ -150,7 +151,8 @@ class Vendas extends CI_Controller {
             $data = array(
                 'dataVenda' => $dataVenda,
                 'usuarios_id' => $this->input->post('usuarios_id'),
-                'clientes_id' => $this->input->post('clientes_id')
+                'clientes_id' => $this->input->post('clientes_id'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->vendas_model->edit('vendas', $data, 'idVendas', $this->input->post('idVendas')) == TRUE) {
@@ -271,6 +273,7 @@ class Vendas extends CI_Controller {
                 'subTotal'=> $subtotal,
                 'produtos_id'=> $produto,
                 'vendas_id'=> $this->input->post('idVendasProduto'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if($this->vendas_model->add('itens_de_vendas', $data) == true){
@@ -356,7 +359,8 @@ class Vendas extends CI_Controller {
                 'baixado' => $this->input->post('recebido'),
                 'cliente_fornecedor' => set_value('cliente'),
                 'forma_pgto' => $this->input->post('formaPgto'),
-                'tipo' => $this->input->post('tipo')
+                'tipo' => $this->input->post('tipo'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->vendas_model->add('lancamentos',$data) == TRUE) {

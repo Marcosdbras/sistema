@@ -132,7 +132,7 @@ class Usuarios extends CI_Controller {
         }
 
         $this->load->library('form_validation');    
-		$this->data['custom_error'] = '';
+	$this->data['custom_error'] = '';
         $this->form_validation->set_rules('nome', 'Nome', 'trim|required|xss_clean');
         $this->form_validation->set_rules('rg', 'RG', 'trim|required|xss_clean');
         $this->form_validation->set_rules('cpf', 'CPF', 'trim|required|xss_clean');

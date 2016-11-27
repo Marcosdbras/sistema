@@ -85,7 +85,8 @@ class Servicos extends CI_Controller {
             $data = array(
                 'nome' => set_value('nome'),
                 'descricao' => set_value('descricao'),
-                'preco' => $preco
+                'preco' => $preco,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->servicos_model->add('servicos', $data) == TRUE) {
@@ -116,7 +117,8 @@ class Servicos extends CI_Controller {
             $data = array(
                 'nome' => $this->input->post('nome'),
                 'descricao' => $this->input->post('descricao'),
-                'preco' => $preco
+                'preco' => $preco,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->servicos_model->edit('servicos', $data, 'idServicos', $this->input->post('idServicos')) == TRUE) {

@@ -235,7 +235,8 @@ class Financeiro extends CI_Controller {
 				'baixado' => $this->input->post('recebido'),
 				'cliente_fornecedor' => set_value('cliente'),
 				'forma_pgto' => $this->input->post('formaPgto'),
-				'tipo' => set_value('tipo')
+				'tipo' => set_value('tipo'),
+                                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->financeiro_model->add('lancamentos',$data) == TRUE) {
@@ -295,7 +296,8 @@ class Financeiro extends CI_Controller {
 				'baixado' => $this->input->post('pago'),
 				'cliente_fornecedor' => set_value('fornecedor'),
 				'forma_pgto' => $this->input->post('formaPgto'),
-				'tipo' => set_value('tipo')
+				'tipo' => set_value('tipo'),
+                                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->financeiro_model->add('lancamentos',$data) == TRUE) {
@@ -357,7 +359,8 @@ class Financeiro extends CI_Controller {
                 'baixado' => $this->input->post('pago'),
                 'cliente_fornecedor' => $this->input->post('fornecedor'),
                 'forma_pgto' => $this->input->post('formaPgto'),
-                'tipo' => $this->input->post('tipo')
+                'tipo' => $this->input->post('tipo'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->financeiro_model->edit('lancamentos',$data,'idLancamentos',$this->input->post('id')) == TRUE) {
@@ -380,7 +383,8 @@ class Financeiro extends CI_Controller {
                 'baixado' => $this->input->post('pago'),
                 'cliente_fornecedor' => set_value('fornecedor'),
                 'forma_pgto' => $this->input->post('formaPgto'),
-                'tipo' => $this->input->post('tipo')
+                'tipo' => $this->input->post('tipo'),
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
         print_r($data);
 

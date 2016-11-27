@@ -134,7 +134,8 @@ class Arquivos extends CI_Controller {
                 'url' => $url,
                 'cadastro' => $data,
                 'tamanho' => $tamanho,
-                'tipo' => $tipo
+                'tipo' => $tipo,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->arquivos_model->add('documentos', $data) == TRUE) {
@@ -182,7 +183,8 @@ class Arquivos extends CI_Controller {
             $data = array(
                 'documento' => $this->input->post('nome'),
                 'descricao' => $this->input->post('descricao'),
-                'cadastro' => $data,           
+                'cadastro' => $data,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->arquivos_model->edit('documentos', $data, 'idDocumentos', $this->input->post('idDocumentos')) == TRUE) {

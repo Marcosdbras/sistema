@@ -14,8 +14,11 @@ class Os_model extends CI_Model {
     
     function get($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array'){
         
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select($fields.',clientes.nomeCliente');
         $this->db->from($table);
+        $this->db->where('idusumestre',$idusumestre);
         $this->db->join('clientes','clientes.idClientes = os.clientes_id');
         $this->db->limit($perpage,$start);
         $this->db->order_by('idOs','desc');

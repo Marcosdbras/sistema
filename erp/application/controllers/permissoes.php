@@ -137,7 +137,8 @@ class Permissoes extends CI_Controller {
                 'nome' => $nomePermissao,
                 'data' => $cadastro,
                 'permissoes' => $permissoes,
-                'situacao' => $situacao
+                'situacao' => $situacao,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->permissoes_model->add('permissoes', $data) == TRUE) {
@@ -228,7 +229,8 @@ class Permissoes extends CI_Controller {
             $data = array(
                 'nome' => $nomePermissao,
                 'permissoes' => $permissoes,
-                'situacao' => $situacao
+                'situacao' => $situacao,
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == TRUE) {
