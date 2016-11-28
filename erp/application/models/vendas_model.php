@@ -66,6 +66,8 @@ class Vendas_model extends CI_Model {
     }
     
     function edit($table,$data,$fieldID,$ID){
+        
+        
         $this->db->where($fieldID,$ID);
         $this->db->update($table, $data);
 
@@ -78,6 +80,9 @@ class Vendas_model extends CI_Model {
     }
     
     function delete($table,$fieldID,$ID){
+        
+        
+        
         $this->db->where($fieldID,$ID);
         $this->db->delete($table);
         if ($this->db->affected_rows() == '1')
@@ -89,10 +94,14 @@ class Vendas_model extends CI_Model {
     }   
 
     function count($table){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
 	return $this->db->count_all($table);
     }
 
     public function autoCompleteProduto($q){
+        
+        $idusumestre = $this->session->userdata('idusumestre');
 
         $this->db->select('*');
         $this->db->limit(5);
@@ -107,6 +116,8 @@ class Vendas_model extends CI_Model {
     }
 
     public function autoCompleteCliente($q){
+        
+        $idusumestre = $this->session->userdata('idusumestre');
 
         $this->db->select('*');
         $this->db->limit(5);
@@ -121,7 +132,9 @@ class Vendas_model extends CI_Model {
     }
 
     public function autoCompleteUsuario($q){
-
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select('*');
         $this->db->limit(5);
         $this->db->like('nome', $q);

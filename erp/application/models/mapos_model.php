@@ -58,23 +58,31 @@ class Mapos_model extends CI_Model {
     }
 
     function pesquisar($termo){
-         $data = array();
+         
+        $data = array();
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
          // buscando clientes
+         $this->db->where('idusumestre',$idusumestre);     
          $this->db->like('nomeCliente',$termo);
          $this->db->limit(5);
          $data['clientes'] = $this->db->get('clientes')->result();
 
          // buscando os
+         $this->db->where('idusumestre',$idusumestre);
          $this->db->like('idOs',$termo);
          $this->db->limit(5);
          $data['os'] = $this->db->get('os')->result();
 
          // buscando produtos
+         $this->db->where('idusumestre',$idusumestre);
          $this->db->like('descricao',$termo);
          $this->db->limit(5);
          $data['produtos'] = $this->db->get('produtos')->result();
 
          //buscando serviços
+         $this->db->where('idusumestre',$idusumestre);
          $this->db->like('nome',$termo);
          $this->db->limit(5);
          $data['servicos'] = $this->db->get('servicos')->result();
@@ -119,46 +127,63 @@ class Mapos_model extends CI_Model {
     }   
 	
 	function count($table){
-		return $this->db->count_all($table);
+	    //voltar	
+            $this->db->where('idusumestre',$idusumestre);
+            return $this->db->count_all($table);
 	}
 
     function getOsAbertas(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select('os.*, clientes.nomeCliente');
         $this->db->from('os');
         $this->db->join('clientes', 'clientes.idClientes = os.clientes_id');
         $this->db->where('os.status','Aberto');
+        $this->db->where('idusumestre',$idusumestre);
         $this->db->limit(10);
         return $this->db->get()->result();
     }
 
     function getProdutosMinimo(){
 
-        $sql = "SELECT * FROM produtos WHERE estoque <= estoqueMinimo LIMIT 10"; 
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $sql = "SELECT * FROM produtos WHERE  idusumestre = $idusumestre and estoque <= estoqueMinimo LIMIT 10"; 
         return $this->db->query($sql)->result();
 
     }
 
     function getOsEstatisticas(){
-        $sql = "SELECT status, COUNT(status) as total FROM os GROUP BY status ORDER BY status";
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $sql = "SELECT status, COUNT(status) as total FROM os GROUP BY status ORDER BY status HAVING idusumestre = $idusumestre";
         return $this->db->query($sql)->result();
     }
 
     public function getEstatisticasFinanceiro(){
-        $sql = "SELECT SUM(CASE WHEN baixado = 1 AND tipo = 'receita' THEN valor END) as total_receita, 
-                       SUM(CASE WHEN baixado = 1 AND tipo = 'despesa' THEN valor END) as total_despesa,
-                       SUM(CASE WHEN baixado = 0 AND tipo = 'receita' THEN valor END) as total_receita_pendente,
-                       SUM(CASE WHEN baixado = 0 AND tipo = 'despesa' THEN valor END) as total_despesa_pendente FROM lancamentos";
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $sql = "SELECT idusumestre, SUM(CASE WHEN baixado = 1 AND tipo = 'receita' THEN valor END) as total_receita, 
+                                    SUM(CASE WHEN baixado = 1 AND tipo = 'despesa' THEN valor END) as total_despesa,
+                                    SUM(CASE WHEN baixado = 0 AND tipo = 'receita' THEN valor END) as total_receita_pendente,
+                                    SUM(CASE WHEN baixado = 0 AND tipo = 'despesa' THEN valor END) as total_despesa_pendente FROM lancamentos where idusumestre = $idusumestre";
         return $this->db->query($sql)->row();
     }
 
 
     public function getEmitente()
     {
+        $idusumestre = $this->session->userdata('idusumestre');
+        $this->db->where('idusumestre',$idusumestre);
+        
         return $this->db->get('emitente')->result();
     }
 
     public function addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo){
        
+       $idusumestre = $this->session->userdata('idusumestre'); 
+        
        $this->db->set('nome', $nome);
        $this->db->set('cnpj', $cnpj);
        $this->db->set('ie', $ie);
@@ -170,11 +195,16 @@ class Mapos_model extends CI_Model {
        $this->db->set('telefone', $telefone);
        $this->db->set('email', $email);
        $this->db->set('url_logo', $logo);
+       
+       $this->db->set('idusumestre', $idusumestre);
+       
        return $this->db->insert('emitente');
     }
 
 
     public function editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email){
+        
+       
         
        $this->db->set('nome', $nome);
        $this->db->set('cnpj', $cnpj);
@@ -187,6 +217,9 @@ class Mapos_model extends CI_Model {
        $this->db->set('telefone', $telefone);
        $this->db->set('email', $email);
        $this->db->where('id', $id);
+       
+       
+       
        return $this->db->update('emitente');
     }
 
