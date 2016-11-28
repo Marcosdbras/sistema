@@ -1,0 +1,7 @@
+- Cadastrar usuário mestre/dados da empresa e injetar permissão ao credenciar no sistema
+- Auto increment está apresentando dados de todos empresas/usuários ao invés de uma só
+- Quando realiza o push no repositório está sumindo os arquivos anexos
+- Fazer página de apresentação com possível anuncios
+- Apresentar numeração/id por empresa ou usuário
+- verificar inject sql
+
