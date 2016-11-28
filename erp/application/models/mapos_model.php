@@ -61,28 +61,28 @@ class Mapos_model extends CI_Model {
          
         $data = array();
         
-        $idusumestre = $this->session->userdata('idusumestre');
+        //$idusumestre = $this->session->userdata('idusumestre');
         
          // buscando clientes
-         $this->db->where('idusumestre',$idusumestre);     
+         //$this->db->where('idusumestre',$idusumestre);     
          $this->db->like('nomeCliente',$termo);
          $this->db->limit(5);
          $data['clientes'] = $this->db->get('clientes')->result();
 
          // buscando os
-         $this->db->where('idusumestre',$idusumestre);
+         //$this->db->where('idusumestre',$idusumestre);
          $this->db->like('idOs',$termo);
          $this->db->limit(5);
          $data['os'] = $this->db->get('os')->result();
 
          // buscando produtos
-         $this->db->where('idusumestre',$idusumestre);
+         //$this->db->where('idusumestre',$idusumestre);
          $this->db->like('descricao',$termo);
          $this->db->limit(5);
          $data['produtos'] = $this->db->get('produtos')->result();
 
          //buscando serviços
-         $this->db->where('idusumestre',$idusumestre);
+         //$this->db->where('idusumestre',$idusumestre);
          $this->db->like('nome',$termo);
          $this->db->limit(5);
          $data['servicos'] = $this->db->get('servicos')->result();
