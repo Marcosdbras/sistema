@@ -156,7 +156,7 @@ class Mapos_model extends CI_Model {
     function getOsEstatisticas(){
         $idusumestre = $this->session->userdata('idusumestre');
         
-        $sql = "SELECT status, COUNT(status) as total FROM os GROUP BY status HAVING idusumestre = $idusumestre ORDER BY status";
+        $sql = "SELECT idusumestre, status, COUNT(status) as total FROM os GROUP BY status HAVING idusumestre = $idusumestre ORDER BY status";
         return $this->db->query($sql)->result();
     }
 
