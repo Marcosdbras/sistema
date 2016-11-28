@@ -128,10 +128,10 @@ class Mapos_model extends CI_Model {
 	
 	function count($table){
 	    
-            //provavel estatistica do sistema
-            //$idusumestre = $this->session->userdata('idusumestre');
-            //$this->db->where('idusumestre',$idusumestre);
-            //return $this->db->count_all($table);
+            
+            $idusumestre = $this->session->userdata('idusumestre');
+            $this->db->where('idusumestre',$idusumestre);
+            return $this->db->count_all($table);
 	}
 
     function getOsAbertas(){
