@@ -217,10 +217,10 @@
                 <div class="row-fluid">           
                     <div class="span12">
                         <ul class="site-stats">
-                            <li class="bg_lh"><i class="icon-group"></i> <strong><?php   $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre);  echo $this->db->count_all('clientes');?></strong> <small>Clientes</small></li>
-                            <li class="bg_lh"><i class="icon-barcode"></i> <strong><?php $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre);  echo $this->db->count_all('produtos');?></strong> <small>Produtos </small></li>
-                            <li class="bg_lh"><i class="icon-tags"></i> <strong><?php    $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre);  echo $this->db->count_all('os');?></strong> <small>Ordens de Serviço</small></li>
-                            <li class="bg_lh"><i class="icon-wrench"></i> <strong><?php  $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre);  echo $this->db->count_all('servicos');?></strong> <small>Serviços</small></li>
+                            <li class="bg_lh"><i class="icon-group"></i> <strong><?php   $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre); $this->db->from('clientes');  echo $this->db->count_all_results();     //echo $this->db->count_all('clientes');?></strong> <small>Clientes</small></li>
+                            <li class="bg_lh"><i class="icon-barcode"></i> <strong><?php $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre); $this->db->from('produtos');  echo $this->db->count_all_results();     //echo $this->db->count_all('produtos');?></strong> <small>Produtos </small></li>
+                            <li class="bg_lh"><i class="icon-tags"></i> <strong><?php    $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre); $this->db->from('os');        echo $this->db->count_all_results();     //echo $this->db->count_all('os');?></strong> <small>Ordens de Serviço</small></li>
+                            <li class="bg_lh"><i class="icon-wrench"></i> <strong><?php  $idusumestre = $this->session->userdata('idusumestre');   $this->db->where('idusumestre',$idusumestre); $this->db->from('servicos');  echo $this->db->count_all_results();     //echo $this->db->count_all('servicos');?></strong> <small>Serviços</small></li>
                             
                         </ul>
                  
