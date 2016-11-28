@@ -139,7 +139,7 @@ class Mapos_model extends CI_Model {
         $this->db->from('os');
         $this->db->join('clientes', 'clientes.idClientes = os.clientes_id');
         $this->db->where('os.status','Aberto');
-        $this->db->where('idusumestre',$idusumestre);
+        $this->db->where('os.idusumestre',$idusumestre);
         $this->db->limit(10);
         return $this->db->get()->result();
     }
