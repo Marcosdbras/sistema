@@ -397,7 +397,7 @@ class Os extends CI_Controller {
                 $i++;   
             }
         }
-        unset($_FILES['userfile']);
+        //unset($_FILES['userfile']);
     
 
         $error = array();
