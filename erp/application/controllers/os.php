@@ -389,6 +389,9 @@ class Os extends CI_Controller {
         
         foreach($_FILES['userfile'] as $key=>$val)
         {
+            
+            $passo = 1;
+            
             $i = 1;
             foreach($val as $v)
             {
@@ -457,7 +460,7 @@ class Os extends CI_Controller {
 
         if(count($error) > 0)
         {
-            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado.'));
+            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado. '.$passo));
         }
         else
         {
