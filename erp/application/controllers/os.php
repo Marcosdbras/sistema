@@ -456,7 +456,7 @@ class Os extends CI_Controller {
 
         if(count($error) > 0)
         {
-            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado. Tente novamente. '.$error));
+            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado. Tente novamente.'));
         }
         else
         {
