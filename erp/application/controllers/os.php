@@ -380,7 +380,7 @@ class Os extends CI_Controller {
         $this->load->library('image_lib');
 
         $upload_conf = array(
-            'upload_path'   => realpath( base_url().'/assets/anexos'),
+            'upload_path'   => realpath('./assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
             'max_size'      => 0,
             );
@@ -405,10 +405,10 @@ class Os extends CI_Controller {
         
         foreach($_FILES as $field_name => $file)
         {
-            if ( ! $this->upload->do_upload($field_name))
+            if (!$this->upload->do_upload($field_name))
             {
        
-                $error['upload'][] = $this->upload->display_errors().' Não foi possível anexar arquivo.';
+                $error['upload'][] = $this->upload->display_errors();
                 
             }
             else
@@ -429,9 +429,9 @@ class Os extends CI_Controller {
 
                     $this->image_lib->initialize($resize_conf);
 
-                    if ( ! $this->image_lib->resize())
+                    if ( !$this->image_lib->resize())
                     {
-                        $error['resize'][] = $this->image_lib->display_errors().' Não foi possível anexar arquivo.';
+                        $error['resize'][] = $this->image_lib->display_errors();
                     }
                     else
                     {
@@ -457,7 +457,7 @@ class Os extends CI_Controller {
 
         if(count($error) > 0)
         {
-            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado. Tente novamente.'));
+            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado.'));
         }
         else
         {
