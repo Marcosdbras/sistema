@@ -385,7 +385,7 @@ class Os extends CI_Controller {
             'max_size'      => 0,
             );
     
-        $this->upload->initialize( $upload_conf );
+        $this->upload->initialize($upload_conf);
         
         foreach($_FILES['userfile'] as $key=>$val)
         {
@@ -456,7 +456,7 @@ class Os extends CI_Controller {
 
         if(count($error) > 0)
         {
-            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado. Tente novamente.'));
+            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado. Tente novamente. '.$error));
         }
         else
         {
