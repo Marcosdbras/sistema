@@ -102,9 +102,12 @@ class Os_model extends CI_Model {
 
     public function autoCompleteProduto($q){
 
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select('*');
         $this->db->limit(5);
         $this->db->like('descricao', $q);
+        $this->db->where('idusumestre',$idusumestre);
         $query = $this->db->get('produtos');
         if($query->num_rows > 0){
             foreach ($query->result_array() as $row){
@@ -116,9 +119,12 @@ class Os_model extends CI_Model {
 
     public function autoCompleteCliente($q){
 
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select('*');
         $this->db->limit(5);
         $this->db->like('nomeCliente', $q);
+        $this->db->where('idusumestre',$idusumestre);
         $query = $this->db->get('clientes');
         if($query->num_rows > 0){
             foreach ($query->result_array() as $row){
@@ -130,10 +136,14 @@ class Os_model extends CI_Model {
 
     public function autoCompleteUsuario($q){
 
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select('*');
         $this->db->limit(5);
         $this->db->like('nome', $q);
         $this->db->where('situacao',1);
+        $this->db->where('idusumestre',$idusumestre);
+        $this->db->where('mestre','N');
         $query = $this->db->get('usuarios');
         if($query->num_rows > 0){
             foreach ($query->result_array() as $row){
@@ -145,9 +155,12 @@ class Os_model extends CI_Model {
 
     public function autoCompleteServico($q){
 
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select('*');
         $this->db->limit(5);
         $this->db->like('nome', $q);
+        $this->db->where('idusumestre',$idusumestre);
         $query = $this->db->get('servicos');
         if($query->num_rows > 0){
             foreach ($query->result_array() as $row){

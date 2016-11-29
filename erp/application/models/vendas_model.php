@@ -105,6 +105,7 @@ class Vendas_model extends CI_Model {
 
         $this->db->select('*');
         $this->db->limit(5);
+        $this->db->where('idusumestre',$idusumestre);
         $this->db->like('descricao', $q);
         $query = $this->db->get('produtos');
         if($query->num_rows > 0){
@@ -121,6 +122,7 @@ class Vendas_model extends CI_Model {
 
         $this->db->select('*');
         $this->db->limit(5);
+        $this->db->where('idusumestre',$idusumestre);
         $this->db->like('nomeCliente', $q);
         $query = $this->db->get('clientes');
         if($query->num_rows > 0){
@@ -137,6 +139,8 @@ class Vendas_model extends CI_Model {
         
         $this->db->select('*');
         $this->db->limit(5);
+        $this->db->where('idusumestre',$idusumestre);
+        $this->db->where('mestre','N');
         $this->db->like('nome', $q);
         $this->db->where('situacao',1);
         $query = $this->db->get('usuarios');
