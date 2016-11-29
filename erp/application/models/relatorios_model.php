@@ -19,7 +19,7 @@ class Relatorios_model extends CI_Model {
         
         $this->db->select($fields);
         $this->db->from($table);
-        $this->db->where('idusumestre',$idusumestre);
+        $this->db->where($table.'.idusumestre',$idusumestre);
         $this->db->limit($perpage,$start);
         if($where){
             $this->db->where($where);
@@ -75,34 +75,62 @@ class Relatorios_model extends CI_Model {
             $dataInicial = date('Y-m-d');
             $dataFinal = date('Y-m-d');
         }
-        $query = "SELECT * FROM clientes WHERE dataCadastro BETWEEN ? AND ?";
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        
+        
+        $query = "SELECT * FROM clientes WHERE  idusumestre = $idusumestre   and  dataCadastro BETWEEN ? AND ?";
         return $this->db->query($query, array($dataInicial,$dataFinal))->result();
     }
 
     public function clientesRapid(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
         $this->db->order_by('nomeCliente','asc');
         return $this->db->get('clientes')->result();
     }
 
     public function produtosRapid(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
         $this->db->order_by('descricao','asc');
         return $this->db->get('produtos')->result();
     }
 
     public function servicosRapid(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
         $this->db->order_by('nome','asc');
         return $this->db->get('servicos')->result();
     }
 
     public function osRapid(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        
         $this->db->select('os.*,clientes.nomeCliente');
         $this->db->from('os');
+        
+        $this->db->where('os.idusumestre',$idusumestre);
+        
         $this->db->join('clientes','clientes.idClientes = os.clientes_id');
         return $this->db->get()->result();
     }
 
     public function produtosRapidMin(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->order_by('descricao','asc');
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
         $this->db->where('estoque < estoqueMinimo');
         return $this->db->get('produtos')->result();
     }
@@ -116,13 +144,23 @@ class Relatorios_model extends CI_Model {
         if($estoqueInicial != null){
             $whereEstoque = "AND estoque BETWEEN ".$this->db->escape($estoqueInicial)." AND ".$this->db->escape($estoqueFinal);
         }
-        $query = "SELECT * FROM produtos WHERE estoque >= 0 $wherePreco $whereEstoque";
+        
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        
+        $query = "SELECT * FROM produtos WHERE  idusumestre = $idusumestre  and estoque >= 0 $wherePreco $whereEstoque";
         return $this->db->query($query)->result();
     }
 
     public function servicosCustom($precoInicial = null,$precoFinal = null){
-        $query = "SELECT * FROM servicos WHERE preco BETWEEN ? AND ?";
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $query = "SELECT * FROM servicos WHERE  idusumestre = $idusumestre  and preco BETWEEN ? AND ?";
+
         return $this->db->query($query, array($precoInicial,$precoFinal))->result();
+
     }
 
 
@@ -143,7 +181,12 @@ class Relatorios_model extends CI_Model {
         if($status != null){
             $whereStatus = "AND status = ".$this->db->escape($status);
         }
-        $query = "SELECT os.*,clientes.nomeCliente FROM os LEFT JOIN clientes ON os.clientes_id = clientes.idClientes WHERE idOs != 0 $whereData $whereCliente $whereResponsavel $whereStatus";
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $query = "SELECT os.*,clientes.nomeCliente FROM os LEFT JOIN clientes ON os.clientes_id = clientes.idClientes WHERE  os.idusumestre = $idusumestre   and  idOs != 0 $whereData $whereCliente $whereResponsavel $whereStatus";
+        
+        
         return $this->db->query($query)->result();
     }
 
@@ -152,7 +195,12 @@ class Relatorios_model extends CI_Model {
         
         $dataInicial = date('Y-m-01');
         $dataFinal = date("Y-m-t");
-        $query = "SELECT * FROM lancamentos WHERE data_vencimento BETWEEN ? and ? ORDER BY tipo";
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+                
+        $query = "SELECT * FROM lancamentos WHERE idusumestre = $idusumestre  and  data_vencimento BETWEEN ? and ? ORDER BY tipo";
+        
+        
         return $this->db->query($query, array($dataInicial,$dataFinal))->result();
     }
 
@@ -182,15 +230,27 @@ class Relatorios_model extends CI_Model {
             $whereSituacao = "AND baixado = 1";
         } 
         
+        $idusumestre = $this->session->userdata('idusumestre');
         
-        $query = "SELECT * FROM lancamentos WHERE data_vencimento BETWEEN ? and ? $whereTipo $whereSituacao";
+        
+        
+        $query = "SELECT * FROM lancamentos WHERE idusumestre = $idusumestre and  data_vencimento BETWEEN ? and ? $whereTipo $whereSituacao";
+
+
         return $this->db->query($query, array($dataInicial,$dataFinal))->result();
     }
 
 
     public function vendasRapid(){
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        
         $this->db->select('vendas.*,clientes.nomeCliente, usuarios.nome');
         $this->db->from('vendas');
+        
+        $this->db->where('vendas.idusumestre',$idusumestre);
+        
         $this->db->join('clientes','clientes.idClientes = vendas.clientes_id');
         $this->db->join('usuarios', 'usuarios.idUsuarios = vendas.usuarios_id');
         return $this->db->get()->result();
@@ -212,7 +272,11 @@ class Relatorios_model extends CI_Model {
             $whereResponsavel = "AND usuarios_id = ".$this->db->escape($responsavel);
         }
        
-        $query = "SELECT vendas.*,clientes.nomeCliente,usuarios.nome FROM vendas LEFT JOIN clientes ON vendas.clientes_id = clientes.idClientes LEFT JOIN usuarios ON vendas.usuarios_id = usuarios.idUsuarios WHERE idVendas != 0 $whereData $whereCliente $whereResponsavel";
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        
+        $query = "SELECT vendas.*,clientes.nomeCliente,usuarios.nome FROM vendas LEFT JOIN clientes ON vendas.clientes_id = clientes.idClientes LEFT JOIN usuarios ON vendas.usuarios_id = usuarios.idUsuarios WHERE   vendas.idusumestre = $idusumestre   and  idVendas != 0 $whereData $whereCliente $whereResponsavel";
         return $this->db->query($query)->result();
     }
 }
