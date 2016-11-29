@@ -380,7 +380,7 @@ class Os extends CI_Controller {
         $this->load->library('image_lib');
 
         $upload_conf = array(
-            'upload_path'   => realpath('./assets/anexos'),
+            'upload_path'   => realpath( base_url().'/assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
             'max_size'      => 0,
             );
@@ -397,7 +397,7 @@ class Os extends CI_Controller {
                 $i++;   
             }
         }
-        //unset($_FILES['userfile']);
+        unset($_FILES['userfile']);
     
 
         $error = array();
@@ -409,6 +409,7 @@ class Os extends CI_Controller {
             {
        
                 $error['upload'][] = $this->upload->display_errors().' Não foi possível anexar arquivo.';
+                
             }
             else
             {
