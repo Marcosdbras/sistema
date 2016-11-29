@@ -408,7 +408,7 @@ class Os extends CI_Controller {
             if ( ! $this->upload->do_upload($field_name))
             {
        
-                $error['upload'][] = $this->upload->display_errors();
+                $error['upload'][] = $this->upload->display_errors().' Não foi possível anexar arquivo.';
             }
             else
             {
