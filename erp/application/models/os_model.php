@@ -173,18 +173,27 @@ class Os_model extends CI_Model {
 
     public function anexar($os, $anexo, $url, $thumb, $path){
         
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->set('anexo',$anexo);
         $this->db->set('url',$url);
         $this->db->set('thumb',$thumb);
         $this->db->set('path',$path);
         $this->db->set('os_id',$os);
+        $this->db->set('idusumestre',$idusumestre);
+        
+        
 
         return $this->db->insert('anexos');
     }
 
     public function getAnexos($os){
+        $idusumestre = $this->session->userdata('idusumestre');
         
         $this->db->where('os_id', $os);
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
         return $this->db->get('anexos')->result();
     }
 }

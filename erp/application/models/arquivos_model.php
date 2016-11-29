@@ -72,6 +72,8 @@ class Arquivos_model extends CI_Model {
 
     public function search($pesquisa, $de, $ate){
         
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         if($pesquisa != null){
             $this->db->like('documento',$pesquisa);
         }
@@ -80,6 +82,10 @@ class Arquivos_model extends CI_Model {
             $this->db->where('cadastro >=' ,$de);
             $this->db->where('cadastro <=', $ate);
         }
+        
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
         $this->db->limit(10);
         return $this->db->get('documentos')->result();
     }
