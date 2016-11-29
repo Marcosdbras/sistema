@@ -430,7 +430,7 @@ class Os extends CI_Controller {
 
                     if ( ! $this->image_lib->resize())
                     {
-                        $error['resize'][] = $this->image_lib->display_errors();
+                        $error['resize'][] = $this->image_lib->display_errors().' Não foi possível anexar arquivo.';
                     }
                     else
                     {
