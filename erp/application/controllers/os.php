@@ -442,7 +442,7 @@ class Os extends CI_Controller {
                         );
 
                     
-                    $this->image_lib->clear(); // added this line
+                    //$this->image_lib->clear(); // added this line
                     $this->image_lib->initialize($resize_conf);
                                       
                     chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
