@@ -381,10 +381,6 @@ class Os extends CI_Controller {
         $this->load->library('upload');
         $this->load->library('image_lib');
         
-        
-
-        //chmod('./assets/anexos', 0777);
-        
         $upload_conf = array(
             'upload_path'   => realpath('./assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
@@ -392,11 +388,9 @@ class Os extends CI_Controller {
             );
     
         $this->upload->initialize($upload_conf);
-        
+
         foreach($_FILES['userfile'] as $key=>$val)
         {
-            
-            
             
             $i = 1;
             foreach($val as $v)
@@ -424,6 +418,9 @@ class Os extends CI_Controller {
             }
             else
             {
+                
+               chmod("./assets/anexos/$field_name", 0777);
+
                 //verificar
                 $upload_data = $this->upload->data();
                 
@@ -442,10 +439,10 @@ class Os extends CI_Controller {
                         );
 
                     
-                    //$this->image_lib->clear(); // added this line
-                    //$this->image_lib->initialize($resize_conf);
+                    $this->image_lib->clear(); // added this line
+                    $this->image_lib->initialize($resize_conf);
                                       
-                    chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
+                    //chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
 
                     if ( !$this->image_lib->resize() )
                     {
