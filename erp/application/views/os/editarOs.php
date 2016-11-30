@@ -698,8 +698,17 @@ $(document).ready(function(){
            var id = $(this).attr('imagem');
            var url = '<?php echo base_url(); ?>os/excluirAnexo/';
            $("#div-visualizar-anexo").html('<img src="'+link+'" alt="">');
+           
+    
+               
            $("#excluir-anexo").attr('link', url+id);
-
+           
+           //Marcos 
+           $("#excluir-anexo").attr('fexcluiranexo', url);
+           $("#excluir-anexo").attr('idanexo', id);
+           //-------- 
+           
+    
            $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/"+id);
 
        });
@@ -710,7 +719,9 @@ $(document).ready(function(){
            var link = $(this).attr('link'); 
            
            //Marcos
-           //var idAnexos = 
+           var fexcluiranexo = $(this).attr('fexcluiranexo');
+           var idanexo = $(this).attr('idanexo');
+           //-------------------------
            
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
@@ -720,10 +731,12 @@ $(document).ready(function(){
         
            $.ajax({
                   type: "POST",
-                  url: link,
                   
-                  //Marcos
-                  //data: "idAnexos="+idAnexos,
+                  
+                  url: fexcluiranexo,
+                  
+                  
+                  data: "idAnexos="+idanexo,
                   
                   dataType: 'json',
                   success: function(data)
