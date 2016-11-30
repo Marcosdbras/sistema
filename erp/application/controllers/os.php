@@ -384,7 +384,7 @@ class Os extends CI_Controller {
         $upload_conf = array(
             'upload_path'   => realpath('./assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
-            'max_size'      => 5000
+            'max_size'      => 0,
             );
     
         $this->upload->initialize($upload_conf);
