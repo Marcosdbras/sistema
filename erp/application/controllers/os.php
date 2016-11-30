@@ -419,7 +419,7 @@ class Os extends CI_Controller {
             else
             {
                 
-               //chmod("./assets/anexos/$field_name", 0777);
+                 chmod("./assets/anexos/$field_name", 0777);
 
                 //verificar
                 $upload_data = $this->upload->data();
@@ -439,7 +439,7 @@ class Os extends CI_Controller {
                         );
 
                     
-                    //$this->image_lib->clear(); // added this line
+                    $this->image_lib->clear(); // added this line
                     $this->image_lib->initialize($resize_conf);
                                       
                     //chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
