@@ -419,7 +419,7 @@ class Os extends CI_Controller {
             else
             {
                 
-               chmod("./assets/anexos/$field_name", 0777);
+               //chmod("./assets/anexos/$field_name", 0777);
 
                 //verificar
                 $upload_data = $this->upload->data();
