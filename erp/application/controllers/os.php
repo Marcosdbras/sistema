@@ -376,13 +376,15 @@ class Os extends CI_Controller {
 
     public function anexar(){
 
+        //inicio anexar
+        
         $this->load->library('upload');
         $this->load->library('image_lib');
 
         $upload_conf = array(
             'upload_path'   => realpath('./assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
-            'max_size'      => 0,
+            'max_size'      => 0
             );
     
         $this->upload->initialize($upload_conf);
@@ -418,7 +420,7 @@ class Os extends CI_Controller {
             }
             else
             {
-
+                //verificar
                 $upload_data = $this->upload->data();
                 
                 if($upload_data['is_image'] == 1){
@@ -434,7 +436,7 @@ class Os extends CI_Controller {
 
                     $this->image_lib->initialize($resize_conf);
 
-                    if ( !$this->image_lib->resize())
+                    if ( !$this->image_lib->resize() )
                     {
                         $passo = 4; 
                         $error['resize'][] = $this->image_lib->display_errors();
