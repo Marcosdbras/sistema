@@ -727,7 +727,7 @@ $(document).ready(function(){
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
            
-           alert(link);
+           alert(fexcluiranexo);
         
            $.ajax({
                   type: "POST",
