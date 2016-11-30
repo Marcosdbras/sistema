@@ -422,17 +422,17 @@ class Os extends CI_Controller {
                         'width'         => 200,
                         'height'        => 125
                         );
-                    $this->image_lib->initialize($resize_conf);
-                    if ( ! $this->image_lib->resize())
-                    {
-                        $error['resize'][] = $this->image_lib->display_errors();
-                    }
-                    else
-                    {
+                    //$this->image_lib->initialize($resize_conf);
+                    //if ( ! $this->image_lib->resize())
+                    //{
+                    //    $error['resize'][] = $this->image_lib->display_errors();
+                    //}
+                    //else
+                    //{
                         $success[] = $upload_data;
                         $this->load->model('Os_model');
                         $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'] ,base_url().'assets/anexos/','thumb_'.$upload_data['file_name'],realpath('./assets/anexos/'));
-                    } 
+                    //} 
                 }
                 else{
                     $success[] = $upload_data;
