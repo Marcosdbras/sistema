@@ -465,7 +465,7 @@ class Os extends CI_Controller {
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos',1)->row();
             
-            echo "<script>  alert('Aqui');  </script>";
+            //echo "<script>  alert('Aqui');  </script>";
 
             //unlink($file->path.'/'.$file->anexo);
 

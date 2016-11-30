@@ -716,7 +716,7 @@ $(document).ready(function(){
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
            
-           
+           alert(link);
         
            $.ajax({
                   type: "POST",
@@ -728,7 +728,7 @@ $(document).ready(function(){
                   dataType: 'json',
                   success: function(data)
                   {
-                    alert(link);  
+                      
                     if(data.result == true){
                         $("#divAnexos" ).load("<?php echo current_url();?> #divAnexos" );
                     }
