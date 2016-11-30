@@ -696,19 +696,10 @@ $(document).ready(function(){
            event.preventDefault();
            var link = $(this).attr('link');
            var id = $(this).attr('imagem');
-           var url = '<?php echo base_url(); ?>os/excluirAnexo';
+           var url = '<?php echo base_url(); ?>os/excluirAnexo/';
            $("#div-visualizar-anexo").html('<img src="'+link+'" alt="">');
-           
-    
-               
            $("#excluir-anexo").attr('link', url+id);
-           
-           //Marcos 
-           $("#excluir-anexo").attr('fexcluiranexo', url);
-           $("#excluir-anexo").attr('idanexo', id);
-           //-------- 
-           
-    
+
            $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/"+id);
 
        });
@@ -717,31 +708,15 @@ $(document).ready(function(){
            event.preventDefault();
 
            var link = $(this).attr('link'); 
-           
-           //Marcos
-           var fexcluiranexo = $(this).attr('fexcluiranexo');
-           var idanexo = $(this).attr('idanexo');
-           //-------------------------
-           
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
-           
-           alert(fexcluiranexo+' '+idanexo);
-        
            $.ajax({
                   type: "POST",
-                  
-                  
-                  url: ''.fexcluiranexo.'',
-                  
-                  
-                  data: "idAnexo="+idanexo,
-                  
+                  url: link,
                   dataType: 'json',
                   success: function(data)
                   {
-                      
                     if(data.result == true){
                         $("#divAnexos" ).load("<?php echo current_url();?> #divAnexos" );
                     }
