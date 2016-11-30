@@ -377,39 +377,81 @@ class Os extends CI_Controller {
     public function anexar(){
 
         //inicio anexar
+        $this->load->library('upload');
+        $this->load->library('image_lib');
+        $upload_conf = array(
+            'upload_path'   => realpath('./assets/anexos'),
+            'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
+            'max_size'      => 0,
+            );
+    
+        $this->upload->initialize( $upload_conf );
         
+        foreach($_FILES['userfile'] as $key=>$val)
+        {
+            $i = 1;
+            foreach($val as $v)
+            {
+                $field_name = "file_".$i;
+                $_FILES[$field_name][$key] = $v;
+                $i++;   
+            }
+        }
+        unset($_FILES['userfile']);
+    
+        $error = array();
+        $success = array();
         
+        foreach($_FILES as $field_name => $file)
+        {
+            if ( ! $this->upload->do_upload($field_name))
+            {
+       
+                $error['upload'][] = $this->upload->display_errors();
+            }
+            else
+            {
+                $upload_data = $this->upload->data();
+                
+                if($upload_data['is_image'] == 1){
+                   // set the resize config
+                    $resize_conf = array(
+    
+                        'source_image'  => $upload_data['full_path'], 
+                        'new_image'     => $upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'],
+                        'width'         => 200,
+                        'height'        => 125
+                        );
+                    $this->image_lib->initialize($resize_conf);
+                    if ( ! $this->image_lib->resize())
+                    {
+                        $error['resize'][] = $this->image_lib->display_errors();
+                    }
+                    else
+                    {
+                        $success[] = $upload_data;
+                        $this->load->model('Os_model');
+                        $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'] ,base_url().'assets/anexos/','thumb_'.$upload_data['file_name'],realpath('./assets/anexos/'));
+                    } 
+                }
+                else{
+                    $success[] = $upload_data;
+                    $this->load->model('Os_model');
+                    $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'] ,base_url().'assets/anexos/','',realpath('./assets/anexos/'));
+ 
+                }
+                
+            }
+        }
+        if(count($error) > 0)
+        {
+            echo json_encode(array('result'=> false, 'mensagem' => 'Nenhum arquivo foi anexado.'));
+        }
+        else
+        {
+            echo json_encode(array('result'=> true, 'mensagem' => 'Arquivo(s) anexado(s) com sucesso .'));
+        }
         
-            $config['upload_path'] = './assets/anexos';
-	    $config['allowed_types'] = 'txt|jpg|jpeg|gif|png|pdf|PDF|JPG|JPEG|GIF|PNG';
-	    $config['max_size']     = 0;
-	    $config['max_width']  = '3000';
-	    $config['max_height']  = '2000';
-	    $config['encrypt_name'] = true;
-            
-           $this->load->library('upload', $config);
-
-		if ( ! $this->upload->do_upload())
-		{
-			$error = array('error' => $this->upload->display_errors());
-
-			$this->session->set_flashdata('error','Erro ao fazer upload do arquivo, verifique se a extensão do arquivo é permitida.');
-            redirect(base_url() . 'index.php/arquivos/adicionar/');
-		}
-		else
-		{
-			//$data = array('upload_data' => $this->upload->data());
-			return $this->upload->data();
-		}            
-            
-            
-            
-            
-            
-            
-
-        
-          
 
     }
 
