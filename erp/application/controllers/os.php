@@ -408,9 +408,11 @@ class Os extends CI_Controller {
         
         foreach($_FILES as $field_name => $file)
         {
+            $passo = 2;
+            
             if (!$this->upload->do_upload($field_name))
             {
-       
+                $passo = 3; 
                 $error['upload'][] = $this->upload->display_errors();
                 
             }
