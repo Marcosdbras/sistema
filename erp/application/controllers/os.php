@@ -384,7 +384,7 @@ class Os extends CI_Controller {
         $upload_conf = array(
             'upload_path'   => realpath('./assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
-            'max_size'      => 0
+            'max_size'      => 5000
             );
     
         $this->upload->initialize($upload_conf);
@@ -439,7 +439,7 @@ class Os extends CI_Controller {
                         );
 
                     
-                    //$this->image_lib->clear(); // added this line
+                   
                     $this->image_lib->initialize($resize_conf);
                                       
                     //chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
