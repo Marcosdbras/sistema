@@ -436,6 +436,7 @@ class Os extends CI_Controller {
 
                     if ( !$this->image_lib->resize())
                     {
+                        $passo = 4; 
                         $error['resize'][] = $this->image_lib->display_errors();
                     }
                     else
