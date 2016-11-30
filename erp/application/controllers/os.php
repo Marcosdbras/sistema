@@ -467,9 +467,9 @@ class Os extends CI_Controller {
             
             echo "<script  type='text/javascript'>  alert($id);  </script>";
 
-            //unlink($file->path.'/'.$file->anexo);
+            unlink($file->path.'/'.$file->anexo);
 
-            unlink($file->url.'/'.$file->anexo);
+            //unlink($file->url.'/'.$file->anexo);
 
             //if($file->thumb != null){
             //    unlink($file->path.'/thumbs/'.$file->thumb);    
