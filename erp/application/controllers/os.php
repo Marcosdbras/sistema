@@ -396,7 +396,7 @@ class Os extends CI_Controller {
         foreach($_FILES['userfile'] as $key=>$val)
         {
             
-            $passo = 1;
+            
             
             $i = 1;
             foreach($val as $v)
@@ -414,11 +414,11 @@ class Os extends CI_Controller {
         
         foreach($_FILES as $field_name => $file)
         {
-            $passo = 2;
+        
             
             if (!$this->upload->do_upload($field_name))
             {
-                $passo = 3; 
+                
                 $error['upload'][] = $this->upload->display_errors();
                 
             }
@@ -426,6 +426,9 @@ class Os extends CI_Controller {
             {
                 //verificar
                 $upload_data = $this->upload->data();
+                
+                
+                chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
                 
                 if($upload_data['is_image'] == 1){
 
