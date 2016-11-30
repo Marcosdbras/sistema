@@ -696,7 +696,7 @@ $(document).ready(function(){
            event.preventDefault();
            var link = $(this).attr('link');
            var id = $(this).attr('imagem');
-           var url = '<?php echo base_url(); ?>os/excluirAnexo';
+           var url = "<?php echo base_url(); ?>os/excluirAnexo";
            $("#div-visualizar-anexo").html('<img src="'+link+'" alt="">');
            
     
@@ -733,10 +733,10 @@ $(document).ready(function(){
                   type: "POST",
                   
                   
-                  url: fexcluiranexo,
+                  url: ''.fexcluiranexo.'',
                   
                   
-                  data: "idAnexos="+idanexo,
+                  data: "idAnexo="+idanexo,
                   
                   dataType: 'json',
                   success: function(data)
