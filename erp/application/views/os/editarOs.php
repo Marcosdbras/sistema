@@ -251,13 +251,13 @@
 
                                         if($cont == $flag){
                                            echo '<div style="margin-left: 0" class="span3"><a href="#modal-anexo" imagem="'.$a->idAnexos.'" link="'.$link.'" role="button" class="btn anexo" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>'
-                                                   . '<a href="#" imagem="'.$a->idAnexos.'"role="button" class="btn apagar" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>   </div>'; 
+                                                .'<a href="'. "<?php echo base_url(); ?>index.php/os/excluirAnexo/"+$a->idAnexos.'" imagem="'.$a->idAnexos.'"role="button" class="btn apagar" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>   </div>'; 
                                             
                                            $flag += 4;
                                         }
                                         else{
                                            echo '<div class="span3"><a href="#modal-anexo" imagem="'.$a->idAnexos.'" link="'.$link.'" role="button" class="btn anexo" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>'
-                                                   . '<a href="#" imagem="'.$a->idAnexos.'role="button" class="btn apaga" data-toggle="modal"></a>  </div>'; 
+                                                .'<a href="'."<?php echo base_url(); ?>index.php/os/excluirAnexo/"+$a->idAnexos.'" imagem="'.$a->idAnexos.'role="button" class="btn apaga" data-toggle="modal"></a>  </div>'; 
    
                                            
                                         }

@@ -469,7 +469,7 @@ class Os extends CI_Controller {
 
             //unlink($file->path.'/'.$file->anexo);
 
-            //unlink($file->url.'/'.$file->anexo);
+            unlink($file->url.'/'.$file->anexo);
 
             //if($file->thumb != null){
             //    unlink($file->path.'/thumbs/'.$file->thumb);    
