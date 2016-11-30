@@ -257,7 +257,7 @@
                                         }
                                         else{
                                            echo '<div class="span3"><a href="#modal-anexo" imagem="'.$a->idAnexos.'" link="'.$link.'" role="button" class="btn anexo" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>'
-                                                .'<a href="'.base_url().'index.php/os/excluirAnexo/'+$a->idAnexos.'" imagem="'.$a->idAnexos.' role="button" class="btn apaga" data-toggle="modal"></a>  </div>'; 
+                                                .'<a href="'.base_url().'index.php/os/excluirAnexo/'+$a->idAnexos.'" imagem="'.$a->idAnexos.'" role="button" class="btn apagar" data-toggle="modal"></a>  </div>'; 
    
                                            
                                         }
