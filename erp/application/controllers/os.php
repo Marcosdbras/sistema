@@ -383,7 +383,7 @@ class Os extends CI_Controller {
         
         
 
-        chmod('./assets/anexos', 0777);
+        //chmod('./assets/anexos', 0777);
         
         $upload_conf = array(
             'upload_path'   => realpath('./assets/anexos'),
@@ -438,7 +438,11 @@ class Os extends CI_Controller {
                         'height'        => 125
                         );
 
+                    
+                    $this->image_lib->clear(); // added this line
                     $this->image_lib->initialize($resize_conf);
+                                      
+                    
 
                     if ( !$this->image_lib->resize() )
                     {
