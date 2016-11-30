@@ -467,9 +467,9 @@ class Os extends CI_Controller {
 
             unlink($file->path.'/'.$file->anexo);
 
-            if($file->thumb != null){
-                unlink($file->path.'/thumbs/'.$file->thumb);    
-            }
+            //if($file->thumb != null){
+            //    unlink($file->path.'/thumbs/'.$file->thumb);    
+            //}
             
             if($this->os_model->delete('anexos','idAnexos',$id) == true){
 
