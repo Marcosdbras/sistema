@@ -380,7 +380,11 @@ class Os extends CI_Controller {
         
         $this->load->library('upload');
         $this->load->library('image_lib');
+        
+        
 
+        chmod('./assets/anexos', 0777);
+        
         $upload_conf = array(
             'upload_path'   => realpath('./assets/anexos'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
