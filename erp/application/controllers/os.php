@@ -465,7 +465,9 @@ class Os extends CI_Controller {
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos',1)->row();
 
-            unlink($file->path.'/'.$file->anexo);
+            //unlink($file->path.'/'.$file->anexo);
+
+            unlink($file->url.'/'.$file->anexo);
 
             //if($file->thumb != null){
             //    unlink($file->path.'/thumbs/'.$file->thumb);    
