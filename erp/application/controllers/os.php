@@ -428,7 +428,7 @@ class Os extends CI_Controller {
                 $upload_data = $this->upload->data();
                 
                 
-                chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
+                
                 
                 if($upload_data['is_image'] == 1){
 
@@ -445,7 +445,7 @@ class Os extends CI_Controller {
                     $this->image_lib->clear(); // added this line
                     $this->image_lib->initialize($resize_conf);
                                       
-                    
+                    chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
 
                     if ( !$this->image_lib->resize() )
                     {
