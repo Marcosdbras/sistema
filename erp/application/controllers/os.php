@@ -443,13 +443,13 @@ class Os extends CI_Controller {
 
                     
                     //$this->image_lib->clear(); // added this line
-                    $this->image_lib->initialize($resize_conf);
+                    //$this->image_lib->initialize($resize_conf);
                                       
                     chmod($upload_data['file_path'].'thumbs/thumb_'.$upload_data['file_name'], 0777);
 
                     if ( !$this->image_lib->resize() )
                     {
-                        $passo = 4; 
+                       
                         $error['resize'][] = $this->image_lib->display_errors();
                     }
                     else
