@@ -704,7 +704,7 @@ $(document).ready(function(){
            event.preventDefault();
            var link = $(this).attr('link');
            var id = $(this).attr('imagem');
-           var url = "<?php echo base_url().'os/excluirAnexo/';?>"; //os/excluirAnexo/";
+           var url = "<?php echo base_url().'index.php/os/excluirAnexo/';?>"; //os/excluirAnexo/";
            $("#div-visualizar-anexo").html('<img src="'+link+'" alt="">');
            $("#excluir-anexo").attr('link', url+id);
            
