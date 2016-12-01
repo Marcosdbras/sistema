@@ -731,22 +731,7 @@ $(document).ready(function(){
            
            //location.href=url;
         
-           /*
-           $.ajax({
-                  type: "POST",
-                  url: link,
-                  dataType: 'json',
-                  success: function(data)
-                  {
-                    if(data.result == true){
-                        $("#divAnexos" ).load("<?php echo current_url();?> #divAnexos" );
-                    }
-                    else{
-                        alert(data.mensagem);
-                    }
-                  }
-            });
-           */ 
+          // exclusão através de json
             
        });
 
