@@ -708,7 +708,7 @@ $(document).ready(function(){
            $("#div-visualizar-anexo").html('<img src="'+link+'" alt="">');
            $("#excluir-anexo").attr('link', url+id);
            
-           $("#excluir-anexo").attr('id', id);
+           
            
            $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/"+id);
 
@@ -723,7 +723,7 @@ $(document).ready(function(){
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
-           ar irpara = <?php echo "base_url()"; ?>; //os/excluirAnexo/";
+           var irpara = <?php echo "base_url()"; ?>; //os/excluirAnexo/";
            
            
     
