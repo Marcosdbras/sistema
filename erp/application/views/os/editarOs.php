@@ -724,6 +724,9 @@ $(document).ready(function(){
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
            var irpara = "<?php echo base_url(); ?>os/excluirAnexo/"+id;
+           
+           alert(irpara);
+    
            location.href=irpara;
            
            //location.href=url;
