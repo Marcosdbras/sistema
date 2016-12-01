@@ -725,7 +725,7 @@ $(document).ready(function(){
 
            var irpara = "<?php echo 'os/excluirAnexo/';?>"; //os/excluirAnexo/";
            
-           alert(irpara+link);
+           alert(link+irpara);
     
            location.href=link+irpara;
            
