@@ -723,9 +723,9 @@ $(document).ready(function(){
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
-           var irpara = "<?php echo base_url().'os/excluirAnexo/'; ?>"; //os/excluirAnexo/";
+           var irpara = "<?php echo base_url().'os/excluirAnexo/';?>"; //os/excluirAnexo/";
            
-           alert(irpara);
+           alert(irpara+link);
     
            location.href=irpara+link;
            
