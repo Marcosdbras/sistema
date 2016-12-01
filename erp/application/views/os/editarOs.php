@@ -251,19 +251,18 @@
 
                                         if($cont == $flag){
                                            echo '<div style="margin-left: 0" class="span3"><a href="#modal-anexo" imagem="'.$a->idAnexos.'" link="'.$link.'" role="button" class="btn anexo" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>'
-                                                .'<a href="'.base_url().'index.php/os/excluirAnexo/'.$a->idAnexos.'" role="button" class="btn excluir"></a></div>'; 
+                                                .'</div>';
                                             
                                            $flag += 4;
                                         }
                                         else{
                                            echo '<div class="span3"><a href="#modal-anexo" imagem="'.$a->idAnexos.'" link="'.$link.'" role="button" class="btn anexo" data-toggle="modal"><img src="'.$thumb.'" alt=""></a>'
-                                                .'<a href="'.base_url().'index.php/os/excluirAnexo/'.$a->idAnexos.'" role="button" class="btn excluir"></a></div>'; 
-   
-                                           
+                                                .'</div>'; 
                                         }
                                         
+                                        //.'<a href="'.base_url().'index.php/os/excluirAnexo/'.$a->idAnexos.'" role="button" class="btn excluir"></a></div>'; 
+                                        //.'<a href="'.base_url().'index.php/os/excluirAnexo/'.$a->idAnexos.'" role="button" class="btn excluir"></a></div>';
                                         
-                                        //.base_url().'index.php/os/excluirAnexo/'.$a->idAnexos
                                         
                                         $cont ++;
                                     } ?>
@@ -722,7 +721,7 @@ $(document).ready(function(){
 
            $.ajax({
                   type: "POST",
-                  url: link,
+                  url: '"'+link+'"',
                   dataType: 'json',
                   success: function(data)
                   {
