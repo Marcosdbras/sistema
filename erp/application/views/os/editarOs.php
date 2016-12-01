@@ -726,9 +726,9 @@ foreach ($servicos as $s) {
 
             //alert(link);
 
-            //location.href=link;
+            location.href=link;
 
-            location.href=url;
+            //location.href=url;
 
             // exclusão através de json
 
