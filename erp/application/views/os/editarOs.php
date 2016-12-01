@@ -718,7 +718,7 @@ $(document).ready(function(){
            event.preventDefault();
 
            var link = $(this).attr('link'); 
-           var id = $(this).attr('id');
+           var idanexo = $(this).attr('id');
         
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
