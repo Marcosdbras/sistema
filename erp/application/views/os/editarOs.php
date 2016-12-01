@@ -719,7 +719,7 @@ $(document).ready(function(){
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
-           location.href= link;
+           location.href= <?php echo base_url(); ?>+link;
         
            /*
            $.ajax({
