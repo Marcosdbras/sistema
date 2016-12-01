@@ -719,9 +719,12 @@ $(document).ready(function(){
            $('#modal-anexo').modal('hide');
            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
+           location.href= link;
+        
+           /*
            $.ajax({
                   type: "POST",
-                  url: '"'+link+'"',
+                  url: link,
                   dataType: 'json',
                   success: function(data)
                   {
@@ -733,6 +736,8 @@ $(document).ready(function(){
                     }
                   }
             });
+           */ 
+            
        });
 
 
