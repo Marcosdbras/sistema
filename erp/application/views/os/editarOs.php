@@ -735,7 +735,7 @@ foreach ($servicos as $s) {
 
             $.ajax({
                 type: "POST",
-                url: link,
+                url: url,
                 dataType: 'json',
                 success: function (data)
                 {
