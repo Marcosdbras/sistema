@@ -728,24 +728,12 @@ foreach ($servicos as $s) {
 
             //location.href=link;
 
-            //location.href=url;
+            location.href=url;
 
             // exclusão através de json
 
 
-            $.ajax({
-                type: "POST",
-                url: url,
-                dataType: 'json',
-                success: function (data)
-                {
-                    if (data.result == true) {
-                        $("#divAnexos").load("<?php echo current_url(); ?> #divAnexos");
-                    } else {
-                        alert(data.mensagem);
-                    }
-                }
-            });
+          
 
 
         });
