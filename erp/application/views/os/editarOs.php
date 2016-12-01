@@ -727,9 +727,9 @@ $(document).ready(function(){
            
            
     
-           location.href=irpara;
+           //location.href=irpara;
            
-           alert(irpara);
+           //alert(irpara);
            
            //location.href=url;
         
