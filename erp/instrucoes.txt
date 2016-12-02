@@ -5,7 +5,9 @@
 O arquivo para criação do banco de dados é o banco.sql. 
 ---------------------------------------
 
-
+Observação
+- Dentro de assets ficam guardados os anexos e arquivos upload dos clientes,
+portanto preservar este diretório para não perder os respectivos arquivos.
 ---------------------------------------
 Dentro da pasta 'Application' -> 'Config' edite o arquivo 'config.php' na seguinte linha. 
 

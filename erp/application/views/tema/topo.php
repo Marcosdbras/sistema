@@ -168,7 +168,7 @@
 </div>
 <!--Footer-part-->
 <div class="row-fluid">
-  <div id="footer" class="span12"> 2015 &copy; MAP OS - Ramon Silva</div>
+  <div id="footer" class="span12"> 2017 &copy; MAP OS - Créditos: Marcos Brás / Ramon Silva</div>
 </div>
 <!--end-Footer-part-->
 
