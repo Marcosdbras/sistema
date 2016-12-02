@@ -250,6 +250,9 @@ foreach ($servicos as $s) {
                                     <?php
                                     $cont = 1;
                                     $flag = 5;
+                                     
+                                    $idusumestre = $this->session->userdata('idusumestre');
+                                    
                                     foreach ($anexos as $a) {
 
                                         if ($a->thumb == null) {
@@ -619,7 +622,7 @@ foreach ($servicos as $s) {
                 $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo base_url(); ?>index.php/os/anexar",
+                    url: "<?php      echo base_url().'index.php/os/anexar'; ?>",
                     data: dados,
                     mimeType: "multipart/form-data",
                     contentType: false,

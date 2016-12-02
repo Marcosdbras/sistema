@@ -355,7 +355,7 @@ class Os extends CI_Controller {
         $idusumestre = $this->session->userdata('idusumestre');
 
 
-        if (!is_dir('./assets/axexos/' . $idusumestre )) {
+        if (!is_dir('./assets/anexos/' . $idusumestre )) {
 
             mkdir('./assets/anexos/' . $idusumestre, 0777, TRUE);
         }
@@ -390,9 +390,9 @@ class Os extends CI_Controller {
             } else {
                 $upload_data = $this->upload->data();
 
-                $success[] = $upload_data;
-                $this->load->model('Os_model');
-                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/'. $idusumestre , 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre . '/'));
+                //$success[] = $upload_data;
+                //$this->load->model('Os_model');
+                //$this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/'. $idusumestre , 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre . '/'));
             }
         }
         if (count($error) > 0) {
