@@ -1,3 +1,6 @@
+- Colocar try catch quando anexar documento ou imagem nas OS
+- separar anexos por pasta de usuários mestres 
+
 - Cadastrar usuário mestre/dados da empresa e injetar permissão ao credenciar no sistema
 - Arquivos anexos na OS está com erro ao carregar
 - Alterar preço unitário na OS e na venda

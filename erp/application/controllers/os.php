@@ -390,17 +390,33 @@ class Os extends CI_Controller {
                         'width' => 200,
                         'height' => 125
                     );
-                    //$this->image_lib->initialize($resize_conf);
-                    //if ( ! $this->image_lib->resize())
-                    //{
-                    //    $error['resize'][] = $this->image_lib->display_errors();
-                    //}
-                    //else
-                    //{
-                    $success[] = $upload_data;
-                    $this->load->model('Os_model');
-                    $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/'));
-                    //} 
+
+                    try {
+
+                        $this->image_lib->initialize($resize_conf);
+                        if (!$this->image_lib->resize()) {
+
+                            //$error['resize'][] = $this->image_lib->display_errors();
+                            $success[] = $upload_data;
+                            $this->load->model('Os_model');
+                            $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', '', realpath('./assets/anexos/'));
+                            
+                            
+                        } else {
+
+                            $success[] = $upload_data;
+                            $this->load->model('Os_model');
+                            $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/'));
+
+                        }
+                        
+                    } catch (Exception $e) {
+
+                        $success[] = $upload_data;
+                        $this->load->model('Os_model');
+                        $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', '', realpath('./assets/anexos/'));
+                        
+                    }
                 } else {
                     $success[] = $upload_data;
                     $this->load->model('Os_model');
@@ -423,7 +439,7 @@ class Os extends CI_Controller {
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos', 1)->row();
 
-           
+
 
             unlink($file->path . '/' . $file->anexo);
 
@@ -433,16 +449,17 @@ class Os extends CI_Controller {
             //}
 
             $os_id = $file->os_id;
-            
+
             if ($this->os_model->delete('anexos', 'idAnexos', $id) == true) {
 
                 //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
 
-                echo '<script>location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '";  alert("Anexo excluido com sucesso!"); </script>';
-                
+                echo '<script>alert("Anexo excluido com sucesso!");   location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '";</script>';
             } else {
 
                 //echo json_encode(array('result'=> false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
+
+                echo '<script>alert("Erro ao excluir OS!");   location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '";</script>';
             }
         }
     }
