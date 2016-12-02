@@ -730,12 +730,12 @@ foreach ($servicos as $s) {
 
             
 
-         $.getJSON(link, function(result){
-        $.each(result, function(data){
-            
-            
-        });
-    });
+     
+           $.ajax({url: "demo_test.txt", success: function(result){
+        $("#div1").html(result);
+    }});
+     
+     
 
 
           
