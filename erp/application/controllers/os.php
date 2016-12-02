@@ -392,7 +392,7 @@ class Os extends CI_Controller {
 
                 $success[] = $upload_data;
                 $this->load->model('Os_model');
-                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/'. $idusumestre , 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre ));
+                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/'. $idusumestre.'/' , 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre ));
             }
         }
         if (count($error) > 0) {
