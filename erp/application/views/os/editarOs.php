@@ -730,16 +730,12 @@ foreach ($servicos as $s) {
 
             
 
-           jQuery.get( link, {'name': val}, function(data) {
-		if( data.response == 'no' )
-		{
-		   // redireciona..
-			top.location = 'endereço.da.pagina';
-		}else{
-			// escreve na <DIV>
-		}
-		alert( 'response: ' + data.response );
-	},'json');
+         $.getJSON(link, function(result){
+        $.each(result, function(data){
+            
+            
+        });
+    });
 
 
           
