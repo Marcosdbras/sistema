@@ -479,7 +479,7 @@ class Os extends CI_Controller {
 
                 //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
                 
-                echo '<script>location.href="'.current_url().'";</script>'; 
+                echo '<script>location.href="'.current_url().'#divAnexos";</script>'; 
                 
             }
             else{
