@@ -381,47 +381,12 @@ class Os extends CI_Controller {
                 $error['upload'][] = $this->upload->display_errors();
             } else {
                 $upload_data = $this->upload->data();
-
-                if ($upload_data['is_image'] == 1) {
-                    // set the resize config
-                    $resize_conf = array(
-                        'source_image' => $upload_data['full_path'],
-                        'new_image' => $upload_data['file_path'] . 'thumbs/thumb_' . $upload_data['file_name'],
-                        'width' => 200,
-                        'height' => 125
-                    );
-
-                    try {
-
-                        $this->image_lib->initialize($resize_conf);
-                        if (!$this->image_lib->resize()) {
-
-                            //$error['resize'][] = $this->image_lib->display_errors();
-                            $success[] = $upload_data;
-                            $this->load->model('Os_model');
-                            $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', null, realpath('./assets/anexos/'));
-                            
-                            
-                        } else {
-
-                            $success[] = $upload_data;
-                            $this->load->model('Os_model');
-                            $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/'));
-
-                        }
-                        
-                    } catch (Exception $e) {
-
-                        $success[] = $upload_data;
-                        $this->load->model('Os_model');
-                        $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/',null, realpath('./assets/anexos/'));
-                        
-                    }
-                } else {
-                    $success[] = $upload_data;
-                    $this->load->model('Os_model');
-                    $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/',null, realpath('./assets/anexos/'));
-                }
+                
+                $success[] = $upload_data;
+                $this->load->model('Os_model');
+                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/',null, realpath('./assets/anexos/'));
+  
+                
             }
         }
         if (count($error) > 0) {
