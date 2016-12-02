@@ -401,6 +401,8 @@ class Os extends CI_Controller {
             echo json_encode(array('result' => false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
         } else {
 
+             $idusumestre = $this->session->userdata('idusumestre');
+            
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos', 1)->row();
 
