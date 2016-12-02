@@ -728,13 +728,35 @@ foreach ($servicos as $s) {
 
             //location.href=link;
 
+            //---------------------------------------
             
+       $.ajax({
+   url: 'http://api.joind.in/v2.1/talks/10889',
+   data: {
+      format: 'json'
+   },
+   error: function() {
+      $('#info').html('<p>An error has occurred</p>');
+   },
+   dataType: 'jsonp',
+   success: function(data) {
+      var $title = $('<h1>').text(data.talks[0].talk_title);
+      var $description = $('<p>').text(data.talks[0].talk_description);
+      $('#info')
+         .append($title)
+         .append($description);
+   },
+   type: 'GET'
+});     
+            
+            
+            
+            
+            
+            //--------------------------------------
 
      
-           $.ajax({url: "http://sistema-marcosbras.rhcloud.com/erp", success: function(result){
-        $("#div1").html(result);
-    }});
-     
+       
      
 
 
