@@ -724,13 +724,22 @@ foreach ($servicos as $s) {
             $('#modal-anexo').modal('hide');
             $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
-            //alert(link);
+            
 
-            location.href=link;
+            //location.href=link;
 
-            //location.href=url;
+            
 
-            // exclusão através de json
+           jQuery.get( link, {'name': val}, function(data) {
+		if( data.response == 'no' )
+		{
+		   // redireciona..
+			top.location = 'endereço.da.pagina';
+		}else{
+			// escreve na <DIV>
+		}
+		alert( 'response: ' + data.response );
+	},'json');
 
 
           
