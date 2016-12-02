@@ -438,7 +438,7 @@ class Os extends CI_Controller {
 
                 //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
 
-                echo '<script>location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '";</script>';
+                echo '<script>location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '#tab4";</script>';
                 
             } else {
 
