@@ -355,9 +355,9 @@ class Os extends CI_Controller {
         $idusumestre = $this->session->userdata('idusumestre');
 
 
-        if (!is_dir('./assets/arquivos/' . $idusumestre )) {
+        if (!is_dir('./assets/axexos/' . $idusumestre )) {
 
-            mkdir('./assets/arquivos/' . $idusumestre, 0777, TRUE);
+            mkdir('./assets/anexos/' . $idusumestre, 0777, TRUE);
         }
 
         $this->load->library('upload');
