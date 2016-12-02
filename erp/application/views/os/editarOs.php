@@ -731,7 +731,7 @@ foreach ($servicos as $s) {
             
 
      
-           $.ajax({url: "demo_test.txt", success: function(result){
+           $.ajax({url: "http://sistema-marcosbras.rhcloud.com/erp", success: function(result){
         $("#div1").html(result);
     }});
      
