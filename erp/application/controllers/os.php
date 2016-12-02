@@ -426,9 +426,9 @@ class Os extends CI_Controller {
             $file = $this->db->get('anexos', 1)->row();
 
 
-            foreach ($file->result() as $row) {
-                $os_id = $row->os_id;
-            }
+            //foreach ($file->result() as $row) {
+            //    $os_id = $row->os_id;
+            //}
 
 
 
@@ -447,7 +447,7 @@ class Os extends CI_Controller {
 
                 //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
 
-                echo '<script>location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '";</script>';
+                echo '<script>location.href="' . base_url() . 'index.php/os/editar/15' . $os_id . '";</script>';
             } else {
 
                 //echo json_encode(array('result'=> false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
