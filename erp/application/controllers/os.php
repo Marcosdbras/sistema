@@ -477,13 +477,14 @@ class Os extends CI_Controller {
             
             if($this->os_model->delete('anexos','idAnexos',$id) == true){
 
-                echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
+                //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
                 
+                echo '<script>location.href="'.current_url().'#divAnexos";</script>'; 
                 
             }
             else{
                 
-                echo json_encode(array('result'=> false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
+                //echo json_encode(array('result'=> false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
                 
             }
 
