@@ -350,14 +350,20 @@ class Os extends CI_Controller {
     }
 
     public function anexar() {
-        
-        //inicio anexar
+
+        //inicio anexar --------
         $idusumestre = $this->session->userdata('idusumestre');
-        
+
+
+        if (!is_dir('./assets/arquivos/' . $idusumestre )) {
+
+            mkdir('./assets/arquivos/' . $idusumestre, 0777, TRUE);
+        }
+
         $this->load->library('upload');
         $this->load->library('image_lib');
         $upload_conf = array(
-            'upload_path' => realpath('./assets/anexos/'.$idusumestre),
+            'upload_path' => realpath('./assets/anexos/' . $idusumestre . '/'),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
             'max_size' => 0,
         );
@@ -386,7 +392,7 @@ class Os extends CI_Controller {
 
                 $success[] = $upload_data;
                 $this->load->model('Os_model');
-                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/'.$idusumestre.'/'));
+                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre . '/'));
             }
         }
         if (count($error) > 0) {
@@ -401,29 +407,25 @@ class Os extends CI_Controller {
             echo json_encode(array('result' => false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
         } else {
 
-             $idusumestre = $this->session->userdata('idusumestre');
-            
+            $idusumestre = $this->session->userdata('idusumestre');
+
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos', 1)->row();
 
 
-            if  (file_exists( $file->path . '/' . $file->anexo )){
-        
-                unlink($file->path . '/' . $file->anexo);  
-                  
-                
-            } 
-            
+            if (file_exists($file->path . '/' . $file->anexo)) {
 
-            
-            if($file->thumb != null){
+                unlink($file->path . '/' . $file->anexo);
+            }
 
-              if (file_exists( path.'/thumbs/'.$file->thumb  )){
 
-                  unlink($file->path.'/thumbs/'.$file->thumb);  
-                  
-              } 
-                
+
+            if ($file->thumb != null) {
+
+                if (file_exists(path . '/thumbs/' . $file->thumb)) {
+
+                    unlink($file->path . '/thumbs/' . $file->thumb);
+                }
             }
 
             $os_id = $file->os_id;
