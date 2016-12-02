@@ -350,12 +350,14 @@ class Os extends CI_Controller {
     }
 
     public function anexar() {
-
+        
         //inicio anexar
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->load->library('upload');
         $this->load->library('image_lib');
         $upload_conf = array(
-            'upload_path' => realpath('./assets/anexos'),
+            'upload_path' => realpath('./assets/anexos/'.$idusumestre),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
             'max_size' => 0,
         );
@@ -384,7 +386,7 @@ class Os extends CI_Controller {
 
                 $success[] = $upload_data;
                 $this->load->model('Os_model');
-                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/'));
+                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/'.$idusumestre.'/'));
             }
         }
         if (count($error) > 0) {
@@ -403,13 +405,24 @@ class Os extends CI_Controller {
             $file = $this->db->get('anexos', 1)->row();
 
 
+            if  (file_exists( $file->path . '/' . $file->anexo )){
+        
+                unlink($file->path . '/' . $file->anexo);  
+                  
+                
+            } 
+            
 
-            unlink($file->path . '/' . $file->anexo);
+            
+            if($file->thumb != null){
 
-            //unlink($file->url.'/'.$file->anexo);
-            //if($file->thumb != null){
-            //    unlink($file->path.'/thumbs/'.$file->thumb);    
-            //}
+              if (file_exists( path.'/thumbs/'.$file->thumb  )){
+
+                  unlink($file->path.'/thumbs/'.$file->thumb);  
+                  
+              } 
+                
+            }
 
             $os_id = $file->os_id;
 

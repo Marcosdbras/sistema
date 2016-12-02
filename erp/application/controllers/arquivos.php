@@ -267,19 +267,22 @@ class Arquivos extends CI_Controller {
           redirect(base_url());
         }
 	
-    	$date = date('d-m-Y');
+    	    $date = date('d-m-Y');
 
-		$config['upload_path'] = './assets/arquivos/'.$date;
+            $idusumestre = $this->session->userdata('idusumestre');        
+        
+	    $config['upload_path'] = './assets/arquivos/'.$idusumestre.'/'.$date;
 	    $config['allowed_types'] = 'txt|jpg|jpeg|gif|png|pdf|PDF|JPG|JPEG|GIF|PNG';
 	    $config['max_size']     = 0;
 	    $config['max_width']  = '3000';
 	    $config['max_height']  = '2000';
 	    $config['encrypt_name'] = true;
 
+                
 
-		if (!is_dir('./assets/arquivos/'.$date)) {
+		if (!is_dir('./assets/arquivos/'.$idusumestre.'/'.$date)) {
 
-			mkdir('./assets/arquivos/' . $date, 0777, TRUE);
+			mkdir('./assets/arquivos/'.$idusumestre.'/'. $date, 0777, TRUE);
 
 		}
 
