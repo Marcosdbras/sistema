@@ -717,42 +717,24 @@ foreach ($servicos as $s) {
 
         $(document).on('click', '#excluir-anexo', function (event) {
             event.preventDefault();
-
             var link = $(this).attr('link');
-
 
             $('#modal-anexo').modal('hide');
             $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
             
-
-            
-
             //---------------------------------------
-            
             location.href=link;
-            
-            
-            
-            
+                    
+            /*  Verificar pq o ajax quando inserido aqui não funciona */
             
             //--------------------------------------
-
-     
-       
-     
-
-
-          
-
 
         });
 
 
 
         $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
-
-
 
 
     });
