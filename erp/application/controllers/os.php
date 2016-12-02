@@ -461,7 +461,9 @@ class Os extends CI_Controller {
             echo json_encode(array('result'=> false, 'mensagem' => 'Erro ao tentar excluir anexo.'));
         }
         else{
-
+            $os_id = $this->input->post('id');
+            
+            
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos',1)->row();
             
@@ -479,7 +481,7 @@ class Os extends CI_Controller {
 
                 //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
                 
-                echo '<script>location.href="'.current_url().'#divAnexos";</script>'; 
+                echo '<script>location.href="'.base_url().'index.php/os/editar/'.$os_id.";</script>'; 
                 
             }
             else{
