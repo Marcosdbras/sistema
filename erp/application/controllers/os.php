@@ -423,7 +423,7 @@ class Os extends CI_Controller {
             $this->db->where('idAnexos', $id);
             $file = $this->db->get('anexos', 1)->row();
 
-            echo "<script  type='text/javascript'>  alert($id);  </script>";
+           
 
             unlink($file->path . '/' . $file->anexo);
 
@@ -438,7 +438,7 @@ class Os extends CI_Controller {
 
                 //echo json_encode(array('result'=> true, 'mensagem' => 'Anexo excluído com sucesso.'));
 
-                echo '<script>location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '#divAnexos";</script>';
+                echo '<script> alert("Anexo excluido com sucesso!");    location.href="' . base_url() . 'index.php/os/editar/' . $os_id . '";</script>';
                 
             } else {
 
