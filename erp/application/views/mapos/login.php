@@ -37,6 +37,7 @@
                 </div>
                 <div class="form-actions" style="text-align: center">
                     <button class="btn btn-info btn-large"/> Logar</button>
+                    <a hef="cadastrar.php" class="btn btn-info btn-large">Cadastrar-se</a>
                 </div>
             </form>
        
