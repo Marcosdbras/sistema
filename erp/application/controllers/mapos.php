@@ -225,9 +225,11 @@ class Mapos extends CI_Controller {
            redirect(base_url());
         }
 
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->load->library('upload');
 
-        $image_upload_folder = FCPATH . 'assets/uploads';
+        $image_upload_folder = FCPATH . 'assets/uploads/'.$idusumestre;
 
         if (!file_exists($image_upload_folder)) {
             mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -288,7 +290,9 @@ class Mapos extends CI_Controller {
             
         } 
         else {
-
+             
+            $idusumestre = $this->session->userdata('idusumestre');
+            
             $nome = $this->input->post('nome');
             $cnpj = $this->input->post('cnpj');
             $ie = $this->input->post('ie');
@@ -300,7 +304,7 @@ class Mapos extends CI_Controller {
             $telefone = $this->input->post('telefone');
             $email = $this->input->post('email');
             $image = $this->do_upload();
-            $logo = base_url().'assets/uploads/'.$image;
+            $logo = base_url().'assets/uploads/'.$idusumestre.'/'.$image;
 
 
             $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo);
@@ -396,11 +400,14 @@ class Mapos extends CI_Controller {
            $this->session->set_flashdata('error','Ocorreu um erro ao tentar alterar a logomarca.');
            redirect(base_url().'index.php/mapos/emitente'); 
         }
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->load->helper('file');
-        //delete_files(FCPATH .'assets/uploads/');
+        delete_files(FCPATH .'assets/uploads/'.$idusumestre.'/');
 
         $image = $this->do_upload();
-        $logo = base_url().'assets/uploads/'.$image;
+        $logo = base_url().'assets/uploads/'.$idusumestre.'/'.$image;
 
         $retorno = $this->mapos_model->editLogo($id, $logo);
         if($retorno){
