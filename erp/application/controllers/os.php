@@ -422,7 +422,7 @@ class Os extends CI_Controller {
 
             if ($file->thumb != null) {
 
-                if (file_exists(path . '/thumbs/' . $file->thumb)) {
+                if (file_exists($file->path . '/thumbs/' . $file->thumb)) {
 
                     unlink($file->path . '/thumbs/' . $file->thumb);
                 }
