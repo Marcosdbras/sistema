@@ -39,6 +39,8 @@
                     <button class="btn btn-info btn-large"/> Logar</button>
                     <a hef="cadastrar.php" class="btn btn-info btn-large">Cadastrar-se</a>
                 </div>
+                
+                <h1>Acesso ao sistema</h1>
             </form>
        
         </div>
