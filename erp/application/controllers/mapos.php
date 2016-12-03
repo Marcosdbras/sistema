@@ -397,7 +397,7 @@ class Mapos extends CI_Controller {
            redirect(base_url().'index.php/mapos/emitente'); 
         }
         $this->load->helper('file');
-        delete_files(FCPATH .'assets/uploads/');
+        //delete_files(FCPATH .'assets/uploads/');
 
         $image = $this->do_upload();
         $logo = base_url().'assets/uploads/'.$image;
