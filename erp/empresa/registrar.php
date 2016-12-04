@@ -79,7 +79,7 @@ include_once('../processa/envia_adendo.php');
             </div> 
 
             <div class="row">
-                <div  class="span6 col-md-6" >
+                <div  class="span6" >
                     <p>Termo de Uso</p>
                     <?php 
                     
@@ -95,7 +95,7 @@ include_once('../processa/envia_adendo.php');
                 </div>    
 
 
-                <div class="span6 col-md-6">
+                <div class="span6">
                     <!-- Formulário cadastro-->  
                     <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
                         <fieldset>
