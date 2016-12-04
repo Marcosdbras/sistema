@@ -80,6 +80,7 @@ include_once('../processa/envia_adendo.php');
 
             <div class="row">
                 <div  class="span6 col-md-6" >
+                    <p>Termo de Uso</p>
                     <?php 
                     
                     $param = DBRead('parametro_geral', 'where idparametro = 1');
