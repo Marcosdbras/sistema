@@ -83,7 +83,7 @@ include_once('../processa/envia_adendo.php');
                     <p>Termo de Uso</p>
                     <?php 
                     
-                    $param = DBRead('parametro_geral', 'where idparametro = 1');
+                    $param = DBRead('parametro_geral');
                     foreach ($param as $p){
                         $txt_contrato = $p['txt_contrato'];
                         echo "<p> $txt_contrato </p>";
