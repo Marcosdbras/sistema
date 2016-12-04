@@ -47,14 +47,10 @@
 
         </div>
 
-        <div class ="container-fluid">
+        <div class ="container">
 
-            <div class="row-fluid">
+            <div class="row">
 
-                <div class="col-xs-5 col-sm-6 col-lg-4">
-                    <a href="<?php echo base_url(); ?>index.php/registrar.php" class="btn btn-info btn-large">Registre-se</a>                    
-
-                </div>
 
 
                 <div class="col-xs-7 col-sm-6 col-lg-8">
@@ -67,6 +63,13 @@
 
                 </div>
 
+                <div class="col-xs-5 col-sm-6 col-lg-4">
+                    <a href="<?php echo base_url(); ?>index.php/mapos/registrar" class="btn btn-info btn-large">Registre-se</a>                    
+
+                </div>
+                
+                
+                
 
             </div>
 
