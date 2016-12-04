@@ -423,7 +423,7 @@ class Mapos extends CI_Controller {
     }
     
     public function registrar(){
-        redirect(base_url().'index.php/mapos/emitente');
+        redirect(base_url().'index.php/mapos/registrar.php');
         
         
     }
