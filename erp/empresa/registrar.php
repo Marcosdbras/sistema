@@ -79,12 +79,38 @@ include_once('../processa/envia_adendo.php');
             </div> 
 
             <div class="row">
-                <div class="col-md-12">
+                <div  class="span6 col-md-6" >
+                    <?php 
+                    
+                    $param = DBRead('parametro_geral', 'where idparametro = 1');
+                    foreach ($param as $p){
+                        echo "<p> $p </p>";
+                        
+                    }
+                    
+                    ?>                             
+
+
+                </div>    
+
+
+                <div class="span6 col-md-6">
                     <!-- Formulário cadastro-->  
                     <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
                         <fieldset>
                             <!-- Form Name -->
-                            <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar a área restrita deste site</legend></div>
+                            <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar na área administrativa deste site</legend></div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="login">Nome Usuário</label>  
+                                <div class="col-md-5">
+                                    <input id="login" name="login" placeholder="" class="form-control input-md" required="required" type="text">
+
+                                </div>
+                            </div>
+
+
 
 
                         </fieldset>
