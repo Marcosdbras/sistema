@@ -62,10 +62,8 @@
 
 
                 <div class="span10  col-xs-7 col-sm-6 col-lg-8">
-                    <p>Caso não tenha acesso ao sistema ainda, por gentileza clique em registra-se</p>
-                    <p>para que você consiga cadastrar sua empresa e um usuário principal que lhe</p>
-                    <p>permitirá realizar cadastro de clientes, produtos, verificar finanças,</p>
-                    <p>abrir ordem de serviço, venda, entre outras.</p>
+                    <p>Caso não tenha a senha de acesso ao sistema ainda, por gentileza clique em registra-se para que você consiga cadastrar sua empresa e um usuário principal que lhe permitirá realizar cadastro de clientes, produtos, verificar finanças, abrir ordem de serviço, venda, entre outras.</p>
+                   
 
 
 
