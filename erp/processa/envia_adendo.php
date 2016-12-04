@@ -92,7 +92,7 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "ativo" => "1",
                 "mestre" => "S",
                 "cpf"=>"111111111",
-                "telefones"=>"111111-1111",
+                "telefone"=>"111111-1111",
                 "dataCadastro"=>"$data",
                 "nivel"=>"1",
                 "permissoes_id"=>"1");
