@@ -80,6 +80,8 @@ if (isset($_POST['g-recaptcha-response'])) {
             $chave = md5(time());
             $senha = sha1($senha);
             
+            echo 'passagem 1';
+            
             $campos = array("email" => "$email",
                 "nome" => "$login",
                 "senha" => "$senha",
