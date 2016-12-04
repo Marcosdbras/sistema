@@ -77,10 +77,12 @@ if (isset($_POST['g-recaptcha-response'])) {
         $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lf8yA0UAAAAAJvkdiZy7HIq5UspdTuXnjWhHuGB&response=" . $captcha_data . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
         if ($resposta . success) {
 
+            echo 'passagem 1';
+            
             $chave = md5(time());
             $senha = sha1($senha);
             
-            echo 'passagem 1';
+            echo 'passagem 2';
             
             $campos = array("email" => "$email",
                 "nome" => "$login",
