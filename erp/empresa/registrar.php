@@ -27,7 +27,7 @@ include_once('../processa/envia_adendo.php');
 
         <meta name="description" content="Nota Fiscal Eletrônica, NFE, ERP, Online, Programa, Administrativo">
         <meta name="author" content="Marcos Brás">
-        <link rel="icon" href="/image/favicon.ico">
+        <!--   <link rel="icon" href="/image/favicon.ico"> -->
 
         <title>Ordem de Serviço e venda</title>
 
@@ -62,6 +62,11 @@ include_once('../processa/envia_adendo.php');
     </head>
     <body>
         <div class="container-fluid theme-showcase" role="main">
+            <div class="page-header">
+                <h1>Registre-se...</h1>        
+            </div>    
+
+
             
             
         </div> 
