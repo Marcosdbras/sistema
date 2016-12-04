@@ -53,7 +53,7 @@
 
 
 
-                <div class="col-xs-7 col-sm-6 col-lg-8">
+                <div class="span4  col-xs-7 col-sm-6 col-lg-8">
                     <p>Caso não tenha acesso ao sistema ainda, por gentileza clique em registra-se</p>
                     <p>para que você consiga cadastrar sua empresa e um usuário principal que lhe</p>
                     <p>permitirá realizar cadastro de clientes, produtos, verificar finanças,</p>
@@ -63,7 +63,7 @@
 
                 </div>
 
-                <div class="col-xs-5 col-sm-6 col-lg-4">
+                <div class="span8 col-xs-5 col-sm-6 col-lg-4">
                     <a href="<?php echo base_url(); ?>index.php/mapos/registrar" class="btn btn-info btn-large">Registre-se</a>                    
 
                 </div>

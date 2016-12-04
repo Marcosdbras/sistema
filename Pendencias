@@ -1,15 +1,17 @@
-- Colocar try catch quando anexar documento ou imagem nas OS
-- separar anexos por pasta de usuários mestres 
-
 - Cadastrar usuário mestre/dados da empresa e injetar permissão ao credenciar no sistema
-- Arquivos anexos na OS está com erro ao carregar
 - Alterar preço unitário na OS e na venda
-
-- Quando realiza o push no repositório está sumindo os arquivos anexos
+- Relatórios de vendas e OS não tem totalização
+- Consulta CEP ao sair do respectivo campo
+- Trocar título rua para endereço em todos os cadastros
+- Quando realiza o push no repositório está sumindo os arquivos anexos e dos uploads
 - Fazer página de apresentação com possível anuncios
 - Fazer blog com assuntos sobre empresa
 - Apresentar numeração/id por empresa ou usuário
 - verificar inject sql
 
 
-- Auto increment está apresentando dados de todos empresas/usuários ao invés de uma só - Corrigido
+* Corrigido  
+- Auto increment está apresentando dados de todos empresas/usuários ao invés de uma só
+- Arquivos anexos na OS está com erro ao carregar
+- Colocar try catch quando anexar documento ou imagem nas OS 
+- Separar anexos por pasta de usuários mestres 
