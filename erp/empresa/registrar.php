@@ -14,7 +14,7 @@ include_once('../processa/envia_adendo.php');
 <html lang="pt-BR">
     <head>
         <title>
-
+            Ordem de serviço e venda
 
         </title>
 
@@ -132,10 +132,6 @@ include_once('../processa/envia_adendo.php');
                                 </div>
                             </div>
 
-                            <div class = "form-group">
-                                <div class="col-md-4 g-recaptcha" data-sitekey="6Lf8yA0UAAAAAHDCinNV3ppOcosQnjjrmK_Pdo7j"></div>
-                            </div> 
-
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <div class="checkbox">
@@ -144,9 +140,11 @@ include_once('../processa/envia_adendo.php');
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                            
 
-
+                            <div class = "form-group">
+                                <div class="col-md-4 g-recaptcha" data-sitekey="6Lf8yA0UAAAAAHDCinNV3ppOcosQnjjrmK_Pdo7j"></div>
+                            </div> 
 
                             <!-- Button (Double) -->
                             <div class="form-group">
@@ -166,7 +164,7 @@ include_once('../processa/envia_adendo.php');
 
                 </div>
 
-                <div  class="span6 col-xs-5 col-sm-6 col-lg-4" >
+                <div class="span6 col-xs-5 col-sm-6 col-lg-4" >
 
                     <?php
                     $param = DBRead('parametro_geral');
