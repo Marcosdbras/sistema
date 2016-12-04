@@ -85,7 +85,8 @@ include_once('../processa/envia_adendo.php');
                     
                     $param = DBRead('parametro_geral', 'where idparametro = 1');
                     foreach ($param as $p){
-                        echo "<p> $p </p>";
+                        $txt_contrato = $p['txt_contrato'];
+                        echo "<p> $txt_contrato </p>";
                         
                     }
                     
@@ -100,7 +101,7 @@ include_once('../processa/envia_adendo.php');
                     <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
                         <fieldset>
                             <!-- Form Name -->
-                            <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar na área administrativa deste site</legend></div>
+                            <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar a área administrativa do site.</legend></div>
 
                             <!-- Text input-->
                             <div class="form-group">
