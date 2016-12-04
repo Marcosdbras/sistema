@@ -12,8 +12,9 @@
         <script src="<?php echo base_url()?>assets/js/jquery-1.10.2.min.js"></script>
     </head>
     <body>
+        <h2>Sistema Emissor de Ordem de Serviço e Vendas</h2>
         <div id="loginbox">  
-            <h2>Sistema Emissor de Ordem de Serviço e Vendas</h2>
+            
             
             <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/mapos/verificarLogin">
                   <?php if($this->session->flashdata('error') != null){?>
@@ -40,12 +41,7 @@
                 <div class="form-actions" style="text-align: center">
                     <button class="btn btn-info btn-large"/>Acessar</button>
                     <br />
-                    <p>Caso não tenha acesso ao sistema ainda, por gentileza clique em registra-se</p>
-                    <p>para que você consiga cadastrar sua empresa e um usuário principal que lhe</p>
-                    <p>permitirá realizar cadastro de clientes, produtos, verificar finanças,</p>
-                    <p>abrir ordem de serviço, venda, entre outras.</p>
-                    <br />
-                    <a hef="<?php echo base_url(); ?>index.php/mapos/registrar.php" class="btn btn-info btn-large">Registre-se</a>
+                    <a href="<?php echo base_url(); ?>index.php/mapos/registrar.php" class="btn btn-info btn-large">Registre-se</a>
                 </div>
                 
                 
@@ -53,6 +49,10 @@
        
         </div>
         
+        <p>Caso não tenha acesso ao sistema ainda, por gentileza clique em registra-se</p>
+        <p>para que você consiga cadastrar sua empresa e um usuário principal que lhe</p>
+        <p>permitirá realizar cadastro de clientes, produtos, verificar finanças,</p>
+        <p>abrir ordem de serviço, venda, entre outras.</p>
         
         
         <script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
