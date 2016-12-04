@@ -42,6 +42,8 @@
                 </div>
                 <div class="form-actions" style="text-align: center">
                     <button class="btn btn-info btn-large btn-block btn-large"/>Acessar</button>
+                    <a href="<?php echo base_url(); ?>index.php/mapos/registrar" class="btn btn-info btn-large btn-block">Registre-se</a>                    
+
                 </div>
 
 
@@ -55,8 +57,8 @@
 
 
                 <div class="span2 col-xs-5 col-sm-6 col-lg-4">
-                    <a href="<?php echo base_url(); ?>index.php/mapos/registrar" class="btn btn-info btn-large btn-block">Registre-se</a>                    
 
+                    
                 </div>
 
 
