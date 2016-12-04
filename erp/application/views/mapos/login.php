@@ -12,7 +12,7 @@
         <script src="<?php echo base_url() ?>assets/js/jquery-1.10.2.min.js"></script>
     </head>
     <body>
-        <h2>Ordem de Serviço e Vendas</h2>
+        
         <div id="loginbox">  
 
 
@@ -23,7 +23,9 @@
                         <?php echo $this->session->flashdata('error'); ?>
                     </div>
                 <?php } ?>
-                <div class="control-group normal_text"> <h3><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" /></h3></div>
+                <div class="control-group normal_text"> <h3><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" /></h3>
+                    <h5>Sistema Administrativo de Ordem de Serviço e Vendas</h5>
+                </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
@@ -52,14 +54,14 @@
             <div class="row">
 
 
-                <div class="span4 col-xs-5 col-sm-6 col-lg-4">
+                <div class="span2 col-xs-5 col-sm-6 col-lg-4">
                     <a href="<?php echo base_url(); ?>index.php/mapos/registrar" class="btn btn-info btn-large">Registre-se</a>                    
 
                 </div>
 
 
 
-                <div class="span8  col-xs-7 col-sm-6 col-lg-8">
+                <div class="span10  col-xs-7 col-sm-6 col-lg-8">
                     <p>Caso não tenha acesso ao sistema ainda, por gentileza clique em registra-se</p>
                     <p>para que você consiga cadastrar sua empresa e um usuário principal que lhe</p>
                     <p>permitirá realizar cadastro de clientes, produtos, verificar finanças,</p>
