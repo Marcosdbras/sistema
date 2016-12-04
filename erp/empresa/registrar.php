@@ -7,7 +7,7 @@
 
 require_once '../../biblioteca/read.data.php';
 require_once '../../biblioteca/funcoes.php';
-include_once('../processa/envia_adendo.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ include_once('../processa/envia_adendo.php');
 
                 <div class="span6 col-xs-7 col-sm-6 col-lg-8">
                     <!-- Formulário cadastro-->  
-                    <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
+                    <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../processa/envia_adendo.php"  name="form" method="post" >
                         <fieldset>
                             <!-- Form Name -->
                             <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar a área administrativa do site.</legend></div>
