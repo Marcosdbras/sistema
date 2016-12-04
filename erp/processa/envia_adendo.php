@@ -92,10 +92,12 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "ativo" => "1",
                 "mestre" => "S");
 
-            $result = DBRead('usuarios', 'Where email =' . "$mail");
-
-            $id = DBCreate('usuarios', $campos, false, true);
             
+            echo 'passagem 1';
+            $result = DBRead('usuarios', 'Where email =' . "$mail");
+            echo 'passagem 2';
+            $id = DBCreate('usuarios', $campos, false, true);
+            echo 'passagem 3';
             if ($id == 0) {
 
                 
