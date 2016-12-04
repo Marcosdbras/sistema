@@ -56,6 +56,21 @@ include_once('../processa/envia_adendo.php');
 
 
         <script src='https://www.google.com/recaptcha/api.js?hl=pt-br'></script>
+
+        <style>
+            body {
+                color: #404040;
+                font-family: "Helvetica Neue",Helvetica,"Liberation Sans",Arial,sans-serif;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            html {
+                font-family: sans-serif;
+                -ms-text-size-adjust: 100%;
+                -webkit-text-size-adjust: 100%;
+            }
+        </style>       
     </head>
     <body>
         <div class="container-fluid theme-showcase" role="main">
@@ -68,10 +83,10 @@ include_once('../processa/envia_adendo.php');
                     <!-- Formulário cadastro-->  
                     <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
                         <fieldset>
-                                                        <!-- Form Name -->
+                            <!-- Form Name -->
                             <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar a área restrita deste site</legend></div>
 
-                            
+
                         </fieldset>
                     </form>    
 
