@@ -184,6 +184,49 @@ include_once('../processa/envia_adendo.php');
 
 
         </div> 
+        
+        
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/stylebootstrap/js/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/stylebootstrap/js/jquery.min.js"><\/script>');</script>
+        <script src="/stylebootstrap/js/bootstrap.min.js"></script>
+        <script src="/stylebootstrap/js/docs.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="/stylebootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+
+        <script type="text/javascript">
+
+            function OnSubmitForm() {
+
+
+                var processa = true;
+
+                if (document.getElementById('email').value !== document.getElementById('email1').value) {
+
+                    alert('email não confere, por gentileza redigite-o novamete e também seu respectivo campo de conferência'); 
+                   
+                    processa = false;
+
+                }
+
+                if (document.getElementById('senha').value !== document.getElementById('senha1').value) {
+
+                    alert('senha não confere, por gentileza redigite-o e também seu respectivo campo de conferência'); 
+            
+                    processa = false;
+
+                }
+
+
+                return processa;
+            }
+
+        </script>
+        
+        
     </body>
 </html>   
 
