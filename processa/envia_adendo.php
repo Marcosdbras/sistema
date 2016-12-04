@@ -74,7 +74,7 @@ if (isset($_POST['g-recaptcha-response'])) {
             exit;
         }
 
-        $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfB9QsUAAAAAIJHAC87fjKzoCyHcqbDrv9FKpgQ&response=" . $captcha_data . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+        $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lf8yA0UAAAAAJvkdiZy7HIq5UspdTuXnjWhHuGB&response=" . $captcha_data . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
         if ($resposta . success) {
 
             $chave = md5(time());
