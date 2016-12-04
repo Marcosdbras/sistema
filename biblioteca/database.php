@@ -9,7 +9,11 @@
 
 //Deleta Registro
 function DBDelete($table,$where=NULL,$linhasaf=false){
-    $table = DB_PREFIX . '_' . $table;
+    
+    if (DB_PREFIX != ''){
+      $table = DB_PREFIX . '_' . $table;    
+    }
+    
     $where = ($where)? " WHERE {$where}":null;
     $query = "DELETE FROM {$table}{$where}";    
 
@@ -27,7 +31,10 @@ function DBUpDate($table, array $data, $where = NULL, $insertId=false, $linhasaf
     }
     $fields = implode(', ',$fields);
     
-    $table = DB_PREFIX . '_' . $table;
+    if (DB_PREFIX != ''){
+      $table = DB_PREFIX . '_' . $table;    
+    }
+
     $where = ($where)? " WHERE {$where}":null;
     $query = "UPDATE {$table} SET {$fields}{$where}";   
     
@@ -40,7 +47,9 @@ function DBUpDate($table, array $data, $where = NULL, $insertId=false, $linhasaf
 /*Insere registro no banco*/
 function DBCreate($table, array $data, $insertId = false) {
 
-    $table = DB_PREFIX . '_' . $table;
+    if (DB_PREFIX != ''){
+      $table = DB_PREFIX . '_' . $table;    
+    }
 
     $data = DBEscape($data);
 
@@ -119,7 +128,11 @@ function DBEscape($dados) {
 
 /*Ler Registros*/
 function DBRead($table, $params=null, $fields='*'){
-    $table = DB_PREFIX . '_' . $table;
+
+    if (DB_PREFIX != ''){
+      $table = DB_PREFIX . '_' . $table;    
+    }
+
     $params =  ($params) ? " {$params}":null;
     $query = "SELECT {$fields} FROM {$table}{$params}";  
     $result = DBExecute($query);
@@ -147,7 +160,11 @@ function DBRead($table, $params=null, $fields='*'){
 
 /*Total de Registros*/
 function DBTotReg($table, $params=null, $fields='*'){
-    $table = DB_PREFIX . '_' . $table;
+
+    if (DB_PREFIX != ''){
+      $table = DB_PREFIX . '_' . $table;    
+    }
+
     $params =  ($params) ? " {$params}":null;
     $query = "SELECT {$fields} FROM {$table}{$params}";  
     $result = DBExecute($query);

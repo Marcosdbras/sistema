@@ -85,7 +85,7 @@ include_once('../processa/envia_adendo.php');
                     
                     $param = DBRead('parametro_geral');
                     foreach ($param as $p){
-                        $txt_contrato = $p['txt_contrat'];
+                        $txt_contrato = $p['txt_contrato'];
                         echo "<p> $txt_contrato </p>";
                         
                     }
