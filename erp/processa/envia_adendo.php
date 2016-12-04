@@ -81,7 +81,7 @@ if (isset($_POST['g-recaptcha-response'])) {
             
             $chave = md5(time());
             $senha = sha1($senha);
-            
+            $data = date('Y-m-d', time());
             
             
             $campos = array("email" => "$email",
@@ -90,7 +90,12 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "chave" => "$chave",
                 "situacao" => "1",
                 "ativo" => "1",
-                "mestre" => "S");
+                "mestre" => "S",
+                "cpf"=>"111111111",
+                "telefones"=>"111111-1111",
+                "dataCadastro"=>"$data",
+                "nivel"=>"1",
+                "permissoes_id"=>"1");
 
             
             echo 'passagem 1';
