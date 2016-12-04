@@ -79,22 +79,6 @@ include_once('../processa/envia_adendo.php');
             </div> 
 
             <div class="row-fluid">
-                <div  class="span6 col-xs-5 col-sm-6 col-lg-4" >
-                    <p>Termo de Uso</p>
-                    <?php 
-                    
-                    $param = DBRead('parametro_geral');
-                    foreach ($param as $p){
-                        $txt_contrato = $p['txt_contrato'];
-                        echo "<p> $txt_contrato </p>";
-                        
-                    }
-                    
-                    ?>                             
-
-
-                </div>    
-
 
                 <div class="span6 col-xs-7 col-sm-6 col-lg-8">
                     <!-- Formulário cadastro-->  
@@ -112,6 +96,67 @@ include_once('../processa/envia_adendo.php');
                                 </div>
                             </div>
 
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="email">Email</label>  
+                                <div class="col-md-6">
+                                    <input id="email" name="email" placeholder="" class="form-control input-md" required="required" type="text">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="email1">Confirma email</label>  
+                                <div class="col-md-6">
+                                    <input id="email1" name="email1" placeholder="" class="form-control input-md" required="required" type="text">
+
+                                </div>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="senha">Senha</label>
+                                <div class="col-md-4">
+                                    <input id="senha" name="senha" placeholder="" class="form-control input-md" required="" type="password">
+                                    <!--<span class="help-block">Esqueceu senha?</span>-->
+                                </div>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="senha1">Confirma Senha</label>
+                                <div class="col-md-4">
+                                    <input id="senha1" name="senha1" placeholder="" class="form-control input-md" required="required" type="password">
+                                    <!--<span class="help-block">Esqueceu senha?</span>-->
+                                </div>
+                            </div>
+
+                            <div class = "form-group">
+                                <div class="col-md-4 g-recaptcha" data-sitekey="6Lf8yA0UAAAAAHDCinNV3ppOcosQnjjrmK_Pdo7j"></div>
+                            </div> 
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Concordo com os termos do contrato
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Button (Double) -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="enviar"></label>
+                                <div class="col-md-8">
+                                    <button id="aderir" name="aderir" class="btn btn-success">Aderir</button>
+                                    <button id="limpar" type="reset" name="reset"  class="btn btn-warning">Limpar</button>
+                                   <!-- <input type="reset" name="reset" value="Limpar">-->
+                                </div>
+                            </div>
 
 
 
@@ -120,6 +165,20 @@ include_once('../processa/envia_adendo.php');
 
 
                 </div>
+
+                <div  class="span6 col-xs-5 col-sm-6 col-lg-4" >
+
+                    <?php
+                    $param = DBRead('parametro_geral');
+                    foreach ($param as $p) {
+                        $txt_contrato = $p['txt_contrato'];
+                        echo "<p> $txt_contrato </p>";
+                    }
+                    ?>                             
+
+
+                </div>
+
             </div>            
 
 
