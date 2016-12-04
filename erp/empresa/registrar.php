@@ -1,6 +1,4 @@
 <?php
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,15 +8,14 @@
 require_once '../../biblioteca/read.data.php';
 require_once '../../biblioteca/funcoes.php';
 include_once('../processa/envia_adendo.php');
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <title>
-            
-            
+
+
         </title>
 
         <meta charset="utf-8">
@@ -56,23 +53,40 @@ include_once('../processa/envia_adendo.php');
         <script src="/stylebootstrap/js/jquery-ui/jquery-ui.js"></script>
 
 
-        
-        
+
+
         <script src='https://www.google.com/recaptcha/api.js?hl=pt-br'></script>
     </head>
     <body>
         <div class="container-fluid theme-showcase" role="main">
             <div class="page-header">
                 <h1>Registre-se...</h1>        
-            </div>    
+            </div> 
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Formulário cadastro-->  
+                    <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
+                        <fieldset>
+                                                        <!-- Form Name -->
+                            <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar a área restrita deste site</legend></div>
+
+                            
+                        </fieldset>
+                    </form>    
 
 
-            
-            
+                </div>
+            </div>            
+
+
+
+
+
         </div> 
     </body>
 </html>   
-            
+
 
 
 
