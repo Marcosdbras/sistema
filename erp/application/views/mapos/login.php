@@ -57,7 +57,7 @@
 
 
                 <div class="span2 col-xs-5 col-sm-6 col-lg-4">
-
+                    <img src="<?php echo base_url() ?>assets/img/ordem-de-servicos1.png" alt="Smiley face" />
                     
                 </div>
 
