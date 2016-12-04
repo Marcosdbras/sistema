@@ -73,13 +73,13 @@ include_once('../processa/envia_adendo.php');
         </style>       
     </head>
     <body>
-        <div class="container-fluid theme-showcase" role="main">
+        <div class="container-fluid">
             <div class="page-header">
                 <h1>Registre-se...</h1>        
             </div> 
 
-            <div class="row">
-                <div  class="span6" >
+            <div class="row-fluid">
+                <div  class="span6 col-xs-5 col-sm-6 col-lg-4" >
                     <p>Termo de Uso</p>
                     <?php 
                     
@@ -95,7 +95,7 @@ include_once('../processa/envia_adendo.php');
                 </div>    
 
 
-                <div class="span6">
+                <div class="span6 col-xs-7 col-sm-6 col-lg-8">
                     <!-- Formulário cadastro-->  
                     <form name="myform" class="form-horizontal"  onsubmit="return OnSubmitForm();" action="../../processa/envia_adendo.php"  name="form" method="post" >
                         <fieldset>
