@@ -73,16 +73,16 @@ if (isset($_POST['g-recaptcha-response'])) {
             echo "Por favor, confirme o captcha.";
             exit;
         }
-       echo 'passagem 1';
+      
         $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lf8yA0UAAAAAJvkdiZy7HIq5UspdTuXnjWhHuGB&response=" . $captcha_data . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
         if ($resposta . success) {
 
-            echo 'passagem 2';
+           
             
             $chave = md5(time());
             $senha = sha1($senha);
             
-            echo 'passagem 3';
+            
             
             $campos = array("email" => "$email",
                 "nome" => "$login",
@@ -92,11 +92,13 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "ativo" => "1",
                 "mestre" => "S");
 
-            $id = DBRead('usuarios', 'Where email =' . "$mail", true, false);
+            $result = DBRead('usuarios', 'Where email =' . "$mail");
 
+            $id = DBCreate('usuarios', $campos, false, true);
+            
             if ($id == 0) {
 
-                $id = DBCreate('usuarios', $campos, false, true);
+                
 
                
                     
