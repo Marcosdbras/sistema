@@ -73,17 +73,17 @@ if (isset($_POST['g-recaptcha-response'])) {
             echo "Por favor, confirme o captcha.";
             exit;
         }
-      
+
         $resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Lf8yA0UAAAAAJvkdiZy7HIq5UspdTuXnjWhHuGB&response=" . $captcha_data . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
         if ($resposta . success) {
 
-           
-            
+
+
             $chave = md5(time());
             $senha = sha1($senha);
             $data = date('Y-m-d', time());
-            
-            
+
+
             $campos = array("email" => "$email",
                 "nome" => "$login",
                 "senha" => "$senha",
@@ -91,33 +91,34 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "situacao" => "1",
                 "ativo" => "1",
                 "mestre" => "S",
-                "cpf"=>"111111111",
-                "telefone"=>"111111-1111",
-                "dataCadastro"=>"$data",
-                "nivel"=>"1",
-                "permissoes_id"=>"1");
+                "cpf" => "111111111",
+                "telefone" => "111111-1111",
+                "dataCadastro" => "$data",
+                "nivel" => "1",
+                "permissoes_id" => "1");
 
-            
-            echo 'passagem 1';
-            $result = DBRead('usuarios', 'Where email =' . "$mail");
-            echo 'passagem 2';
-            $id = DBCreate('usuarios', $campos, false, true);
-            echo 'passagem 3';
-            if ($id == 0) {
 
-                
+            $result = DBRead('usuarios', 'Where email =' . "$mail".'and mestre = "S"');
+            if (!$result) {
+                $id = DBCreate('usuarios', $campos);
+                if ($id == 0) {
 
-               
+                    echo '<p>Erro ao salvar registro!</p>';
                     
-                
+                } else {
+
+                    echo '<p>Registro salvo com sucesso!</p>';
+                }
             } else {
 
-                echo "Nenhum registro salvo!";
+                echo '<p>Este email já encontra-se registrado em nossa base de dados</p>';
+                echo '<p>Envie um email para marcosbras@hotmail.com e solicite nova senha de acesso</p>';
+                echo '<p>e aguarde resposta, caso não tenha mais acesso ao email observe a cláusula ____ </p>';
+                echo '<p>do contrato de uso do software</p>';
                 
             }
-        }else{
+        } else {
             echo "Falha no captcha!";
-            
         }
         ?>
 
