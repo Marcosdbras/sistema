@@ -98,7 +98,7 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "permissoes_id" => "1");
 
 
-            $result = DBRead('usuarios', 'Where email =' . "$mail".'and mestre = "S"');
+            $result = DBRead('usuarios', "Where email ='" . $mail."' and mestre = 'S'" );
             if (!$result) {
                 $id = DBCreate('usuarios', $campos);
                 if ($id == 0) {
@@ -112,8 +112,8 @@ if (isset($_POST['g-recaptcha-response'])) {
             } else {
 
                 echo '<p>Este email já encontra-se registrado em nossa base de dados</p>';
-                echo '<p>Envie um email para marcosbras@hotmail.com e solicite nova senha de acesso</p>';
-                echo '<p>e aguarde resposta, caso não tenha mais acesso ao email observe a cláusula ____ </p>';
+                echo '<p>Envie um email para marcosbras@hotmail.com e solicite nova senha de acesso,</p>';
+                echo '<p>aguarde resposta de sua solicitação, caso não tenha mais acesso ao email observe a cláusula ____ </p>';
                 echo '<p>do contrato de uso do software</p>';
                 
             }
