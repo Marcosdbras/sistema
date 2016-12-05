@@ -107,7 +107,7 @@ if (isset($_POST['g-recaptcha-response'])) {
                     
                     
                     echo '<script type="text/javascript">';
-                    echo 'alert("Erro ao salvar registro!")';
+                    echo 'alert("Erro ao salvar registro!");';
                     echo "$(location).attr('href','../index.php');";
                     echo '</script>';
                     
@@ -115,7 +115,7 @@ if (isset($_POST['g-recaptcha-response'])) {
                 } else {
 
                     echo '<script type="text/javascript">';
-                    echo 'alert("Registro salvo com sucesso!")';
+                    echo 'alert("Registro salvo com sucesso!");';
                     echo "$(location).attr('href','../index.php');";
                     echo '</script>';
                
@@ -124,7 +124,7 @@ if (isset($_POST['g-recaptcha-response'])) {
 
                
                     echo '<script type="text/javascript">';
-                    echo 'alert("email já existe!")';
+                    echo 'alert("email já existe!");';
                     echo "$(location).attr('href','../index.php');";
                     echo '</script>';
                 
@@ -139,7 +139,7 @@ if (isset($_POST['g-recaptcha-response'])) {
             echo "Falha no captcha!";
             
              echo '<script type="text/javascript">';
-             echo 'alert("Falha no captcha!")';
+             echo 'alert("Falha no captcha!");';
              echo "$(location).attr('href','../index.php');";
              echo '</script>';
             
