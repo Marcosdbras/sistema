@@ -101,16 +101,34 @@ if (isset($_POST['g-recaptcha-response'])) {
             $result = DBRead('usuarios', "where email ='" . $email."' and mestre = 'S'" );
             if (!$result) {
                 $id = DBCreate('usuarios', $campos);
+                
+                
                 if ($id == 0) {
-
-                    echo '<p>Erro ao salvar registro!</p>';
+                    
+                    
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Erro ao salvar registro!")';
+                    echo "$(location).attr('href','../index.php');";
+                    echo '</script>';
+                    
                     
                 } else {
 
-                    echo '<p>Registro salvo com sucesso!</p>';
-                }
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Registro salvo com sucesso!")';
+                    echo "$(location).attr('href','../index.php');";
+                    echo '</script>';
+               
+               }
             } else {
 
+               
+                    echo '<script type="text/javascript">';
+                    echo 'alert("email já existe!")';
+                    echo "$(location).attr('href','../index.php');";
+                    echo '</script>';
+                
+                
                 echo '<p>Este email já encontra-se registrado em nossa base de dados</p>';
                 echo '<p>Envie um email para marcosbras@hotmail.com e solicite nova senha de acesso,</p>';
                 echo '<p>aguarde resposta de sua solicitação, caso não tenha mais acesso ao email observe a cláusula ____ </p>';
@@ -119,6 +137,12 @@ if (isset($_POST['g-recaptcha-response'])) {
             }
         } else {
             echo "Falha no captcha!";
+            
+             echo '<script type="text/javascript">';
+             echo 'alert("Falha no captcha!")';
+             echo "$(location).attr('href','../index.php');";
+             echo '</script>';
+            
         }
         ?>
 
