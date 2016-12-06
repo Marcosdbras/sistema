@@ -103,31 +103,26 @@ if (isset($_POST['g-recaptcha-response'])) {
                 $id = DBCreate('usuarios', $campos);
                 
                 
-                if ($id == 0) {
-                    
+                if ($id == 0) {                    
                     
                     echo '<script type="text/javascript">';
                     echo 'alert("Erro ao salvar registro!");';
-                    echo "$(location).attr('href','../index.php');";
-                    echo '</script>';
-                    
+                    echo "$(location).attr('href','../empresa/registrar.php');";
+                    echo '</script>';                    
                     
                 } else {
 
                     echo '<script type="text/javascript">';
                     echo 'alert("Registro salvo com sucesso!");';
                     echo "$(location).attr('href','../index.php');";
-                    echo '</script>';
-               
+                    echo '</script>';               
                }
             } else {
-
-               
-                    echo '<script type="text/javascript">';
-                    echo 'alert("email já existe!");';
-                    echo "$(location).attr('href','../index.php');";
-                    echo '</script>';
                 
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Este email já existe!\\njá encontra-se");';
+                    echo "$(location).attr('href','../empresa/registrar.php');";
+                    echo '</script>';                
                 
                 echo '<p>Este email já encontra-se registrado em nossa base de dados</p>';
                 echo '<p>Envie um email para marcosbras@hotmail.com e solicite nova senha de acesso,</p>';
@@ -135,18 +130,14 @@ if (isset($_POST['g-recaptcha-response'])) {
                 echo '<p>do contrato de uso do software</p>';
                 
             }
-        } else {
-            echo "Falha no captcha!";
+        } else {           
             
              echo '<script type="text/javascript">';
              echo 'alert("Falha no captcha!");';
              echo "$(location).attr('href','../index.php');";
-             echo '</script>';
-            
+             echo '</script>';            
         }
         ?>
-
-
 
     </body>
 </html>
