@@ -136,7 +136,7 @@ require_once '../../biblioteca/funcoes.php';
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox"> Concordo com os termos do contrato
+                                            <input type="checkbox" id="concordou"> Concordo com os termos do contrato
                                         </label>
                                     </div>
                                 </div>
@@ -203,6 +203,14 @@ require_once '../../biblioteca/funcoes.php';
 
 
                 var processa = true;
+                
+                if (document.getElementById('concordou').checked == false){
+                  
+                    alert('Concorde com os termos do contrato para prosseguir'); 
+                   
+                    processa = false;                  
+                    
+                }
 
                 if (document.getElementById('email').value !== document.getElementById('email1').value) {
 
