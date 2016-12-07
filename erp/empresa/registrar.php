@@ -87,11 +87,21 @@ require_once '../../biblioteca/funcoes.php';
                             <!-- Form Name -->
                             <div class="alert alert-success"><legend>Preencha o formulário abaixo para acessar a área administrativa do site.</legend></div>
 
+
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="login">Nome Usuário</label>  
+                                <label class="col-md-4 control-label" for="nome">Nome</label>  
                                 <div class="col-md-5">
-                                    <input id="login" name="login" placeholder="" class="form-control input-md" required="required" type="text">
+                                    <input id="nome" name="nome" placeholder="" class="form-control input-md" required="required" type="text">
+
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="telefone">Telefone</label>  
+                                <div class="col-md-5">
+                                    <input id="telefone" name="telefone" placeholder="" class="form-control input-md" required="required" type="text">
 
                                 </div>
                             </div>

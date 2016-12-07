@@ -7,9 +7,20 @@
 require_once '../../biblioteca/read.data.php';
 require_once '../../biblioteca/funcoes.php';
 
+if (isset($_POST['cpf'])) {
+    $cpf = $_POST['cpf'];
+}
 
-if (isset($_POST['login'])) {
-    $login = $_POST['login'];
+if (isset($_POST['rg'])) {
+    $rg = $_POST['rg'];
+}
+
+if (isset($_POST['telefone'])) {
+    $telefone = $_POST['telefone'];
+}
+
+if (isset($_POST['nome'])) {
+    $nome = $_POST['nome'];
 }
 
 if (isset($_POST['email'])) {
@@ -85,14 +96,14 @@ if (isset($_POST['g-recaptcha-response'])) {
 
 
             $campos = array("email" => "$email",
-                "nome" => "$login",
+                "nome" => "$nome",
                 "senha" => "$senha",
                 "chave" => "$chave",
                 "situacao" => "1",
                 "ativo" => "1",
                 "mestre" => "S",
-                "cpf" => "111111111",
-                "telefone" => "111111-1111",
+                "cpf" => "$cpf",
+                "telefone" => "$telefone",
                 "dataCadastro" => "$data",
                 "nivel" => "1",
                 "permissoes_id" => "1");
