@@ -98,7 +98,7 @@ if (isset($_POST['g-recaptcha-response'])) {
                 "permissoes_id" => "1");
 
 
-            $result = DBRead('usuarios', "where email ='" . $email."' and mestre = 'S'" );
+            $result = DBRead('usuarios',"where email ='" . $email."' and mestre = 'S'" );
             if (!$result) {
                 $id = DBCreate('usuarios', $campos);
                 

@@ -139,7 +139,7 @@ function DBRead($table, $params=null, $fields='*'){
     
     //printf("total de %d registro(s).\n", $result->num_rows);
     //printf("%d total de .\n", $result->fetch_assoc);    
-    //printf("SELECT {$fields} FROM {$table}{$params}");
+    printf("SELECT {$fields} FROM {$table}{$params}");
 
     if (!$result->num_rows){
         return false;
