@@ -120,14 +120,9 @@ if (isset($_POST['g-recaptcha-response'])) {
             } else {
                 
                     echo '<script type="text/javascript">';
-                    echo 'alert("Este email já existe!\\njá encontra-se");';
+                    echo 'alert("Este email já existe!\\njá encontra-se registrado em nossa base de dados\\nEnvie um email para marcosbras@hotmail.com e solicite nova senha de acesso,\\naguarde resposta de sua solicitação, caso não tenha mais acesso ao email envie cópia do cpf e RG para o mesmo email");';
                     echo "$(location).attr('href','../empresa/registrar.php');";
                     echo '</script>';                
-                
-                echo '<p>Este email já encontra-se registrado em nossa base de dados</p>';
-                echo '<p>Envie um email para marcosbras@hotmail.com e solicite nova senha de acesso,</p>';
-                echo '<p>aguarde resposta de sua solicitação, caso não tenha mais acesso ao email observe a cláusula ____ </p>';
-                echo '<p>do contrato de uso do software</p>';
                 
             }
         } else {           
