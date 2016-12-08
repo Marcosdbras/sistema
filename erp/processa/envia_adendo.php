@@ -124,7 +124,7 @@ if (isset($_POST['g-recaptcha-response'])) {
                     
                     $campos = array("idusumestre"=>"$id");
                     
-                    DBUpDate('usuarios', $campos, "idUsusarios=$id");
+                    DBUpDate('usuarios', $campos, "idUsuarios=$id");
                     
                     echo '<script type="text/javascript">';
                     echo 'alert("Registro salvo com sucesso!");';
