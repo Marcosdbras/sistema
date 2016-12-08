@@ -119,7 +119,7 @@ class Mapos extends CI_Controller {
             $this->db->where('email',$email);
             $this->db->where('senha',$senha);
             $this->db->where('situacao',1);
-            $this->db->where('mestre','N');
+            //$this->db->where('mestre','N');
             
             $this->db->limit(1);
             $usuario = $this->db->get('usuarios')->row();
