@@ -85,12 +85,12 @@ class Usuarios extends CI_Controller {
         {     
             //Author: Marcos------------------------- 
             $this->db->select('idUsusarios, nivel');
-            $this->db->from('usuarios');
+            
             $this->db->where('idUsuarios', $this->session->userdata('idusumestre'));
             $this->db->limit(1);
             $usuario =  $this->db->get('usuarios')->row();
             if(count($usuario) > 0){
-              $nivel = $usuario->nivel;  
+              $nivel = $usuario->nivel + 1;  
             }else{
               $nivel = 1;  
             }
