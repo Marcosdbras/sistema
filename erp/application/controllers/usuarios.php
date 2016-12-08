@@ -83,7 +83,19 @@ class Usuarios extends CI_Controller {
 
         } else
         {     
-
+            //Author: Marcos------------------------- 
+            $this->db->select('idUsusarios, nivel');
+            $this->db->from('usuarios');
+            $this->db->where('idUsuarios', $this->session->userdata('idusumestre'));
+            $this->db->limit(1);
+            $usuario =  $this->db->get('usuarios')->row();
+            if(count($usuario) > 0){
+              $nivel = $usuario->nivel;  
+            }else{
+              $nivel = 1;  
+            }
+            //--------------------------------------
+            
             $this->load->library('encrypt');                       
             $data = array(
                                         'nome' => set_value('nome'),
@@ -101,7 +113,8 @@ class Usuarios extends CI_Controller {
 					'situacao' => set_value('situacao'),
                                         'permissoes_id' => $this->input->post('permissoes_id'),
 					'dataCadastro' => date('Y-m-d'),
-                                        'idusumestre' => $this->session->userdata('idusumestre') 
+                                        'idusumestre' => $this->session->userdata('idusumestre'),
+                                        'nivel'=>$nivel
             );
            
 			if ($this->usuarios_model->add('usuarios',$data) == TRUE)
