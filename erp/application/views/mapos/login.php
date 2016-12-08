@@ -24,7 +24,7 @@
                     </div>
                 <?php } ?>
                 <div class="control-group normal_text"> <h3><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" /></h3>
-                    <h5>Sistema Administrativo de Ordem de Serviço e Vendas</h5>
+                    <h5>Sistema Administrativo de Ordem de Serviço e Venda</h5>
                 </div>
                 <div class="control-group">
                     <div class="controls">

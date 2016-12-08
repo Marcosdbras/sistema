@@ -115,12 +115,6 @@ class Mapos extends CI_Controller {
 
             $this->load->library('encrypt');   
             $senha = $this->encrypt->sha1($senha);
-
-            
-            //$this->db->where('idusumestre',$idusumestre);
-            
-            
-            
             
             $this->db->where('email',$email);
             $this->db->where('senha',$senha);
@@ -150,7 +144,6 @@ class Mapos extends CI_Controller {
                 
             }
             else{
-                
                 
                 if($ajax == true){
                     $json = array('result' => false);

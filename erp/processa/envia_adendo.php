@@ -111,8 +111,7 @@ if (isset($_POST['g-recaptcha-response'])) {
 
             $result = DBRead('usuarios',"where email ='" . $email."' and mestre = 'S' limit 1" );
             if (!$result) {
-                $id = DBCreate('usuarios', $campos);
-                
+                $id = DBCreate('usuarios', $campos);                
                 
                 if ($id == 0) {                    
                     
@@ -122,7 +121,11 @@ if (isset($_POST['g-recaptcha-response'])) {
                     echo '</script>';                    
                     
                 } else {
-
+                    
+                    $campos = array("idusumestre"=>"$id");
+                    
+                    DBUpDate('usuarios', $campos, "idUsusarios=$id");
+                    
                     echo '<script type="text/javascript">';
                     echo 'alert("Registro salvo com sucesso!");';
                     echo "$(location).attr('href','../index.php');";

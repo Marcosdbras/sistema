@@ -22,7 +22,7 @@ require_once '../../biblioteca/funcoes.php';
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="Nota Fiscal Eletrônica, NFE, ERP, Online, Programa, Administrativo">
+        <meta name="description" content="Nota Fiscal Eletrônica, NFE, ERP, Online, Programa, Administrativo, Ordem de serviço, venda">
         <meta name="author" content="Marcos Brás">
         <!--   <link rel="icon" href="/image/favicon.ico"> -->
 
@@ -117,7 +117,7 @@ require_once '../../biblioteca/funcoes.php';
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="email1">Confirma email</label>  
+                                <label class="col-md-4 control-label" for="email1">Confirme Email</label>  
                                 <div class="col-md-6">
                                     <input id="email1" name="email1" placeholder="" class="form-control input-md" required="required" type="text">
 
