@@ -77,7 +77,7 @@ class Clientes extends CI_Controller {
             //Author: Marcos Brás--------------------- 
             $this->db->select('count(*) as totreg');
             $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
-            $totreg = $this->db->get('clientes')->row() + 1;
+            $totreg = $this->db->count_all_results()+ 1;
             //--------------------------------------
             
             $data = array(
