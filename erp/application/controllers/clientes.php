@@ -75,9 +75,10 @@ class Clientes extends CI_Controller {
         } else {
 
             //Author: Marcos Brás--------------------- 
-            $this->db->select('clientes');
+            $this->db->select('idusumestre');
+            $this->db->from('clientes');
             $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
-            $totreg = $this->db->count_all_results()+ 1;
+            $totreg = $this->db->count_all_results()+1;
             //--------------------------------------
             
             $data = array(
