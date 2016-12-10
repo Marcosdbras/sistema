@@ -83,7 +83,7 @@ class Usuarios extends CI_Controller {
 
         } else
         {     
-            //Author: Marcos------------------------- 
+            //Author: Marcos Brás--------------------- 
             $this->db->select('idUsuarios, nivel');
             
             $this->db->where('idUsuarios', $this->session->userdata('idusumestre'));

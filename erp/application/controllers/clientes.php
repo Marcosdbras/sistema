@@ -71,6 +71,13 @@ class Clientes extends CI_Controller {
            redirect(base_url());
         }
 
+
+        //Author: Marcos Brás--------------------- 
+        $this->db->select('count(*) as totreg');
+        $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+        $totreg =  $this->db->get('clientes')->row() + 1;
+        //--------------------------------------
+
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
 
@@ -90,8 +97,10 @@ class Clientes extends CI_Controller {
                 'estado' => set_value('estado'),
                 'cep' => set_value('cep'),
                 'dataCadastro' => date('Y-m-d'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhes' => $totreg
             );
+
 
             if ($this->clientes_model->add('clientes', $data) == TRUE) {
                 $this->session->set_flashdata('success','Cliente adicionado com sucesso!');
