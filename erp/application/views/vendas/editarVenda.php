@@ -28,7 +28,24 @@
                                     <?php echo form_hidden('idVendas',$result->idVendas) ?>
                                     
                                     <div class="span12" style="padding: 1%; margin-left: 0">
-                                        <h3>#Venda: <?php echo $result->idVendas ?></h3>
+                                        <h3>#Venda: 
+                                            <?php 
+                                            
+                                            
+                                              /*echo $result->idVendas*/
+                                              $this->db->select('vendas.idVendas, vendas.iddetalhe');
+                                              $this->db->from('vendas');
+                                              $this->db->where('idVendas',$result->idVendas);
+                                              $this->db->limit('1');
+                                            
+                                              $query = $this->db->get();
+                                              
+                                              $row = $query->row();
+                                              echo $row->iddetalhe;
+
+                                            
+                                            ?>
+                                        </h3>
                                         <div class="span2" style="margin-left: 0">
                                             <label for="dataFinal">Data Final</label>
                                             <input id="dataVenda" class="span12 datepicker" type="text" name="dataVenda" value="<?php echo date('d/m/Y', strtotime($result->dataVenda)); ?>"  />
@@ -83,7 +100,7 @@
                                                 <input type="text" placeholder="Quantidade" id="quantidade" name="quantidade" class="span12" />
                                             </div>
                                             
-                                            <!--Author: Marcos -->
+                                            <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
                                                 <input type="text" placeholder="preco" id="preco" name="preco" class="span12" />

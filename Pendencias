@@ -8,6 +8,10 @@
 - Fazer blog com assuntos sobre empresa
 - Apresentar numeração/id por empresa ou usuário
 - verificar inject sql
+- Falha de Segurança: Se a pessoa se logar com sua propria senha e pegar a url de outro usuário 
+  e colar na barra de endereço  a página abre para esse usuário indevido
+  Solução: Verificar no check da página view se usuário mestre é o mesmo que está no banco de dados
+  se não for deve barrar passagem
 
 
 * Corrigido  
