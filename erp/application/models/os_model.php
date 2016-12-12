@@ -21,7 +21,8 @@ class Os_model extends CI_Model {
         $this->db->where($table.'.idusumestre',$idusumestre);
         $this->db->join('clientes','clientes.idClientes = os.clientes_id');
         $this->db->limit($perpage,$start);
-        $this->db->order_by('idOs','desc');
+        //$this->db->order_by('idOs','desc');
+        $this->db->order_by('iddetalhe','desc');
         if($where){
             $this->db->where($where);
         }

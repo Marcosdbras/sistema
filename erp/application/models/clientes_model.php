@@ -19,7 +19,8 @@ class Clientes_model extends CI_Model {
         $this->db->select($fields);
         $this->db->from($table);
         $this->db->where('idusumestre',$idusumestre);
-        $this->db->order_by('idClientes','desc');
+        //$this->db->order_by('idClientes','desc');
+        $this->db->order_by('iddetalhe','desc');
         $this->db->limit($perpage,$start);
         if($where){
             $this->db->where($where);
@@ -76,7 +77,8 @@ class Clientes_model extends CI_Model {
     
     public function getOsByCliente($id){
         $this->db->where('clientes_id',$id);
-        $this->db->order_by('idOs','desc');
+        //$this->db->order_by('idOs','desc');
+        $this->db->order_by('iddetalhe','desc');
         $this->db->limit(10);
         return $this->db->get('os')->result();
     }

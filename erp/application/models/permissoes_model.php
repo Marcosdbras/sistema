@@ -20,7 +20,8 @@ class Permissoes_model extends CI_Model {
         $this->db->select($fields);
         $this->db->from($table);
         $this->db->where('idusumestre',$idusumestre);
-        $this->db->order_by('idPermissao','desc');
+        //$this->db->order_by('idPermissao','desc');
+        $this->db->order_by('iddetalhe','desc');
         $this->db->limit($perpage,$start);
         if($where){
             $this->db->where($where);
