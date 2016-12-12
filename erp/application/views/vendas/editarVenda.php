@@ -94,13 +94,15 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input class="span12 money" placeholder="Quantidade" id="quantidade" name="quantidade"  />
+                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  />
                                             </div>
                                             
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="tel" required="required" maxlength="15" name="preco"  id="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />                                            </div>
+                                                <input class="span12" placeholder="Preço" id="preco" name="preco"  />           
+                                                
+                                                                                           </div>
                                             
                                             <div class="span2">
                                                 <label for="">&nbsp</label>
