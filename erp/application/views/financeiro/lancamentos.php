@@ -85,6 +85,7 @@ if(!$results){?>
             <th>Status</th>
             <th>Defeito</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -115,13 +116,14 @@ if(!$results){?>
     <thead>
         <tr style="backgroud-color: #2D335B">
             <th>#</th>
-            <th>Id</th>
+            
             <th>Tipo</th>
             <th>Cliente / Fornecedor</th>
             <th>Vencimento</th>
             <th>Status</th>
             <th>Valor</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -135,7 +137,7 @@ if(!$results){?>
             if($r->tipo == 'receita'){ $label = 'success'; $totalReceita += $r->valor;} else{$label = 'important'; $totalDespesa += $r->valor;}
             echo '<tr>'; 
             echo '<td>'.$r->iddetalhe.'</td>';
-            echo '<td>'.$r->idLancamentos.'</td>';
+            
             echo '<td><span class="label label-'.$label.'">'.ucfirst($r->tipo).'</span></td>';
             echo '<td>'.$r->cliente_fornecedor.'</td>';
             echo '<td>'.$vencimento.'</td>';   
@@ -151,6 +153,7 @@ if(!$results){?>
             }
                      
             echo '</td>';
+            echo '<td>'.$r->idLancamentos.'</td>';
             echo '</tr>';
         }?>
         <tr>

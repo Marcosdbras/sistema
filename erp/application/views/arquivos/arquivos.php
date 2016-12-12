@@ -45,6 +45,7 @@ if(!$results){?>
                         <th>Tamanho</th>
                         <th>Extensão</th>
                         <th></th>
+                        <th>Id</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,19 +77,20 @@ if(!$results){?>
         <thead>
             <tr>
                 <th>#</th>
-                <th>Id</th>
+                
                 <th>Documento</th>
                 <th>Data</th>
                 <th>Tamanho</th>
                 <th>Extensão</th>
                 <th></th>
+                <th>Id</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($results as $r) {
                 echo '<tr>';
                 echo '<td>'.$r->iddetalhe.'</td>';
-                echo '<td>'.$r->idDocumentos.'</td>';
+                
                 echo '<td>'.$r->documento.'</td>';
                 echo '<td>'.date('d/m/Y',strtotime($r->cadastro)).'</td>';
                 echo '<td>'.$r->tamanho.' KB</td>';
@@ -107,6 +109,9 @@ if(!$results){?>
                          echo '<a href="#modal-excluir" style="margin-right: 1%" role="button" data-toggle="modal" arquivo="'.$r->idDocumentos.'" class="btn btn-danger tip-top" title="Excluir Arquivo"><i class="icon-remove icon-white"></i></a>';
                     }
                 echo  '</td>';
+                
+                echo '<td>'.$r->idDocumentos.'</td>';
+                
                 echo '</tr>';
             }?>
             <tr>
