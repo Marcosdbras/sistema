@@ -52,8 +52,8 @@ class Os extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        $this->data['results'] = $this->os_model->get('os', 'idOs,dataInicial,dataFinal,garantia,descricaoProduto,defeito,status,observacoes,laudoTecnico', '', $config['per_page'], $this->uri->segment(3));
-
+        //$this->data['results'] = $this->os_model->get('os', 'idOs,dataInicial,dataFinal,garantia,descricaoProduto,defeito,status,observacoes,laudoTecnico', '', $config['per_page'], $this->uri->segment(3));
+        $this->data['results'] = $this->os_model->get('os', '*', '', $config['per_page'], $this->uri->segment(3));
         $this->data['view'] = 'os/os';
         $this->load->view('tema/topo', $this->data);
     }
