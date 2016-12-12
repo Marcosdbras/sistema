@@ -100,7 +100,7 @@
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input class="span12" placeholder="Preço" id="preco" name="preco"  />           
+                                                <input class="span12" placeholder="Preço" id="preco" name="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />           
                                                 
                                                                                            </div>
                                             
