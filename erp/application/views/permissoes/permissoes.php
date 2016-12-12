@@ -20,6 +20,7 @@ if(!$results){?>
                         <th>Data de Criação</th>
                         <th>Situação</th>
                         <th></th>
+                        <th>Id</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,11 +52,12 @@ if(!$results){?>
     <thead>
         <tr>
             <th>#</th>
-            <th>Id</th>
+            
             <th>Nome</th>
             <th>Data de Criação</th>
             <th>Situação</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -63,7 +65,7 @@ if(!$results){?>
             if($r->situacao == 1){$situacao = 'Ativo';}else{$situacao = 'Inativo';}
             echo '<tr>';
             echo '<td>'.$r->iddetalhe.'</td>';
-            echo '<td>'.$r->idPermissao.'</td>';
+            
             echo '<td>'.$r->nome.'</td>';
             echo '<td>'.date('d/m/Y',strtotime($r->data)).'</td>';
             echo '<td>'.$situacao.'</td>';
@@ -71,6 +73,8 @@ if(!$results){?>
                       <a href="'.base_url().'index.php/permissoes/editar/'.$r->idPermissao.'" class="btn btn-info tip-top" title="Editar Permissão"><i class="icon-pencil icon-white"></i></a>
                       <a href="#modal-excluir" role="button" data-toggle="modal" permissao="'.$r->idPermissao.'" class="btn btn-danger tip-top" title="Desativar Permissão"><i class="icon-remove icon-white"></i></a>
                   </td>';
+            echo '<td>'.$r->idPermissao.'</td>';
+            
             echo '</tr>';
         }?>
         <tr>

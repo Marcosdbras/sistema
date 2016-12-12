@@ -22,6 +22,7 @@ if(!$results){?>
             <th>Telefone</th>
             <th>Nível</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>    
@@ -52,12 +53,13 @@ if(!$results){?>
     <thead>
         <tr style="backgroud-color: #2D335B">
             <th>#</th>
-            <th>Id</th>
+            
             <th>Nome</th>
             <th>CPF</th>
             <th>Telefone</th>
             <th>Nível</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -65,7 +67,7 @@ if(!$results){?>
            
             echo '<tr>';
             echo '<td>'.$r->iddetalhe.'</td>';
-            echo '<td>'.$r->idUsuarios.'</td>';
+            
             echo '<td>'.$r->nome.'</td>';
             echo '<td>'.$r->cpf.'</td>';
             echo '<td>'.$r->telefone.'</td>';
@@ -73,6 +75,7 @@ if(!$results){?>
             echo '<td>
                       <a href="'.base_url().'index.php/usuarios/editar/'.$r->idUsuarios.'" class="btn btn-info tip-top" title="Editar Usuário"><i class="icon-pencil icon-white"></i></a>
                   </td>';
+            echo '<td>'.$r->idUsuarios.'</td>';
             echo '</tr>';
         }?>
         <tr>

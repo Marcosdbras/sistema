@@ -25,6 +25,7 @@ if(!$results){?>
             <th>Cliente</th>
             <th>Faturado</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -55,11 +56,12 @@ if(!$results){?>
     <thead>
         <tr style="backgroud-color: #2D335B">
             <th>#</th>
-            <th>Id</th>
+            
             <th>Data da Venda</th>
             <th>Cliente</th>
             <th>Faturado</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -68,7 +70,7 @@ if(!$results){?>
             if($r->faturado == 1){$faturado = 'Sim';} else{ $faturado = 'Não';}           
             echo '<tr>';
             echo '<td>'.$r->iddetalhe.'</td>';
-            echo '<td>'.$r->idVendas.'</td>';
+            
             echo '<td>'.$dataVenda.'</td>';
             echo '<td><a href="'.base_url().'index.php/clientes/visualizar/'.$r->idClientes.'">'.$r->nomeCliente.'</a></td>';
             echo '<td>'.$faturado.'</td>';
@@ -85,6 +87,9 @@ if(!$results){?>
             }
 
             echo '</td>';
+            
+            echo '<td>'.$r->idVendas.'</td>';
+            
             echo '</tr>';
         }?>
         <tr>

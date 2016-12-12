@@ -23,6 +23,7 @@ if(!$results){?>
                         <th>CPF/CNPJ</th>
                         <th>Telefone</th>
                         <th></th>
+                        <th>Id</th>
                     </tr>
                 </thead>
                 <tbody>
