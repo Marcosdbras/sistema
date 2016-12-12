@@ -59,7 +59,7 @@ class Vendas extends CI_Controller {
         	
         $this->pagination->initialize($config); 	
 
-		$this->data['results'] = $this->vendas_model->get('vendas','*','',$config['per_page'],$this->uri->segment(3));
+		$this->data['results'] = $this->vendas_model->get('vendas','vendas.idVendas, vendas.dataVenda, vendas.valorTotal, vendas.desconto, vendas.faturado, vendas.clientes_id, vendas.usuarios_id, vendas.lancamentos_id, vendas.idusumestre, vendas.iddetalhe','',$config['per_page'],$this->uri->segment(3));
        
 	    $this->data['view'] = 'vendas/vendas';
        	$this->load->view('tema/topo',$this->data);
