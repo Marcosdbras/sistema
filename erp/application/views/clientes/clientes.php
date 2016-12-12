@@ -54,12 +54,13 @@ if(!$results){?>
     <thead>
         <tr>
             <th>#</th>
-            <th>Id</th>
+            
                 
             <th>Nome</th>
             <th>CPF/CNPJ</th>
             <th>Telefone</th>
             <th></th>
+            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -67,7 +68,7 @@ if(!$results){?>
             echo '<tr>';
             
             echo '<td>'.$r->iddetalhe.'</td>';
-            echo '<td>'.$r->idClientes.'</td>';
+            
             echo '<td>'.$r->nomeCliente.'</td>';
             echo '<td>'.$r->documento.'</td>';
             echo '<td>'.$r->telefone.'</td>';
@@ -84,6 +85,7 @@ if(!$results){?>
 
               
             echo '</td>';
+            echo '<td>'.$r->idClientes.'</td>';
             echo '</tr>';
         }?>
         <tr>
