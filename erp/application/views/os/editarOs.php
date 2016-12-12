@@ -30,7 +30,27 @@
                                     <?php echo form_hidden('idOs', $result->idOs) ?>
 
                                     <div class="span12" style="padding: 1%; margin-left: 0">
-                                        <h3>#Protocolo: <?php /*echo $result->idOs;*/ echo $result->iddetalhe.$result->idusumestre;   ?></h3>
+                                        <h3>#Protocolo: 
+                                            
+                                            
+                                            <?php 
+                                            
+                                              /*echo $result->idOs;*/                                               
+                                              $this->db->select('os.idOs, os.iddetalhe');
+                                              $this->db->from('os');
+                                              $this->db->where('idOs',$result->idOs);
+                                              $this->db->limit('1');
+                                            
+                                              $query = $this->db->get();
+                                              
+                                              $row = $query->row();
+                                              echo $row->iddetalhe;
+                                              
+                                              
+                                            ?>
+                                        
+                                        
+                                        </h3>
 
                                         <div class="span6" style="margin-left: 0">
                                             <label for="cliente">Cliente<span class="required">*</span></label>
