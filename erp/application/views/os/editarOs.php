@@ -30,7 +30,7 @@
                                     <?php echo form_hidden('idOs', $result->idOs) ?>
 
                                     <div class="span12" style="padding: 1%; margin-left: 0">
-                                        <h3>#Protocolo: <?php /*echo $result->idOs;*/ echo $result->iddetalhe;   ?></h3>
+                                        <h3>#Protocolo: <?php /*echo $result->idOs;*/ echo $result->osiddetalhe;   ?></h3>
 
                                         <div class="span6" style="margin-left: 0">
                                             <label for="cliente">Cliente<span class="required">*</span></label>
