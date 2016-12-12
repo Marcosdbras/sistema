@@ -94,6 +94,17 @@ class Usuarios extends CI_Controller {
             }else{
               $nivel = 1;  
             }
+            
+            $this->db->select('idusumestre');
+            $this->db->from('usuarios');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
             //--------------------------------------
             
             $this->load->library('encrypt');                       
@@ -114,7 +125,8 @@ class Usuarios extends CI_Controller {
                                         'permissoes_id' => $this->input->post('permissoes_id'),
 					'dataCadastro' => date('Y-m-d'),
                                         'idusumestre' => $this->session->userdata('idusumestre'),
-                                        'nivel'=>$nivel
+                                        'nivel'=>$nivel,
+                                        'iddetalhe'=>$totreg
             );
            
 			if ($this->usuarios_model->add('usuarios',$data) == TRUE)

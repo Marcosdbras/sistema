@@ -227,6 +227,21 @@ class Financeiro extends CI_Controller {
                $vencimento = date('Y/m/d'); 
             }
 
+            
+             //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('lancamentos');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
+            
+            
             $data = array(
                 'descricao' => set_value('descricao'),
 				'valor' => set_value('valor'),
@@ -236,7 +251,8 @@ class Financeiro extends CI_Controller {
 				'cliente_fornecedor' => set_value('cliente'),
 				'forma_pgto' => $this->input->post('formaPgto'),
 				'tipo' => set_value('tipo'),
-                                'idusumestre' => $this->session->userdata('idusumestre')
+                                'idusumestre' => $this->session->userdata('idusumestre'),
+                                'iddetalhe' => $totreg 
             );
 
             if ($this->financeiro_model->add('lancamentos',$data) == TRUE) {
@@ -287,6 +303,20 @@ class Financeiro extends CI_Controller {
             } catch (Exception $e) {
                $vencimento = date('Y/m/d'); 
             }
+            
+            
+             //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('lancamentos');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
 
             $data = array(
                 'descricao' => set_value('descricao'),
@@ -297,7 +327,8 @@ class Financeiro extends CI_Controller {
 				'cliente_fornecedor' => set_value('fornecedor'),
 				'forma_pgto' => $this->input->post('formaPgto'),
 				'tipo' => set_value('tipo'),
-                                'idusumestre' => $this->session->userdata('idusumestre')
+                                'idusumestre' => $this->session->userdata('idusumestre'),
+                                'iddetalhe' => $totreg
             );
 
             if ($this->financeiro_model->add('lancamentos',$data) == TRUE) {

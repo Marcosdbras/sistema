@@ -86,7 +86,8 @@ if(!$results){?>
         <tbody>
             <?php foreach ($results as $r) {
                 echo '<tr>';
-                echo '<td>'.$r->idDocumentos.'</td>';
+                //echo '<td>'.$r->idDocumentos.'</td>';
+                echo '<td>'.$r->iddetalhe.'</td>';
                 echo '<td>'.$r->documento.'</td>';
                 echo '<td>'.date('d/m/Y',strtotime($r->cadastro)).'</td>';
                 echo '<td>'.$r->tamanho.' KB</td>';

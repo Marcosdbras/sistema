@@ -83,6 +83,20 @@ class Produtos extends CI_Controller {
             $precoCompra = str_replace(",","", $precoCompra);
             $precoVenda = $this->input->post('precoVenda');
             $precoVenda = str_replace(",", "", $precoVenda);
+            
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('produtos');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
+            
             $data = array(
                 'descricao' => set_value('descricao'),
                 'unidade' => set_value('unidade'),
@@ -90,7 +104,8 @@ class Produtos extends CI_Controller {
                 'precoVenda' => $precoVenda,
                 'estoque' => set_value('estoque'),
                 'estoqueMinimo' => set_value('estoqueMinimo'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe'=>$totreg
             );
 
             if ($this->produtos_model->add('produtos', $data) == TRUE) {

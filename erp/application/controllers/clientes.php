@@ -79,7 +79,13 @@ class Clientes extends CI_Controller {
             $this->db->from('clientes');
             $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
             $totreg = $this->db->count_all_results()+1;
-            //--------------------------------------
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
             
             $data = array(
                 'nomeCliente' => set_value('nomeCliente'),

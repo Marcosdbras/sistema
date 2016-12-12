@@ -63,7 +63,8 @@ if(!$results){?>
     <tbody>
         <?php foreach ($results as $r) {
             echo '<tr>';
-            echo '<td>'.$r->idClientes.'</td>';
+            //echo '<td>'.$r->idClientes.'</td>';
+            echo '<td>'.$r->iddetalhe.'</td>';
             echo '<td>'.$r->nomeCliente.'</td>';
             echo '<td>'.$r->documento.'</td>';
             echo '<td>'.$r->telefone.'</td>';

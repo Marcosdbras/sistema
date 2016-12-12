@@ -86,6 +86,20 @@ class Os extends CI_Controller {
                 $dataFinal = date('Y/m/d');
             }
 
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('os');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results() + 1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+              1 - Gravar primeiro todos os dados
+              2 - Puxar a última id salvo
+              3 - Realizar o count_all
+              4 - Por último gravar iddetalhe com total de registro
+             */
+            //----------------------------------------
+
+
             $data = array(
                 'dataInicial' => $dataInicial,
                 'clientes_id' => $this->input->post('clientes_id'), //set_value('idCliente'),
@@ -98,7 +112,9 @@ class Os extends CI_Controller {
                 'observacoes' => set_value('observacoes'),
                 'laudoTecnico' => set_value('laudoTecnico'),
                 'faturado' => 0,
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe' => $totreg
+                
             );
 
             if (is_numeric($id = $this->os_model->add('os', $data, true))) {
@@ -121,6 +137,20 @@ class Os extends CI_Controller {
             $json = array("result" => false);
             echo json_encode($json);
         } else {
+
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('os');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results() + 1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+              1 - Gravar primeiro todos os dados
+              2 - Puxar a última id salvo
+              3 - Realizar o count_all
+              4 - Por último gravar iddetalhe com total de registro
+             */
+            //----------------------------------------
+
             $data = array(
                 'dataInicial' => set_value('dataInicial'),
                 'clientes_id' => $this->input->post('clientes_id'), //set_value('idCliente'),
@@ -132,7 +162,8 @@ class Os extends CI_Controller {
                 'status' => set_value('status'),
                 'observacoes' => set_value('observacoes'),
                 'laudoTecnico' => set_value('laudoTecnico'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe' => $totreg
             );
 
             if (is_numeric($id = $this->os_model->add('os', $data, true))) {
@@ -285,12 +316,28 @@ class Os extends CI_Controller {
         $quantidade = $this->input->post('quantidade');
         $subtotal = $preco * $quantidade;
         $produto = $this->input->post('idProduto');
+
+        //Author: Marcos Brás--------------------- 
+        $this->db->select('idusumestre');
+        $this->db->from('produtos_os');
+        $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+        $this->db->where('os_id', $this->input->post('idOsProduto'));
+        $totreg = $this->db->count_all_results() + 1;
+        /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+          1 - Gravar primeiro todos os dados
+          2 - Puxar a última id salvo
+          3 - Realizar o count_all
+          4 - Por último gravar iddetalhe com total de registro
+         */
+        //----------------------------------------
+
         $data = array(
             'quantidade' => $quantidade,
             'subTotal' => $subtotal,
             'produtos_id' => $produto,
             'os_id' => $this->input->post('idOsProduto'),
-            'idusumestre' => $this->session->userdata('idusumestre')
+            'idusumestre' => $this->session->userdata('idusumestre'),
+            'iddetalhe' => $totreg
         );
 
         if ($this->os_model->add('produtos_os', $data) == true) {
@@ -324,11 +371,25 @@ class Os extends CI_Controller {
 
     public function adicionarServico() {
 
+        //Author: Marcos Brás--------------------- 
+        $this->db->select('idusumestre');
+        $this->db->from('servicos_os');
+        $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+        $this->db->where('os_id', $this->input->post('idOsServico'));
+        $totreg = $this->db->count_all_results() + 1;
+        /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+          1 - Gravar primeiro todos os dados
+          2 - Puxar a última id salvo
+          3 - Realizar o count_all
+          4 - Por último gravar iddetalhe com total de registro
+         */
+        //----------------------------------------
 
         $data = array(
             'servicos_id' => $this->input->post('idServico'),
             'os_id' => $this->input->post('idOsServico'),
-            'idusumestre' => $this->session->userdata('idusumestre')
+            'idusumestre' => $this->session->userdata('idusumestre'),
+            'iddetalhe' => $totreg
         );
 
         if ($this->os_model->add('servicos_os', $data) == true) {
@@ -355,7 +416,7 @@ class Os extends CI_Controller {
         $idusumestre = $this->session->userdata('idusumestre');
 
 
-        if (!is_dir('./assets/anexos/' . $idusumestre )) {
+        if (!is_dir('./assets/anexos/' . $idusumestre)) {
 
             mkdir('./assets/anexos/' . $idusumestre, 0777, TRUE);
         }
@@ -363,7 +424,7 @@ class Os extends CI_Controller {
         $this->load->library('upload');
         $this->load->library('image_lib');
         $upload_conf = array(
-            'upload_path' => realpath('./assets/anexos/' . $idusumestre ),
+            'upload_path' => realpath('./assets/anexos/' . $idusumestre),
             'allowed_types' => 'jpg|png|gif|jpeg|JPG|PNG|GIF|JPEG|pdf|PDF|cdr|CDR|docx|DOCX|txt', // formatos permitidos para anexos de os
             'max_size' => 0,
         );
@@ -392,7 +453,7 @@ class Os extends CI_Controller {
 
                 $success[] = $upload_data;
                 $this->load->model('Os_model');
-                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/'. $idusumestre.'/' , 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre ));
+                $this->Os_model->anexar($this->input->post('idOsServico'), $upload_data['file_name'], base_url() . 'assets/anexos/' . $idusumestre . '/', 'thumb_' . $upload_data['file_name'], realpath('./assets/anexos/' . $idusumestre));
             }
         }
         if (count($error) > 0) {
@@ -488,6 +549,19 @@ class Os extends CI_Controller {
                 $vencimento = date('Y/m/d');
             }
 
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('lancamentos');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
+
             $data = array(
                 'descricao' => set_value('descricao'),
                 'valor' => $this->input->post('valor'),
@@ -498,7 +572,8 @@ class Os extends CI_Controller {
                 'cliente_fornecedor' => set_value('cliente'),
                 'forma_pgto' => $this->input->post('formaPgto'),
                 'tipo' => $this->input->post('tipo'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe'=>$totreg
             );
 
             if ($this->os_model->add('lancamentos', $data) == TRUE) {

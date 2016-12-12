@@ -92,13 +92,27 @@ class Vendas extends CI_Controller {
             } catch (Exception $e) {
                $dataVenda = date('Y/m/d'); 
             }
+            
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('vendas');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
 
             $data = array(
                 'dataVenda' => $dataVenda,
                 'clientes_id' => $this->input->post('clientes_id'),
                 'usuarios_id' => $this->input->post('usuarios_id'),
                 'faturado' => 0,
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe'=>$totreg
             );
 
             if (is_numeric($id = $this->vendas_model->add('vendas', $data, true)) ) {
@@ -268,12 +282,28 @@ class Vendas extends CI_Controller {
             $quantidade = $this->input->post('quantidade');
             $subtotal = $preco * $quantidade;
             $produto = $this->input->post('idProduto');
+            
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('itens_de_vendas');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $this->db->where('vendas_id', $this->input->post('idVendasProduto'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
+            
             $data = array(
                 'quantidade'=> $quantidade,
                 'subTotal'=> $subtotal,
                 'produtos_id'=> $produto,
                 'vendas_id'=> $this->input->post('idVendasProduto'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe'=>$totreg
             );
 
             if($this->vendas_model->add('itens_de_vendas', $data) == true){
@@ -350,6 +380,19 @@ class Vendas extends CI_Controller {
                $vencimento = date('Y/m/d'); 
             }
 
+             //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('lancamentos');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
+
             $data = array(
                 'descricao' => set_value('descricao'),
                 'valor' => $this->input->post('valor'),
@@ -360,7 +403,8 @@ class Vendas extends CI_Controller {
                 'cliente_fornecedor' => set_value('cliente'),
                 'forma_pgto' => $this->input->post('formaPgto'),
                 'tipo' => $this->input->post('tipo'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe'=>$totreg
             );
 
             if ($this->vendas_model->add('lancamentos',$data) == TRUE) {

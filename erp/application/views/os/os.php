@@ -68,7 +68,8 @@ if(!$results){?>
             $dataInicial = date(('d/m/Y'),strtotime($r->dataInicial));
             $dataFinal = date(('d/m/Y'),strtotime($r->dataFinal));
             echo '<tr>';
-            echo '<td>'.$r->idOs.'</td>';
+            //echo '<td>'.$r->idOs.'</td>';
+            echo '<td>'.$r->iddetalhe.'</td>';
             echo '<td>'.$r->nomeCliente.'</td>';
             echo '<td>'.$dataInicial.'</td>';
             echo '<td>'.$dataFinal.'</td>';

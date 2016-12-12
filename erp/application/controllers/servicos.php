@@ -81,12 +81,26 @@ class Servicos extends CI_Controller {
         } else {
             $preco = $this->input->post('preco');
             $preco = str_replace(",","", $preco);
+            //Author: Marcos Brás--------------------- 
+            $this->db->select('idusumestre');
+            $this->db->from('servicos');
+            $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+            $totreg = $this->db->count_all_results()+1;
+            /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
+               1 - Gravar primeiro todos os dados
+               2 - Puxar a última id salvo
+               3 - Realizar o count_all
+               4 - Por último gravar iddetalhe com total de registro
+             */ 
+            //----------------------------------------
+            
 
             $data = array(
                 'nome' => set_value('nome'),
                 'descricao' => set_value('descricao'),
                 'preco' => $preco,
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'iddetalhe'=>$totreg
             );
 
             if ($this->servicos_model->add('servicos', $data) == TRUE) {

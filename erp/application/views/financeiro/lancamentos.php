@@ -133,7 +133,8 @@ if(!$results){?>
             if($r->baixado == 0){$status = 'Pendente';}else{ $status = 'Pago';};
             if($r->tipo == 'receita'){ $label = 'success'; $totalReceita += $r->valor;} else{$label = 'important'; $totalDespesa += $r->valor;}
             echo '<tr>'; 
-            echo '<td>'.$r->idLancamentos.'</td>';
+            //echo '<td>'.$r->idLancamentos.'</td>';
+            echo '<td>'.$r->iddetalhe.'</td>';
             echo '<td><span class="label label-'.$label.'">'.ucfirst($r->tipo).'</span></td>';
             echo '<td>'.$r->cliente_fornecedor.'</td>';
             echo '<td>'.$vencimento.'</td>';   
