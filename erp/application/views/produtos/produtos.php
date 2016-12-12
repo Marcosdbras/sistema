@@ -55,6 +55,7 @@ if(!$results){?>
     <thead>
         <tr style="backgroud-color: #2D335B">
             <th>#</th>
+            <th>Id</th>
             <th>Nome</th>
             <th>Estoque</th>
             <th>Preço</th>
@@ -64,8 +65,8 @@ if(!$results){?>
     <tbody>
         <?php foreach ($results as $r) {
             echo '<tr>';
-            //echo '<td>'.$r->idProdutos.'</td>';
             echo '<td>'.$r->iddetalhe.'</td>';
+            echo '<td>'.$r->idProdutos.'</td>';
             echo '<td>'.$r->descricao.'</td>';
             echo '<td>'.$r->estoque.'</td>';
             echo '<td>'.number_format($r->precoVenda,2,',','.').'</td>';

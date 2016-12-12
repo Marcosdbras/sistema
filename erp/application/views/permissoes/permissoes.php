@@ -51,6 +51,7 @@ if(!$results){?>
     <thead>
         <tr>
             <th>#</th>
+            <th>Id</th>
             <th>Nome</th>
             <th>Data de Criação</th>
             <th>Situação</th>
@@ -61,8 +62,8 @@ if(!$results){?>
         <?php foreach ($results as $r) {
             if($r->situacao == 1){$situacao = 'Ativo';}else{$situacao = 'Inativo';}
             echo '<tr>';
-            //echo '<td>'.$r->idPermissao.'</td>';
             echo '<td>'.$r->iddetalhe.'</td>';
+            echo '<td>'.$r->idPermissao.'</td>';
             echo '<td>'.$r->nome.'</td>';
             echo '<td>'.date('d/m/Y',strtotime($r->data)).'</td>';
             echo '<td>'.$situacao.'</td>';

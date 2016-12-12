@@ -54,7 +54,8 @@ if(!$results){?>
     <thead>
         <tr>
             <th>#</th>
-            
+            <th>Id</th>
+                
             <th>Nome</th>
             <th>CPF/CNPJ</th>
             <th>Telefone</th>
@@ -64,9 +65,9 @@ if(!$results){?>
     <tbody>
         <?php foreach ($results as $r) {
             echo '<tr>';
-            //echo '<td>'.$r->idClientes.'</td>';
-            echo '<td>'.$r->iddetalhe.'</td>';
             
+            echo '<td>'.$r->iddetalhe.'</td>';
+            echo '<td>'.$r->idClientes.'</td>';
             echo '<td>'.$r->nomeCliente.'</td>';
             echo '<td>'.$r->documento.'</td>';
             echo '<td>'.$r->telefone.'</td>';

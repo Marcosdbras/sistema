@@ -52,6 +52,7 @@ if(!$results){?>
     <thead>
         <tr style="backgroud-color: #2D335B">
             <th>#</th>
+            <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
             <th>Telefone</th>
@@ -63,8 +64,8 @@ if(!$results){?>
         <?php foreach ($results as $r) {
            
             echo '<tr>';
-            //echo '<td>'.$r->idUsuarios.'</td>';
             echo '<td>'.$r->iddetalhe.'</td>';
+            echo '<td>'.$r->idUsuarios.'</td>';
             echo '<td>'.$r->nome.'</td>';
             echo '<td>'.$r->cpf.'</td>';
             echo '<td>'.$r->telefone.'</td>';

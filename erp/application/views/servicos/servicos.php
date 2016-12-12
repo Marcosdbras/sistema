@@ -59,6 +59,7 @@ else{ ?>
     <thead>
         <tr style="backgroud-color: #2D335B">
             <th>#</th>
+            <th>Id</th>
             <th>Nome</th>
             <th>Preço</th>
             <th>Descrição</th>
@@ -68,8 +69,8 @@ else{ ?>
     <tbody>
         <?php foreach ($results as $r) {
             echo '<tr>';
-            //echo '<td>'.$r->idServicos.'</td>';
             echo '<td>'.$r->iddetalhe.'</td>';
+            echo '<td>'.$r->idServicos.'</td>';
             echo '<td>'.$r->nome.'</td>';
             echo '<td>'.number_format($r->preco,2,',','.').'</td>';
             echo '<td>'.$r->descricao.'</td>';
