@@ -100,8 +100,7 @@
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input class="span12 money" placeholder="preco" id="preco" name="preco"  />
-                                            </div>
+                                                <input type="tel" required="required" maxlength="15" name="preco"  id="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />                                            </div>
                                             
                                             <div class="span2">
                                                 <label for="">&nbsp</label>
