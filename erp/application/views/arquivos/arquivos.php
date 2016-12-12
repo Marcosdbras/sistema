@@ -76,7 +76,7 @@ if(!$results){?>
         <thead>
             <tr>
                 <th>#</th>
-                <th></th>
+                <th>Id</th>
                 <th>Documento</th>
                 <th>Data</th>
                 <th>Tamanho</th>
