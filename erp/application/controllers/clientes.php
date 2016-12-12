@@ -55,7 +55,7 @@ class Clientes extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        $this->data['results'] = $this->clientes_model->get('clientes', 'idClientes,nomeCliente,documento,telefone,celular,email,rua,numero,bairro,cidade,estado,cep', '', $config['per_page'], $this->uri->segment(3));
+        $this->data['results'] = $this->clientes_model->get('clientes', 'idClientes,nomeCliente,documento,telefone,celular,email,rua,numero,bairro,cidade,estado,cep,iddetalhe', '', $config['per_page'], $this->uri->segment(3));
 
         $this->data['view'] = 'clientes/clientes';
         $this->load->view('tema/topo', $this->data);
