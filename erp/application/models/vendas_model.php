@@ -23,7 +23,7 @@ class Vendas_model extends CI_Model {
         $this->db->limit($perpage,$start);
         $this->db->join('clientes', 'clientes.idClientes = '.$table.'.clientes_id');
         //$this->db->order_by('idVendas','desc');
-        $this->db->order_by('iddetalhe','desc');
+        $this->db->order_by($table.'iddetalhe','desc');
         if($where){
             $this->db->where($where);
         }
