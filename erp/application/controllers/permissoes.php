@@ -58,7 +58,7 @@ class Permissoes extends CI_Controller {
 
         $this->pagination->initialize($config); 	
 
-		  $this->data['results'] = $this->permissoes_model->get('permissoes','idPermissao,nome,data,situacao','',$config['per_page'],$this->uri->segment(3));
+		  $this->data['results'] = $this->permissoes_model->get('permissoes','idPermissao,nome,data,situacao, iddetalhe','',$config['per_page'],$this->uri->segment(3));
        
 	    $this->data['view'] = 'permissoes/permissoes';
        	$this->load->view('tema/topo',$this->data);

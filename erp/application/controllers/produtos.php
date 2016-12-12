@@ -58,7 +58,7 @@ class Produtos extends CI_Controller {
         
         $this->pagination->initialize($config); 	
 
-	    $this->data['results'] = $this->produtos_model->get('produtos','idProdutos,descricao,unidade,precoCompra,precoVenda,estoque,estoqueMinimo','',$config['per_page'],$this->uri->segment(3));
+	    $this->data['results'] = $this->produtos_model->get('produtos','idProdutos,descricao,unidade,precoCompra,precoVenda,estoque,estoqueMinimo,iddetalhe','',$config['per_page'],$this->uri->segment(3));
        
 	    $this->data['view'] = 'produtos/produtos';
        	$this->load->view('tema/topo',$this->data);

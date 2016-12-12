@@ -67,7 +67,7 @@ class Arquivos extends CI_Controller {
 
             $this->pagination->initialize($config);
 
-            $this->data['results'] = $this->arquivos_model->get('documentos', 'idDocumentos,documento,descricao,file,path,url,cadastro,categoria,tamanho,tipo', '', $config['per_page'], $this->uri->segment(3));
+            $this->data['results'] = $this->arquivos_model->get('documentos', 'idDocumentos,documento,descricao,file,path,url,cadastro,categoria,tamanho,tipo,iddetalhe', '', $config['per_page'], $this->uri->segment(3));
         } else {
 
             if ($de != null) {

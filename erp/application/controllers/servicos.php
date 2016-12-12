@@ -58,7 +58,7 @@ class Servicos extends CI_Controller {
 
         $this->pagination->initialize($config); 	
 
-		$this->data['results'] = $this->servicos_model->get('servicos','idServicos,nome,descricao,preco','',$config['per_page'],$this->uri->segment(3));
+		$this->data['results'] = $this->servicos_model->get('servicos','idServicos,nome,descricao,preco,iddetalhe','',$config['per_page'],$this->uri->segment(3));
        
 	    $this->data['view'] = 'servicos/servicos';
        	$this->load->view('tema/topo',$this->data);

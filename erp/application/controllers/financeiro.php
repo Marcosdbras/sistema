@@ -183,7 +183,7 @@ class Financeiro extends CI_Controller {
         $config['next_tag_close'] = '</li>';	
         $this->pagination->initialize($config); 	
 
-		$this->data['results'] = $this->financeiro_model->get('lancamentos','idLancamentos,descricao,valor,data_vencimento,data_pagamento,baixado,cliente_fornecedor,tipo,forma_pgto',$where,$config['per_page'],$this->uri->segment(3));
+		$this->data['results'] = $this->financeiro_model->get('lancamentos','idLancamentos,descricao,valor,data_vencimento,data_pagamento,baixado,cliente_fornecedor,tipo,forma_pgto,iddetalhe',$where,$config['per_page'],$this->uri->segment(3));
        
 	    $this->data['view'] = 'financeiro/lancamentos';
        	$this->load->view('tema/topo',$this->data);
