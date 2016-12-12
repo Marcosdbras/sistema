@@ -63,9 +63,6 @@
                                         </div>
                                         
                                     </div>
-                                    
-                                    
-                                   
                                    
                                     <div class="span12" style="padding: 1%; margin-left: 0">
             
@@ -97,17 +94,14 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="text" placeholder="Quantidade" id="quantidade" name="quantidade" class="span12" />
+                                                <input class="span12 money" placeholder="Quantidade" id="quantidade" name="quantidade"  />
                                             </div>
                                             
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="text" placeholder="preco" id="preco" name="preco" class="span12" />
+                                                <input class="span12 money" placeholder="preco" id="preco" name="preco"  />
                                             </div>
-                                            
-                                            
-                                            
                                             
                                             <div class="span2">
                                                 <label for="">&nbsp</label>

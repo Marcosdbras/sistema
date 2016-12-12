@@ -45,8 +45,7 @@
                                               
                                                   $row = $query->row();
                                                   echo $row->iddetalhe;
-                                                
-                                                
+                                                  
                                                 ?>
                                             </span>
                                             </br> 
