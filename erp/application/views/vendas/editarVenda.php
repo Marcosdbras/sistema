@@ -100,7 +100,7 @@
                                             </div>
                                                 
 
-
+                                                
                                                   <label for="">Un.</label>
                                                   <input class="span3" placeholder="Unidade" id="unidade" name="unidade"   />
                                             
@@ -108,11 +108,6 @@
                                                   <input class="span3" placeholder="Preço" id="preco" name="preco"   />           
                                                  
                                                
-                                            <div class="span3">
-                                                <label for="">&nbsp</label>
-                                                <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
-                                                
-                                            </div>
 
 
 
@@ -139,6 +134,11 @@
                                             
                                             --> 
                                             
+                                            <div class="span3">
+                                                <label for="">&nbsp</label>
+                                                <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
+                                                
+                                            </div>
                                             
                                             
                                             
