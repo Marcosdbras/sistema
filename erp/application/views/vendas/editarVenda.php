@@ -90,19 +90,19 @@
                                                 <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
                                                 
                                                 <label for="">Produto</label>
-                                                <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
+                                                <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" onKeyUp="tabenter(event,getElementById('quantidade'))"/>
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  />
+                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  onKeyUp="tabenter(event,getElementById('preco'))" />
                                             </div>
                                             
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input class="span12" placeholder="Preço" id="preco" name="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />           
+                                                <input class="span12" placeholder="Preço" id="preco" name="preco" onKeyUp="tabenter(event,getElementById('btnAdicionarProduto'))"  />           
                                                 
-                                                                                           </div>
+                                            </div>
                                             
                                             <div class="span2">
                                                 <label for="">&nbsp</label>
@@ -393,6 +393,7 @@ $(document).ready(function(){
                     if(data.result == true){
                         $("#divProdutos" ).load("<?php echo current_url();?> #divProdutos" );
                         $("#quantidade").val('');
+                        $("#preco").val('');
                         $("#produto").val('').focus();
                     }
                     else{
@@ -446,3 +447,11 @@ $(document).ready(function(){
 
 </script>
 
+<script language="javascript">
+function tabenter(event,campo){
+	var tecla = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+	if (tecla==13) {
+		campo.focus();
+	}
+}
+</script>
