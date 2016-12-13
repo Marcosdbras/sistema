@@ -88,10 +88,10 @@
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
                                                 
                                                 <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
-                                                <div class="row">
+                                                
                                                   <label for="">Produto</label>
                                                   <input type="text" class="span4" name="produto" id="produto" placeholder="Digite o nome do produto" />
-                                                </div>
+                                               
                                                 
                                                 <div class="row">
                                                    <label for="">Un.</label>
