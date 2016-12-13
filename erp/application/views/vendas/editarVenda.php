@@ -97,15 +97,17 @@
                                                 <label for="">Quantidade</label>
                                                 <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             
-                                            </div>
-                                                
-
-                                                
                                                   <label for="">Un.</label>
                                                   <input class="span3" placeholder="Unidade" id="unidade" name="unidade"   />
                                             
                                                   <label for="preco">Preço</label>
                                                   <input class="span3" placeholder="Preço" id="preco" name="preco"   />           
+                                            
+                                            
+                                            </div>
+                                                
+
+                                                
                                                  
                                                
 
