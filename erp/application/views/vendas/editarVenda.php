@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  onKeyUp="tabenter(event,getElementById('preco'))" />
+                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             </div>
                                             
                                             <!--Author: Marcos Brás-->
