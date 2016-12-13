@@ -82,7 +82,7 @@
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                         
                                         <form id="formProdutos" action="<?php echo base_url(); ?>index.php/vendas/adicionarProduto" method="post">
-                                            <div class="span10">
+                                            <div class="span7">
                                                 <input type="hidden" name="idProduto" id="idProduto" />
                                                 <input type="hidden" name="idVendasProduto" id="idVendasProduto" value="<?php echo $result->idVendas?>" />
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
@@ -93,19 +93,20 @@
                                                   <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
 
                                             </div>
-                                            <div class="span1">
+                                            <div class="span2">
                                                 <label for="">Quantidade</label>
                                                 <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             </div>
                                            
-             
+                                            <div class="span1">
+                                                <label for="">Un.</label>
+                                                <input class="span3" placeholder="Unidade" id="unidade" name="unidade"   />
+                                            </div>    
                                             
                                             
                                             
                                             <!--
 
-                                                  <label for="">Un.</label>
-                                                  <input class="span3" placeholder="Unidade" id="unidade" name="unidade"   />
                                             
                                                   <label for="preco">Preço</label>
                                                   <input class="span3" placeholder="Preço" id="preco" name="preco"   />           
@@ -129,7 +130,7 @@
                                             
                                             --> 
                                             
-                                            <div class="span1">
+                                            <div class="span2">
                                                 <label for="">&nbsp</label>
                                                 <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
                                                 
