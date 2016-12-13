@@ -111,8 +111,11 @@
                                             <div class="span2">
                                                 <label for="">&nbsp</label>
                                                 <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
-                                                <div class=checkbox> <label> <input type=checkbox>Confirma Lançamento?</label> </div>
+                                                
                                             </div>
+                                            
+                                            <div class="checkbox"> <label> <input type=checkbox>Confirma Lançamento?</label> </div>
+                                            
                                         </form>
                                     </div>
                                     <div class="span12" id="divProdutos" style="margin-left: 0">
