@@ -90,7 +90,7 @@
                                                 <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
                                                 
                                                 <label for="">Produto</label>
-                                                <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" onKeyUp="tabenter(event,getElementById('quantidade'))"/>
+                                                <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
@@ -100,7 +100,7 @@
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input class="span12" placeholder="Preço" id="preco" name="preco" onKeyUp="tabenter(event,getElementById('btnAdicionarProduto'))"  />           
+                                                <input class="span12" placeholder="Preço" id="preco" name="preco"   />           
                                                 
                                             </div>
                                             
