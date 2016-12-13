@@ -100,7 +100,7 @@
                                            
                                             <div class="span1">
                                                 <label for="">Un.</label>
-                                                <input class="span3" placeholder="Unidade" id="unidade" name="unidade"   />
+                                                <input class="span12" placeholder="Unidade" id="unidade" name="unidade"   />
                                             </div>    
                                             
                                             
