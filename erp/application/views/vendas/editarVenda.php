@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
+                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             </div>
                                            
                                             <div class="span1">
