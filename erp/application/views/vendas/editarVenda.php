@@ -93,13 +93,13 @@
                                                   <input type="text" class="span4" name="produto" id="produto" placeholder="Digite o nome do produto" />
                                                
                                                 
-                                                <div class="row">
+                                                
                                                    <label for="">Un.</label>
                                                    <input class="span6" placeholder="Unidade" id="unidade" name="unidade"   />
                                             
                                                    <label for="preco">Preço</label>
                                                    <input class="span6" placeholder="Preço" id="preco" name="preco"   />           
-                                               </div>
+                                               
                                                
                                             </div>
                                            
