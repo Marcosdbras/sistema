@@ -82,7 +82,7 @@
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                         
                                         <form id="formProdutos" action="<?php echo base_url(); ?>index.php/vendas/adicionarProduto" method="post">
-                                            <div class="span4">
+                                            <div class="span8">
                                                 <input type="hidden" name="idProduto" id="idProduto" />
                                                 <input type="hidden" name="idVendasProduto" id="idVendasProduto" value="<?php echo $result->idVendas?>" />
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
@@ -90,7 +90,15 @@
                                                 <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
                                                 
                                                 <label for="">Produto</label>
-                                                <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
+                                                <input type="text" class="span4" name="produto" id="produto" placeholder="Digite o nome do produto" />
+                                            
+                                                <label for="">Un.</label>
+                                                <input class="span4" placeholder="Unidade" id="unidade" name="unidade"   />
+                                            
+                                               <label for="preco">Preço</label>
+                                               <input class="span4" placeholder="Preço" id="preco" name="preco"   />           
+                                            
+                                            
                                             </div>
                                            
              
@@ -98,11 +106,7 @@
                                             <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input class="span6" placeholder="Quantidade" id="quantidade" name="quantidade"   />
-        
-                                                <label for="">Un.</label>
-                                                <input class="span6" placeholder="Unidade" id="unidade" name="unidade"   />
-                                                
+                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             
                                             </div>
                                             
@@ -110,20 +114,17 @@
                                             <!--
                                             <div class="span2">
                                             </div>
-                                            --> 
-                                            
-                                            
-                                            
+                                           
                                             <div class="span2">
-                                                <label for="preco">Preço</label>
-                                                <input class="span12" placeholder="Preço" id="preco" name="preco"   />           
-                                                
+                                                 
                                             </div>
                                             
                                             <div class="span2"> 
                                                 <label for="check">Confirma?</label>
                                                     <input  class="span12" type=checkbox id="check" name="check"  /> 
                                             </div>
+                                            
+                                            --> 
                                             
                                             <div class="span2">
                                                 <label for="">&nbsp</label>
