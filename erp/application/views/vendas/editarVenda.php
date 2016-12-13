@@ -93,7 +93,7 @@
                                                   <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
 
                                             </div>
-                                            <div class="span2">
+                                            <div class="span1">
                                                 <label for="">Quantidade</label>
                                                 <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             </div>
@@ -129,7 +129,7 @@
                                             
                                             --> 
                                             
-                                            <div class="span2">
+                                            <div class="span1">
                                                 <label for="">&nbsp</label>
                                                 <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
                                                 
