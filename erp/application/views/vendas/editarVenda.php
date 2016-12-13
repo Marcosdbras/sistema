@@ -82,7 +82,7 @@
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                         
                                         <form id="formProdutos" action="<?php echo base_url(); ?>index.php/vendas/adicionarProduto" method="post">
-                                            <div class="span8">
+                                            <div class="span10">
                                                 <input type="hidden" name="idProduto" id="idProduto" />
                                                 <input type="hidden" name="idVendasProduto" id="idVendasProduto" value="<?php echo $result->idVendas?>" />
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
