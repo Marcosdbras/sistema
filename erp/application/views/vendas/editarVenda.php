@@ -108,13 +108,18 @@
                                                 
                                             </div>
                                             
+                                            <div class="span2"> 
+                                                <label for="check">Confirma?</label>
+                                                    <input  class="span12" type=checkbox id="check" name="check"  /> 
+                                            </div>
+                                            
                                             <div class="span2">
                                                 <label for="">&nbsp</label>
                                                 <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
                                                 
                                             </div>
                                             
-                                            <div class="span2 checkbox"> <label> <input type=checkbox>Confirma Lançamento?</label> </div>
+                                            
                                             
                                         </form>
                                     </div>
