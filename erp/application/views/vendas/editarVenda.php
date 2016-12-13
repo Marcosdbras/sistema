@@ -88,17 +88,19 @@
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
                                                 
                                                 <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
+                                                <div class="row">
+                                                  <label for="">Produto</label>
+                                                  <input type="text" class="span4" name="produto" id="produto" placeholder="Digite o nome do produto" />
+                                                </div>
                                                 
-                                                <label for="">Produto</label>
-                                                <input type="text" class="span4" name="produto" id="produto" placeholder="Digite o nome do produto" />
+                                                <div class="row">
+                                                   <label for="">Un.</label>
+                                                   <input class="span6" placeholder="Unidade" id="unidade" name="unidade"   />
                                             
-                                                <label for="">Un.</label>
-                                                <input class="span4" placeholder="Unidade" id="unidade" name="unidade"   />
-                                            
-                                               <label for="preco">Preço</label>
-                                               <input class="span4" placeholder="Preço" id="preco" name="preco"   />           
-                                            
-                                            
+                                                   <label for="preco">Preço</label>
+                                                   <input class="span6" placeholder="Preço" id="preco" name="preco"   />           
+                                               </div>
+                                               
                                             </div>
                                            
              
