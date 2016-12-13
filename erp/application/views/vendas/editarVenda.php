@@ -90,15 +90,15 @@
                                                 <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
                                                 
                                                   <label for="">Produto</label>
-                                                  <input type="text" class="span4" name="produto" id="produto" placeholder="Digite o nome do produto" />
+                                                  <input type="text" class="span8" name="produto" id="produto" placeholder="Digite o nome do produto" />
                                                
                                                 
                                                 
                                                    <label for="">Un.</label>
-                                                   <input class="span6" placeholder="Unidade" id="unidade" name="unidade"   />
+                                                   <input class="span4" placeholder="Unidade" id="unidade" name="unidade"   />
                                             
                                                    <label for="preco">Preço</label>
-                                                   <input class="span6" placeholder="Preço" id="preco" name="preco"   />           
+                                                   <input class="span4" placeholder="Preço" id="preco" name="preco"   />           
                                                
                                                
                                             </div>
