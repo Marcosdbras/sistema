@@ -95,17 +95,17 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
+                                                <input type="tel" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$"   />
                                             </div>
                                            
                                             <div class="span1">
                                                 <label for="">Un.</label>
-                                                <input class="span12" placeholder="Unidade" id="unidade" name="unidade"   />
+                                                <input type="text" class="span12" placeholder="Unidade" id="unidade" name="unidade"   />
                                             </div>    
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input class="span12" placeholder="Preço" id="preco" name="preco"   />           
+                                                <input type="tel"  class="span12" placeholder="Preço" id="preco" name="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />           
                                             </div>
                                             
                                             <!--
