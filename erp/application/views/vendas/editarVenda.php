@@ -82,7 +82,7 @@
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                         
                                         <form id="formProdutos" action="<?php echo base_url(); ?>index.php/vendas/adicionarProduto" method="post">
-                                            <div class="span7">
+                                            <div class="span5">
                                                 <input type="hidden" name="idProduto" id="idProduto" />
                                                 <input type="hidden" name="idVendasProduto" id="idVendasProduto" value="<?php echo $result->idVendas?>" />
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
@@ -103,17 +103,12 @@
                                                 <input class="span12" placeholder="Unidade" id="unidade" name="unidade"   />
                                             </div>    
                                             
-                                            
+                                            <div class="span2">
+                                                <label for="preco">Preço</label>
+                                                <input class="span12" placeholder="Preço" id="preco" name="preco"   />           
+                                            </div>
                                             
                                             <!--
-
-                                            
-                                                  <label for="preco">Preço</label>
-                                                  <input class="span3" placeholder="Preço" id="preco" name="preco"   />           
-
-
-
-
 
 
                                             <div class="span2">
