@@ -95,13 +95,25 @@
                                            
              
                                             
-                                            
+                                            <!--Author: Marcos Brás-->
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
+                                                <input class="span6" placeholder="Quantidade" id="quantidade" name="quantidade"   />
+        
+                                                <label for="">Un.</label>
+                                                <input class="span6" placeholder="Unidade" id="unidade" name="unidade"   />
+                                                
+                                            
                                             </div>
                                             
-                                            <!--Author: Marcos Brás-->
+                                            
+                                            <!--
+                                            <div class="span2">
+                                            </div>
+                                            --> 
+                                            
+                                            
+                                            
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
                                                 <input class="span12" placeholder="Preço" id="preco" name="preco"   />           
