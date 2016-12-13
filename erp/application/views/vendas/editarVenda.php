@@ -92,25 +92,36 @@
                                                   <label for="">Produto</label>
                                                   <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
                                                
-                                                
-                                                  
-                                                     <label for="">Un.</label>
-                                                     <input class="span6" placeholder="Unidade" id="unidade" name="unidade"   />
-                                            
-                                                     <label for="preco">Preço</label>
-                                                     <input class="span6" placeholder="Preço" id="preco" name="preco"   />           
-                                                 
-                                               
-                                            </div>
-                                           
-             
-                                            
                                             <!--Author: Marcos Brás-->
-                                            <div class="span2">
+                                            <div class="span3">
                                                 <label for="">Quantidade</label>
                                                 <input class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"   />
                                             
                                             </div>
+                                                
+
+
+                                                  <label for="">Un.</label>
+                                                  <input class="span3" placeholder="Unidade" id="unidade" name="unidade"   />
+                                            
+                                                  <label for="preco">Preço</label>
+                                                  <input class="span3" placeholder="Preço" id="preco" name="preco"   />           
+                                                 
+                                               
+                                            <div class="span3">
+                                                <label for="">&nbsp</label>
+                                                <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
+                                                
+                                            </div>
+
+
+
+
+
+                                            </div>
+                                           
+             
+                                            
                                             
                                             
                                             <!--
@@ -128,11 +139,6 @@
                                             
                                             --> 
                                             
-                                            <div class="span2">
-                                                <label for="">&nbsp</label>
-                                                <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
-                                                
-                                            </div>
                                             
                                             
                                             
