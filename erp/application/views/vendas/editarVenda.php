@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="tel" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$"   />
+                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$"   />
                                             </div>
                                            
                                             <div class="span1">
@@ -105,7 +105,7 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="tel"  class="span12" placeholder="Preço" id="preco" name="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />           
+                                                <input type="number"  class="span12" placeholder="Preço" id="preco" name="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />           
                                             </div>
                                             
                                             <!--
