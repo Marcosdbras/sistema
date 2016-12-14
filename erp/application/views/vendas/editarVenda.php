@@ -1,7 +1,7 @@
 <?php 
 
- require_once '../../biblioteca/read.data.php';
- require_once '../../biblioteca/funcoes.php';
+ require_once '../biblioteca/read.data.php';
+ require_once '../biblioteca/funcoes.php';
 
 
 ?>
