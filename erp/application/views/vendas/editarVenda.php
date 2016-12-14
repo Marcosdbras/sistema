@@ -1,5 +1,18 @@
+<?php 
+
+ require_once '../../biblioteca/read.data.php';
+ require_once '../../biblioteca/funcoes.php';
+
+
+?>
+
+
+
 <link rel="stylesheet" href="<?php echo base_url();?>js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
+
+
+
 
 
 <div class="row-fluid" style="margin-top:0">
@@ -95,7 +108,7 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$"   />
+                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"    />
                                             </div>
                                            
                                             <div class="span1">
@@ -105,7 +118,7 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="number"  class="span12" placeholder="Preço" id="preco" name="preco"  pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" />           
+                                                <input type="number"  class="span12" placeholder="Preço" id="preco" name="preco"   />           
                                             </div>
                                             
                                             <!--

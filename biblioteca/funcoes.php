@@ -7,6 +7,20 @@
  */
 
 
+function js_validanumber(){
+    echo'<script type="text/javascript">';
+    echo'  function checkNumber(valor) {';
+    echo'    var regra = /^[0-9,]+$/;';
+    echo'    if (!valor.match(regra)) {';
+    echo'        alert("Numero: "+valor);';
+    echo'    }else{';
+    echo'        alert("Permitido somente número inteiro positivo!");';
+    echo'    }';
+    echo' };';    
+    echo'</script>';
+}
+
+
 function clearCache(){
 header("Pragma: no-cache");
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
