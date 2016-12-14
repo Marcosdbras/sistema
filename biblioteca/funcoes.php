@@ -9,17 +9,14 @@
 
 function js_validanumber(){
     echo'<script type="text/javascript">';
-    echo'  function checkNumber(valor) {';
+    echo'  function checkNumber(campo,valor) {';
     echo'    var regra = /^[0-9,]+$/;';
     echo'    if (!valor.match(regra)) {';
-    echo'        alert("Numero: "+valor);';
-    echo'    }else{';
-    echo'        alert("Permitido somente número inteiro positivo!");';
+    echo'        alert("Valor não permitido no campo "+campo+"!");';
     echo'    }';
     echo' };';    
     echo'</script>';
 }
-
 
 function clearCache(){
 header("Pragma: no-cache");

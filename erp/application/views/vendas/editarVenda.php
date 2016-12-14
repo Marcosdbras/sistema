@@ -5,13 +5,13 @@
 
 
 ?>
-
-
-
 <link rel="stylesheet" href="<?php echo base_url();?>js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 
+<?php 
+  js_validanumber();
 
+?>
 
 
 
@@ -108,7 +108,7 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"    />
+                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  onblur="checkNumber(this.value);"  />
                                             </div>
                                            
                                             <div class="span1">
@@ -118,7 +118,7 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="number"  class="span12" placeholder="Preço" id="preco" name="preco"   />           
+                                                <input type="number"  class="span12" placeholder="Preço" id="preco" name="preco" onblur="checkNumber(this.value);"  />           
                                             </div>
                                             
                                             <!--
