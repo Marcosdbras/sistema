@@ -108,7 +108,7 @@
                                             </div>
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="number" class="span12" placeholder="Quantidade" id="quantidade" name="quantidade"  onblur="checkNumber('Quantidade',this.value);"  />
+                                                <input type="number" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="checkNumber('Quantidade',this.value);"  />
                                             </div>
                                            
                                             <div class="span1">
@@ -118,7 +118,7 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="number"  class="span12" placeholder="Preço" id="preco" name="preco" onblur="checkNumber('Preço',this.value);"  />           
+                                                <input type="number"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="checkNumber('Preço',this.value);"  />           
                                             </div>
                                             
                                             <!--

@@ -10,7 +10,7 @@
 function js_validanumber(){
     echo'<script type="text/javascript">';
     echo'  function checkNumber(campo,valor) {';
-    echo'    var regra = /^[0-9,]+$/;';
+    echo'    var regra = /^[0-9]+$,/;';
     echo'    if (!valor.match(regra)) {';
     echo'        alert("Valor não permitido no campo "+campo+"!");';
     echo'    }';
