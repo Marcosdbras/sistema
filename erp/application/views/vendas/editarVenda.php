@@ -122,7 +122,7 @@
                                             </div>
                                             
                                             <div class="span1"> 
-                                                <label for="check">Confirma Lançamento?</label>
+                                                <label for="check">Confirma Lançto?</label>
                                                     <input  class="span12" type=checkbox id="check" name="check" id="check" /> 
                                             </div>                                            
                                             
