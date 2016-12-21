@@ -10,6 +10,7 @@
 
 <?php 
   js_validanumber();
+  js_recebeValor();
 
 ?>
 
@@ -95,17 +96,19 @@
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                         
                                         <form id="formProdutos" action="<?php echo base_url(); ?>index.php/vendas/adicionarProduto" method="post">
-                                            <div class="span4">
+                                            
+                                            <div class="span5">
                                                 <input type="hidden" name="idProduto" id="idProduto" />
                                                 <input type="hidden" name="idVendasProduto" id="idVendasProduto" value="<?php echo $result->idVendas?>" />
                                                 <input type="hidden" name="estoque" id="estoque" value=""/>
-                                                
-                                                <!--  <input type="hidden" name="preco" id="preco" value=""/> -->
+                                                <input type="hidden" name="precoref" id="precoref" value=""/>
+                                                <!--<input type="hidden" name="preco" id="preco" value=""/> -->
                                                 
                                                   <label for="">Produto</label>
                                                   <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
 
                                             </div>
+                                            
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
                                                 <input type="number" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="checkNumber('Quantidade',this.value);"  />
@@ -118,8 +121,13 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="number"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="checkNumber('Preço',this.value);"  />           
+                                                <input type="number"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="checkNumber('Preço',this.value);" onfocus ="recebeValor(precoref.value)" />           
                                             </div>
+                                            
+                                            
+                                            
+                                            <!--
+
                                             
                                             <div class="span1"> 
                                                 <label for="check">Confirma Lançto?</label>
@@ -127,8 +135,6 @@
                                             </div>                                            
                                             
                                             
-                                            <!--
-
 
                                             <div class="span2">
                                             </div>
@@ -349,7 +355,7 @@ $(document).ready(function(){
 
                  $("#idProduto").val(ui.item.id);
                  $("#estoque").val(ui.item.estoque);
-                 $("#preco").val(ui.item.preco);
+                 $("#precoref").val(ui.item.preco);
                  $("#quantidade").focus();
                  
 

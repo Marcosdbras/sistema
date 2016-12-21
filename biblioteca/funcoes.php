@@ -7,13 +7,25 @@
  */
 
 
+function js_recebeValor(){
+    echo'<script type="text/javascript">';
+    echo'  function recebeValor(valor) {';
+
+    echo "document.getElementById('preco').setAttribute('placeholder',this.valor);";
+
+
+    echo' };';    
+    echo'</script>';
+}
+
+
 function js_validanumber(){
     echo'<script type="text/javascript">';
     echo'  function checkNumber(campo,valor) {';
-    echo'    var regra = /^[0-9]+$,/;';
-    echo'    if (!valor.match(regra)) {';
-    echo'        alert("Valor não permitido no campo "+campo+"!");';
-    echo'    }';
+    //echo'    var regra = /^[0-9]+$,/;';
+    //echo'    if (!valor.match(regra)) {';
+    //echo'        alert("Valor não permitido no campo "+campo+"!");';
+    //echo'    }';
     echo' };';    
     echo'</script>';
 }
