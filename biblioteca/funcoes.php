@@ -11,7 +11,7 @@ function js_recebeValor(){
     echo'<script type="text/javascript">';
     echo'  function recebeValor(valor) {';
 
-    echo "document.getElementById('preco').setAttribute('placeholder',this.valor);";
+    echo "document.getElementById('preco').setAttribute('placeholder',valor);";
 
 
     echo' };';    
