@@ -356,6 +356,7 @@ $(document).ready(function(){
                  $("#idProduto").val(ui.item.id);
                  $("#estoque").val(ui.item.estoque);
                  $("#precoref").val(ui.item.preco);
+                 $("#unidade").val(ui.item.unidade);
                  $("#quantidade").focus();
                  
 
