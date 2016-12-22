@@ -359,7 +359,7 @@ $(document).ready(function(){
                  $("#precoref").val(ui.item.preco);
                  $("#unidade").val(ui.item.unidade);
                  
-                 if ( $("#idProduto").length > 0 )  ){
+                 if ( $("#idProduto").length > 0 )  {
                    document.getElementById('preco').setAttribute('placeholder',ui.item.preco);   
                  }
                  
