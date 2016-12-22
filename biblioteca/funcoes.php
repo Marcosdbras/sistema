@@ -7,26 +7,36 @@
  */
 
 
-function js_recebeValor(){
+function js_aoEntrarNoCampo(){
     echo'<script type="text/javascript">';
-    echo'  function recebeValor(valor) {';
-
-    echo "document.getElementById('preco').setAttribute('placeholder',valor);";
-
+    echo'  function aoEntrarNoCampoPreco(valor) {';
+    
+    echo  "document.getElementById('preco').value = valor;";
+    //echo "document.getElementById('preco').setAttribute('placeholder',valor);";
+     
 
     echo' };';    
     echo'</script>';
 }
 
 
-function js_validanumber(){
+function js_aoSairDoCampo(){
     echo'<script type="text/javascript">';
-    echo'  function checkNumber(campo,valor) {';
+
+    echo'  function aoSairDoCampoQtde(valor) {';
     //echo'    var regra = /^[0-9]+$,/;';
     //echo'    if (!valor.match(regra)) {';
     //echo'        alert("Valor não permitido no campo "+campo+"!");';
     //echo'    }';
-    echo' };';    
+    echo' };'; 
+    
+    echo'  function aoSairDoCampoPreco(valor) {';
+    //echo'    var regra = /^[0-9]+$,/;';
+    //echo'    if (!valor.match(regra)) {';
+    //echo'        alert("Valor não permitido no campo "+campo+"!");';
+    //echo'    }';
+    echo' };'; 
+    
     echo'</script>';
 }
 

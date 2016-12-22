@@ -9,8 +9,9 @@
 <script type="text/javascript" src="<?php echo base_url()?>js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 
 <?php 
-  js_validanumber();
-  js_recebeValor();
+  
+  js_aoSairDoCampo();
+  js_aoEntrarNoCampo();
 
 ?>
 
@@ -111,7 +112,7 @@
                                             
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="number" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="checkNumber('Quantidade',this.value);"  />
+                                                <input type="number" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="aoSairDoCampoQtde(this.value);"  />
                                             </div>
                                            
                                             <div class="span1">
@@ -121,7 +122,7 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="number"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="checkNumber('Preço',this.value);" onfocus ="recebeValor(precoref.value)" />           
+                                                <input type="number"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="aoSairDoCampoPreco(this.value);" onfocus ="aoEntrarNoCampoPreco(precoref.value)" />           
                                             </div>
                                             
                                             
@@ -357,8 +358,9 @@ $(document).ready(function(){
                  $("#estoque").val(ui.item.estoque);
                  $("#precoref").val(ui.item.preco);
                  $("#unidade").val(ui.item.unidade);
-                 $("#quantidade").focus();
                  
+                 document.getElementById('preco').setAttribute('placeholder',ui.item.preco);
+                 $("#quantidade").focus();                 
 
             }
       });
@@ -500,6 +502,7 @@ function tabenter(event,campo){
 	var tecla = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 	if (tecla==13) {
 		campo.focus();
+                
 	}
 }
 </script>
