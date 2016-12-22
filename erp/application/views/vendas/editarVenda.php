@@ -358,11 +358,8 @@ $(document).ready(function(){
                  $("#estoque").val(ui.item.estoque);
                  $("#precoref").val(ui.item.preco);
                  $("#unidade").val(ui.item.unidade);
-          
-                 if (ui.item.id != 0){
-                    document.getElementById('preco').setAttribute('placeholder',ui.item.preco);   
-                 }
-                 
+
+                 document.getElementById('preco').setAttribute('placeholder',ui.item.preco);   
                  
                  $("#quantidade").focus();                 
 

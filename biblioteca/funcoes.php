@@ -11,7 +11,9 @@ function js_aoEntrarNoCampo(){
     echo'<script type="text/javascript">';
     echo'  function aoEntrarNoCampoPreco(valor) {';
     
-    echo  "document.getElementById('preco').value = valor;";
+    
+    echo  "  document.getElementById('preco').value = valor;";
+    
     //echo "document.getElementById('preco').setAttribute('placeholder',valor);";
      
 
