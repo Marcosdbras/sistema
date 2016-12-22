@@ -360,6 +360,7 @@ $(document).ready(function(){
                  $("#unidade").val(ui.item.unidade);
                  
                  document.getElementById('preco').setAttribute('placeholder',ui.item.preco);
+                 
                  $("#quantidade").focus();                 
 
             }
@@ -419,10 +420,12 @@ $(document).ready(function(){
 
       $("#formProdutos").validate({
           rules:{
-             quantidade: {required:true}
+             quantidade: {required:true},
+             preco:{required:true}
           },
           messages:{
-             quantidade: {required: 'Insira a quantidade'}
+             quantidade: {required: 'Insira a quantidade'},
+             preco:{required: 'Insira o preço'}
           },
           submitHandler: function( form ){
              var quantidade = parseInt($("#quantidade").val());
