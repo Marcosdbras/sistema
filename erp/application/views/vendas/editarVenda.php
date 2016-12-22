@@ -447,6 +447,7 @@ $(document).ready(function(){
                         $("#divProdutos" ).load("<?php echo current_url();?> #divProdutos" );
                         $("#quantidade").val('');
                         $("#preco").val('');
+                        $("#unidade").val('');
                         $("#produto").val('').focus();
                     }
                     else{
