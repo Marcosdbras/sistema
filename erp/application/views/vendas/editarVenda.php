@@ -448,6 +448,7 @@ $(document).ready(function(){
                         $("#quantidade").val('');
                         $("#preco").val('');
                         $("#unidade").val('');
+                        $("#precoref").val('');
                         $("#produto").val('').focus();
                     }
                     else{
