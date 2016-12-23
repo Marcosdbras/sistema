@@ -112,7 +112,7 @@
                                             
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="number" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="aoSairDoCampoQtde(this.value);"  />
+                                                <input type="tel" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="aoSairDoCampoQtde(this.value);"  />
                                             </div>
                                            
                                             <div class="span1">
@@ -122,7 +122,7 @@
                                             
                                             <div class="span2">
                                                 <label for="preco">Preço</label>
-                                                <input type="number"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="aoSairDoCampoPreco(this.value);" onfocus ="aoEntrarNoCampoPreco(precoref.value)" />           
+                                                <input type="tel"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="aoSairDoCampoPreco(this.value);" onfocus ="aoEntrarNoCampoPreco(precoref.value)" />           
                                             </div>
                                             
                                             
