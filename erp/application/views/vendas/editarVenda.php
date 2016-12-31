@@ -451,6 +451,9 @@ $(document).ready(function(){
                         $("#preco").val('');
                         $("#unidade").val('');
                         $("#precoref").val('');
+                        
+                        document.getElementById('preco').setAttribute('placeholder','0,00');
+                        
                         $("#produto").val('').focus();
                     }
                     else{
