@@ -170,7 +170,7 @@ foreach ($produtos as $p) {
     $total = $total + $p->subTotal;
     echo '<tr>';
     echo '<td>' . $p->descricao . '</td>';
-    echo '<td>' . $p->quantidade . '</td>';
+    echo '<td>' .  round( $p->quantidade ,0)  . '</td>';
     echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
     echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
     echo '</tr>';
@@ -496,31 +496,6 @@ foreach ($produtos as $p) {
 
 </script>
 
-
-<script>
-
-    $(function () {
-
-        $('#quantidade').on('change', function () {
-            console.log('Change event.');
-            var val = $('#quantidade').val();
-            $('#quantidade').text(val !== '' ? val : '(empty)');
-        });
-
-        $('#quantidade').change(function () {
-            console.log('Second change event...');
-        });
-
-
-
-        $("#quantidade").number(true, 2);
-
-    });
-
-
-
-
-</script>
 
 <script language="javascript">
     function tabenter(event, campo) {
