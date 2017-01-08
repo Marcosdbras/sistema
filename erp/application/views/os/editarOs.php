@@ -166,7 +166,7 @@ js_aoEntrarNoCampo();
                                         <input type="hidden" name="idProduto" id="idProduto" />
                                         <input type="hidden" name="idOsProduto" id="idOsProduto" value="<?php echo $result->idOs ?>" />
                                         <input type="hidden" name="estoque" id="estoque" value=""/>
-                                        
+
                                         <input type="hidden" name="precoref" id="precoref" value=""/>
                                         <label for="">Produto</label>
                                         <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
@@ -529,8 +529,8 @@ js_aoEntrarNoCampo();
                                                         $("#estoque").val(ui.item.estoque);
                                                         $("#precoref").val(ui.item.preco);
                                                         $("#unidade").val(ui.item.unidade);
-                                                        
-                                                       
+
+
 
                                                         if ($("#idProduto").length > 0) {
                                                             document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
@@ -632,6 +632,13 @@ js_aoEntrarNoCampo();
                                                                     if (data.result == true) {
                                                                         $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
                                                                         $("#quantidade").val('');
+                                                                        $("#preco").val('');
+                                                                        $("#unidade").val('');
+                                                                        $("#precoref").val('');
+
+                                                                        document.getElementById('preco').setAttribute('placeholder', '0,00');
+
+
                                                                         $("#produto").val('').focus();
                                                                     } else {
                                                                         alert('Ocorreu um erro ao tentar adicionar produto.');
