@@ -298,6 +298,7 @@ class Vendas extends CI_Controller {
             //----------------------------------------
             
             $data = array(
+                'vlrunitario'=>$this->input->post('preco'),
                 'quantidade'=> $quantidade,
                 'subTotal'=> $subtotal,
                 'produtos_id'=> $produto,
