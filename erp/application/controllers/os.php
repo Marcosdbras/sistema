@@ -391,7 +391,8 @@ class Os extends CI_Controller {
             'servicos_id' => $this->input->post('idServico'),
             'os_id' => $this->input->post('idOsServico'),
             'idusumestre' => $this->session->userdata('idusumestre'),
-            'iddetalhe' => $totreg
+            'iddetalhe' => $totreg,
+            'subTotal'=>$this->input->post('precoServico')
         );
 
         if ($this->os_model->add('servicos_os', $data) == true) {
