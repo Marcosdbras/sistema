@@ -115,7 +115,7 @@
                                             
                                             <div class="span2">
                                                 <label for="">Quantidade</label>
-                                                <input type="tel" class="span12" placeholder="0" id="quantidade" name="quantidade"  onblur="aoSairDoCampoQtde(this.value);"  />
+                                                <input type="tel" class="span12 number" placeholder="0" id="quantidade" name="quantidade"  onblur="aoSairDoCampoQtde(this.value);"  />
                                             </div>
                                            
                                             <div class="span1">
@@ -507,6 +507,13 @@ $(document).ready(function(){
 
 
 });
+
+</script>
+
+
+<script>
+
+	$("#quantidade").number( true, 2 );
 
 </script>
 
