@@ -529,6 +529,8 @@ js_aoEntrarNoCampo();
                                                         $("#estoque").val(ui.item.estoque);
                                                         $("#precoref").val(ui.item.preco);
                                                         $("#unidade").val(ui.item.unidade);
+                                                        
+                                                        $("#preco").val(ui.item.preco);
 
                                                         if ($("#idProduto").length > 0) {
                                                             document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
