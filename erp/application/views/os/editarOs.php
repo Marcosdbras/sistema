@@ -166,14 +166,14 @@ js_aoEntrarNoCampo();
                                         <input type="hidden" name="idProduto" id="idProduto" />
                                         <input type="hidden" name="idOsProduto" id="idOsProduto" value="<?php echo $result->idOs ?>" />
                                         <input type="hidden" name="estoque" id="estoque" value=""/>
-                                        <input type="hidden" name="preco" id="preco" value=""/>
+                                        
                                         <input type="hidden" name="precoref" id="precoref" value=""/>
                                         <label for="">Produto</label>
                                         <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
                                     </div>
                                     <div class="span2">
                                         <label for="">Quantidade</label>
-                                        <input type="tel" class="span12 number" placeholder="0" id="quantidade" name="quantidade"  />
+                                        <input type="tel" class="span12 number" placeholder="0" id="quantidade" name="quantidade"  onblur="aoSairDoCampoQtde(this.value);"/>
                                     </div>
 
                                     <!-- vlr unitário e unidade  -->
@@ -530,7 +530,7 @@ js_aoEntrarNoCampo();
                                                         $("#precoref").val(ui.item.preco);
                                                         $("#unidade").val(ui.item.unidade);
                                                         
-                                                        $("#preco").val(ui.item.preco);
+                                                       
 
                                                         if ($("#idProduto").length > 0) {
                                                             document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
