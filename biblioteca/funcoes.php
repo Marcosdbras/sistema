@@ -10,15 +10,17 @@
 function js_aoEntrarNoCampo(){
     echo'<script type="text/javascript">';
     echo'  function aoEntrarNoCampoPreco(valor) {';
-    
-    
     echo  "  document.getElementById('preco').value = valor;";
-    
-    //echo "document.getElementById('preco').setAttribute('placeholder',valor);";
-     
-
     echo' };';    
     echo'</script>';
+    
+    echo'<script type="text/javascript">';
+    echo'  function aoEntrarNoCampoPrecoServico(valor) {';
+    echo  "  document.getElementById('precoServico').value = valor;";
+    echo' };';    
+    echo'</script>';
+    
+    
 }
 
 
@@ -39,6 +41,14 @@ function js_aoSairDoCampo(){
     //echo'    }';
     echo' };'; 
     
+    echo'  function aoSairDoCampoPrecoServico(valor) {';
+
+
+    echo' };'; 
+
+
+
+
     echo'</script>';
 }
 

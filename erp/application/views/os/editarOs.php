@@ -235,13 +235,20 @@ js_aoEntrarNoCampo();
                             <div class="span12" style="padding: 1%; margin-left: 0">
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                     <form id="formServicos" action="<?php echo base_url() ?>index.php/os/adicionarServico" method="post">
-                                        <div class="span10">
+                                        <div class="span8">
                                             <input type="hidden" name="idServico" id="idServico" />
                                             <input type="hidden" name="idOsServico" id="idOsServico" value="<?php echo $result->idOs ?>" />
-                                            <input type="hidden" name="precoServico" id="precoServico" value=""/>
+                                            <input type="hidden" name="precoServicoref" id="precoServicoref" value=""/>
                                             <label for="">Serviço</label>
                                             <input type="text" class="span12" name="servico" id="servico" placeholder="Digite o nome do serviço" />
                                         </div>
+
+                                        <div class="span2">
+                                            <label for="preco">Preço</label>
+                                            <input type="tel"  class="span12" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value)" />           
+                                        </div>
+
+
                                         <div class="span2">
                                             <label for="">.</label>
                                             <button class="btn btn-success span12"><i class="icon-white icon-plus"></i> Adicionar</button>
@@ -548,7 +555,11 @@ js_aoEntrarNoCampo();
                                                     select: function (event, ui) {
 
                                                         $("#idServico").val(ui.item.id);
-                                                        $("#precoServico").val(ui.item.preco);
+                                                        $("#precoServicoref").val(ui.item.preco);
+                                                        
+                                                        if ($("#idServico").length > 0) {
+                                                           document.getElementById('precoservico').setAttribute('placeholder', ui.item.preco);
+                                                        }
 
 
                                                     }
@@ -655,10 +666,12 @@ js_aoEntrarNoCampo();
 
                                                 $("#formServicos").validate({
                                                     rules: {
-                                                        servico: {required: true}
+                                                        servico: {required: true},
+                                                        precoServico: {required: true}
                                                     },
                                                     messages: {
-                                                        servico: {required: 'Insira um serviço'}
+                                                        servico: {required: 'Insira um serviço'},
+                                                        precoServico: {required: 'Insira o preço'}
                                                     },
                                                     submitHandler: function (form) {
                                                         var dados = $(form).serialize();
@@ -673,6 +686,11 @@ js_aoEntrarNoCampo();
                                                             {
                                                                 if (data.result == true) {
                                                                     $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
+                                                                    $("#precoServico").val('');
+                                                                    $("#precoServicoref").val('');
+                                                                    document.getElementById('precoServico').setAttribute('placeholder', '0,00');
+                                                                    
+                                                                    
                                                                     $("#servico").val('').focus();
                                                                 } else {
                                                                     alert('Ocorreu um erro ao tentar adicionar serviço.');
