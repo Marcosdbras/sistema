@@ -79,20 +79,20 @@ js_aoEntrarNoCampo();
                                             <label for="status">Status<span class="required">*</span></label>
                                             <select class="span12" name="status" id="status" value="">
                                                 <option <?php
-                                            if ($result->status == 'Orçamento') {
-                                                echo 'selected';
-                                            }
-                                            ?> value="Orçamento">Orçamento</option>
+                                                if ($result->status == 'Orçamento') {
+                                                    echo 'selected';
+                                                }
+                                                ?> value="Orçamento">Orçamento</option>
                                                 <option <?php
-                                            if ($result->status == 'Aberto') {
-                                                echo 'selected';
-                                            }
-                                            ?> value="Aberto">Aberto</option>
+                                                if ($result->status == 'Aberto') {
+                                                    echo 'selected';
+                                                }
+                                                ?> value="Aberto">Aberto</option>
                                                 <option <?php
-                                                    if ($result->status == 'Faturado') {
-                                                        echo 'selected';
-                                                    }
-                                                    ?> value="Faturado">Faturado</option>
+                                                if ($result->status == 'Faturado') {
+                                                    echo 'selected';
+                                                }
+                                                ?> value="Faturado">Faturado</option>
                                                 <option <?php
                                                 if ($result->status == 'Finalizado') {
                                                     echo 'selected';
@@ -144,9 +144,9 @@ js_aoEntrarNoCampo();
                                     </div>
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <div class="span6 offset3" style="text-align: center">
-<?php if ($result->faturado == 0) { ?>
+                                            <?php if ($result->faturado == 0) { ?>
                                                 <a href="#modal-faturar" id="btn-faturar" role="button" data-toggle="modal" class="btn btn-success"><i class="icon-file"></i> Faturar</a>
-<?php } ?>
+                                            <?php } ?>
                                             <button class="btn btn-primary" id="btnContinuar"><i class="icon-white icon-ok"></i> Alterar</button>
                                             <a href="<?php echo base_url() ?>index.php/os/visualizar/<?php echo $result->idOs; ?>" class="btn btn-inverse"><i class="icon-eye-open"></i> Visualizar OS</a>
                                             <a href="<?php echo base_url() ?>index.php/os" class="btn"><i class="icon-arrow-left"></i> Voltar</a>
@@ -162,11 +162,12 @@ js_aoEntrarNoCampo();
                         <div class="tab-pane" id="tab2">
                             <div class="span12 well" style="padding: 1%; margin-left: 0">
                                 <form id="formProdutos" action="<?php echo base_url() ?>index.php/os/adicionarProduto" method="post">
-                                    <div class="span8">
+                                    <div class="span5">
                                         <input type="hidden" name="idProduto" id="idProduto" />
                                         <input type="hidden" name="idOsProduto" id="idOsProduto" value="<?php echo $result->idOs ?>" />
                                         <input type="hidden" name="estoque" id="estoque" value=""/>
                                         <input type="hidden" name="preco" id="preco" value=""/>
+                                        <input type="hidden" name="precoref" id="precoref" value=""/>
                                         <label for="">Produto</label>
                                         <input type="text" class="span12" name="produto" id="produto" placeholder="Digite o nome do produto" />
                                     </div>
@@ -174,6 +175,18 @@ js_aoEntrarNoCampo();
                                         <label for="">Quantidade</label>
                                         <input type="text" placeholder="Quantidade" id="quantidade" name="quantidade" class="span12" />
                                     </div>
+
+                                    <!-- vlr unitário e unidade  -->
+                                    <div class="span1">
+                                        <label for="">Un.</label>
+                                        <input type="text" class="span12" placeholder="Un." id="unidade" name="unidade"   />
+                                    </div>    
+
+                                    <div class="span2">
+                                        <label for="preco">Preço</label>
+                                        <input type="tel"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="aoSairDoCampoPreco(this.value);" onfocus ="aoEntrarNoCampoPreco(precoref.value)" />           
+                                    </div>
+
                                     <div class="span2">
                                         <label for="">.</label>
                                         <button class="btn btn-success span12" id="btnAdicionarProduto"><i class="icon-white icon-plus"></i> Adicionar</button>
@@ -198,7 +211,9 @@ js_aoEntrarNoCampo();
                                             $total = $total + $p->subTotal;
                                             echo '<tr>';
                                             echo '<td>' . $p->descricao . '</td>';
-                                            echo '<td>' . $p->quantidade . '</td>';
+
+                                            //------
+                                            echo '<td>' . round($p->quantidade, 0) . '</td>';
                                             echo '<td><a href="" idAcao="' . $p->idProdutos_os . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
                                             echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
                                             echo '</tr>';
@@ -443,344 +458,352 @@ js_aoEntrarNoCampo();
 <script src="<?php echo base_url(); ?>js/maskmoney.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-
-        $(".money").maskMoney();
-
-        $('#recebido').click(function (event) {
-            var flag = $(this).is(':checked');
-            if (flag == true) {
-                $('#divRecebimento').show();
-            } else {
-                $('#divRecebimento').hide();
-            }
-        });
-
-        $(document).on('click', '#btn-faturar', function (event) {
-            event.preventDefault();
-            valor = $('#total-venda').val();
-            total_servico = $('#total-servico').val();
-            valor = valor.replace(',', '');
-            total_servico = total_servico.replace(',', '');
-            total_servico = parseFloat(total_servico);
-            valor = parseFloat(valor);
-            $('#valor').val(valor + total_servico);
-        });
-
-        $("#formFaturar").validate({
-            rules: {
-                descricao: {required: true},
-                cliente: {required: true},
-                valor: {required: true},
-                vencimento: {required: true}
-
-            },
-            messages: {
-                descricao: {required: 'Campo Requerido.'},
-                cliente: {required: 'Campo Requerido.'},
-                valor: {required: 'Campo Requerido.'},
-                vencimento: {required: 'Campo Requerido.'}
-            },
-            submitHandler: function (form) {
-                var dados = $(form).serialize();
-                $('#btn-cancelar-faturar').trigger('click');
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url(); ?>index.php/os/faturar",
-                    data: dados,
-                    dataType: 'json',
-                    success: function (data)
-                    {
-                        if (data.result == true) {
-
-                            window.location.reload(true);
-                        } else {
-                            alert('Ocorreu um erro ao tentar faturar OS.');
-                            $('#progress-fatura').hide();
-                        }
-                    }
-                });
-
-                return false;
-            }
-        });
-
-        $("#produto").autocomplete({
-            source: "<?php echo base_url(); ?>index.php/os/autoCompleteProduto",
-            minLength: 2,
-            select: function (event, ui) {
-
-                $("#idProduto").val(ui.item.id);
-                $("#estoque").val(ui.item.estoque);
-                $("#preco").val(ui.item.preco);
-                $("#quantidade").focus();
-
-
-            }
-        });
-
-        $("#servico").autocomplete({
-            source: "<?php echo base_url(); ?>index.php/os/autoCompleteServico",
-            minLength: 2,
-            select: function (event, ui) {
-
-                $("#idServico").val(ui.item.id);
-                $("#precoServico").val(ui.item.preco);
-
-
-            }
-        });
-
-
-        $("#cliente").autocomplete({
-            source: "<?php echo base_url(); ?>index.php/os/autoCompleteCliente",
-            minLength: 2,
-            select: function (event, ui) {
-
-                $("#clientes_id").val(ui.item.id);
-
-
-            }
-        });
-
-        $("#tecnico").autocomplete({
-            source: "<?php echo base_url(); ?>index.php/os/autoCompleteUsuario",
-            minLength: 2,
-            select: function (event, ui) {
-
-                $("#usuarios_id").val(ui.item.id);
-
-
-            }
-        });
-
-
-
-
-        $("#formOs").validate({
-            rules: {
-                cliente: {required: true},
-                tecnico: {required: true},
-                dataInicial: {required: true}
-            },
-            messages: {
-                cliente: {required: 'Campo Requerido.'},
-                tecnico: {required: 'Campo Requerido.'},
-                dataInicial: {required: 'Campo Requerido.'}
-            },
-            errorClass: "help-inline",
-            errorElement: "span",
-            highlight: function (element, errorClass, validClass) {
-                $(element).parents('.control-group').addClass('error');
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).parents('.control-group').removeClass('error');
-                $(element).parents('.control-group').addClass('success');
-            }
-        });
-
-
-
-
-        $("#formProdutos").validate({
-            rules: {
-                quantidade: {required: true}
-            },
-            messages: {
-                quantidade: {required: 'Insira a quantidade'}
-            },
-            submitHandler: function (form) {
-                var quantidade = parseInt($("#quantidade").val());
-                var estoque = parseInt($("#estoque").val());
-                if (estoque < quantidade) {
-                    alert('Você não possui estoque suficiente.');
-                } else {
-                    var dados = $(form).serialize();
-                    $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url(); ?>index.php/os/adicionarProduto",
-                        data: dados,
-                        dataType: 'json',
-                        success: function (data)
-                        {
-                            if (data.result == true) {
-                                $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
-                                $("#quantidade").val('');
-                                $("#produto").val('').focus();
-                            } else {
-                                alert('Ocorreu um erro ao tentar adicionar produto.');
-                            }
-                        }
-                    });
-
-                    return false;
-                }
-
-            }
-
-        });
-
-        $("#formServicos").validate({
-            rules: {
-                servico: {required: true}
-            },
-            messages: {
-                servico: {required: 'Insira um serviço'}
-            },
-            submitHandler: function (form) {
-                var dados = $(form).serialize();
-
-                $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url(); ?>index.php/os/adicionarServico",
-                    data: dados,
-                    dataType: 'json',
-                    success: function (data)
-                    {
-                        if (data.result == true) {
-                            $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
-                            $("#servico").val('').focus();
-                        } else {
-                            alert('Ocorreu um erro ao tentar adicionar serviço.');
-                        }
-                    }
-                });
-
-                return false;
-            }
-
-        });
-
-
-        $("#formAnexos").validate({
-            submitHandler: function (form) {
-                //var dados = $( form ).serialize();
-                var dados = new FormData(form);
-                $("#form-anexos").hide('1000');
-                $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url() . 'index.php/os/anexar'; ?>",
-                    data: dados,
-                    mimeType: "multipart/form-data",
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    dataType: 'json',
-                    success: function (data)
-                    {
-                        if (data.result == true) {
-                            $("#divAnexos").load("<?php echo current_url(); ?> #divAnexos");
-                            $("#userfile").val('');
-
-                        } else {
-                            $("#divAnexos").html('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> ' + data.mensagem + '</div>');
-                        }
-                    },
-                    error: function () {
-                        $("#divAnexos").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> Ocorreu um erro. Verifique se você anexou o(s) arquivo(s).</div>');
-                    }
-
-                });
-
-                $("#form-anexos").show('1000');
-                return false;
-            }
-
-        });
-
-        $(document).on('click', 'a', function (event) {
-            var idProduto = $(this).attr('idAcao');
-            var quantidade = $(this).attr('quantAcao');
-            var produto = $(this).attr('prodAcao');
-            if ((idProduto % 1) == 0) {
-                $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url(); ?>index.php/os/excluirProduto",
-                    data: "idProduto=" + idProduto + "&quantidade=" + quantidade + "&produto=" + produto,
-                    dataType: 'json',
-                    success: function (data)
-                    {
-                        if (data.result == true) {
-                            $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
-
-                        } else {
-                            alert('Ocorreu um erro ao tentar excluir produto.');
-                        }
-                    }
-                });
-                return false;
-            }
-
-        });
-
-
-
-        $(document).on('click', 'span', function (event) {
-            var idServico = $(this).attr('idAcao');
-            if ((idServico % 1) == 0) {
-                $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url(); ?>index.php/os/excluirServico",
-                    data: "idServico=" + idServico,
-                    dataType: 'json',
-                    success: function (data)
-                    {
-                        if (data.result == true) {
-                            $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
-
-                        } else {
-                            alert('Ocorreu um erro ao tentar excluir serviço.');
-                        }
-                    }
-                });
-                return false;
-            }
-
-        });
-
-
-        $(document).on('click', '.anexo', function (event) {
-            event.preventDefault();
-            var link = $(this).attr('link');
-            var id = $(this).attr('imagem');
-            var url = "<?php echo base_url() . 'index.php/os/excluirAnexo/'; ?>"; //os/excluirAnexo/";
-            $("#div-visualizar-anexo").html('<img src="' + link + '" alt="">');
-            $("#excluir-anexo").attr('link', url + id);
-
-
-
-            $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/" + id);
-
-        });
-
-        $(document).on('click', '#excluir-anexo', function (event) {
-            event.preventDefault();
-            var link = $(this).attr('link');
-
-            $('#modal-anexo').modal('hide');
-            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-
-
-            //---------------------------------------
-            location.href = link;
-
-            /*  Verificar pq o ajax quando inserido aqui não funciona */
-
-            //--------------------------------------
-
-        });
-
-
-
-        $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
-
-
-    });
+                                            $(document).ready(function () {
+
+                                                $(".money").maskMoney();
+
+                                                $('#recebido').click(function (event) {
+                                                    var flag = $(this).is(':checked');
+                                                    if (flag == true) {
+                                                        $('#divRecebimento').show();
+                                                    } else {
+                                                        $('#divRecebimento').hide();
+                                                    }
+                                                });
+
+                                                $(document).on('click', '#btn-faturar', function (event) {
+                                                    event.preventDefault();
+                                                    valor = $('#total-venda').val();
+                                                    total_servico = $('#total-servico').val();
+                                                    valor = valor.replace(',', '');
+                                                    total_servico = total_servico.replace(',', '');
+                                                    total_servico = parseFloat(total_servico);
+                                                    valor = parseFloat(valor);
+                                                    $('#valor').val(valor + total_servico);
+                                                });
+
+                                                $("#formFaturar").validate({
+                                                    rules: {
+                                                        descricao: {required: true},
+                                                        cliente: {required: true},
+                                                        valor: {required: true},
+                                                        vencimento: {required: true}
+
+                                                    },
+                                                    messages: {
+                                                        descricao: {required: 'Campo Requerido.'},
+                                                        cliente: {required: 'Campo Requerido.'},
+                                                        valor: {required: 'Campo Requerido.'},
+                                                        vencimento: {required: 'Campo Requerido.'}
+                                                    },
+                                                    submitHandler: function (form) {
+                                                        var dados = $(form).serialize();
+                                                        $('#btn-cancelar-faturar').trigger('click');
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "<?php echo base_url(); ?>index.php/os/faturar",
+                                                            data: dados,
+                                                            dataType: 'json',
+                                                            success: function (data)
+                                                            {
+                                                                if (data.result == true) {
+
+                                                                    window.location.reload(true);
+                                                                } else {
+                                                                    alert('Ocorreu um erro ao tentar faturar OS.');
+                                                                    $('#progress-fatura').hide();
+                                                                }
+                                                            }
+                                                        });
+
+                                                        return false;
+                                                    }
+                                                });
+
+                                                $("#produto").autocomplete({
+                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteProduto",
+                                                    minLength: 2,
+                                                    select: function (event, ui) {
+
+                                                        $("#idProduto").val(ui.item.id);
+                                                        $("#estoque").val(ui.item.estoque);
+                                                        $("#precoref").val(ui.item.preco);
+                                                        $("#unidade").val(ui.item.unidade);
+
+                                                        if ($("#idProduto").length > 0) {
+                                                            document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
+                                                        }
+
+                                                        $("#quantidade").focus();
+
+
+                                                    }
+                                                });
+
+                                                $("#servico").autocomplete({
+                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteServico",
+                                                    minLength: 2,
+                                                    select: function (event, ui) {
+
+                                                        $("#idServico").val(ui.item.id);
+                                                        $("#precoServico").val(ui.item.preco);
+
+
+                                                    }
+                                                });
+
+
+                                                $("#cliente").autocomplete({
+                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteCliente",
+                                                    minLength: 2,
+                                                    select: function (event, ui) {
+
+                                                        $("#clientes_id").val(ui.item.id);
+
+
+                                                    }
+                                                });
+
+                                                $("#tecnico").autocomplete({
+                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteUsuario",
+                                                    minLength: 2,
+                                                    select: function (event, ui) {
+
+                                                        $("#usuarios_id").val(ui.item.id);
+
+
+                                                    }
+                                                });
+
+
+
+
+                                                $("#formOs").validate({
+                                                    rules: {
+                                                        cliente: {required: true},
+                                                        tecnico: {required: true},
+                                                        dataInicial: {required: true}
+                                                    },
+                                                    messages: {
+                                                        cliente: {required: 'Campo Requerido.'},
+                                                        tecnico: {required: 'Campo Requerido.'},
+                                                        dataInicial: {required: 'Campo Requerido.'}
+                                                    },
+                                                    errorClass: "help-inline",
+                                                    errorElement: "span",
+                                                    highlight: function (element, errorClass, validClass) {
+                                                        $(element).parents('.control-group').addClass('error');
+                                                    },
+                                                    unhighlight: function (element, errorClass, validClass) {
+                                                        $(element).parents('.control-group').removeClass('error');
+                                                        $(element).parents('.control-group').addClass('success');
+                                                    }
+                                                });
+
+
+
+
+                                                $("#formProdutos").validate({
+                                                    rules: {
+                                                        quantidade: {required: true},
+                                                        preco: {required: true}
+                                                    },
+                                                    messages: {
+                                                        quantidade: {required: 'Insira a quantidade'},
+                                                        preco: {required: 'Insira o preço'}
+                                                    },
+                                                    submitHandler: function (form) {
+                                                        var quantidade = parseInt($("#quantidade").val());
+                                                        var estoque = parseInt($("#estoque").val());
+                                                        if (estoque < quantidade) {
+                                                            alert('Você não possui estoque suficiente.');
+                                                        } else {
+                                                            var dados = $(form).serialize();
+                                                            $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>index.php/os/adicionarProduto",
+                                                                data: dados,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+                                                                        $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
+                                                                        $("#quantidade").val('');
+                                                                        $("#produto").val('').focus();
+                                                                    } else {
+                                                                        alert('Ocorreu um erro ao tentar adicionar produto.');
+                                                                    }
+                                                                }
+                                                            });
+
+                                                            return false;
+                                                        }
+
+                                                    }
+
+                                                });
+
+                                                $("#formServicos").validate({
+                                                    rules: {
+                                                        servico: {required: true}
+                                                    },
+                                                    messages: {
+                                                        servico: {required: 'Insira um serviço'}
+                                                    },
+                                                    submitHandler: function (form) {
+                                                        var dados = $(form).serialize();
+
+                                                        $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "<?php echo base_url(); ?>index.php/os/adicionarServico",
+                                                            data: dados,
+                                                            dataType: 'json',
+                                                            success: function (data)
+                                                            {
+                                                                if (data.result == true) {
+                                                                    $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
+                                                                    $("#servico").val('').focus();
+                                                                } else {
+                                                                    alert('Ocorreu um erro ao tentar adicionar serviço.');
+                                                                }
+                                                            }
+                                                        });
+
+                                                        return false;
+                                                    }
+
+                                                });
+
+
+                                                $("#formAnexos").validate({
+                                                    submitHandler: function (form) {
+                                                        //var dados = $( form ).serialize();
+                                                        var dados = new FormData(form);
+                                                        $("#form-anexos").hide('1000');
+                                                        $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "<?php echo base_url() . 'index.php/os/anexar'; ?>",
+                                                            data: dados,
+                                                            mimeType: "multipart/form-data",
+                                                            contentType: false,
+                                                            cache: false,
+                                                            processData: false,
+                                                            dataType: 'json',
+                                                            success: function (data)
+                                                            {
+                                                                if (data.result == true) {
+                                                                    $("#divAnexos").load("<?php echo current_url(); ?> #divAnexos");
+                                                                    $("#userfile").val('');
+
+                                                                } else {
+                                                                    $("#divAnexos").html('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> ' + data.mensagem + '</div>');
+                                                                }
+                                                            },
+                                                            error: function () {
+                                                                $("#divAnexos").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> Ocorreu um erro. Verifique se você anexou o(s) arquivo(s).</div>');
+                                                            }
+
+                                                        });
+
+                                                        $("#form-anexos").show('1000');
+                                                        return false;
+                                                    }
+
+                                                });
+
+                                                $(document).on('click', 'a', function (event) {
+                                                    var idProduto = $(this).attr('idAcao');
+                                                    var quantidade = $(this).attr('quantAcao');
+                                                    var produto = $(this).attr('prodAcao');
+                                                    if ((idProduto % 1) == 0) {
+                                                        $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "<?php echo base_url(); ?>index.php/os/excluirProduto",
+                                                            data: "idProduto=" + idProduto + "&quantidade=" + quantidade + "&produto=" + produto,
+                                                            dataType: 'json',
+                                                            success: function (data)
+                                                            {
+                                                                if (data.result == true) {
+                                                                    $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
+
+                                                                } else {
+                                                                    alert('Ocorreu um erro ao tentar excluir produto.');
+                                                                }
+                                                            }
+                                                        });
+                                                        return false;
+                                                    }
+
+                                                });
+
+
+
+                                                $(document).on('click', 'span', function (event) {
+                                                    var idServico = $(this).attr('idAcao');
+                                                    if ((idServico % 1) == 0) {
+                                                        $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: "<?php echo base_url(); ?>index.php/os/excluirServico",
+                                                            data: "idServico=" + idServico,
+                                                            dataType: 'json',
+                                                            success: function (data)
+                                                            {
+                                                                if (data.result == true) {
+                                                                    $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
+
+                                                                } else {
+                                                                    alert('Ocorreu um erro ao tentar excluir serviço.');
+                                                                }
+                                                            }
+                                                        });
+                                                        return false;
+                                                    }
+
+                                                });
+
+
+                                                $(document).on('click', '.anexo', function (event) {
+                                                    event.preventDefault();
+                                                    var link = $(this).attr('link');
+                                                    var id = $(this).attr('imagem');
+                                                    var url = "<?php echo base_url() . 'index.php/os/excluirAnexo/'; ?>"; //os/excluirAnexo/";
+                                                    $("#div-visualizar-anexo").html('<img src="' + link + '" alt="">');
+                                                    $("#excluir-anexo").attr('link', url + id);
+
+
+
+                                                    $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/" + id);
+
+                                                });
+
+                                                $(document).on('click', '#excluir-anexo', function (event) {
+                                                    event.preventDefault();
+                                                    var link = $(this).attr('link');
+
+                                                    $('#modal-anexo').modal('hide');
+                                                    $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+
+
+                                                    //---------------------------------------
+                                                    location.href = link;
+
+                                                    /*  Verificar pq o ajax quando inserido aqui não funciona */
+
+                                                    //--------------------------------------
+
+                                                });
+
+
+
+                                                $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
+
+
+                                            });
 
 </script>
 
