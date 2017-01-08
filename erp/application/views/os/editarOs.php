@@ -173,7 +173,7 @@ js_aoEntrarNoCampo();
                                     </div>
                                     <div class="span2">
                                         <label for="">Quantidade</label>
-                                        <input type="text" placeholder="Quantidade" id="quantidade" name="quantidade" class="span12" />
+                                        <input type="tel" class="span12 number" placeholder="0" id="quantidade" name="quantidade"  />
                                     </div>
 
                                     <!-- vlr unitário e unidade  -->
