@@ -15,6 +15,10 @@
   e colar na barra de endereço  a página abre para esse usuário indevido
   Solução: Verificar no check da página view se usuário mestre é o mesmo que está no banco de dados
   se não for deve barrar passagem
+- Exibir Campos: vlr unitário, unidade     
+- Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
+- Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap
+
 
 
 * Corrigido  

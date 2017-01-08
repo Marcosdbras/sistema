@@ -1,10 +1,12 @@
 <?php
 require_once '../biblioteca/read.data.php';
 require_once '../biblioteca/funcoes.php';
+
+//Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap 
 ?>
+
 <link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
-
 <script  type="text/javascript" src="../../../../stylebootstrap/number/jquery.number.min.js"></script>
 
 
@@ -38,22 +40,22 @@ js_aoEntrarNoCampo();
                             <div class="span12" id="divEditarVenda">
 
                                 <form action="<?php echo current_url(); ?>" method="post" id="formVendas">
-<?php echo form_hidden('idVendas', $result->idVendas) ?>
+                                    <?php echo form_hidden('idVendas', $result->idVendas) ?>
 
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <h3>#Venda: 
-                                    <?php
-                                    /* echo $result->idVendas */
-                                    $this->db->select('vendas.idVendas, vendas.iddetalhe');
-                                    $this->db->from('vendas');
-                                    $this->db->where('idVendas', $result->idVendas);
-                                    $this->db->limit('1');
+                                            <?php
+                                            /* echo $result->idVendas */
+                                            $this->db->select('vendas.idVendas, vendas.iddetalhe');
+                                            $this->db->from('vendas');
+                                            $this->db->where('idVendas', $result->idVendas);
+                                            $this->db->limit('1');
 
-                                    $query = $this->db->get();
+                                            $query = $this->db->get();
 
-                                    $row = $query->row();
-                                    echo $row->iddetalhe;
-                                    ?>
+                                            $row = $query->row();
+                                            echo $row->iddetalhe;
+                                            ?>
                                         </h3>
                                         <div class="span2" style="margin-left: 0">
                                             <label for="dataFinal">Data Final</label>
@@ -76,9 +78,9 @@ js_aoEntrarNoCampo();
                                     <div class="span12" style="padding: 1%; margin-left: 0">
 
                                         <div class="span8 offset2" style="text-align: center">
-<?php if ($result->faturado == 0) { ?>
+                                            <?php if ($result->faturado == 0) { ?>
                                                 <a href="#modal-faturar" id="btn-faturar" role="button" data-toggle="modal" class="btn btn-success"><i class="icon-file"></i> Faturar</a>
-<?php } ?>
+                                            <?php } ?>
                                             <button class="btn btn-primary" id="btnContinuar"><i class="icon-white icon-ok"></i> Alterar</button>
                                             <a href="<?php echo base_url() ?>index.php/vendas/visualizar/<?php echo $result->idVendas; ?>" class="btn btn-inverse"><i class="icon-eye-open"></i> Visualizar Venda</a>
                                             <a href="<?php echo base_url() ?>index.php/vendas" class="btn"><i class="icon-arrow-left"></i> Voltar</a>
@@ -163,19 +165,23 @@ js_aoEntrarNoCampo();
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php
-$total = 0;
-foreach ($produtos as $p) {
+                                            <?php
+                                            $total = 0;
+                                            foreach ($produtos as $p) {
 
-    $total = $total + $p->subTotal;
-    echo '<tr>';
-    echo '<td>' . $p->descricao . '</td>';
-    echo '<td>' .  round( $p->quantidade ,0)  . '</td>';
-    echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
-    echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
-    echo '</tr>';
-}
-?>
+                                                $total = $total + $p->subTotal;
+                                                echo '<tr>';
+                                                echo '<td>' . $p->descricao . '</td>';
+
+                                                //Alterações posteriores:
+                                                //  1) Exibir Campos: vlr unitário, unidade     
+                                                //  2) Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
+                                                echo '<td>' . round($p->quantidade, 0) . '</td>';
+                                                echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
+                                                echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
+                                                echo '</tr>';
+                                            }
+                                            ?>
 
                                             <tr>
                                                 <td colspan="3" style="text-align: right"><strong>Total:</strong></td>
@@ -284,215 +290,215 @@ foreach ($produtos as $p) {
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.js"></script>
 <script src="<?php echo base_url(); ?>js/maskmoney.js"></script>
 <script type="text/javascript">
-                                                    $(document).ready(function () {
+                                                $(document).ready(function () {
 
-                                                        $(".money").maskMoney();
+                                                    $(".money").maskMoney();
 
-                                                        $('#recebido').click(function (event) {
-                                                            var flag = $(this).is(':checked');
-                                                            if (flag == true) {
-                                                                $('#divRecebimento').show();
-                                                            } else {
-                                                                $('#divRecebimento').hide();
+                                                    $('#recebido').click(function (event) {
+                                                        var flag = $(this).is(':checked');
+                                                        if (flag == true) {
+                                                            $('#divRecebimento').show();
+                                                        } else {
+                                                            $('#divRecebimento').hide();
+                                                        }
+                                                    });
+
+                                                    $(document).on('click', '#btn-faturar', function (event) {
+                                                        event.preventDefault();
+                                                        valor = $('#total-venda').val();
+                                                        valor = valor.replace(',', '');
+                                                        $('#valor').val(valor);
+                                                    });
+
+                                                    $("#formFaturar").validate({
+                                                        rules: {
+                                                            descricao: {required: true},
+                                                            cliente: {required: true},
+                                                            valor: {required: true},
+                                                            vencimento: {required: true}
+
+                                                        },
+                                                        messages: {
+                                                            descricao: {required: 'Campo Requerido.'},
+                                                            cliente: {required: 'Campo Requerido.'},
+                                                            valor: {required: 'Campo Requerido.'},
+                                                            vencimento: {required: 'Campo Requerido.'}
+                                                        },
+                                                        submitHandler: function (form) {
+                                                            var dados = $(form).serialize();
+                                                            $('#btn-cancelar-faturar').trigger('click');
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>index.php/vendas/faturar",
+                                                                data: dados,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+
+                                                                        window.location.reload(true);
+                                                                    } else {
+                                                                        alert('Ocorreu um erro ao tentar faturar venda.');
+                                                                        $('#progress-fatura').hide();
+                                                                    }
+                                                                }
+                                                            });
+
+                                                            return false;
+                                                        }
+                                                    });
+
+                                                    $("#produto").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteProduto",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#idProduto").val(ui.item.id);
+                                                            $("#estoque").val(ui.item.estoque);
+                                                            $("#precoref").val(ui.item.preco);
+                                                            $("#unidade").val(ui.item.unidade);
+
+                                                            if ($("#idProduto").length > 0) {
+                                                                document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
                                                             }
-                                                        });
 
-                                                        $(document).on('click', '#btn-faturar', function (event) {
-                                                            event.preventDefault();
-                                                            valor = $('#total-venda').val();
-                                                            valor = valor.replace(',', '');
-                                                            $('#valor').val(valor);
-                                                        });
+                                                            $("#quantidade").focus();
 
-                                                        $("#formFaturar").validate({
-                                                            rules: {
-                                                                descricao: {required: true},
-                                                                cliente: {required: true},
-                                                                valor: {required: true},
-                                                                vencimento: {required: true}
+                                                        }
+                                                    });
 
-                                                            },
-                                                            messages: {
-                                                                descricao: {required: 'Campo Requerido.'},
-                                                                cliente: {required: 'Campo Requerido.'},
-                                                                valor: {required: 'Campo Requerido.'},
-                                                                vencimento: {required: 'Campo Requerido.'}
-                                                            },
-                                                            submitHandler: function (form) {
+
+
+                                                    $("#cliente").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteCliente",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#clientes_id").val(ui.item.id);
+
+
+                                                        }
+                                                    });
+
+                                                    $("#tecnico").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteUsuario",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#usuarios_id").val(ui.item.id);
+
+
+                                                        }
+                                                    });
+
+
+
+                                                    $("#formVendas").validate({
+                                                        rules: {
+                                                            cliente: {required: true},
+                                                            tecnico: {required: true},
+                                                            dataVenda: {required: true}
+                                                        },
+                                                        messages: {
+                                                            cliente: {required: 'Campo Requerido.'},
+                                                            tecnico: {required: 'Campo Requerido.'},
+                                                            dataVenda: {required: 'Campo Requerido.'}
+                                                        },
+                                                        errorClass: "help-inline",
+                                                        errorElement: "span",
+                                                        highlight: function (element, errorClass, validClass) {
+                                                            $(element).parents('.control-group').addClass('error');
+                                                        },
+                                                        unhighlight: function (element, errorClass, validClass) {
+                                                            $(element).parents('.control-group').removeClass('error');
+                                                            $(element).parents('.control-group').addClass('success');
+                                                        }
+                                                    });
+
+
+
+
+                                                    $("#formProdutos").validate({
+                                                        rules: {
+                                                            quantidade: {required: true},
+                                                            preco: {required: true}
+                                                        },
+                                                        messages: {
+                                                            quantidade: {required: 'Insira a quantidade'},
+                                                            preco: {required: 'Insira o preço'}
+                                                        },
+                                                        submitHandler: function (form) {
+                                                            var quantidade = parseInt($("#quantidade").val());
+                                                            var estoque = parseInt($("#estoque").val());
+                                                            if (estoque < quantidade) {
+                                                                alert('Você não possui estoque suficiente.');
+                                                            } else {
                                                                 var dados = $(form).serialize();
-                                                                $('#btn-cancelar-faturar').trigger('click');
+                                                                $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
                                                                 $.ajax({
                                                                     type: "POST",
-                                                                    url: "<?php echo base_url(); ?>index.php/vendas/faturar",
+                                                                    url: "<?php echo base_url(); ?>index.php/vendas/adicionarProduto",
                                                                     data: dados,
                                                                     dataType: 'json',
                                                                     success: function (data)
                                                                     {
                                                                         if (data.result == true) {
-
-                                                                            window.location.reload(true);
-                                                                        } else {
-                                                                            alert('Ocorreu um erro ao tentar faturar venda.');
-                                                                            $('#progress-fatura').hide();
-                                                                        }
-                                                                    }
-                                                                });
-
-                                                                return false;
-                                                            }
-                                                        });
-
-                                                        $("#produto").autocomplete({
-                                                            source: "<?php echo base_url(); ?>index.php/os/autoCompleteProduto",
-                                                            minLength: 2,
-                                                            select: function (event, ui) {
-
-                                                                $("#idProduto").val(ui.item.id);
-                                                                $("#estoque").val(ui.item.estoque);
-                                                                $("#precoref").val(ui.item.preco);
-                                                                $("#unidade").val(ui.item.unidade);
-
-                                                                if ($("#idProduto").length > 0) {
-                                                                    document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
-                                                                }
-
-                                                                $("#quantidade").focus();
-
-                                                            }
-                                                        });
-
-
-
-                                                        $("#cliente").autocomplete({
-                                                            source: "<?php echo base_url(); ?>index.php/os/autoCompleteCliente",
-                                                            minLength: 2,
-                                                            select: function (event, ui) {
-
-                                                                $("#clientes_id").val(ui.item.id);
-
-
-                                                            }
-                                                        });
-
-                                                        $("#tecnico").autocomplete({
-                                                            source: "<?php echo base_url(); ?>index.php/os/autoCompleteUsuario",
-                                                            minLength: 2,
-                                                            select: function (event, ui) {
-
-                                                                $("#usuarios_id").val(ui.item.id);
-
-
-                                                            }
-                                                        });
-
-
-
-                                                        $("#formVendas").validate({
-                                                            rules: {
-                                                                cliente: {required: true},
-                                                                tecnico: {required: true},
-                                                                dataVenda: {required: true}
-                                                            },
-                                                            messages: {
-                                                                cliente: {required: 'Campo Requerido.'},
-                                                                tecnico: {required: 'Campo Requerido.'},
-                                                                dataVenda: {required: 'Campo Requerido.'}
-                                                            },
-                                                            errorClass: "help-inline",
-                                                            errorElement: "span",
-                                                            highlight: function (element, errorClass, validClass) {
-                                                                $(element).parents('.control-group').addClass('error');
-                                                            },
-                                                            unhighlight: function (element, errorClass, validClass) {
-                                                                $(element).parents('.control-group').removeClass('error');
-                                                                $(element).parents('.control-group').addClass('success');
-                                                            }
-                                                        });
-
-
-
-
-                                                        $("#formProdutos").validate({
-                                                            rules: {
-                                                                quantidade: {required: true},
-                                                                preco: {required: true}
-                                                            },
-                                                            messages: {
-                                                                quantidade: {required: 'Insira a quantidade'},
-                                                                preco: {required: 'Insira o preço'}
-                                                            },
-                                                            submitHandler: function (form) {
-                                                                var quantidade = parseInt($("#quantidade").val());
-                                                                var estoque = parseInt($("#estoque").val());
-                                                                if (estoque < quantidade) {
-                                                                    alert('Você não possui estoque suficiente.');
-                                                                } else {
-                                                                    var dados = $(form).serialize();
-                                                                    $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                                                                    $.ajax({
-                                                                        type: "POST",
-                                                                        url: "<?php echo base_url(); ?>index.php/vendas/adicionarProduto",
-                                                                        data: dados,
-                                                                        dataType: 'json',
-                                                                        success: function (data)
-                                                                        {
-                                                                            if (data.result == true) {
-                                                                                $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
-                                                                                $("#quantidade").val('');
-                                                                                $("#preco").val('');
-                                                                                $("#unidade").val('');
-                                                                                $("#precoref").val('');
-
-                                                                                document.getElementById('preco').setAttribute('placeholder', '0,00');
-
-                                                                                $("#produto").val('').focus();
-                                                                            } else {
-                                                                                alert('Ocorreu um erro ao tentar adicionar produto.');
-                                                                            }
-                                                                        }
-                                                                    });
-
-                                                                    return false;
-                                                                }
-
-                                                            }
-
-                                                        });
-
-
-
-                                                        $(document).on('click', 'a', function (event) {
-                                                            var idProduto = $(this).attr('idAcao');
-                                                            var quantidade = $(this).attr('quantAcao');
-                                                            var produto = $(this).attr('prodAcao');
-                                                            if ((idProduto % 1) == 0) {
-                                                                $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                                                                $.ajax({
-                                                                    type: "POST",
-                                                                    url: "<?php echo base_url(); ?>index.php/vendas/excluirProduto",
-                                                                    data: "idProduto=" + idProduto + "&quantidade=" + quantidade + "&produto=" + produto,
-                                                                    dataType: 'json',
-                                                                    success: function (data)
-                                                                    {
-                                                                        if (data.result == true) {
                                                                             $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
+                                                                            $("#quantidade").val('');
+                                                                            $("#preco").val('');
+                                                                            $("#unidade").val('');
+                                                                            $("#precoref").val('');
 
+                                                                            document.getElementById('preco').setAttribute('placeholder', '0,00');
+
+                                                                            $("#produto").val('').focus();
                                                                         } else {
-                                                                            alert('Ocorreu um erro ao tentar excluir produto.');
+                                                                            alert('Ocorreu um erro ao tentar adicionar produto.');
                                                                         }
                                                                     }
                                                                 });
+
                                                                 return false;
                                                             }
 
-                                                        });
-
-                                                        $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
-
-
-
+                                                        }
 
                                                     });
+
+
+
+                                                    $(document).on('click', 'a', function (event) {
+                                                        var idProduto = $(this).attr('idAcao');
+                                                        var quantidade = $(this).attr('quantAcao');
+                                                        var produto = $(this).attr('prodAcao');
+                                                        if ((idProduto % 1) == 0) {
+                                                            $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>index.php/vendas/excluirProduto",
+                                                                data: "idProduto=" + idProduto + "&quantidade=" + quantidade + "&produto=" + produto,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+                                                                        $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
+
+                                                                    } else {
+                                                                        alert('Ocorreu um erro ao tentar excluir produto.');
+                                                                    }
+                                                                }
+                                                            });
+                                                            return false;
+                                                        }
+
+                                                    });
+
+                                                    $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
+
+
+
+
+                                                });
 
 </script>
 

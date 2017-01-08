@@ -1,7 +1,20 @@
+<?php
+require_once '../biblioteca/read.data.php';
+require_once '../biblioteca/funcoes.php';
 
+//Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap 
+?>
 <link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.js"></script>
+<script  type="text/javascript" src="../../../../stylebootstrap/number/jquery.number.min.js"></script>
+
+<?php
+js_aoSairDoCampo();
+js_aoEntrarNoCampo();
+?>
+
+
 <div class="row-fluid" style="margin-top:0">
     <div class="span12">
         <div class="widget-box">
@@ -31,25 +44,22 @@
 
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <h3>#Protocolo: 
-                                            
-                                            
-                                            <?php 
-                                            
-                                              /*echo $result->idOs;*/                                               
-                                              $this->db->select('os.idOs, os.iddetalhe');
-                                              $this->db->from('os');
-                                              $this->db->where('idOs',$result->idOs);
-                                              $this->db->limit('1');
-                                            
-                                              $query = $this->db->get();
-                                              
-                                              $row = $query->row();
-                                              echo $row->iddetalhe;
-                                              
-                                              
+
+
+                                            <?php
+                                            /* echo $result->idOs; */
+                                            $this->db->select('os.idOs, os.iddetalhe');
+                                            $this->db->from('os');
+                                            $this->db->where('idOs', $result->idOs);
+                                            $this->db->limit('1');
+
+                                            $query = $this->db->get();
+
+                                            $row = $query->row();
+                                            echo $row->iddetalhe;
                                             ?>
-                                        
-                                        
+
+
                                         </h3>
 
                                         <div class="span6" style="margin-left: 0">
@@ -68,21 +78,31 @@
                                         <div class="span3">
                                             <label for="status">Status<span class="required">*</span></label>
                                             <select class="span12" name="status" id="status" value="">
-                                                <option <?php if ($result->status == 'Orçamento') {
-                                        echo 'selected';
-                                    } ?> value="Orçamento">Orçamento</option>
-                                                <option <?php if ($result->status == 'Aberto') {
-                                        echo 'selected';
-                                    } ?> value="Aberto">Aberto</option>
-                                                <option <?php if ($result->status == 'Faturado') {
-                                        echo 'selected';
-                                    } ?> value="Faturado">Faturado</option>
-                                                <option <?php if ($result->status == 'Finalizado') {
-                                        echo 'selected';
-                                    } ?> value="Finalizado">Finalizado</option>
-                                                <option <?php if ($result->status == 'Cancelado') {
-                                        echo 'selected';
-                                    } ?> value="Cancelado">Cancelado</option>
+                                                <option <?php
+                                            if ($result->status == 'Orçamento') {
+                                                echo 'selected';
+                                            }
+                                            ?> value="Orçamento">Orçamento</option>
+                                                <option <?php
+                                            if ($result->status == 'Aberto') {
+                                                echo 'selected';
+                                            }
+                                            ?> value="Aberto">Aberto</option>
+                                                <option <?php
+                                                    if ($result->status == 'Faturado') {
+                                                        echo 'selected';
+                                                    }
+                                                    ?> value="Faturado">Faturado</option>
+                                                <option <?php
+                                                if ($result->status == 'Finalizado') {
+                                                    echo 'selected';
+                                                }
+                                                ?> value="Finalizado">Finalizado</option>
+                                                <option <?php
+                                                if ($result->status == 'Cancelado') {
+                                                    echo 'selected';
+                                                }
+                                                ?> value="Cancelado">Cancelado</option>
                                             </select>
                                         </div>
                                         <div class="span3">
@@ -223,18 +243,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php
-$total = 0;
-foreach ($servicos as $s) {
-    $preco = $s->preco;
-    $total = $total + $preco;
-    echo '<tr>';
-    echo '<td>' . $s->nome . '</td>';
-    echo '<td><span idAcao="' . $s->idServicos_os . '" title="Excluir Serviço" class="btn btn-danger"><i class="icon-remove icon-white"></i></span></td>';
-    echo '<td>R$ ' . number_format($s->preco, 2, ',', '.') . '</td>';
-    echo '</tr>';
-}
-?>
+                                            <?php
+                                            $total = 0;
+                                            foreach ($servicos as $s) {
+                                                $preco = $s->preco;
+                                                $total = $total + $preco;
+                                                echo '<tr>';
+                                                echo '<td>' . $s->nome . '</td>';
+                                                echo '<td><span idAcao="' . $s->idServicos_os . '" title="Excluir Serviço" class="btn btn-danger"><i class="icon-remove icon-white"></i></span></td>';
+                                                echo '<td>R$ ' . number_format($s->preco, 2, ',', '.') . '</td>';
+                                                echo '</tr>';
+                                            }
+                                            ?>
 
                                             <tr>
                                                 <td colspan="2" style="text-align: right"><strong>Total:</strong></td>
@@ -270,9 +290,9 @@ foreach ($servicos as $s) {
                                     <?php
                                     $cont = 1;
                                     $flag = 5;
-                                     
+
                                     $idusumestre = $this->session->userdata('idusumestre');
-                                    
+
                                     foreach ($anexos as $a) {
 
                                         if ($a->thumb == null) {
@@ -642,7 +662,7 @@ foreach ($servicos as $s) {
                 $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
                 $.ajax({
                     type: "POST",
-                    url: "<?php      echo base_url().'index.php/os/anexar'; ?>",
+                    url: "<?php echo base_url() . 'index.php/os/anexar'; ?>",
                     data: dados,
                     mimeType: "multipart/form-data",
                     contentType: false,
@@ -745,12 +765,12 @@ foreach ($servicos as $s) {
             $('#modal-anexo').modal('hide');
             $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
 
-            
+
             //---------------------------------------
-            location.href=link;
-                    
+            location.href = link;
+
             /*  Verificar pq o ajax quando inserido aqui não funciona */
-            
+
             //--------------------------------------
 
         });
