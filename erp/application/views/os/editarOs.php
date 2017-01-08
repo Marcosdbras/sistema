@@ -268,12 +268,12 @@ js_aoEntrarNoCampo();
                                             <?php
                                             $total = 0;
                                             foreach ($servicos as $s) {
-                                                $preco = $s->preco;
+                                                $preco = $s->subTotal;
                                                 $total = $total + $preco;
                                                 echo '<tr>';
                                                 echo '<td>' . $s->nome . '</td>';
                                                 echo '<td><span idAcao="' . $s->idServicos_os . '" title="Excluir Serviço" class="btn btn-danger"><i class="icon-remove icon-white"></i></span></td>';
-                                                echo '<td>R$ ' . number_format($s->preco, 2, ',', '.') . '</td>';
+                                                echo '<td>R$ ' . number_format($s->subTotal, 2, ',', '.') . '</td>';
                                                 echo '</tr>';
                                             }
                                             ?>
