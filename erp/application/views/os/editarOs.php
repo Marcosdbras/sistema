@@ -558,7 +558,7 @@ js_aoEntrarNoCampo();
                                                         $("#precoServicoref").val(ui.item.preco);
                                                         
                                                         if ($("#idServico").length > 0) {
-                                                           document.getElementById('precoservico').setAttribute('placeholder', ui.item.preco);
+                                                           document.getElementById('precoServico').setAttribute('placeholder', ui.item.preco);
                                                         }
 
 
