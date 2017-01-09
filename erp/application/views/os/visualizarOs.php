@@ -131,6 +131,8 @@
                                         <tr>
                                             <th>Produto</th>
                                             <th>Quantidade</th>
+                                            
+                                            
                                             <th>Sub-total</th>
                                         </tr>
                                     </thead>
@@ -168,7 +170,7 @@
                                             <?php
                                         setlocale(LC_MONETARY, 'en_US');
                                         foreach ($servicos as $s) {
-                                            $preco = $s->preco;
+                                            $preco = $s->subTotal;
                                             $totalServico = $totalServico + $preco;
                                             echo '<tr>';
                                             echo '<td>'.$s->nome.'</td>';
