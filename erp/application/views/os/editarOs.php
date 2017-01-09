@@ -265,6 +265,7 @@ js_aoEntrarNoCampo();
                                         <thead>
                                             <tr>
                                                 <th>Serviço</th>
+                                                <th>Quantidade</th>
                                                 <th>Ações</th>
                                                 <th>Sub-total</th>
                                             </tr>
