@@ -239,18 +239,20 @@ js_aoEntrarNoCampo();
                                             <input type="hidden" name="idServico" id="idServico" />
                                             <input type="hidden" name="idOsServico" id="idOsServico" value="<?php echo $result->idOs ?>" />
                                             <input type="hidden" name="precoServicoref" id="precoServicoref" value=""/>
+                                            <input type="hidden" name="quantidadeServicoref" id="quantidadeServicoref" value="1"/>
+                                            
                                             <label for="">Serviço</label>
                                             <input type="text" class="span12" name="servico" id="servico" placeholder="Digite o nome do serviço" />
                                         </div>
 
                                         <div class="span2">
                                             <label for="">Quantidade</label>
-                                            <input type="tel" class="span12 number" placeholder="0" id="quantidadeServico" name="quantidadeServico"  onblur="aoSairDoCampoQtdeServico(this.value);" value="1" />
+                                            <input type="tel" class="span12 number" placeholder="0" id="quantidadeServico" name="quantidadeServico"  onblur="aoSairDoCampoQtdeServico(this.value);" onfocus ="aoEntrarNoCampoQtdeServico(quantidadeServicoref.value)" />
                                         </div>
                                         
                                         <div class="span2">
                                             <label for="preco">Preço</label>
-                                            <input type="tel"  class="span12" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value)" />           
+                                            <input type="tel"  class="span12" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value);" />           
                                         </div>
 
 
@@ -563,9 +565,11 @@ js_aoEntrarNoCampo();
 
                                                         $("#idServico").val(ui.item.id);
                                                         $("#precoServicoref").val(ui.item.preco);
-                                                        
+        
+        
                                                         if ($("#idServico").length > 0) {
                                                            document.getElementById('precoServico').setAttribute('placeholder', ui.item.preco);
+                                                           document.getElementById('quantidadeServico').setAttribute('placeholder', '1');
                                                         }
                                                         
                                                         $("#quantidadeServico").focus();

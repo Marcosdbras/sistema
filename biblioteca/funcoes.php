@@ -20,6 +20,13 @@ function js_aoEntrarNoCampo(){
     echo' };';    
     echo'</script>';
     
+    echo'<script type="text/javascript">';
+    echo'  function aoEntrarNoCampoQtdeServico(valor) {';
+    echo  "  document.getElementById('quantidadeServico').value = valor;";
+    echo' };';    
+    echo'</script>';
+
+
     
 }
 
