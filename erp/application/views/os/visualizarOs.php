@@ -174,7 +174,7 @@
                                             $totalServico = $totalServico + $preco;
                                             echo '<tr>';
                                             echo '<td>'.$s->nome.'</td>';
-                                            echo '<td>R$ '.number_format($s->preco, 2, ',', '.').'</td>';
+                                            echo '<td>R$ '.number_format($s->subTotal, 2, ',', '.').'</td>';
                                             echo '</tr>';
                                         }?>
 
