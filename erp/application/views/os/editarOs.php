@@ -286,7 +286,7 @@ js_aoEntrarNoCampo();
                                             ?>
 
                                             <tr>
-                                                <td colspan="2" style="text-align: right"><strong>Total:</strong></td>
+                                                <td colspan="3" style="text-align: right"><strong>Total:</strong></td>
                                                 <td><strong>R$ <?php echo number_format($total, 2, ',', '.'); ?><input type="hidden" id="total-servico" value="<?php echo number_format($total, 2); ?>"></strong></td>
                                             </tr>
                                         </tbody>
