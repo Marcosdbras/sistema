@@ -235,7 +235,7 @@ js_aoEntrarNoCampo();
                             <div class="span12" style="padding: 1%; margin-left: 0">
                                 <div class="span12 well" style="padding: 1%; margin-left: 0">
                                     <form id="formServicos" action="<?php echo base_url() ?>index.php/os/adicionarServico" method="post">
-                                        <div class="span8">
+                                        <div class="span6">
                                             <input type="hidden" name="idServico" id="idServico" />
                                             <input type="hidden" name="idOsServico" id="idOsServico" value="<?php echo $result->idOs ?>" />
                                             <input type="hidden" name="precoServicoref" id="precoServicoref" value=""/>
@@ -243,6 +243,11 @@ js_aoEntrarNoCampo();
                                             <input type="text" class="span12" name="servico" id="servico" placeholder="Digite o nome do serviço" />
                                         </div>
 
+                                        <div class="span2">
+                                            <label for="">Quantidade</label>
+                                            <input type="tel" class="span12 number" placeholder="0" id="quantidadeServico" name="quantidadeServico"  onblur="aoSairDoCampoQtdeServico(this.value);" value="1" />
+                                        </div>
+                                        
                                         <div class="span2">
                                             <label for="preco">Preço</label>
                                             <input type="tel"  class="span12" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value)" />           
@@ -272,6 +277,7 @@ js_aoEntrarNoCampo();
                                                 $total = $total + $preco;
                                                 echo '<tr>';
                                                 echo '<td>' . $s->nome . '</td>';
+                                                echo '<td>' . round($s->quantidade, 0) . '</td>';
                                                 echo '<td><span idAcao="' . $s->idServicos_os . '" title="Excluir Serviço" class="btn btn-danger"><i class="icon-remove icon-white"></i></span></td>';
                                                 echo '<td>R$ ' . number_format($s->subTotal, 2, ',', '.') . '</td>';
                                                 echo '</tr>';
@@ -560,7 +566,8 @@ js_aoEntrarNoCampo();
                                                         if ($("#idServico").length > 0) {
                                                            document.getElementById('precoServico').setAttribute('placeholder', ui.item.preco);
                                                         }
-
+                                                        
+                                                        $("#quantidadeServico").focus();
 
                                                     }
                                                 });
@@ -667,11 +674,13 @@ js_aoEntrarNoCampo();
                                                 $("#formServicos").validate({
                                                     rules: {
                                                         servico: {required: true},
-                                                        precoServico: {required: true}
+                                                        precoServico: {required: true},
+                                                        quantidadeServico: {required: true}
                                                     },
                                                     messages: {
                                                         servico: {required: 'Insira um serviço'},
-                                                        precoServico: {required: 'Insira o preço'}
+                                                        precoServico: {required: 'Insira o preço'},
+                                                        quantidadeServico: {required: 'Insira a quantidade'}
                                                     },
                                                     submitHandler: function (form) {
                                                         var dados = $(form).serialize();
@@ -688,6 +697,7 @@ js_aoEntrarNoCampo();
                                                                     $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
                                                                     $("#precoServico").val('');
                                                                     $("#precoServicoref").val('');
+                                                                    $("#quantidadeServico").val('1');
                                                                     document.getElementById('precoServico').setAttribute('placeholder', '0,00');
                                                                     
                                                                     

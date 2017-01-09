@@ -46,6 +46,10 @@ function js_aoSairDoCampo(){
 
     echo' };'; 
 
+    echo'  function aoSairDoCampoQtdeServico(valor) {';
+
+
+    echo' };'; 
 
 
 

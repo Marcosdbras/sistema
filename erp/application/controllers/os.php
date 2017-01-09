@@ -372,7 +372,10 @@ class Os extends CI_Controller {
     }
 
     public function adicionarServico() {
-
+        $quantidade = $this->input->post('quantidadeServico');
+        $preco= $this->input->post('precoServico');
+        $subtotal = $quantidade*$preco;
+        
         //Author: Marcos Brás--------------------- 
         $this->db->select('idusumestre');
         $this->db->from('servicos_os');
@@ -392,7 +395,10 @@ class Os extends CI_Controller {
             'os_id' => $this->input->post('idOsServico'),
             'idusumestre' => $this->session->userdata('idusumestre'),
             'iddetalhe' => $totreg,
-            'subTotal'=>$this->input->post('precoServico')
+            'vlrunitario'=>$preco,
+            'quantidade'=>$quantidade,
+            'subtotal'=>$subtotal
+            
         );
 
         if ($this->os_model->add('servicos_os', $data) == true) {
