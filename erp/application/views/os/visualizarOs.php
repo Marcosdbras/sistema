@@ -131,8 +131,6 @@
                                         <tr>
                                             <th>Produto</th>
                                             <th>Quantidade</th>
-                                            
-                                            
                                             <th>Sub-total</th>
                                         </tr>
                                     </thead>
@@ -144,7 +142,7 @@
                                             $totalProdutos = $totalProdutos + $p->subTotal;
                                             echo '<tr>';
                                             echo '<td>'.$p->descricao.'</td>';
-                                            echo '<td>'.$p->quantidade.'</td>';
+                                            echo '<td>' . round(  $p->quantidade,0 )  .   '</td>';
                                             
                                             echo '<td>R$ '.number_format($p->subTotal,2,',','.').'</td>';
                                             echo '</tr>';
