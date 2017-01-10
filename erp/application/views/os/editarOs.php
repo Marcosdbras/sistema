@@ -201,6 +201,8 @@ $nos = $row->iddetalhe;
                                         <tr>
                                             <th>Produto</th>
                                             <th>Quantidade</th>
+                                            <th>Unidade</th>
+                                            <th>Vlr Unitário</th>
                                             <th>Ações</th>
                                             <th>Sub-total</th>
                                         </tr>
@@ -213,9 +215,12 @@ $nos = $row->iddetalhe;
                                             $total = $total + $p->subTotal;
                                             echo '<tr>';
                                             echo '<td>' . $p->descricao . '</td>';
-
-                                            //------
+                                            
                                             echo '<td>' . round($p->quantidade, 0) . '</td>';
+                                            
+                                            echo '<td>' . $p->unidade . '</td>';
+                                            echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
+                                            
                                             echo '<td><a href="" idAcao="' . $p->idProdutos_os . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
                                             echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
                                             echo '</tr>';
@@ -223,7 +228,7 @@ $nos = $row->iddetalhe;
                                         ?>
 
                                         <tr>
-                                            <td colspan="3" style="text-align: right"><strong>Total:</strong></td>
+                                            <td colspan="5" style="text-align: right"><strong>Total:</strong></td>
                                             <td><strong>R$ <?php echo number_format($total, 2, ',', '.'); ?><input type="hidden" id="total-venda" value="<?php echo number_format($total, 2); ?>"></strong></td>
                                         </tr>
                                     </tbody>
