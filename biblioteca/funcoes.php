@@ -121,3 +121,48 @@ function downloadFile($file, $folder = null) {
      download($novoNome); 
     
 }
+
+/**
+* Validate a date
+*
+* @param    string    $data
+* @param    string    formato
+* @return    bool
+*/
+function validaData($data, $formato = 'DD/MM/AAAA') {
+switch($formato) {
+case 'DD-MM-AAAA':
+case 'DD/MM/AAAA':
+list($d, $m, $a) =  preg_split("/[-\.\/ ]/", $data); //preg_split('/[-./ ]/', $data);
+break;
+case 'AAAA/MM/DD':
+case 'AAAA-MM-DD':
+list($a, $m, $d) = preg_split("/[-\.\/ ]/", $data);
+break;
+case 'AAAA/DD/MM':
+case 'AAAA-DD-MM':
+list($a, $d, $m) = preg_split("/[-\.\/ ]/", $data);
+break;
+case 'MM-DD-AAAA':
+case 'MM/DD/AAAA':
+list($m, $d, $a) = preg_split("/[-\.\/ ]/", $data);
+break;
+case 'AAAAMMDD':
+$a = substr($data, 0, 4);
+$m = substr($data, 4, 2);
+$d = substr($data, 6, 2);
+break;
+case 'AAAADDMM':
+$a = substr($data, 0, 4);
+$d = substr($data, 4, 2);
+$m = substr($data, 6, 2);
+break;
+default:
+throw new Exception( "Formato de data inválido");
+break;
+}
+
+
+return checkdate($m, $d, $a);
+
+}

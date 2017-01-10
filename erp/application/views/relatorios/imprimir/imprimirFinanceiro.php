@@ -44,7 +44,14 @@
                           $saldo = 0;
                           foreach ($lancamentos as $l) {
                               $vencimento = date('d/m/Y', strtotime($l->data_vencimento));
-                              $pagamento = date('d/m/Y', strtotime($l->data_pagamento));
+                              
+                              if (validaData($l->data_pagamento, 'AAAA-MM-DD')){
+                                $pagamento = date('d/m/Y', strtotime($l->data_pagamento));  
+                              }else{
+                                $pagamento = '';  
+                              }
+                              
+                              
                               if($l->baixado == 1){$situacao = 'Pago';}else{ $situacao = 'Pendente';}
                               if($l->tipo == 'receita'){ $totalReceita += $l->valor;} else{ $totalDespesa += $l->valor;}
                               echo '<tr>';
