@@ -1,4 +1,13 @@
-  <head>
+<?php
+require_once '../../biblioteca/read.data.php';
+require_once '../../biblioteca/funcoes.php';
+
+//Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap 
+?>
+
+
+
+<head>
     <title>MAPOS</title>
     <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
