@@ -313,7 +313,7 @@ class Os extends CI_Controller {
 
 
         $preco = $this->input->post('preco');
-        $preco = number_format($preco,2,',','.');
+        $preco = number_format($preco,2,'.',',');
         
         $quantidade = $this->input->post('quantidade');
         $subtotal = $preco * $quantidade;
