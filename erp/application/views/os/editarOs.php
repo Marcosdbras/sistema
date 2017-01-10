@@ -556,7 +556,11 @@ $nos = $row->iddetalhe;
 
 
                                                             if ($("#idProduto").length > 0) {
-                                                                document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
+                                                                
+                                                                var str =  ui.item.preco;
+                                                                var res = str.replace('.',',');
+            
+                                                                document.getElementById('preco').setAttribute('placeholder', res);
                                                             }
 
                                                             $("#quantidade").focus();

@@ -18,6 +18,8 @@
 - Exibir Campos: vlr unitário, unidade     
 - Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
 - Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap
+- Cadastro de produtos e serviços os valores estão se apresentando com '.' no valor decimal quando na verdade deveriam se apresentar com ','
+
 
 
 

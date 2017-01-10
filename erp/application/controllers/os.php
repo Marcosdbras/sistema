@@ -380,6 +380,9 @@ class Os extends CI_Controller {
         $preco= $this->input->post('precoServico');
         $subtotal = $quantidade*$preco;
         
+        $preco = str_replace(',', '.', $preco);
+        $quantidade = str_replace(',', '.', $quantidade);
+        
         //Author: Marcos Brás--------------------- 
         $this->db->select('idusumestre');
         $this->db->from('servicos_os');

@@ -283,6 +283,9 @@ class Vendas extends CI_Controller {
             $subtotal = $preco * $quantidade;
             $produto = $this->input->post('idProduto');
             
+            $preco = str_replace(',', '.', $preco);
+            $quantidade = str_replace(',', '.', $quantidade);
+            
             //Author: Marcos Brás--------------------- 
             $this->db->select('idusumestre');
             $this->db->from('itens_de_vendas');
