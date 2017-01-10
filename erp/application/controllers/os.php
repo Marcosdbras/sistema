@@ -381,8 +381,8 @@ class Os extends CI_Controller {
         $subtotal = $quantidade*$preco;
         
         // Troca vírgula por ponto
-        $preco = str_replace(',', '.', $preco);
-        $quantidade = str_replace(',', '.', $quantidade);
+        //$preco = str_replace(',', '.', $preco);
+        //$quantidade = str_replace(',', '.', $quantidade);
         
         
         //Author: Marcos Brás--------------------- 
