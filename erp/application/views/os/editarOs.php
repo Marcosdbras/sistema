@@ -579,7 +579,12 @@ $nos = $row->iddetalhe;
 
 
                                                             if ($("#idServico").length > 0) {
-                                                                document.getElementById('precoServico').setAttribute('placeholder', ui.item.preco);
+                                                                
+                                                                var str =  ui.item.preco;
+                                                                var res = str.replace('.',',');
+            
+                                                                
+                                                                document.getElementById('precoServico').setAttribute('placeholder', res);
                                                                 document.getElementById('quantidadeServico').setAttribute('placeholder', '1');
                                                             }
 

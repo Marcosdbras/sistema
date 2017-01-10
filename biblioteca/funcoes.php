@@ -9,20 +9,29 @@
 
 function js_aoEntrarNoCampo(){
     echo'<script type="text/javascript">';
-    echo'  function aoEntrarNoCampoPreco(valor) {';
-    echo  "  document.getElementById('preco').value = valor;";
+    echo'  function aoEntrarNoCampoPreco(valor) {';    
+    echo'    var str =  valor;';
+    echo'    var res = str.replace('.',',');';    
+    echo"    document.getElementById('preco').value = res;";    
     echo' };';    
     echo'</script>';
     
     echo'<script type="text/javascript">';
-    echo'  function aoEntrarNoCampoPrecoServico(valor) {';
-    echo  "  document.getElementById('precoServico').value = valor;";
+    echo'  function aoEntrarNoCampoPrecoServico(valor) {';    
+    echo'    var str =  valor;';
+    echo'    var res = str.replace('.',',');';    
+    echo"    document.getElementById('precoServico').value = res;";
     echo' };';    
     echo'</script>';
     
     echo'<script type="text/javascript">';
     echo'  function aoEntrarNoCampoQtdeServico(valor) {';
-    echo  "  document.getElementById('quantidadeServico').value = valor;";
+    
+    echo 'var str =  valor;';
+    echo 'var res = str.replace('.',',');';
+    
+    
+    echo  "  document.getElementById('quantidadeServico').value = res;";
     echo' };';    
     echo'</script>';
 
