@@ -1,6 +1,6 @@
 <?php
-require_once '../../biblioteca/read.data.php';
-require_once '../../biblioteca/funcoes.php';
+require_once '../../../biblioteca/read.data.php';
+require_once '../../../biblioteca/funcoes.php';
 
 //Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap 
 ?>
