@@ -313,13 +313,17 @@ class Os extends CI_Controller {
 
 
         $preco = $this->input->post('preco');
+        $preco = str_replace(',', '.', $preco);
+        
         $quantidade = $this->input->post('quantidade');
+        $quantidade = str_replace(',', '.', $quantidade);
+        
         $subtotal = $preco * $quantidade;
         $produto = $this->input->post('idProduto');
         
         
-        $preco = str_replace(',', '.', $preco);
-        $quantidade = str_replace(',', '.', $quantidade);
+        
+        
 
         //Author: Marcos Brás--------------------- 
         $this->db->select('idusumestre');
@@ -377,13 +381,12 @@ class Os extends CI_Controller {
 
     public function adicionarServico() {
         $quantidade = $this->input->post('quantidadeServico');
-        $preco= $this->input->post('precoServico');
-        $subtotal = $quantidade*$preco;
-        
-        // Troca vírgula por ponto
-        $preco = str_replace(',', '.', $preco);
         $quantidade = str_replace(',', '.', $quantidade);
         
+        $preco= $this->input->post('precoServico');
+        $preco = str_replace(',', '.', $preco);
+        
+        $subtotal = $quantidade*$preco;
         
         //Author: Marcos Brás--------------------- 
         $this->db->select('idusumestre');

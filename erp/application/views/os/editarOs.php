@@ -557,10 +557,10 @@ $nos = $row->iddetalhe;
 
                                                             if ($("#idProduto").length > 0) {
                                                                 
-                                                                //var str =  ui.item.preco;
-                                                                //var res = str.replace('.',',');
+                                                                var str =  ui.item.preco;
+                                                                var res = str.replace('.',',');
             
-                                                                document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
+                                                                document.getElementById('preco').setAttribute('placeholder', res );
                                                             }
 
                                                             $("#quantidade").focus();
