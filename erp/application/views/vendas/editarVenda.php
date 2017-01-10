@@ -57,7 +57,7 @@ $nvenda = $row->iddetalhe;
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <h3>#Venda: 
                                             <?php
-                                              echo $nvenda;
+                                            echo $nvenda;
                                             ?>
                                         </h3>
                                         <div class="span2" style="margin-left: 0">
@@ -81,7 +81,7 @@ $nvenda = $row->iddetalhe;
                                     <div class="span12" style="padding: 1%; margin-left: 0">
 
                                         <div class="span8 offset2" style="text-align: center">
-<?php if ($result->faturado == 0) { ?>
+                                            <?php if ($result->faturado == 0) { ?>
                                                 <a href="#modal-faturar" id="btn-faturar" role="button" data-toggle="modal" class="btn btn-success"><i class="icon-file"></i> Faturar</a>
                                             <?php } ?>
                                             <button class="btn btn-primary" id="btnContinuar"><i class="icon-white icon-ok"></i> Alterar</button>
@@ -170,27 +170,27 @@ $nvenda = $row->iddetalhe;
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php
-$total = 0;
-foreach ($produtos as $p) {
+                                            <?php
+                                            $total = 0;
+                                            foreach ($produtos as $p) {
 
-    $total = $total + $p->subTotal;
-    echo '<tr>';
-    echo '<td>' . $p->descricao . '</td>';
+                                                $total = $total + $p->subTotal;
+                                                echo '<tr>';
+                                                echo '<td>' . $p->descricao . '</td>';
 
-    //Alterações posteriores:
-    //  1) Exibir Campos: vlr unitário, unidade     
-    //  2) Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
-    echo '<td>' . round($p->quantidade, 0) . '</td>';
+                                                //Alterações posteriores:
+                                                //  1) Exibir Campos: vlr unitário, unidade     
+                                                //  2) Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
+                                                echo '<td>' . round($p->quantidade, 0) . '</td>';
 
-    echo '<td>' . $p->unidade . '</td>';
-    echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
+                                                echo '<td>' . $p->unidade . '</td>';
+                                                echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
 
-    echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
-    echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
-    echo '</tr>';
-}
-?>
+                                                echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
+                                                echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
+                                                echo '</tr>';
+                                            }
+                                            ?>
 
                                             <tr>
                                                 <td colspan="5" style="text-align: right"><strong>Total:</strong></td>

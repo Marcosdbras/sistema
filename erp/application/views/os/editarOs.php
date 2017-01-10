@@ -60,7 +60,7 @@ $nos = $row->iddetalhe;
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <h3>#Protocolo: 
                                             <?php
-                                              echo $nos;
+                                            echo $nos;
                                             ?>
                                         </h3>
 

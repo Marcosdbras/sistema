@@ -21,11 +21,11 @@ $nvenda = $row->iddetalhe;
                 </span>
                 <h5>Venda</h5>
                 <div class="buttons">
-<?php
-if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eVenda')) {
-    echo '<a title="Icon Title" class="btn btn-mini btn-info" href="' . base_url() . 'index.php/vendas/editar/' . $result->idVendas . '"><i class="icon-pencil icon-white"></i> Editar</a>';
-}
-?>
+                    <?php
+                    if ($this->permission->checkPermission($this->session->userdata('permissao'), 'eVenda')) {
+                        echo '<a title="Icon Title" class="btn btn-mini btn-info" href="' . base_url() . 'index.php/vendas/editar/' . $result->idVendas . '"><i class="icon-pencil icon-white"></i> Editar</a>';
+                    }
+                    ?>
 
                     <a id="imprimir" title="Imprimir" class="btn btn-mini btn-inverse" href=""><i class="icon-print icon-white"></i> Imprimir</a>
                 </div>
@@ -49,20 +49,20 @@ if ($this->permission->checkPermission($this->session->userdata('permissao'), 'e
                                         <td style="width: 18%; text-align: center">#Venda: 
                                             <span >
                                                 <?php
-                                                  echo $nvenda;
+                                                echo $nvenda;
                                                 ?>
                                             </span>
                                             </br> 
                                             </br> 
                                             <span>Emissão: 
-    <?php
-    echo date('d/m/Y');
-    ?>
+                                                <?php
+                                                echo date('d/m/Y');
+                                                ?>
                                             </span>
                                         </td>
                                     </tr>
 
-<?php } ?>
+                                <?php } ?>
                             </tbody>
                         </table>
 
@@ -98,44 +98,44 @@ if ($this->permission->checkPermission($this->session->userdata('permissao'), 'e
                     <div style="margin-top: 0; padding-top: 0">
 
 
-<?php if ($produtos != null) { ?>
+                        <?php if ($produtos != null) { ?>
 
                             <table class="table table-bordered table-condensed" id="tblProdutos">
                                 <thead>
                                     <tr>
                                         <th style="font-size: 15px">Produto</th>
                                         <th style="font-size: 15px">Quantidade</th>
-                                        
+
                                         <th style="font-size: 15px">Unidade</th>
                                         <th style="font-size: 15px">Vlr Unitário</th>                                        
-                                        
+
                                         <th style="font-size: 15px">Sub-total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-    <?php
-    foreach ($produtos as $p) {
+                                    <?php
+                                    foreach ($produtos as $p) {
 
-        $totalProdutos = $totalProdutos + $p->subTotal;
-        echo '<tr>';
-        echo '<td>' . $p->descricao . '</td>';
-        echo '<td>' . round($p->quantidade) . '</td>';
+                                        $totalProdutos = $totalProdutos + $p->subTotal;
+                                        echo '<tr>';
+                                        echo '<td>' . $p->descricao . '</td>';
+                                        echo '<td>' . round($p->quantidade) . '</td>';
 
-        echo '<td>' . $p->unidade . '</td>';        
-        echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
-        
-        echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
-        echo '</tr>';
-    }
-    ?>
+                                        echo '<td>' . $p->unidade . '</td>';
+                                        echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
+
+                                        echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
+                                        echo '</tr>';
+                                    }
+                                    ?>
 
                                     <tr>
-                                        <td colspan="2" style="text-align: right"><strong>Total:</strong></td>
+                                        <td colspan="5" style="text-align: right"><strong>Total:</strong></td>
                                         <td><strong>R$ <?php echo number_format($totalProdutos, 2, ',', '.'); ?></strong></td>
                                     </tr>
                                 </tbody>
                             </table>
-<?php } ?>
+                        <?php } ?>
 
 
                         <hr />
