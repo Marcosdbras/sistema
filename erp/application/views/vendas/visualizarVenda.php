@@ -130,7 +130,7 @@ $nvenda = $row->iddetalhe;
                                     ?>
 
                                     <tr>
-                                        <td colspan="5" style="text-align: right"><strong>Total:</strong></td>
+                                        <td colspan="4" style="text-align: right"><strong>Total:</strong></td>
                                         <td><strong>R$ <?php echo number_format($totalProdutos, 2, ',', '.'); ?></strong></td>
                                     </tr>
                                 </tbody>
