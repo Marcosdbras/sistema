@@ -10,9 +10,24 @@ require_once '../biblioteca/funcoes.php';
 <script  type="text/javascript" src="../../../../stylebootstrap/number/jquery.number.min.js"></script>
 
 <?php
+// Evento dos campos
 js_aoSairDoCampo();
 js_aoEntrarNoCampo();
 ?>
+
+<?php
+// Buscar Informação
+$this->db->select('os.idOs, os.iddetalhe');
+$this->db->from('os');
+$this->db->where('idOs', $result->idOs);
+$this->db->limit('1');
+
+$query = $this->db->get();
+
+$row = $query->row();
+$nos = $row->iddetalhe;
+?>
+
 
 
 <div class="row-fluid" style="margin-top:0">
@@ -44,22 +59,9 @@ js_aoEntrarNoCampo();
 
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <h3>#Protocolo: 
-
-
                                             <?php
-                                            /* echo $result->idOs; */
-                                            $this->db->select('os.idOs, os.iddetalhe');
-                                            $this->db->from('os');
-                                            $this->db->where('idOs', $result->idOs);
-                                            $this->db->limit('1');
-
-                                            $query = $this->db->get();
-
-                                            $row = $query->row();
-                                            echo $row->iddetalhe;
+                                              echo $nos;
                                             ?>
-
-
                                         </h3>
 
                                         <div class="span6" style="margin-left: 0">
@@ -240,7 +242,7 @@ js_aoEntrarNoCampo();
                                             <input type="hidden" name="idOsServico" id="idOsServico" value="<?php echo $result->idOs ?>" />
                                             <input type="hidden" name="precoServicoref" id="precoServicoref" value=""/>
                                             <input type="hidden" name="quantidadeServicoref" id="quantidadeServicoref" value="1"/>
-                                            
+
                                             <label for="">Serviço</label>
                                             <input type="text" class="span12" name="servico" id="servico" placeholder="Digite o nome do serviço" />
                                         </div>
@@ -249,7 +251,7 @@ js_aoEntrarNoCampo();
                                             <label for="">Quantidade</label>
                                             <input type="tel" class="span12 number" placeholder="0" id="quantidadeServico" name="quantidadeServico"  onblur="aoSairDoCampoQtdeServico(this.value);" onfocus ="aoEntrarNoCampoQtdeServico(quantidadeServicoref.value)" />
                                         </div>
-                                        
+
                                         <div class="span2">
                                             <label for="preco">Preço</label>
                                             <input type="tel"  class="span12" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value);" />           
@@ -409,7 +411,7 @@ js_aoEntrarNoCampo();
             <div class="span12 alert alert-info" style="margin-left: 0"> Obrigatório o preenchimento dos campos com asterisco.</div>
             <div class="span12" style="margin-left: 0"> 
                 <label for="descricao">Descrição</label>
-                <input class="span12" id="descricao" type="text" name="descricao" value="Fatura de Venda - #<?php echo $result->iddetalhe; ?> "  />
+                <input class="span12" id="descricao" type="text" name="descricao" value="Fatura de Venda - #<?php echo $nos; ?> "  />
 
             </div>  
             <div class="span12" style="margin-left: 0"> 
@@ -474,197 +476,241 @@ js_aoEntrarNoCampo();
 <script src="<?php echo base_url(); ?>js/maskmoney.js"></script>
 
 <script type="text/javascript">
-                                            $(document).ready(function () {
+                                                $(document).ready(function () {
 
-                                                $(".money").maskMoney();
+                                                    $(".money").maskMoney();
 
-                                                $('#recebido').click(function (event) {
-                                                    var flag = $(this).is(':checked');
-                                                    if (flag == true) {
-                                                        $('#divRecebimento').show();
-                                                    } else {
-                                                        $('#divRecebimento').hide();
-                                                    }
-                                                });
-
-                                                $(document).on('click', '#btn-faturar', function (event) {
-                                                    event.preventDefault();
-                                                    valor = $('#total-venda').val();
-                                                    total_servico = $('#total-servico').val();
-                                                    valor = valor.replace(',', '');
-                                                    total_servico = total_servico.replace(',', '');
-                                                    total_servico = parseFloat(total_servico);
-                                                    valor = parseFloat(valor);
-                                                    $('#valor').val(valor + total_servico);
-                                                });
-
-                                                $("#formFaturar").validate({
-                                                    rules: {
-                                                        descricao: {required: true},
-                                                        cliente: {required: true},
-                                                        valor: {required: true},
-                                                        vencimento: {required: true}
-
-                                                    },
-                                                    messages: {
-                                                        descricao: {required: 'Campo Requerido.'},
-                                                        cliente: {required: 'Campo Requerido.'},
-                                                        valor: {required: 'Campo Requerido.'},
-                                                        vencimento: {required: 'Campo Requerido.'}
-                                                    },
-                                                    submitHandler: function (form) {
-                                                        var dados = $(form).serialize();
-                                                        $('#btn-cancelar-faturar').trigger('click');
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: "<?php echo base_url(); ?>index.php/os/faturar",
-                                                            data: dados,
-                                                            dataType: 'json',
-                                                            success: function (data)
-                                                            {
-                                                                if (data.result == true) {
-
-                                                                    window.location.reload(true);
-                                                                } else {
-                                                                    alert('Ocorreu um erro ao tentar faturar OS.');
-                                                                    $('#progress-fatura').hide();
-                                                                }
-                                                            }
-                                                        });
-
-                                                        return false;
-                                                    }
-                                                });
-
-                                                $("#produto").autocomplete({
-                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteProduto",
-                                                    minLength: 2,
-                                                    select: function (event, ui) {
-
-                                                        $("#idProduto").val(ui.item.id);
-                                                        $("#estoque").val(ui.item.estoque);
-                                                        $("#precoref").val(ui.item.preco);
-                                                        $("#unidade").val(ui.item.unidade);
-
-
-
-                                                        if ($("#idProduto").length > 0) {
-                                                            document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
-                                                        }
-
-                                                        $("#quantidade").focus();
-
-
-                                                    }
-                                                });
-
-                                                $("#servico").autocomplete({
-                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteServico",
-                                                    minLength: 2,
-                                                    select: function (event, ui) {
-
-                                                        $("#idServico").val(ui.item.id);
-                                                        $("#precoServicoref").val(ui.item.preco);
-        
-        
-                                                        if ($("#idServico").length > 0) {
-                                                           document.getElementById('precoServico').setAttribute('placeholder', ui.item.preco);
-                                                           document.getElementById('quantidadeServico').setAttribute('placeholder', '1');
-                                                        }
-                                                        
-                                                        $("#quantidadeServico").focus();
-
-                                                    }
-                                                });
-
-
-                                                $("#cliente").autocomplete({
-                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteCliente",
-                                                    minLength: 2,
-                                                    select: function (event, ui) {
-
-                                                        $("#clientes_id").val(ui.item.id);
-
-
-                                                    }
-                                                });
-
-                                                $("#tecnico").autocomplete({
-                                                    source: "<?php echo base_url(); ?>index.php/os/autoCompleteUsuario",
-                                                    minLength: 2,
-                                                    select: function (event, ui) {
-
-                                                        $("#usuarios_id").val(ui.item.id);
-
-
-                                                    }
-                                                });
-
-
-
-
-                                                $("#formOs").validate({
-                                                    rules: {
-                                                        cliente: {required: true},
-                                                        tecnico: {required: true},
-                                                        dataInicial: {required: true}
-                                                    },
-                                                    messages: {
-                                                        cliente: {required: 'Campo Requerido.'},
-                                                        tecnico: {required: 'Campo Requerido.'},
-                                                        dataInicial: {required: 'Campo Requerido.'}
-                                                    },
-                                                    errorClass: "help-inline",
-                                                    errorElement: "span",
-                                                    highlight: function (element, errorClass, validClass) {
-                                                        $(element).parents('.control-group').addClass('error');
-                                                    },
-                                                    unhighlight: function (element, errorClass, validClass) {
-                                                        $(element).parents('.control-group').removeClass('error');
-                                                        $(element).parents('.control-group').addClass('success');
-                                                    }
-                                                });
-
-
-
-
-                                                $("#formProdutos").validate({
-                                                    rules: {
-                                                        quantidade: {required: true},
-                                                        preco: {required: true}
-                                                    },
-                                                    messages: {
-                                                        quantidade: {required: 'Insira a quantidade'},
-                                                        preco: {required: 'Insira o preço'}
-                                                    },
-                                                    submitHandler: function (form) {
-                                                        var quantidade = parseInt($("#quantidade").val());
-                                                        var estoque = parseInt($("#estoque").val());
-                                                        if (estoque < quantidade) {
-                                                            alert('Você não possui estoque suficiente.');
+                                                    $('#recebido').click(function (event) {
+                                                        var flag = $(this).is(':checked');
+                                                        if (flag == true) {
+                                                            $('#divRecebimento').show();
                                                         } else {
+                                                            $('#divRecebimento').hide();
+                                                        }
+                                                    });
+
+                                                    $(document).on('click', '#btn-faturar', function (event) {
+                                                        event.preventDefault();
+                                                        valor = $('#total-venda').val();
+                                                        total_servico = $('#total-servico').val();
+                                                        valor = valor.replace(',', '');
+                                                        total_servico = total_servico.replace(',', '');
+                                                        total_servico = parseFloat(total_servico);
+                                                        valor = parseFloat(valor);
+                                                        $('#valor').val(valor + total_servico);
+                                                    });
+
+                                                    $("#formFaturar").validate({
+                                                        rules: {
+                                                            descricao: {required: true},
+                                                            cliente: {required: true},
+                                                            valor: {required: true},
+                                                            vencimento: {required: true}
+
+                                                        },
+                                                        messages: {
+                                                            descricao: {required: 'Campo Requerido.'},
+                                                            cliente: {required: 'Campo Requerido.'},
+                                                            valor: {required: 'Campo Requerido.'},
+                                                            vencimento: {required: 'Campo Requerido.'}
+                                                        },
+                                                        submitHandler: function (form) {
                                                             var dados = $(form).serialize();
-                                                            $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $('#btn-cancelar-faturar').trigger('click');
                                                             $.ajax({
                                                                 type: "POST",
-                                                                url: "<?php echo base_url(); ?>index.php/os/adicionarProduto",
+                                                                url: "<?php echo base_url(); ?>index.php/os/faturar",
                                                                 data: dados,
                                                                 dataType: 'json',
                                                                 success: function (data)
                                                                 {
                                                                     if (data.result == true) {
-                                                                        $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
-                                                                        $("#quantidade").val('');
-                                                                        $("#preco").val('');
-                                                                        $("#unidade").val('');
-                                                                        $("#precoref").val('');
 
-                                                                        document.getElementById('preco').setAttribute('placeholder', '0,00');
-
-
-                                                                        $("#produto").val('').focus();
+                                                                        window.location.reload(true);
                                                                     } else {
-                                                                        alert('Ocorreu um erro ao tentar adicionar produto.');
+                                                                        alert('Ocorreu um erro ao tentar faturar OS.');
+                                                                        $('#progress-fatura').hide();
+                                                                    }
+                                                                }
+                                                            });
+
+                                                            return false;
+                                                        }
+                                                    });
+
+                                                    $("#produto").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteProduto",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#idProduto").val(ui.item.id);
+                                                            $("#estoque").val(ui.item.estoque);
+                                                            $("#precoref").val(ui.item.preco);
+                                                            $("#unidade").val(ui.item.unidade);
+
+
+
+                                                            if ($("#idProduto").length > 0) {
+                                                                document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
+                                                            }
+
+                                                            $("#quantidade").focus();
+
+
+                                                        }
+                                                    });
+
+                                                    $("#servico").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteServico",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#idServico").val(ui.item.id);
+                                                            $("#precoServicoref").val(ui.item.preco);
+
+
+                                                            if ($("#idServico").length > 0) {
+                                                                document.getElementById('precoServico').setAttribute('placeholder', ui.item.preco);
+                                                                document.getElementById('quantidadeServico').setAttribute('placeholder', '1');
+                                                            }
+
+                                                            $("#quantidadeServico").focus();
+
+                                                        }
+                                                    });
+
+
+                                                    $("#cliente").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteCliente",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#clientes_id").val(ui.item.id);
+
+
+                                                        }
+                                                    });
+
+                                                    $("#tecnico").autocomplete({
+                                                        source: "<?php echo base_url(); ?>index.php/os/autoCompleteUsuario",
+                                                        minLength: 2,
+                                                        select: function (event, ui) {
+
+                                                            $("#usuarios_id").val(ui.item.id);
+
+
+                                                        }
+                                                    });
+
+
+
+
+                                                    $("#formOs").validate({
+                                                        rules: {
+                                                            cliente: {required: true},
+                                                            tecnico: {required: true},
+                                                            dataInicial: {required: true}
+                                                        },
+                                                        messages: {
+                                                            cliente: {required: 'Campo Requerido.'},
+                                                            tecnico: {required: 'Campo Requerido.'},
+                                                            dataInicial: {required: 'Campo Requerido.'}
+                                                        },
+                                                        errorClass: "help-inline",
+                                                        errorElement: "span",
+                                                        highlight: function (element, errorClass, validClass) {
+                                                            $(element).parents('.control-group').addClass('error');
+                                                        },
+                                                        unhighlight: function (element, errorClass, validClass) {
+                                                            $(element).parents('.control-group').removeClass('error');
+                                                            $(element).parents('.control-group').addClass('success');
+                                                        }
+                                                    });
+
+
+
+
+                                                    $("#formProdutos").validate({
+                                                        rules: {
+                                                            quantidade: {required: true},
+                                                            preco: {required: true}
+                                                        },
+                                                        messages: {
+                                                            quantidade: {required: 'Insira a quantidade'},
+                                                            preco: {required: 'Insira o preço'}
+                                                        },
+                                                        submitHandler: function (form) {
+                                                            var quantidade = parseInt($("#quantidade").val());
+                                                            var estoque = parseInt($("#estoque").val());
+                                                            if (estoque < quantidade) {
+                                                                alert('Você não possui estoque suficiente.');
+                                                            } else {
+                                                                var dados = $(form).serialize();
+                                                                $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                                $.ajax({
+                                                                    type: "POST",
+                                                                    url: "<?php echo base_url(); ?>index.php/os/adicionarProduto",
+                                                                    data: dados,
+                                                                    dataType: 'json',
+                                                                    success: function (data)
+                                                                    {
+                                                                        if (data.result == true) {
+                                                                            $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
+                                                                            $("#quantidade").val('');
+                                                                            $("#preco").val('');
+                                                                            $("#unidade").val('');
+                                                                            $("#precoref").val('');
+
+                                                                            document.getElementById('preco').setAttribute('placeholder', '0,00');
+
+
+                                                                            $("#produto").val('').focus();
+                                                                        } else {
+                                                                            alert('Ocorreu um erro ao tentar adicionar produto.');
+                                                                        }
+                                                                    }
+                                                                });
+
+                                                                return false;
+                                                            }
+
+                                                        }
+
+                                                    });
+
+                                                    $("#formServicos").validate({
+                                                        rules: {
+                                                            servico: {required: true},
+                                                            precoServico: {required: true},
+                                                            quantidadeServico: {required: true}
+                                                        },
+                                                        messages: {
+                                                            servico: {required: 'Insira um serviço'},
+                                                            precoServico: {required: 'Insira o preço'},
+                                                            quantidadeServico: {required: 'Insira a quantidade'}
+                                                        },
+                                                        submitHandler: function (form) {
+                                                            var dados = $(form).serialize();
+
+                                                            $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>index.php/os/adicionarServico",
+                                                                data: dados,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+                                                                        $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
+                                                                        $("#precoServico").val('');
+                                                                        $("#precoServicoref").val('');
+                                                                        $("#quantidadeServico").val('1');
+                                                                        document.getElementById('precoServico').setAttribute('placeholder', '0,00');
+
+
+                                                                        $("#servico").val('').focus();
+                                                                    } else {
+                                                                        alert('Ocorreu um erro ao tentar adicionar serviço.');
                                                                     }
                                                                 }
                                                             });
@@ -672,180 +718,136 @@ js_aoEntrarNoCampo();
                                                             return false;
                                                         }
 
-                                                    }
+                                                    });
 
-                                                });
 
-                                                $("#formServicos").validate({
-                                                    rules: {
-                                                        servico: {required: true},
-                                                        precoServico: {required: true},
-                                                        quantidadeServico: {required: true}
-                                                    },
-                                                    messages: {
-                                                        servico: {required: 'Insira um serviço'},
-                                                        precoServico: {required: 'Insira o preço'},
-                                                        quantidadeServico: {required: 'Insira a quantidade'}
-                                                    },
-                                                    submitHandler: function (form) {
-                                                        var dados = $(form).serialize();
+                                                    $("#formAnexos").validate({
+                                                        submitHandler: function (form) {
+                                                            //var dados = $( form ).serialize();
+                                                            var dados = new FormData(form);
+                                                            $("#form-anexos").hide('1000');
+                                                            $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url() . 'index.php/os/anexar'; ?>",
+                                                                data: dados,
+                                                                mimeType: "multipart/form-data",
+                                                                contentType: false,
+                                                                cache: false,
+                                                                processData: false,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+                                                                        $("#divAnexos").load("<?php echo current_url(); ?> #divAnexos");
+                                                                        $("#userfile").val('');
 
-                                                        $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: "<?php echo base_url(); ?>index.php/os/adicionarServico",
-                                                            data: dados,
-                                                            dataType: 'json',
-                                                            success: function (data)
-                                                            {
-                                                                if (data.result == true) {
-                                                                    $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
-                                                                    $("#precoServico").val('');
-                                                                    $("#precoServicoref").val('');
-                                                                    $("#quantidadeServico").val('1');
-                                                                    document.getElementById('precoServico').setAttribute('placeholder', '0,00');
-                                                                    
-                                                                    
-                                                                    $("#servico").val('').focus();
-                                                                } else {
-                                                                    alert('Ocorreu um erro ao tentar adicionar serviço.');
+                                                                    } else {
+                                                                        $("#divAnexos").html('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> ' + data.mensagem + '</div>');
+                                                                    }
+                                                                },
+                                                                error: function () {
+                                                                    $("#divAnexos").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> Ocorreu um erro. Verifique se você anexou o(s) arquivo(s).</div>');
                                                                 }
-                                                            }
-                                                        });
 
-                                                        return false;
-                                                    }
+                                                            });
 
-                                                });
+                                                            $("#form-anexos").show('1000');
+                                                            return false;
+                                                        }
+
+                                                    });
+
+                                                    $(document).on('click', 'a', function (event) {
+                                                        var idProduto = $(this).attr('idAcao');
+                                                        var quantidade = $(this).attr('quantAcao');
+                                                        var produto = $(this).attr('prodAcao');
+                                                        if ((idProduto % 1) == 0) {
+                                                            $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>index.php/os/excluirProduto",
+                                                                data: "idProduto=" + idProduto + "&quantidade=" + quantidade + "&produto=" + produto,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+                                                                        $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
+
+                                                                    } else {
+                                                                        alert('Ocorreu um erro ao tentar excluir produto.');
+                                                                    }
+                                                                }
+                                                            });
+                                                            return false;
+                                                        }
+
+                                                    });
 
 
-                                                $("#formAnexos").validate({
-                                                    submitHandler: function (form) {
-                                                        //var dados = $( form ).serialize();
-                                                        var dados = new FormData(form);
-                                                        $("#form-anexos").hide('1000');
+
+                                                    $(document).on('click', 'span', function (event) {
+                                                        var idServico = $(this).attr('idAcao');
+                                                        if ((idServico % 1) == 0) {
+                                                            $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "<?php echo base_url(); ?>index.php/os/excluirServico",
+                                                                data: "idServico=" + idServico,
+                                                                dataType: 'json',
+                                                                success: function (data)
+                                                                {
+                                                                    if (data.result == true) {
+                                                                        $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
+
+                                                                    } else {
+                                                                        alert('Ocorreu um erro ao tentar excluir serviço.');
+                                                                    }
+                                                                }
+                                                            });
+                                                            return false;
+                                                        }
+
+                                                    });
+
+
+                                                    $(document).on('click', '.anexo', function (event) {
+                                                        event.preventDefault();
+                                                        var link = $(this).attr('link');
+                                                        var id = $(this).attr('imagem');
+                                                        var url = "<?php echo base_url() . 'index.php/os/excluirAnexo/'; ?>"; //os/excluirAnexo/";
+                                                        $("#div-visualizar-anexo").html('<img src="' + link + '" alt="">');
+                                                        $("#excluir-anexo").attr('link', url + id);
+
+
+
+                                                        $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/" + id);
+
+                                                    });
+
+                                                    $(document).on('click', '#excluir-anexo', function (event) {
+                                                        event.preventDefault();
+                                                        var link = $(this).attr('link');
+
+                                                        $('#modal-anexo').modal('hide');
                                                         $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: "<?php echo base_url() . 'index.php/os/anexar'; ?>",
-                                                            data: dados,
-                                                            mimeType: "multipart/form-data",
-                                                            contentType: false,
-                                                            cache: false,
-                                                            processData: false,
-                                                            dataType: 'json',
-                                                            success: function (data)
-                                                            {
-                                                                if (data.result == true) {
-                                                                    $("#divAnexos").load("<?php echo current_url(); ?> #divAnexos");
-                                                                    $("#userfile").val('');
 
-                                                                } else {
-                                                                    $("#divAnexos").html('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> ' + data.mensagem + '</div>');
-                                                                }
-                                                            },
-                                                            error: function () {
-                                                                $("#divAnexos").html('<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>Atenção!</strong> Ocorreu um erro. Verifique se você anexou o(s) arquivo(s).</div>');
-                                                            }
 
-                                                        });
+                                                        //---------------------------------------
+                                                        location.href = link;
 
-                                                        $("#form-anexos").show('1000');
-                                                        return false;
-                                                    }
+                                                        /*  Verificar pq o ajax quando inserido aqui não funciona */
+
+                                                        //--------------------------------------
+
+                                                    });
+
+
+
+                                                    $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
+
 
                                                 });
-
-                                                $(document).on('click', 'a', function (event) {
-                                                    var idProduto = $(this).attr('idAcao');
-                                                    var quantidade = $(this).attr('quantAcao');
-                                                    var produto = $(this).attr('prodAcao');
-                                                    if ((idProduto % 1) == 0) {
-                                                        $("#divProdutos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: "<?php echo base_url(); ?>index.php/os/excluirProduto",
-                                                            data: "idProduto=" + idProduto + "&quantidade=" + quantidade + "&produto=" + produto,
-                                                            dataType: 'json',
-                                                            success: function (data)
-                                                            {
-                                                                if (data.result == true) {
-                                                                    $("#divProdutos").load("<?php echo current_url(); ?> #divProdutos");
-
-                                                                } else {
-                                                                    alert('Ocorreu um erro ao tentar excluir produto.');
-                                                                }
-                                                            }
-                                                        });
-                                                        return false;
-                                                    }
-
-                                                });
-
-
-
-                                                $(document).on('click', 'span', function (event) {
-                                                    var idServico = $(this).attr('idAcao');
-                                                    if ((idServico % 1) == 0) {
-                                                        $("#divServicos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: "<?php echo base_url(); ?>index.php/os/excluirServico",
-                                                            data: "idServico=" + idServico,
-                                                            dataType: 'json',
-                                                            success: function (data)
-                                                            {
-                                                                if (data.result == true) {
-                                                                    $("#divServicos").load("<?php echo current_url(); ?> #divServicos");
-
-                                                                } else {
-                                                                    alert('Ocorreu um erro ao tentar excluir serviço.');
-                                                                }
-                                                            }
-                                                        });
-                                                        return false;
-                                                    }
-
-                                                });
-
-
-                                                $(document).on('click', '.anexo', function (event) {
-                                                    event.preventDefault();
-                                                    var link = $(this).attr('link');
-                                                    var id = $(this).attr('imagem');
-                                                    var url = "<?php echo base_url() . 'index.php/os/excluirAnexo/'; ?>"; //os/excluirAnexo/";
-                                                    $("#div-visualizar-anexo").html('<img src="' + link + '" alt="">');
-                                                    $("#excluir-anexo").attr('link', url + id);
-
-
-
-                                                    $("#download").attr('href', "<?php echo base_url(); ?>index.php/os/downloadanexo/" + id);
-
-                                                });
-
-                                                $(document).on('click', '#excluir-anexo', function (event) {
-                                                    event.preventDefault();
-                                                    var link = $(this).attr('link');
-
-                                                    $('#modal-anexo').modal('hide');
-                                                    $("#divAnexos").html("<div class='progress progress-info progress-striped active'><div class='bar' style='width: 100%'></div></div>");
-
-
-                                                    //---------------------------------------
-                                                    location.href = link;
-
-                                                    /*  Verificar pq o ajax quando inserido aqui não funciona */
-
-                                                    //--------------------------------------
-
-                                                });
-
-
-
-                                                $(".datepicker").datepicker({dateFormat: 'dd/mm/yy'});
-
-
-                                            });
 
 </script>
 

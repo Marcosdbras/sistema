@@ -9,13 +9,25 @@ require_once '../biblioteca/funcoes.php';
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
 <script  type="text/javascript" src="../../../../stylebootstrap/number/jquery.number.min.js"></script>
 
-
 <?php
+// Evento dos campos
 js_aoSairDoCampo();
 js_aoEntrarNoCampo();
 ?>
 
+<?php
+// Buscar informação 
+$this->db->select('vendas.idVendas, vendas.iddetalhe');
+$this->db->from('vendas');
+$this->db->where('idVendas', $result->idVendas);
+$this->db->limit('1');
 
+$query = $this->db->get();
+
+$row = $query->row();
+
+$nvenda = $row->iddetalhe;
+?>
 
 <div class="row-fluid" style="margin-top:0">
     <div class="span12">
@@ -45,16 +57,7 @@ js_aoEntrarNoCampo();
                                     <div class="span12" style="padding: 1%; margin-left: 0">
                                         <h3>#Venda: 
                                             <?php
-                                            /* echo $result->idVendas */
-                                            $this->db->select('vendas.idVendas, vendas.iddetalhe');
-                                            $this->db->from('vendas');
-                                            $this->db->where('idVendas', $result->idVendas);
-                                            $this->db->limit('1');
-
-                                            $query = $this->db->get();
-
-                                            $row = $query->row();
-                                            echo $row->iddetalhe;
+                                              echo $nvenda;
                                             ?>
                                         </h3>
                                         <div class="span2" style="margin-left: 0">
@@ -78,7 +81,7 @@ js_aoEntrarNoCampo();
                                     <div class="span12" style="padding: 1%; margin-left: 0">
 
                                         <div class="span8 offset2" style="text-align: center">
-                                            <?php if ($result->faturado == 0) { ?>
+<?php if ($result->faturado == 0) { ?>
                                                 <a href="#modal-faturar" id="btn-faturar" role="button" data-toggle="modal" class="btn btn-success"><i class="icon-file"></i> Faturar</a>
                                             <?php } ?>
                                             <button class="btn btn-primary" id="btnContinuar"><i class="icon-white icon-ok"></i> Alterar</button>
@@ -167,27 +170,27 @@ js_aoEntrarNoCampo();
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            $total = 0;
-                                            foreach ($produtos as $p) {
+<?php
+$total = 0;
+foreach ($produtos as $p) {
 
-                                                $total = $total + $p->subTotal;
-                                                echo '<tr>';
-                                                echo '<td>' . $p->descricao . '</td>';
+    $total = $total + $p->subTotal;
+    echo '<tr>';
+    echo '<td>' . $p->descricao . '</td>';
 
-                                                //Alterações posteriores:
-                                                //  1) Exibir Campos: vlr unitário, unidade     
-                                                //  2) Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
-                                                echo '<td>' . round($p->quantidade, 0) . '</td>';
-                                                
-                                                echo '<td>' . $p->unidade . '</td>';
-                                                echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
-                                                
-                                                echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
-                                                echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
-                                                echo '</tr>';
-                                            }
-                                            ?>
+    //Alterações posteriores:
+    //  1) Exibir Campos: vlr unitário, unidade     
+    //  2) Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
+    echo '<td>' . round($p->quantidade, 0) . '</td>';
+
+    echo '<td>' . $p->unidade . '</td>';
+    echo '<td>R$ ' . number_format($p->vlrunitario, 2, ',', '.') . '</td>';
+
+    echo '<td><a href="" idAcao="' . $p->idItens . '" prodAcao="' . $p->idProdutos . '" quantAcao="' . $p->quantidade . '" title="Excluir Produto" class="btn btn-danger"><i class="icon-remove icon-white"></i></a></td>';
+    echo '<td>R$ ' . number_format($p->subTotal, 2, ',', '.') . '</td>';
+    echo '</tr>';
+}
+?>
 
                                             <tr>
                                                 <td colspan="5" style="text-align: right"><strong>Total:</strong></td>
@@ -232,7 +235,7 @@ js_aoEntrarNoCampo();
             <div class="span12 alert alert-info" style="margin-left: 0"> Obrigatório o preenchimento dos campos com asterisco.</div>
             <div class="span12" style="margin-left: 0"> 
                 <label for="descricao">Descrição</label>
-                <input class="span12" id="descricao" type="text" name="descricao" value="Fatura de Venda - #<?php echo $result->iddetalhe; ?> "  />
+                <input class="span12" id="descricao" type="text" name="descricao" value="Fatura de Venda - #<?php echo $nvenda; ?> "  />
 
             </div>  
             <div class="span12" style="margin-left: 0"> 
