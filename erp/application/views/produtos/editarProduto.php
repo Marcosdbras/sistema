@@ -42,14 +42,14 @@
                     <div class="control-group">
                         <label for="estoque" class="control-label">Estoque<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="estoque" type="text" name="estoque" value="<?php echo $result->estoque; ?>"  />
+                            <input id="estoque" type="text" name="estoque" value="<?php echo round($result->estoque,0) ; ?>"  />
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label for="estoqueMinimo" class="control-label">Estoque Mínimo</label>
                         <div class="controls">
-                            <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo $result->estoqueMinimo; ?>"  />
+                            <input id="estoqueMinimo" type="text" name="estoqueMinimo" value="<?php echo round($result->estoqueMinimo,0) ; ?>"  />
                         </div>
                     </div>
 

@@ -21,19 +21,19 @@
                         </tr>
                         <tr>
                             <td style="text-align: right"><strong>Preço de Compra</strong></td>
-                            <td>R$ <?php echo $result->precoCompra; ?></td>
+                            <td>R$ <?php echo number_format($result->precoCompra,2,',',''); ?></td>
                         </tr>
                         <tr>
                             <td style="text-align: right"><strong>Preço de Venda</strong></td>
-                            <td>R$ <?php echo $result->precoVenda; ?></td>
+                            <td>R$ <?php echo  number_format($result->precoVenda,2,',',''); ?></td>
                         </tr>
                         <tr>
                             <td style="text-align: right"><strong>Estoque</strong></td>
-                            <td><?php echo $result->estoque; ?></td>
+                            <td><?php echo  round($result->estoque,0)  ; ?></td>
                         </tr>
                         <tr>
                             <td style="text-align: right"><strong>Estoque Mínimo</strong></td>
-                            <td><?php echo $result->estoqueMinimo; ?></td>
+                            <td><?php echo round($result->estoqueMinimo,0) ; ?></td>
                         </tr>
                   
                     </tbody>
