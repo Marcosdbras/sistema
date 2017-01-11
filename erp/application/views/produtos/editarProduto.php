@@ -76,6 +76,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $(".money").maskMoney();
+        
+        $(".money").maskMoney({ decimal: ",", thousands: "." });
 
         $('#formProduto').validate({
             rules :{
@@ -105,6 +107,8 @@
            });
     });
 </script>
+
+
 
 
 
