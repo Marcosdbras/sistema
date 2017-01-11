@@ -20,7 +20,7 @@
                                                       <div class="control-group">
                                                             <label for="preco" class="control-label"><span class="required">Preço*</span></label>
                                                             <div class="controls">
-                                                                <input id="preco" class="money" type="text" name="preco" value="<?php echo $result->preco ?>"  />
+                                                                <input id="preco" class="money" type="text" name="preco" value="<?php echo number_format($result->preco,2,',','.');    ?>"  />
                                                             </div>
                                                       </div>
                                                       <div class="control-group">
@@ -48,7 +48,9 @@
 <script src="<?php echo base_url();?>js/maskmoney.js"></script>
 <script type="text/javascript">
       $(document).ready(function(){
-          $(".money").maskMoney();
+            
+           $(".money").maskMoney({ decimal: ",", thousands: "" }); 
+            
            $('#formServico').validate({
             rules :{
                   nome:{ required: true},

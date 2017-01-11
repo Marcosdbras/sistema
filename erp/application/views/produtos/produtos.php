@@ -70,7 +70,7 @@ if(!$results){?>
             echo '<td>'.$r->iddetalhe.'</td>';
             
             echo '<td>'.$r->descricao.'</td>';
-            echo '<td>'.$r->estoque.'</td>';
+            echo '<td>'. round($r->estoque,0)  .'</td>';
             echo '<td>'.number_format($r->precoVenda,2,',','.').'</td>';
             
             echo '<td>';

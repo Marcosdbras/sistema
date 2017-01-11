@@ -80,7 +80,7 @@ class Servicos extends CI_Controller {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
             $preco = $this->input->post('preco');
-            $preco = str_replace(",","", $preco);
+            $preco = str_replace(",",".", $preco);
             //Author: Marcos Brás--------------------- 
             $this->db->select('idusumestre');
             $this->db->from('servicos');

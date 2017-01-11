@@ -47,7 +47,9 @@
 <script src="<?php echo base_url();?>js/maskmoney.js"></script>
 <script type="text/javascript">
       $(document).ready(function(){
-          $(".money").maskMoney();
+          
+           $(".money").maskMoney({ decimal: ",", thousands: "" });          
+          
            $('#formServico').validate({
             rules :{
                   nome:{ required: true},
