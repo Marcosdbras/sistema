@@ -10,7 +10,7 @@ function js_funcoes(){
     echo'  function trocapontoporvirgula(valor) {';    
 
     echo 'var str =  valor;';
-    echo 'var res = str.replace('.',',');';
+    echo "var res = str.replace('.',',');";
 
 
     echo  "  return res;";

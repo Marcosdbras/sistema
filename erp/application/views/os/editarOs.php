@@ -564,7 +564,7 @@ $nos = $row->iddetalhe;
                                                                 var str =  ui.item.preco;
                                                                 var res = str.replace('.',',');
                                                                 
-                                                                document.getElementById('preco').value = res;
+                                                                //document.getElementById('preco').value = res;
             
                                                                 document.getElementById('preco').setAttribute('placeholder', res );
                                                             }
