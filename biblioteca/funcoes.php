@@ -8,48 +8,31 @@
 function js_funcoes(){
     echo'<script type="text/javascript">';
     echo'  function trocapontoporvirgula(valor) {';    
-
-    echo 'var str =  valor;';
-    echo "var res = str.replace('.',',');";
-
-
-    echo  "  return res;";
-    
+    echo'    var str =  valor;';
+    echo"    var res = str.replace('.',',');";
+    echo"  return res;";
     echo' };';    
     echo'</script>';
-    
-    
-    
 }
-
-
 
 function js_aoEntrarNoCampo(){
     echo'<script type="text/javascript">';
-    echo'  function aoEntrarNoCampoPreco(valor) {';    
-    
-    echo  "  document.getElementById('preco').value = trocapontoporvirgula(valor);";
-    
-    echo' };';    
+    echo'   function aoEntrarNoCampoPreco(valor) {';    
+    echo"   document.getElementById('preco').value = trocapontoporvirgula(valor);";
+    echo'};';    
+    echo'</script>';
+
+    echo'<script type="text/javascript">';
+    echo'   function aoEntrarNoCampoPrecoServico(valor) {';    
+    echo"   document.getElementById('precoServico').value = trocapontoporvirgula(valor);";
+    echo'};';    
     echo'</script>';
     
     echo'<script type="text/javascript">';
-    echo'  function aoEntrarNoCampoPrecoServico(valor) {';    
-
-    echo  "  document.getElementById('precoServico').value = valor;";
-
-    echo' };';    
+    echo'   function aoEntrarNoCampoQtdeServico(valor) {';
+    echo"   document.getElementById('quantidadeServico').value = trocapontoporvirgula(valor);";
+    echo'};';    
     echo'</script>';
-    
-    echo'<script type="text/javascript">';
-    echo'  function aoEntrarNoCampoQtdeServico(valor) {';
-    echo  "  document.getElementById('quantidadeServico').value = valor;";
-
-
-    echo' };';    
-    echo'</script>';
-
-
     
 }
 
