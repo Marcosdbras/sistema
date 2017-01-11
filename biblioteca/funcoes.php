@@ -11,13 +11,15 @@ function js_aoEntrarNoCampo(){
     echo'<script type="text/javascript">';
     echo'  function aoEntrarNoCampoPreco(valor) {';    
 
-
+ echo  "  document.getElementById('preco').value = valor;";
+    
     echo' };';    
     echo'</script>';
     
     echo'<script type="text/javascript">';
     echo'  function aoEntrarNoCampoPrecoServico(valor) {';    
 
+    echo  "  document.getElementById('precoServico').value = valor;";
 
     echo' };';    
     echo'</script>';
