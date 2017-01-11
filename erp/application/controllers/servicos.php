@@ -127,7 +127,7 @@ class Servicos extends CI_Controller {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
             $preco = $this->input->post('preco');
-            $preco = str_replace(",","", $preco);
+            $preco = str_replace(",",".", $preco);
             $data = array(
                 'nome' => $this->input->post('nome'),
                 'descricao' => $this->input->post('descricao'),
