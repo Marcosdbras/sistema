@@ -10,9 +10,13 @@ require_once '../biblioteca/funcoes.php';
 <script  type="text/javascript" src="../../../../stylebootstrap/number/jquery.number.min.js"></script>
 
 <?php
+//Funções em geral
+js_funcoes();
+
 // Evento dos campos
 js_aoSairDoCampo();
 js_aoEntrarNoCampo();
+
 ?>
 
 <?php
