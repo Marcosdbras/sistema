@@ -80,9 +80,10 @@ class Produtos extends CI_Controller {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
             $precoCompra = $this->input->post('precoCompra');
-            $precoCompra = str_replace(",","", $precoCompra);
+            $precoCompra = str_replace(",",".", $precoCompra);
+            
             $precoVenda = $this->input->post('precoVenda');
-            $precoVenda = str_replace(",", "", $precoVenda);
+            $precoVenda = str_replace(",", ".", $precoVenda);
             
             //Author: Marcos Brás--------------------- 
             $this->db->select('idusumestre');
