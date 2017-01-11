@@ -10,6 +10,9 @@ require_once '../biblioteca/funcoes.php';
 <script  type="text/javascript" src="../../../../stylebootstrap/number/jquery.number.min.js"></script>
 
 <?php
+//Funções em geral
+js_funcoes();
+
 // Evento dos campos
 js_aoSairDoCampo();
 js_aoEntrarNoCampo();
@@ -368,7 +371,11 @@ $nvenda = $row->iddetalhe;
                                                             $("#unidade").val(ui.item.unidade);
 
                                                             if ($("#idProduto").length > 0) {
-                                                                document.getElementById('preco').setAttribute('placeholder', ui.item.preco);
+                                                                
+                                                                var str =  ui.item.preco;
+                                                                var res = str.replace('.',',');
+                                                                
+                                                                document.getElementById('preco').setAttribute('placeholder', res);
                                                             }
 
                                                             $("#quantidade").focus();

@@ -19,6 +19,8 @@
 - Configuração por usuário na quantidade de casas decimais tanto da quantidade quanto para o preço unitários e subtotal
 - Substituir chamada Jquery que está dentro de MAPOS pelo da pasta stylebootstrap
 - Cadastro de produtos e serviços os valores estão se apresentando com '.' no valor decimal quando na verdade deveriam se apresentar com ','
+- Produtos e serviços da OS colocar dados que identifiquem o cabeçalho da OS, tais como: Número do Protocolo e Nome do cliente.
+- Produtos da venda colocar dados que identifiquem o cabeçalho da venda, tais como: Número do Protocolo e Nome do cliente.
 
 
 
