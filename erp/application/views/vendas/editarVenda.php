@@ -304,7 +304,7 @@ $nvenda = $row->iddetalhe;
 <script type="text/javascript">
                                                 $(document).ready(function () {
 
-                                                    $(".money").maskMoney();
+                                                   $(".money").maskMoney({ decimal: ",", thousands: "" }); 
 
                                                     $('#recebido').click(function (event) {
                                                         var flag = $(this).is(':checked');

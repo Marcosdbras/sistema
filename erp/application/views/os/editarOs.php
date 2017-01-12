@@ -190,7 +190,7 @@ $nos = $row->iddetalhe;
 
                                     <div class="span2">
                                         <label for="preco">Preço</label>
-                                        <input type="tel"  class="span12" placeholder="0,00" id="preco" name="preco" onblur="aoSairDoCampoPreco(this.value);" onfocus ="aoEntrarNoCampoPreco(precoref.value)" />           
+                                        <input type="tel"  class="span12 money" placeholder="0,00" id="preco" name="preco" onblur="aoSairDoCampoPreco(this.value);" onfocus ="aoEntrarNoCampoPreco(precoref.value)" />           
                                     </div>
 
                                     <div class="span2">
@@ -263,7 +263,7 @@ $nos = $row->iddetalhe;
 
                                         <div class="span2">
                                             <label for="preco">Preço</label>
-                                            <input type="tel"  class="span12" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value);" />           
+                                            <input type="tel"  class="span12 money" placeholder="0,00" id="precoServico" name="precoServico" onblur="aoSairDoCampoPrecoServico(this.value);" onfocus ="aoEntrarNoCampoPrecoServico(precoServicoref.value);" />           
                                         </div>
 
 
@@ -487,7 +487,7 @@ $nos = $row->iddetalhe;
 <script type="text/javascript">
                                                 $(document).ready(function () {
 
-                                                    $(".money").maskMoney();
+                                                    $(".money").maskMoney({ decimal: ",", thousands: "" });
 
                                                     $('#recebido').click(function (event) {
                                                         var flag = $(this).is(':checked');
