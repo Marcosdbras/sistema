@@ -1,4 +1,12 @@
+<?php
+require_once '../biblioteca/read.data.php';
+require_once '../biblioteca/funcoes.php';
+
+?>
+
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 
 class Financeiro extends CI_Controller {
 
