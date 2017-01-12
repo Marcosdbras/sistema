@@ -517,14 +517,3 @@ $nvenda = $row->iddetalhe;
                                                 });
 
 </script>
-
-
-<script language="javascript">
-    function tabenter(event, campo) {
-        var tecla = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-        if (tecla == 13) {
-            campo.focus();
-
-        }
-    }
-</script>

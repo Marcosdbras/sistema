@@ -13,6 +13,28 @@ function js_funcoes(){
     echo"  return res;";
     echo' };';    
     echo'</script>';
+    
+    echo'<script language="javascript">';
+    echo'function tabenter(event, campo) {';
+    echo'    var tecla = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;';
+    echo'    if (tecla == 13) {';
+    echo'        campo.focus();';
+    echo'    }';
+    echo'}';
+    echo'</script>';
+    
+    echo'<script language="javascript">';
+    echo'function aoOcorrerEnterEmPreco(event) {';
+    echo'    var tecla = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;';
+    echo'    if (tecla == 13) {';
+    echo'        campo.focus();';
+    echo'    }';
+    echo'}';
+    echo'</script>';
+
+
+
+    
 }
 
 function js_aoEntrarNoCampo(){
