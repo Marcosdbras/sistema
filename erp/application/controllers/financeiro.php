@@ -205,7 +205,11 @@ class Financeiro extends CI_Controller {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
 
-
+            
+            $valor = $this->input->post('valor');
+            $valor = str_replace(",",".", $valor);
+            
+            
             $vencimento = $this->input->post('vencimento');
             $recebimento = $this->input->post('recebimento');
 
@@ -244,7 +248,7 @@ class Financeiro extends CI_Controller {
             
             $data = array(
                 'descricao' => set_value('descricao'),
-				'valor' => set_value('valor'),
+				'valor' => $valor,   //set_value('valor'),
 				'data_vencimento' => $vencimento,
 				'data_pagamento' => $recebimento != null ? $recebimento : date('Y-m-d'),
 				'baixado' => $this->input->post('recebido'),
@@ -283,6 +287,9 @@ class Financeiro extends CI_Controller {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
 
+            $valor = $this->input->post('valor');
+            $valor = str_replace(",",".", $valor);
+            
             $vencimento = $this->input->post('vencimento');
             $pagamento = $this->input->post('pagamento');
 
@@ -320,7 +327,7 @@ class Financeiro extends CI_Controller {
 
             $data = array(
                 'descricao' => set_value('descricao'),
-				'valor' => set_value('valor'),
+				'valor' => $valor,  //set_value('valor'),
 				'data_vencimento' => $vencimento,
 				'data_pagamento' => $pagamento != null ? $pagamento : date('Y-m-d'),
 				'baixado' => $this->input->post('pago'),
@@ -366,7 +373,10 @@ class Financeiro extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
-
+            
+            $valor = $this->input->post('valor');
+            $valor = str_replace(",",".", $valor);
+            
             $vencimento = $this->input->post('vencimento');
             $pagamento = $this->input->post('pagamento');
 
@@ -384,7 +394,7 @@ class Financeiro extends CI_Controller {
 
             $data = array(
                 'descricao' => $this->input->post('descricao'),
-                'valor' => $this->input->post('valor'),
+                'valor' => $valor,
                 'data_vencimento' => $vencimento,
                 'data_pagamento' => $pagamento,
                 'baixado' => $this->input->post('pago'),
@@ -408,7 +418,7 @@ class Financeiro extends CI_Controller {
 
         $data = array(
                 'descricao' => $this->input->post('descricao'),
-                'valor' => $this->input->post('valor'),
+                'valor' =>  $valor, /*$this->input->post('valor'),*/
                 'data_vencimento' => $this->input->post('vencimento'),
                 'data_pagamento' => $this->input->post('pagamento'),
                 'baixado' => $this->input->post('pago'),

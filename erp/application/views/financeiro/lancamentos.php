@@ -431,7 +431,7 @@ if(!$results){?>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 
-		$(".money").maskMoney();
+		$(".money").maskMoney({ decimal: ",", thousands: "" });
 
 		$('#pago').click(function(event) {
 			var flag = $(this).is(':checked');
