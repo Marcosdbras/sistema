@@ -220,10 +220,20 @@ class Financeiro extends CI_Controller {
             
             $vencimento = $this->input->post('vencimento');
             $recebimento = $this->input->post('recebimento');
+            $baixado = $this->input->post('recebido');
+            $formaPgto =   $this->input->post('formaPgto');
+            
+            if ($baixado==0){
+               $recebimento = null;
+               $formaPgto = null;
+            }
+            
 
             if($recebimento != null){
                 $recebimento = explode('/', $recebimento);
                 $recebimento = $recebimento[2].'-'.$recebimento[1].'-'.$recebimento[0];
+            }else{
+                $recebimento = null; 
             }
 
             if($vencimento == null){
@@ -256,12 +266,12 @@ class Financeiro extends CI_Controller {
             
             $data = array(
                 'descricao' => set_value('descricao'),
-				'valor' => $valor,   //set_value('valor'),
+				'valor' => $valor,                   //set_value('valor'),
 				'data_vencimento' => $vencimento,
 				'data_pagamento' => $recebimento != null ? $recebimento : date('Y-m-d'),
-				'baixado' => $this->input->post('recebido'),
+				'baixado' =>   $baixado,            //$this->input->post('recebido'),
 				'cliente_fornecedor' => set_value('cliente'),
-				'forma_pgto' => $this->input->post('formaPgto'),
+				'forma_pgto' => $formaPgto,        //$this->input->post('formaPgto'),
 				'tipo' => set_value('tipo'),
                                 'idusumestre' => $this->session->userdata('idusumestre'),
                                 'iddetalhe' => $totreg 
@@ -300,10 +310,19 @@ class Financeiro extends CI_Controller {
             
             $vencimento = $this->input->post('vencimento');
             $pagamento = $this->input->post('pagamento');
+            $formaPgto =  $this->input->post('formaPgto');            
+            $baixado =  $this->input->post('pago');
+
+            if ($baixado==0){
+               $pagamento = null;
+               $formaPgto = null;
+            }
 
             if($pagamento != null){
                 $pagamento = explode('/', $pagamento);
                 $pagamento = $pagamento[2].'-'.$pagamento[1].'-'.$pagamento[0];
+            }else{
+                $pagamento = null;
             }
 
             if($vencimento == null){
@@ -335,12 +354,12 @@ class Financeiro extends CI_Controller {
 
             $data = array(
                 'descricao' => set_value('descricao'),
-				'valor' => $valor,  //set_value('valor'),
+				'valor' => $valor,                                 //set_value('valor'),
 				'data_vencimento' => $vencimento,
 				'data_pagamento' => $pagamento != null ? $pagamento : date('Y-m-d'),
-				'baixado' => $this->input->post('pago'),
+				'baixado' => $baixado,                             //$this->input->post('pago'),
 				'cliente_fornecedor' => set_value('fornecedor'),
-				'forma_pgto' => $this->input->post('formaPgto'),
+				'forma_pgto' =>$formaPgto,                         //$this->input->post('formaPgto'),
 				'tipo' => set_value('tipo'),
                                 'idusumestre' => $this->session->userdata('idusumestre'),
                                 'iddetalhe' => $totreg
