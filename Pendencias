@@ -2,7 +2,6 @@
 - OS por cliente ainda está apresentado idOs e o correto seria apresentar iddetalhe e idusumestre
 - Na busca de número de Ordem de serviço o sistema está buscando por idOs porem deveria buscar por iddetalhe e idusumestre
 - Cadastrar usuário mestre/dados da empresa e injetar permissão ao credenciar no sistema
-- Alterar preço unitário na OS e na venda
 - Relatórios de vendas e OS não tem totalização
 - Consulta CEP ao sair do respectivo campo
 - Trocar título rua para endereço em todos os cadastros
@@ -21,7 +20,9 @@
 - Cadastro de produtos e serviços os valores estão se apresentando com '.' no valor decimal quando na verdade deveriam se apresentar com ','
 - Produtos e serviços da OS colocar dados que identifiquem o cabeçalho da OS, tais como: Número do Protocolo e Nome do cliente.
 - Produtos da venda colocar dados que identifiquem o cabeçalho da venda, tais como: Número do Protocolo e Nome do cliente.
-
+- Quando pesquisa não está visualizado iddetalhe '#' e o ID deve ir para última coluna
+- Desabilitar os anexos para certos usuários
+- Somente com uma senha especial o usuário poderá habilitar backup, Anexos Arquivo e Anexos Ordem de Serviço
 
 
 
@@ -30,3 +31,4 @@
 - Arquivos anexos na OS está com erro ao carregar
 - Colocar try catch quando anexar documento ou imagem nas OS 
 - Separar anexos por pasta de usuários mestres 
+- Alterar preço unitário na OS e na venda

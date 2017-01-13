@@ -23,7 +23,7 @@ function verifica_cpf_cnpj ( valor ) {
         return 'CNPJ';
     } 
     
-    // Não retorna nada
+    // Não retorna nada 
     else {
         return false;
     }
