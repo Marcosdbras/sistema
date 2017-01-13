@@ -12,7 +12,7 @@ function js_apiscript(){
   echo'      <!-- Placed at the end of the document so the pages load faster -->';
   echo'      <script src="/stylebootstrap/js/jquery.min.js"></script>';
   echo'      <script>window.jQuery || document.write(\'<script src="/stylebootstrap/js/jquery.min.js"><\/script>\');</script>';
-  echo'      <script src="/stylebootstrap/js/stylebootstrap.min.js"></script>';
+  echo'      <script src="/stylebootstrap/js/bootstrap.min.js"></script>';
   echo'      <script src="/stylebootstrap/js/docs.min.js"></script>';
   echo'      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->';
   echo'      <script src="/stylebootstrap/js/ie10-viewport-bug-workaround.js"></script>';
@@ -21,9 +21,9 @@ function js_apiscript(){
 function js_apicss(){
     
 echo'        <!-- Bootstrap core CSS -->';
-echo'        <link href="/stylebootstrap/css/stylebootstrap.min.css" rel="stylesheet">';
+echo'        <link href="/stylebootstrap/css/bootstrap.min.css" rel="stylesheet">';
 echo'        <!-- Bootstrap theme -->';
-echo'        <link href="/stylebootstrap/css/stylebootstrap-theme.min.css" rel="stylesheet">';
+echo'        <link href="/stylebootstrap/css/bootstrap-theme.min.css" rel="stylesheet">';
 echo'        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->';
 echo'        <link href="/stylebootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">';
 
@@ -31,7 +31,7 @@ echo'        <!-- Custom styles for this template -->';
 echo'        <link href="/stylebootstrap/css/theme.css" rel="stylesheet">';
 
 echo"        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->";
-echo'        <!--[if lt IE 9]><script src="stylebootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->';
+echo'        <!--[if lt IE 9]><script src="bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->';
 echo'        <script src="/stylebootstrap/js/ie-emulation-modes-warning.js"></script>';
 
 echo'        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->';
