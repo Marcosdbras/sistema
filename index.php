@@ -218,19 +218,21 @@ js_apicss();
     </head>
     <body>
 
+        
+        
         <div class="jumbotron">
             <h1>Aplicativos comerciais</h1>
-            <p>Aplicativos comenciais de qualidade com preços bem baratinhos!</p>
+            
+            <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço</a></p>
+        </div>  
+
+          <p>Aplicativos comenciais de qualidade com preços bem baratinhos!</p>
             <br />
             <p>Nossos sistemas tem mensalidade, mas não se assuste!</p>
             <p>A mensalidade é garantia de qualidade, pois o valor </p>
             <p>simbólico mensal promove a constante evolução de nossos sistemas</p>
             <p>e a correção constante de eventuais bugs ou problemas</p>
-            
-            <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço</a></p>
-        </div>  
-
-
+  
 
         
         
