@@ -221,13 +221,19 @@ js_apicss();
         <div class="jumbotron">
             <h1>Aplicativos comerciais</h1>
             <p>Aplicativos comenciais de qualidade com preços bem baratinhos!</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Ordem de Serviço</a></p>
+            <br />
+            <p>Nossos sistemas tem mensalidade, mas não se assuste!</p>
+            <p>A mensalidade é garantia de qualidade, pois o valor </p>
+            <p>simbólico mensal promove a constante evolução de nossos sistemas</p>
+            <p>e a correção constante de eventuais bugs ou problemas</p>
+            
+            <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço</a></p>
         </div>  
 
 
 
-        <p>Acessar Sistema</p>
-        <p><a href="https://goo.gl/U6713R">Ordem de Serviço vendas e finanças</a></p>
+        
+        
 
 
 <?php
