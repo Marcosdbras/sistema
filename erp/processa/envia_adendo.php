@@ -122,9 +122,19 @@ if (isset($_POST['g-recaptcha-response'])) {
                     
                 } else {
                     
-                    $campos = array("idusumestre"=>"$id");
+                    $campos = array("idusumestre"=>"$id", 
+                                    "nome"=>"Admin",
+                                    "permissoes"=>'a:38:{s:8:"aCliente";s:1:"1";s:8:"eCliente";s:1:"1";s:8:"dCliente";s:1:"1";s:8:"vCliente";s:1:"1";s:8:"aProduto";s:1:"1";s:8:"eProduto";s:1:"1";s:8:"dProduto";s:1:"1";s:8:"vProduto";s:1:"1";s:8:"aServico";s:1:"1";s:8:"eServico";s:1:"1";s:8:"dServico";s:1:"1";s:8:"vServico";s:1:"1";s:3:"aOs";s:1:"1";s:3:"eOs";s:1:"1";s:3:"dOs";s:1:"1";s:3:"vOs";s:1:"1";s:6:"aVenda";s:1:"1";s:6:"eVenda";s:1:"1";s:6:"dVenda";s:1:"1";s:6:"vVenda";s:1:"1";s:8:"aArquivo";b:0;s:8:"eArquivo";b:0;s:8:"dArquivo";b:0;s:8:"vArquivo";b:0;s:11:"aLancamento";s:1:"1";s:11:"eLancamento";s:1:"1";s:11:"dLancamento";s:1:"1";s:11:"vLancamento";s:1:"1";s:8:"cUsuario";s:1:"1";s:9:"cEmitente";s:1:"1";s:10:"cPermissao";s:1:"1";s:7:"cBackup";s:1:"1";s:8:"rCliente";s:1:"1";s:8:"rProduto";s:1:"1";s:8:"rServico";s:1:"1";s:3:"rOs";s:1:"1";s:6:"rVenda";s:1:"1";s:11:"rFinanceiro";s:1:"1";}',
+                                    "situacao"=>'1',
+                                    "data"=>date('Y-m-d'),
+                                    "iddetalhe"=>'1');
                     
-                    DBUpDate('usuarios', $campos, "idUsuarios=$id");
+                    $idPermissao = DBCreate('permissoes', $campos, true);
+                    
+                    $campos = array("idusumestre"=>"$id","permissoes_id"=>$idPermissao);
+                    
+                    DBUpDate('usuarios', $campos, "idUsuarios=$id");                    
+                    
                     echo "Registro criado $id";
                     echo '<script type="text/javascript">';
                     echo 'alert("Registro salvo com sucesso!");';
