@@ -213,18 +213,28 @@ js_apicss();
 
         </style>
 
-
+  
 
     </head>
     <body>
 
         
         
-        <div class="jumbotron">
+       
             <h1>Aplicativos comerciais</h1>
             
-            <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço</a></p>
-        </div>  
+            
+            
+            <div class="row">
+                <div class="span6">
+                  <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço</a></p>
+                </div>
+                <div class="span6">
+                  <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço</a></p>
+                </div>
+                
+                
+            </div>
 
           <p>Aplicativos comenciais de qualidade com preços bem baratinhos!</p>
             <br />
