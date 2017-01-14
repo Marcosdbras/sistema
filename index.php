@@ -98,7 +98,7 @@ require_once 'biblioteca/funcoes.php';
 
        <div class="col-md-4">
           <h2 id="det-enefe">Demosntração Sistema E-NFE</h2>
-          <img alt="Clientes" src="img/telanfe/tela/tela_cliente.jpg"/>
+          <img alt="Clientes" src="img/telanfe/telas/tela_cliente.jpg"/>
           
         </div>
           
