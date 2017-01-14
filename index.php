@@ -47,7 +47,7 @@ require_once 'biblioteca/funcoes.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Sistemas e aplicativos comerciais</a>
+          <a class="navbar-brand" href="#">Aplicativos e sistemas comerciais</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -66,8 +66,8 @@ require_once 'biblioteca/funcoes.php';
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <h1>Aplicativos & Sistemas</h1>
+        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago mensal é garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos com atualizações frequentes.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
