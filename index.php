@@ -83,18 +83,27 @@ require_once 'biblioteca/funcoes.php';
         <div class="col-md-4">
           <h2>Nota fiscal eletrônica - Sistema E-NFE</h2>
           <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e as devidas configurações você vai perceber um sistema muito simples de manusear e de realizar a transmissão de suas notas para a secretaria da fazenda(SEFAZ). Deixe a instalação, configuração<sup>*</sup> e treinamento por nossa conta. Clique em detalhe E-ENFE e veja demonstração do aplicativo.</p>
-          <p><a class="btn btn-default" href="#" role="button">Detalhes E-NFE &raquo;</a></p>
+          <p><a class="btn btn-default" href="#det-enefe" role="button">Detalhes E-NFE &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Controle Administrativo, Gestão de sua empresa - Sistema DataSAC</h2>
           <p>Sistema DataSAC é instalado em sua máquina, este aplicativo permite cadastrar clientes, produtos, fornecedores, entre outros, e facilita a gestão de contas a pagar, receber, caixa, etc... Este sistema também vai acompanhado de um moderno módulo PDV ou frente de caixa, este módulo permite a transmissão de cupom fiscal S@T <sup>**</sup> e funciona independente do servidor de arquivos estar ligado, com esta caracteristica o servidor permite a conexão de muitos pontos de venda sem perder a performance. Clique em detalhe DataSAC e veja demonstração do aplicativo.</p>
           <p><a class="btn btn-default" href="#" role="button">Detalhes DataSAC &raquo;</a></p>
        </div>
-        <div class="col-md-4">
+       <div class="col-md-4">
           <h2>Gestão administrativa - Sistema SYSTCOM</h2>
           <p>Este sistema é similar ao DataSAC, porém, para seu módulo PDV ou frente de caixa funcionar depende do servidor de arquivos estar ligado; Sistema excelente para empresa com poucos pontos de venda. Clique em detalhe SYSTCOM e veja demonstração do aplicativo.</p>
           <p><a class="btn btn-default" href="#" role="button">Detalhes Systcom &raquo;</a></p>
         </div>
+
+       <div class="col-md-4">
+          <h2 id="det-enefe">Demosntração Sistema E-NFE</h2>
+          <p>Este sistema é similar ao DataSAC, porém, para seu módulo PDV ou frente de caixa funcionar depende do servidor de arquivos estar ligado; Sistema excelente para empresa com poucos pontos de venda. Clique em detalhe SYSTCOM e veja demonstração do aplicativo.</p>
+          <p><a class="btn btn-default" href="#" role="button">Detalhes Systcom &raquo;</a></p>
+        </div>
+          
+          
+          
       </div>
 
       <hr>
