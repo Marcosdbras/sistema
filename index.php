@@ -50,6 +50,9 @@ require_once 'biblioteca/funcoes.php';
                     <a class="navbar-brand" href="#">Aplicativos e sistemas comerciais</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
+                   
+                    <!--
+                    
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
                             <input type="text" placeholder="Email" class="form-control">
@@ -59,6 +62,8 @@ require_once 'biblioteca/funcoes.php';
                         </div>
                         <button type="submit" class="btn btn-success">Sign in</button>
                     </form>
+                    -->
+                    
                 </div><!--/.navbar-collapse -->
             </div>
         </nav>
