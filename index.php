@@ -10,7 +10,7 @@ require_once 'biblioteca/funcoes.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="sistemas e aplicativos" content="NFE, S@T, Aplicativo, sistema, sat, Ordem de serviço, venda, online, nota fiscal eletrônica gratuita, secretaria da fazenda, SEFAZ, sefaz">
+    <meta name="sistemas e aplicativos" content="NFE, S@T, Aplicativo, sistema, sat, Ordem de serviço, venda, online, nota fiscal eletrônica gratuita, secretaria da fazenda, SEFAZ, sefaz, Controle Administrativo, Gestão de sua empresa, Administrativa">
     <meta name="Marcos Brás" content="">
     <link rel="icon" href="favicon.ico">
 
@@ -82,18 +82,18 @@ require_once 'biblioteca/funcoes.php';
       <div class="row">
         <div class="col-md-4">
           <h2>Nota fiscal eletrônica - Sistema E-NFE</h2>
-          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e as devidas configurações você vai perceber um sistema muito simples de manusear e realizar a transmissão de suas notas para a secretaria da fazenda(SEFAZ). Deixe a instalação, configuração<sub>*</sub> e treinamento por nossa conta.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e as devidas configurações você vai perceber um sistema muito simples de manusear e de realizar a transmissão de suas notas para a secretaria da fazenda(SEFAZ). Deixe a instalação, configuração<sup>*</sup> e treinamento por nossa conta.</p>
+          <p><a class="btn btn-default" href="#" role="button">E-NFE - Demonstração &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Controle Administrativo, Gestão de sua empresa - Sistema DataSAC</h2>
-          <p></p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>Sistema DataSAC é instalado em sua máquina, este aplicativo permite cadastrar clientes, produtos, fornecedores, entre outros, e facilita a gestão de contas a pagar, receber, caixa, etc... Este sistema também vai acompanhado de um moderno módulo PDV ou frente de caixa, este módulo permite a transmissão de cupom fiscal S@T <sup>**</sup> e funciona independente do servidor de arquivos estar ligado, com esta caracteristica o servidor permite a conexão de muitos pontos de venda sem perder a performance.</p>
+          <p><a class="btn btn-default" href="#" role="button">DataSAC - Demonstração &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Gestão administrativa - Sistema SYSTCOM</h2>
+          <p>Este sistema é similar ao DataSAC, porém, para seu módulo PDV ou frente de caixa funcionar depende do servidor de arquivos estar ligado; Sistema excelente para empresa com poucos pontos de venda.</p>
+          <p><a class="btn btn-default" href="#" role="button">Systcom - Demonstratação &raquo;</a></p>
         </div>
       </div>
 
