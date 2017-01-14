@@ -98,8 +98,8 @@ require_once 'biblioteca/funcoes.php';
 
        <div class="col-md-4">
           <h2 id="det-enefe">Demosntração Sistema E-NFE</h2>
-          <p>Este sistema é similar ao DataSAC, porém, para seu módulo PDV ou frente de caixa funcionar depende do servidor de arquivos estar ligado; Sistema excelente para empresa com poucos pontos de venda. Clique em detalhe SYSTCOM e veja demonstração do aplicativo.</p>
-          <p><a class="btn btn-default" href="#" role="button">Detalhes Systcom &raquo;</a></p>
+          <img alt="Clientes" src="img/telanfe/tela/tela_cliente.jpg"/>
+          
         </div>
           
           
@@ -109,7 +109,7 @@ require_once 'biblioteca/funcoes.php';
       <hr>
 
       <footer>
-        <p>&copy; 2017 Desenvolvedor Freelancer, Inc.</p>
+        <p>&copy; 2017 Marcos Brás - Desenvolvedor Freelancer, Inc.</p>
       </footer>
     </div> <!-- /container -->
 
