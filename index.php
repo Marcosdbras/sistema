@@ -99,28 +99,21 @@ require_once 'biblioteca/funcoes.php';
                     <h2>Gestão administrativa - Sistema SYSTCOM</h2>
                     <p>Este sistema é similar ao DataSAC, porém, para seu módulo PDV ou frente de caixa funcionar depende do servidor de arquivos estar ligado; Sistema excelente para empresa com poucos pontos de venda. Clique em detalhe SYSTCOM e veja demonstração do aplicativo.</p>
                     <p><a class="btn btn-default" href="#det-systcom" role="button">Detalhes sobre o Systcom &raquo;</a></p>
+                    <br />
                 </div>
 
                 <div class="col-md-4">
-                    <h2 id="det-enefe">Demonstrativo Sistema E-NFE</h2>
-                    <p>Exemplo de algumas telas Cadastro</p>
-                    <img alt="Clientes"                       src="img/telanfe/telas/tela_cliente.jpg" />
-                    <img alt="Produtos"                       src="img/telanfe/telas/tela_produto.JPG" />
+                    <p>Desenvolvimento de sistema sob medida para você e sua empresa</p>
                     <br />
-                    <p>Tela de emissão de nota</p>
-                    <img alt="Notas em digitação ou emitidas" src="img/telanfe/telas/tela_nfe_digitadas.JPG" />
-                    <img alt="Emissão de nota"                src="img/telanfe/telas/tela_emitir_nfe.JPG" />
-                    <img alt="Notas emitidas"                 src="img/telanfe/telas/tela_notas_emitidas.JPG" />
-                    <br />
+                    <h2>Meus contatos</h2>
+                    <p>Celular e Whatsapp: 11-96393-0108</p>
+                    <p>email: marcosbras@hotmail.com</p>
                     
-                    <p>Tela principal</p>
-                    <img alt="Tela Principal"                    src="img/telanfe/telas/tela_principal.JPG" />
                 </div>
-
+                
                 <div class="col-md-4">
                     <h2 id="det-datasac">Demonstrativo DataSAC</h2> 
-                    <p>Telas Iniciais</p>
-                    <img alt="Tela de entrada" src="img/teladatasac/telas/login.JPG" />
+                    <p>Tela principal</p>
                     <img alt="Tela Principal" src="img/teladatasac/telas/tela principal.JPG" />
                     <br />
                     
@@ -140,6 +133,28 @@ require_once 'biblioteca/funcoes.php';
                     <img alt="Tela realizando venda" src="img/teladatasac/telas/venda_realizando.JPG" />
                     <img alt="" src="img/teladatasac/telas/venda_fechando.JPG" />
                     <br />
+                    
+                    <p>Tela de login</p>
+                    <img alt="Tela de entrada" src="img/teladatasac/telas/login.JPG" />
+                    <br />
+                    
+                </div>
+
+
+                <div class="col-md-4">
+                    <h2 id="det-enefe">Demonstrativo Sistema E-NFE</h2>
+                    <p>Exemplo de algumas telas Cadastro</p>
+                    <img alt="Clientes"                       src="img/telanfe/telas/tela_cliente.jpg" />
+                    <img alt="Produtos"                       src="img/telanfe/telas/tela_produto.JPG" />
+                    <br />
+                    <p>Tela de emissão de nota</p>
+                    <img alt="Notas em digitação ou emitidas" src="img/telanfe/telas/tela_nfe_digitadas.JPG" />
+                    <img alt="Emissão de nota"                src="img/telanfe/telas/tela_emitir_nfe.JPG" />
+                    <img alt="Notas emitidas"                 src="img/telanfe/telas/tela_notas_emitidas.JPG" />
+                    <br />
+                    
+                    <p>Tela principal</p>
+                    <img alt="Tela Principal"                    src="img/telanfe/telas/tela_principal.JPG" />
                 </div>
                 
                 <div class="col-md-4">
