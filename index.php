@@ -98,41 +98,68 @@ require_once 'biblioteca/funcoes.php';
 
                 <div class="col-md-4">
                     <h2 id="det-enefe">Demonstrativo Sistema E-NFE</h2>
+                    <p>Exemplo de algumas telas Cadastro</p>
                     <img alt="Clientes"                       src="img/telanfe/telas/tela_cliente.jpg" />
                     <img alt="Produtos"                       src="img/telanfe/telas/tela_produto.JPG" />
+                    <br />
+                    <p>Tela de emissão de nota</p>
                     <img alt="Notas em digitação ou emitidas" src="img/telanfe/telas/tela_nfe_digitadas.JPG" />
                     <img alt="Emissão de nota"                src="img/telanfe/telas/tela_emitir_nfe.JPG" />
                     <img alt="Notas emitidas"                 src="img/telanfe/telas/tela_notas_emitidas.JPG" />
+                    <br />
+                    
+                    <p>Tela principal</p>
                     <img alt="Tela Principal"                    src="img/telanfe/telas/tela_principal.JPG" />
                 </div>
 
                 <div class="col-md-4">
                     <h2 id="det-datasac">Demonstrativo DataSAC</h2> 
+                    <p>Telas Iniciais</p>
+                    <img alt="Tela de entrada" src="img/teladatasac/telas/login.JPG" />
                     <img alt="Tela Principal" src="img/teladatasac/telas/tela principal.JPG" />
+                    <br />
+                    
+                    <p>Exemplo de algumas telas Financeiras</p>
                     <img alt="Apuração de Caixa" src="img/teladatasac/telas/apuracao_de_caixa.JPG" />
                     <img alt="Contas a pagar"   src="img/teladatasac/telas/contas_a_pagar.JPG" />
                     <img alt="Contas a receber" src="img/teladatasac/telas/contas_a_receber.JPG" />
+                    <br />
+                    
+                    <p>Exemplo de algumas telas de Cadastro</p>
                     <img alt="Cadastro de clientes"  src="img/teladatasac/telas/cadastro_cliente.JPG" />
                     <img alt="Cadastro de Produto" src="img/teladatasac/telas/cadastro_produto.JPG" />
-                    <img alt="Tela de entrada" src="img/teladatasac/telas/login.JPG" />
+                    <br />
+                    
+                    <p>tela de venda balcão</p>
                     <img alt="Tela inicial de venda" src="img/teladatasac/telas/venda_abertura.JPG" />
                     <img alt="Tela realizando venda" src="img/teladatasac/telas/venda_realizando.JPG" />
                     <img alt="" src="img/teladatasac/telas/venda_fechando.JPG" />
+                    <br />
                 </div>
                 
                 <div class="col-md-4">
                     <h2 id="det-systcom">Demonstrativo Systcom</h2>
+                    <p>Exemplo de algumas telas de cadastro</p>
                     <img alt="Cadastro de clientes" src="img/telasystcom/telas/cadastro_clientes.JPG" />
                     <img alt="Cadastro de produto" src="img/telasystcom/telas/cadastro_produto.JPG" />
+                    <br />
+                    
+                    <p>Exemplo de algumas telas Financeiras</p>
                     <img alt="Apuração caixa" src="img/telasystcom/telas/apuracao_caixa.JPG" />
                     <img alt="Contas a receber" src="img/telasystcom/telas/contas_receber.JPG" />
+                    <br />
+                    
+                    <p>Exemplo de algumas telas pedido</p>
                     <img alt="Pedido" src="img/telasystcom/telas/pedido.JPG" />
                     <img alt="Abertura pedido"  src="img/telasystcom/telas/pedido_abertura.JPG" />
                     <img alt="Fechamento pedido" src="img/telasystcom/telas/pedido_fechamento.JPG" />
+                    <br />
+                    
+                    <p>Tela de venda balcão</p>
                     <img alt="Abertura pedido balcão" src="img/telasystcom/telas/venda_balcao_abertura.JPG" />
                     <img alt="Realização de pedido balcão" src="img/telasystcom/telas/venda_balcao_realizacao.JPG" />
                     <img alt="Fechamento pedido balcão" src="img/telasystcom/telas/venda_balcao_fechamento.JPG" />
-                    
+                    <br />
                     
                     
                 </div>
