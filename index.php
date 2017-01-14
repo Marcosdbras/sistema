@@ -10,11 +10,11 @@ require_once 'biblioteca/funcoes.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="sistemas e aplicativos" content="NFE, S@T, Aplicativo, sistema, sat, Ordem de serviço, venda, online">
+    <meta name="Marcos Brás" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Aplicativos comerciais</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/stylebootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@ require_once 'biblioteca/funcoes.php';
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Sistemas e aplicativos comerciais</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
