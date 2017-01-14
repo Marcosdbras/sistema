@@ -70,7 +70,9 @@ require_once 'biblioteca/funcoes.php';
         <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago é garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos com atualizações frequentes.</p>
         <p>Conheça nossos lançamentos</p>
         <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço online &raquo;</a></p>
-        <p>Não precisa instalar na sua máquina, é só se registrar e usar</p>     
+        <p>Não precisa instalar na sua máquina,</p> 
+        <p>Clique no botão acima, registre-se</p>
+        <p>e já começe a usa-lo</p>
       </div>
     </div>
 
