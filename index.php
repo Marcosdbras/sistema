@@ -67,8 +67,10 @@ require_once 'biblioteca/funcoes.php';
     <div class="jumbotron">
       <div class="container">
         <h1>Aplicativos & Sistemas</h1>
-        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago mensal é garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos com atualizações frequentes.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago é garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos com atualizações frequentes.</p>
+        <p>Conheça nossos lançamentos</p>
+        <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço online &raquo;</a></p>
+        <p>Não precisa instalar na sua máquina, é só se registrar e usar</p>     
       </div>
     </div>
 
