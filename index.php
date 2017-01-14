@@ -67,10 +67,10 @@ require_once 'biblioteca/funcoes.php';
     <div class="jumbotron">
       <div class="container">
         <h1>Aplicativos & Sistemas</h1>
-        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago é a garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos adicionais com atualizações frequentes.</p>
-        <p>Conheça nossos lançamentos</p>
+        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago por mês é a garantia de um serviço de qualidade, pois, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos adicionais com atualizações frequentes.</p>
+        <p>Conheça nossos sistemas online</p>
         <p>Ordem de serviço e registro de vendas totalmente online, não precisa instalar na sua máquina, Clique no botão abaixo, registre-se e use-o</p> 
-        <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço Online &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço Online&raquo;</a></p>
         
         <p></p>
         <p></p>
@@ -81,13 +81,13 @@ require_once 'biblioteca/funcoes.php';
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Nota fiscal eletrônica - NFE</h2>
-          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e as devidas configurações você vai perceber um sistema muito simples de manusear e realizar a transmissão de suas notas para a secretaria da fazenda(SEFAZ). Baixe agora mesmo o emissor e solicite o treinamento nesta moderna e robusta ferramenta.</p>
+          <h2>Nota fiscal eletrônica - Sistema E-NFE</h2>
+          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e as devidas configurações você vai perceber um sistema muito simples de manusear e realizar a transmissão de suas notas para a secretaria da fazenda(SEFAZ). Deixe a instalação, configuração<sub>*</sub> e treinamento por nossa conta.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>Controle Administrativo, Gestão de sua empresa - Sistema DataSAC</h2>
+          <p></p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
