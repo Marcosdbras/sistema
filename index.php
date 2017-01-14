@@ -10,7 +10,7 @@ require_once 'biblioteca/funcoes.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="sistemas e aplicativos" content="NFE, S@T, Aplicativo, sistema, sat, Ordem de serviço, venda, online">
+    <meta name="sistemas e aplicativos" content="NFE, S@T, Aplicativo, sistema, sat, Ordem de serviço, venda, online, nota fiscal eletrônica gratuita, secretaria da fazenda, SEFAZ, sefaz">
     <meta name="Marcos Brás" content="">
     <link rel="icon" href="favicon.ico">
 
@@ -67,7 +67,7 @@ require_once 'biblioteca/funcoes.php';
     <div class="jumbotron">
       <div class="container">
         <h1>Aplicativos & Sistemas</h1>
-        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago é garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos com atualizações frequentes.</p>
+        <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago é a garantia de qualidade, pois o valor pago por mês, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos adicionais com atualizações frequentes.</p>
         <p>Conheça nossos lançamentos</p>
         <p>Ordem de serviço e registro de vendas totalmente online, não precisa instalar na sua máquina, Clique no botão abaixo, registre-se e use-o</p> 
         <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço Online &raquo;</a></p>
@@ -81,8 +81,8 @@ require_once 'biblioteca/funcoes.php';
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h2>Nota fiscal eletrônica - NFE</h2>
+          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e configurações é um sistema que torna muito simples a transmissão de nota para a secretaria da fazenda (SEFAZ), peça agora mesmo o treinamento nesta moderna e robusta ferramenta.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
