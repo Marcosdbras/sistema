@@ -105,10 +105,11 @@ require_once 'biblioteca/funcoes.php';
                 <div class="col-md-4">
                     <p>Desenvolvimento de sistema sob medida para você e sua empresa. Apresente seu projeto ou a necessidade do seu negócio, orçamento sem compromisso.</p>
                     <br />
+                    <font color="blue">
                     <h4>Entre em contato</h4>
                     <p>Celular e Whatsapp: 11-96393-0108</p>
                     <p>email: marcosbras@hotmail.com</p>
-                    
+                    </font>
                 </div>
                 
                 <div class="col-md-4">
