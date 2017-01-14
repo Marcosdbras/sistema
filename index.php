@@ -74,7 +74,7 @@ require_once 'biblioteca/funcoes.php';
                 <h1>Aplicativos & Sistemas</h1>
                 <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago por mês é a garantia de um serviço de qualidade, pois, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos adicionais com atualizações frequentes.</p>
                 <p>Conheça nossos sistemas online</p>
-                <p>Ordem de serviço e registro de vendas totalmente online, não precisa instalar na sua máquina, Clique no botão abaixo, registre-se e use-o</p> 
+                <p>Ordem de serviço e registro de vendas totalmente online, com este sistema você contrala oficina mecânicas, assistência técnica, entre outras, não precisa instalar na sua máquina, Clique no botão abaixo, registre-se e use-o</p> 
                 <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço Online&raquo;</a></p>
 
                 <p></p>
