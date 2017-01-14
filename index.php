@@ -103,7 +103,7 @@ require_once 'biblioteca/funcoes.php';
                 </div>
 
                 <div class="col-md-4">
-                    <p>Também Desenvolvo sistema sob medida para você e sua empresa. Apresente seu projeto ou a necessidade de sua empresa, orçamento sem compromisso.</p>
+                    <p>Desenvolvimento de sistema sob medida para você e sua empresa. Apresente seu projeto ou a necessidade do seu negócio, orçamento sem compromisso.</p>
                     <br />
                     <h4>Entre em contato</h4>
                     <p>Celular e Whatsapp: 11-96393-0108</p>
