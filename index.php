@@ -82,7 +82,7 @@ require_once 'biblioteca/funcoes.php';
       <div class="row">
         <div class="col-md-4">
           <h2>Nota fiscal eletrônica - NFE</h2>
-          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e configurações é um sistema que torna muito simples a transmissão de nota para a secretaria da fazenda (SEFAZ), peça agora mesmo o treinamento nesta moderna e robusta ferramenta.</p>
+          <p>Emissor NFE é instalado na sua máquina, porém, após a instalação e as devidas configurações você vai perceber um sistema muito simples de manusear e realizar a transmissão de suas notas para a secretaria da fazenda(SEFAZ). Baixe agora mesmo o emissor e solicite o treinamento nesta moderna e robusta ferramenta.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
