@@ -76,7 +76,7 @@ require_once 'biblioteca/funcoes.php';
                 <p>Conheça nossos sistemas online</p>
                 <p><a class="btn btn-primary btn-lg" href="https://goo.gl/U6713R" role="button">Ordem de Serviço Online&raquo;</a></p>
 
-                <p>Ordem de serviço e registro de vendas totalmente online e funciona em tablet e celular. Este é um excelente sistema para ser usado quando a capitação de equipamento para conserto fica distante do seu laboratório de manutenção e você precisa de uma comunicação rápida entre os dois pontos, com ele você controla toda rotina de uma oficina mecânica, assistência técnica, entre outras, porém, não precisa instalar no seu equipamento. Clique no botão acima, registre-se e já comece a usar.</p> 
+                <p>Ordem de serviço e registro de vendas totalmente online, funciona em tablet e celular. Este é um excelente sistema para ser usado quando a capitação de equipamento para conserto fica distante do seu laboratório de manutenção e você precisa de uma comunicação rápida entre os dois pontos, com ele você controla toda rotina de uma oficina mecânica, assistência técnica, entre outras, porém, não precisa instalar no seu equipamento. Clique no botão acima, registre-se e já comece a usar.</p> 
 
                 <p></p>
                 <p></p>
