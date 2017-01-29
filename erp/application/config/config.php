@@ -12,9 +12,14 @@
 |
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
+ * 
+ 
+ Configuração para rhcloud.com
+ openshift
+ $config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/'; 
 |
 */
-$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/';
+$config['base_url']	= 'http://mapos.dev/';
 
 /*
 |--------------------------------------------------------------------------
