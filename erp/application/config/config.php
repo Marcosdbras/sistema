@@ -14,12 +14,15 @@
 | path to your installation.
  * 
  
- Configuração para rhcloud.com
- openshift
- $config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/'; 
 |
 */
-$config['base_url']	= 'http://mapos.dev/';
+
+//Executar em rhcloud.com ou openshift
+$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/'; 
+
+//Executar no local
+//$config['base_url']	= 'http://mapos.dev/';
+
 
 /*
 |--------------------------------------------------------------------------

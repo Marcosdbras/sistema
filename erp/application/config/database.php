@@ -8,18 +8,21 @@ $active_record = TRUE;
 /*
  * Configuração para rhcloud.com
  * openshift.com
+*/
+
+
+//Executar em rhcloud.com ou openshift
 $db['default']['hostname'] = $_ENV['OPENSHIFT_MYSQL_DB_HOST']; 
 $db['default']['username'] = $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'];
 $db['default']['password'] = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];
 $db['default']['database'] = $_ENV['OPENSHIFT_APP_NAME'];
-*/
 
-/*Configuração local*/
-$db['default']['hostname'] = '127.0.0.1'; 
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'sistema';
 
+//Executar no local
+//$db['default']['hostname'] = '127.0.0.1'; 
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = '';
+//$db['default']['database'] = 'sistema';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
