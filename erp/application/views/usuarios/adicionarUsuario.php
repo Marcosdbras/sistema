@@ -8,9 +8,11 @@
                 <h5>Cadastro de Usuário</h5>
             </div>
             <div class="widget-content nopadding">
-                <?php if ($custom_error != '') {
-                    echo '<div class="alert alert-danger">'.$custom_error.'</div>';
-                } ?>
+                <?php
+                if ($custom_error != '') {
+                    echo '<div class="alert alert-danger">' . $custom_error . '</div>';
+                }
+                ?>
                 <form action="<?php echo current_url(); ?>" id="formUsuario" method="post" class="form-horizontal" >
                     <div class="control-group">
                         <label for="nome" class="control-label">Nome<span class="required">*</span></label>
@@ -32,6 +34,14 @@
                             <input id="cpf" type="text" name="cpf" value="<?php echo set_value('cpf'); ?>"  />
                         </div>
                     </div>
+
+                    <div class="control-group" class="control-label">
+                        <label for="cep" class="control-label">CEP<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="cep" type="text" name="cep"  onblur="pesquisacep(this.value);"    value="<?php echo set_value('cep'); ?>"  />
+                        </div>
+                    </div>
+
 
                     <div class="control-group">
                         <label for="rua" class="control-label">Endereço<span class="required">*</span></label>
@@ -67,6 +77,14 @@
                             <input id="estado" type="text" name="estado" value="<?php echo set_value('estado'); ?>"  />
                         </div>
                     </div>
+                    
+                    <div class="control-group" class="control-label">
+                        <label for="ibge" class="control-label">IBGE<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="ibge" type="text" name="ibge" value="<?php echo set_value('ibge'); ?>"  />
+                        </div>
+                    </div>
+                    
 
                     <div class="control-group">
                         <label for="email" class="control-label">Email<span class="required">*</span></label>
@@ -110,9 +128,11 @@
                         <label  class="control-label">Permissões<span class="required">*</span></label>
                         <div class="controls">
                             <select name="permissoes_id" id="permissoes_id">
-                                  <?php foreach ($permissoes as $p) {
-                                      echo '<option value="'.$p->idPermissao.'">'.$p->nome.'</option>';
-                                  } ?>
+                                <?php
+                                foreach ($permissoes as $p) {
+                                    echo '<option value="' . $p->idPermissao . '">' . $p->nome . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -134,55 +154,53 @@
 </div>
 
 
-<script  src="<?php echo base_url()?>js/jquery.validate.js"></script>
+<script  src="<?php echo base_url() ?>js/jquery.validate.js"></script>
 <script type="text/javascript">
-      $(document).ready(function(){
+                                $(document).ready(function () {
 
-           $('#formUsuario').validate({
-            rules : {
-                  nome:{ required: true},
-                  rg:{ required: true},
-                  cpf:{ required: true},
-                  telefone:{ required: true},
-                  email:{ required: true},
-                  senha:{ required: true},
-                  rua:{ required: true},
-                  numero:{ required: true},
-                  bairro:{ required: true},
-                  cidade:{ required: true},
-                  estado:{ required: true},
-                  cep:{ required: true}
-            },
-            messages: {
-                  nome :{ required: 'Campo Requerido.'},
-                  rg:{ required: 'Campo Requerido.'},
-                  cpf:{ required: 'Campo Requerido.'},
-                  telefone:{ required: 'Campo Requerido.'},
-                  email:{ required: 'Campo Requerido.'},
-                  senha:{ required: 'Campo Requerido.'},
-                  rua:{ required: 'Campo Requerido.'},
-                  numero:{ required: 'Campo Requerido.'},
-                  bairro:{ required: 'Campo Requerido.'},
-                  cidade:{ required: 'Campo Requerido.'},
-                  estado:{ required: 'Campo Requerido.'},
-                  cep:{ required: 'Campo Requerido.'}
+                                    $('#formUsuario').validate({
+                                        rules: {
+                                            nome: {required: true},
+                                            rg: {required: true},
+                                            cpf: {required: true},
+                                            telefone: {required: true},
+                                            email: {required: true},
+                                            senha: {required: true},
+                                            rua: {required: true},
+                                            numero: {required: true},
+                                            bairro: {required: true},
+                                            cidade: {required: true},
+                                            estado: {required: true},
+                                            cep: {required: true}
+                                        },
+                                        messages: {
+                                            nome: {required: 'Campo Requerido.'},
+                                            rg: {required: 'Campo Requerido.'},
+                                            cpf: {required: 'Campo Requerido.'},
+                                            telefone: {required: 'Campo Requerido.'},
+                                            email: {required: 'Campo Requerido.'},
+                                            senha: {required: 'Campo Requerido.'},
+                                            rua: {required: 'Campo Requerido.'},
+                                            numero: {required: 'Campo Requerido.'},
+                                            bairro: {required: 'Campo Requerido.'},
+                                            cidade: {required: 'Campo Requerido.'},
+                                            estado: {required: 'Campo Requerido.'},
+                                            cep: {required: 'Campo Requerido.'}
 
-            },
+                                        },
+                                        errorClass: "help-inline",
+                                        errorElement: "span",
+                                        highlight: function (element, errorClass, validClass) {
+                                            $(element).parents('.control-group').addClass('error');
+                                        },
+                                        unhighlight: function (element, errorClass, validClass) {
+                                            $(element).parents('.control-group').removeClass('error');
+                                            $(element).parents('.control-group').addClass('success');
+                                        }
+                                    });
 
-            errorClass: "help-inline",
-            errorElement: "span",
-            highlight:function(element, errorClass, validClass) {
-                $(element).parents('.control-group').addClass('error');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).parents('.control-group').removeClass('error');
-                $(element).parents('.control-group').addClass('success');
-            }
-           });
-
-      });
+                                });
 </script>
 
-
-
-
+<!-- Adicionando Javascript para consulta cep entre outros-->
+<script src="<?php echo base_url() ?>assets/js/processa/localizacep.js"></script>

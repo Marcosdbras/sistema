@@ -182,7 +182,7 @@ class Mapos_model extends CI_Model {
         return $this->db->get('emitente')->result();
     }
 
-    public function addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo){
+    public function addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo, $cep, $ibge){
        
        $idusumestre = $this->session->userdata('idusumestre'); 
         
@@ -199,12 +199,14 @@ class Mapos_model extends CI_Model {
        $this->db->set('url_logo', $logo);
        
        $this->db->set('idusumestre', $idusumestre);
+       $this->db->set('cep',$cep);
+       $this->db->set('ibge',$ibge);
        
        return $this->db->insert('emitente');
     }
 
 
-    public function editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email){
+    public function editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $cep, $ibge){
         
        
         
@@ -218,6 +220,8 @@ class Mapos_model extends CI_Model {
        $this->db->set('uf', $uf);
        $this->db->set('telefone', $telefone);
        $this->db->set('email', $email);
+       $this->db->set('cep',$cep);
+       $this->db->set('ibge',$ibge);
        $this->db->where('id', $id);
        
        

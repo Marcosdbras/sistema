@@ -55,7 +55,7 @@ class Clientes extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        $this->data['results'] = $this->clientes_model->get('clientes', 'idClientes,nomeCliente,documento,telefone,celular,email,rua,numero,bairro,cidade,estado,cep,iddetalhe', '', $config['per_page'], $this->uri->segment(3));
+        $this->data['results'] = $this->clientes_model->get('clientes', 'idClientes,nomeCliente,documento,telefone,celular,email,rua,numero,bairro,cidade,estado,cep,iddetalhe,ibge', '', $config['per_page'], $this->uri->segment(3));
 
         $this->data['view'] = 'clientes/clientes';
         $this->load->view('tema/topo', $this->data);
@@ -101,7 +101,9 @@ class Clientes extends CI_Controller {
                 'cep' => set_value('cep'),
                 'dataCadastro' => date('Y-m-d'),
                 'idusumestre' => $this->session->userdata('idusumestre'),
-                'iddetalhe' => $totreg
+                'iddetalhe' => $totreg,
+                'ibge'=>  $this->input->post('ibge')
+                    
             );
 
 
@@ -147,7 +149,8 @@ class Clientes extends CI_Controller {
                 'cidade' => $this->input->post('cidade'),
                 'estado' => $this->input->post('estado'),
                 'cep' => $this->input->post('cep'),
-                'idusumestre' => $this->session->userdata('idusumestre')
+                'idusumestre' => $this->session->userdata('idusumestre'),
+                'ibge'=>$this->input->post('ibge')
             );
 
             if ($this->clientes_model->edit('clientes', $data, 'idClientes', $this->input->post('idClientes')) == TRUE) {

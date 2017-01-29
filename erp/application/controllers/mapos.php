@@ -298,9 +298,11 @@ class Mapos extends CI_Controller {
             $email = $this->input->post('email');
             $image = $this->do_upload();
             $logo = base_url().'assets/uploads/'.$idusumestre.'/'.$image;
+            $cep=$this->input->post('cep');
+            $ibge = $this->input->post('ibge');
 
 
-            $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo);
+            $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo, $cep, $ibge);
             if($retorno){
 
                 $this->session->set_flashdata('success','As informações foram inseridas com sucesso.');
@@ -360,9 +362,11 @@ class Mapos extends CI_Controller {
             $telefone = $this->input->post('telefone');
             $email = $this->input->post('email');
             $id = $this->input->post('id');
+            $cep = $this->input->post('cep');
+            $ibge = $this->input->post('ibge');
 
 
-            $retorno = $this->mapos_model->editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email);
+            $retorno = $this->mapos_model->editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $cep, $ibge);
             if($retorno){
 
                 $this->session->set_flashdata('success','As informações foram alteradas com sucesso.');

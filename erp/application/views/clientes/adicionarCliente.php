@@ -46,7 +46,15 @@
                     </div>
 
                     <div class="control-group" class="control-label">
-                        <label for="rua" class="control-label">Rua<span class="required">*</span></label>
+                        <label for="cep" class="control-label">CEP<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="cep" type="text" name="cep"  onblur="pesquisacep(this.value);"    value="<?php echo set_value('cep'); ?>"  />
+                        </div>
+                    </div>
+
+
+                    <div class="control-group" class="control-label">
+                        <label for="rua" class="control-label">Endereço<span class="required">*</span></label>
                         <div class="controls">
                             <input id="rua" type="text" name="rua" value="<?php echo set_value('rua'); ?>"  />
                         </div>
@@ -81,14 +89,13 @@
                     </div>
 
                     <div class="control-group" class="control-label">
-                        <label for="cep" class="control-label">CEP<span class="required">*</span></label>
+                        <label for="ibge" class="control-label">IBGE<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="cep" type="text" name="cep" value="<?php echo set_value('cep'); ?>"  />
+                            <input id="ibge" type="text" name="ibge" value="<?php echo set_value('ibge'); ?>"  />
                         </div>
                     </div>
-
-
-
+                    
+                    
                     <div class="form-actions">
                         <div class="span12">
                             <div class="span6 offset3">
@@ -147,6 +154,5 @@
       });
 </script>
 
-
-
-
+<!-- Adicionando Javascript para consulta cep entre outros-->
+<script src="<?php echo base_url() ?>assets/js/processa/localizacep.js"></script>

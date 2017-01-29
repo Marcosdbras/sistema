@@ -33,9 +33,16 @@
                             <input id="cpf" type="text" name="cpf" value="<?php echo $result->cpf; ?>"  />
                         </div>
                     </div>
+                    
+                    <div class="control-group" class="control-label">
+                        <label for="cep" class="control-label">CEP<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="cep" type="text" name="cep"  onblur="pesquisacep(this.value);"  value="<?php echo $result->cep; ?>"  />
+                        </div>
+                    </div>
 
                     <div class="control-group">
-                        <label for="rua" class="control-label">Rua<span class="required">*</span></label>
+                        <label for="rua" class="control-label">Endereço<span class="required">*</span></label>
                         <div class="controls">
                             <input id="rua" type="text" name="rua" value="<?php echo $result->rua; ?>"  />
                         </div>
@@ -68,6 +75,15 @@
                             <input id="estado" type="text" name="estado" value="<?php echo $result->estado; ?>"  />
                         </div>
                     </div>
+                    
+                    <div class="control-group" class="control-label">
+                        <label for="ibge" class="control-label">IBGE<span class="required">*</span></label>
+                        <div class="controls">
+                            <input id="ibge" type="text" name="ibge" value="<?php echo $result->ibge; ?>"  />
+                        </div>
+                    </div>
+                    
+                    
 
                     <div class="control-group">
                         <label for="email" class="control-label">Email<span class="required">*</span></label>
@@ -188,4 +204,5 @@
       });
 </script>
 
-
+<!-- Adicionando Javascript para consulta cep entre outros-->
+<script src="<?php echo base_url() ?>assets/js/processa/localizacep.js"></script>

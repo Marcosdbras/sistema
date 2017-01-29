@@ -126,7 +126,9 @@ class Usuarios extends CI_Controller {
 					'dataCadastro' => date('Y-m-d'),
                                         'idusumestre' => $this->session->userdata('idusumestre'),
                                         'nivel'=>$nivel,
-                                        'iddetalhe'=>$totreg
+                                        'iddetalhe'=>$totreg,
+                                        'cep'=>  $this->input->post('cep'),
+                                        'ibge'=> $this->input->post('ibge')
             );
            
 			if ($this->usuarios_model->add('usuarios',$data) == TRUE)
@@ -204,7 +206,9 @@ class Usuarios extends CI_Controller {
                         'celular' => $this->input->post('celular'),
                         'situacao' => $this->input->post('situacao'),
                         'permissoes_id' => $this->input->post('permissoes_id'),
-                        'idusumestre' => $this->session->userdata('idusumestre')
+                        'idusumestre' => $this->session->userdata('idusumestre'),
+                        'cep'=>$this->input->post('cep'),
+                        'ibge'=>$this->input->post('ibge')
                 );
             }  
 
@@ -224,7 +228,9 @@ class Usuarios extends CI_Controller {
                         'celular' => $this->input->post('celular'),
                         'situacao' => $this->input->post('situacao'),
                         'permissoes_id' => $this->input->post('permissoes_id'),
-                        'idusumestre' => $this->session->userdata('idusumestre')
+                        'idusumestre' => $this->session->userdata('idusumestre'),
+                        'cep'=>$this->input->post('cep'),
+                        'ibge'=>$this->input->post('ibge') 
                 );
 
             }  

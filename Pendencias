@@ -1,3 +1,16 @@
+==================================================================================================================================================================================
+Atualizações base de dados
+==================================================================================================================================================================================
+29/01/2017 - Sistema Mapos
+alter table clientes add ibge varchar(7);
+alter table emitente add ibge varchar(7);
+alter table usuarios add ibge varchar(7);
+alter table usuarios add cep varchar(20);
+alter table emitente add cep varchar(20);
+
+==================================================================================================================================================================================
+Pendências
+==================================================================================================================================================================================
 - Quando fatura ainda está indo o idOs ou idVenda como referência na descrição do faturamento o correto é trocar esta informação pelo iddetalhe da OS ou Venda
 - OS por cliente ainda está apresentado idOs e o correto seria apresentar iddetalhe e idusumestre
 - Na busca de número de Ordem de serviço o sistema está buscando por idOs porem deveria buscar por iddetalhe e idusumestre
@@ -23,7 +36,8 @@
 - Quando pesquisa não está visualizado iddetalhe '#' e o ID deve ir para última coluna
 - Desabilitar os anexos para certos usuários
 - Somente com uma senha especial o usuário poderá habilitar backup, Anexos Arquivo e Anexos Ordem de Serviço
-
+- Pesquisa rápida pelo número da OS
+- Pesquisa por cliente, n.o OS e n.o Venda no lançamento financeiro
 
 
 * Corrigido  
@@ -32,3 +46,21 @@
 - Colocar try catch quando anexar documento ou imagem nas OS 
 - Separar anexos por pasta de usuários mestres 
 - Alterar preço unitário na OS e na venda
+
+=====================================================================================================================================================
+Pendências NFE
+=====================================================================================================================================================
+- Só atualizar quendo existir o arquivo .sql na pasta local
+
+=====================================================================================================================================================
+Pendências DataSAC
+=====================================================================================================================================================
+- Integração com Emissor NFE
+- Alterar cadastro DataPDV no banco de dados local (Produto, Forma de pagamento, etc)
+- Verificar erro: "campo site não existe" quando utiliza o DataConfig.exe
+
+=====================================================================================================================================================
+Pendência SYSTCOM
+=====================================================================================================================================================
+- Excluir pedido e orçamento somente com senha
+- Impressão do caixa inclusive com gráfico
