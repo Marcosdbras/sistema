@@ -51,7 +51,7 @@
                 <div class="control-group" class="control-label">
                     <label for="descricao" class="control-label">CEP<span class="required">*</span></label>
                     <div class="controls">
-                        <input type="text" name="cep"  onblur="pesquisacep(this.value);"    value=""  />
+                        <input type="text"  id="cep2" name="cep"  onblur="pesquisacep(this.value);"    value=""  />
                     </div>
                 </div>
 
@@ -193,7 +193,7 @@
                 <div class="control-group">
                     <label for="descricao" class="control-label"><span class="required">CEP*</span></label>
                     <div class="controls">
-                        <input type="text" name="cep" onblur="pesquisacep(this.value);" value="<?php echo $dados[0]->cep; ?>"  />
+                        <input type="text" id="cep" name="cep" onblur="pesquisacep(this.value);" value="<?php echo $dados[0]->cep; ?>"  />
                     </div>
                 </div>
 
