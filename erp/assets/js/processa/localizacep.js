@@ -116,7 +116,7 @@ function pesquisacep(valor) {
             if (document.getElementById('cidade') !== null) {
                 document.getElementById('cidade').value = "...";
             } else if (document.getElementById('cidade2') !== null) {
-                document.getElementById('cidada2').value = "...";
+                document.getElementById('cidade2').value = "...";
             }
 
             if (document.getElementById('uf') !== null) {
