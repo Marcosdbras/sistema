@@ -93,7 +93,7 @@
                 <div class="control-group" class="control-label">
                     <label for="descricao" class="control-label">IBGE<span class="required">*</span></label>
                     <div class="controls">
-                        <input type="text" id="ibge2" name="ibge" value="<?php echo set_value('ibge'); ?>"  />
+                        <input type="text" id="ibge2" name="ibge" value=""  />
                     </div>
                 </div> 
 
