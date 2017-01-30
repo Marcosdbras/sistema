@@ -71,7 +71,8 @@ class Mapos_model extends CI_Model {
 
          // buscando os
          $this->db->where('idusumestre',$idusumestre);
-         $this->db->like('idOs',$termo);
+         //$this->db->like('idOs',$termo);
+         $this->db->like('iddetalhe',$termo);
          $this->db->limit(5);
          $data['os'] = $this->db->get('os')->result();
 
