@@ -195,6 +195,7 @@
                             <th>#</th>
                             <th>Data Inicial</th>
                             <th>Defeito</th>
+                            <th>id</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -207,9 +208,10 @@
                             $dataInicial = date(('d/m/Y'), strtotime($r->dataInicial));
                             $dataFinal = date(('d/m/Y'), strtotime($r->dataFinal));
                             echo '<tr>';
-                            echo '<td>' . $r->idOs . '</td>';
+                            echo '<td>'.$r->iddetalhe.'</td>'    ;
                             echo '<td>' . $dataInicial . '</td>';
                             echo '<td>' . $r->defeito . '</td>';
+                            echo '<td>' . $r->idOs . '</td>';
 
                             echo '<td>';
                             if($this->permission->checkPermission($this->session->userdata('permissao'),'vOs')){
