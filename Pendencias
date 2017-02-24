@@ -1,6 +1,13 @@
 ==================================================================================================================================================================================
-Atualizações base de dados
+*** NÃO REALIZAR UPLOAD VIA NETBEANS ***
+==================================================================================================================================================================================
+* Atualizações base de dados
 Realizar cópia dos diretórios antes de qualquer atualização
+
+* Atualização Script Página 
+cd sistema
+./upload.sh
+
 ==================================================================================================================================================================================
 07/02/2017- Sistema Mapos
 CREATE TABLE `sistema`.`grupo` ( `idgrupo` INT NOT NULL AUTO_INCREMENT , `descricao` VARCHAR(40) NULL DEFAULT NULL , PRIMARY KEY (`idgrupo`)) ENGINE = InnoDB;
@@ -47,7 +54,6 @@ Pendências
 - Na busca de número de Ordem de serviço o sistema está buscando por idOs porem deveria buscar por iddetalhe e idusumestre
 
 - Relatórios de vendas e OS não tem totalização
-
 - Trocar título rua para endereço em todos os cadastros
 
 - Fazer página de apresentação com possível anuncios
