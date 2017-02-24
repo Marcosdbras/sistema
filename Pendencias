@@ -42,7 +42,6 @@ alter table emitente add cep varchar(20);
 Pendências
 ==================================================================================================================================================================================
 - Quando realiza o push no repositório está sumindo os arquivos anexos e dos uploads
-
 - Quando fatura ainda está indo o idOs ou idVenda como referência na descrição do faturamento o correto é trocar esta informação pelo iddetalhe da OS ou Venda
 - OS por cliente ainda está apresentado idOs e o correto seria apresentar iddetalhe e idusumestre
 - Na busca de número de Ordem de serviço o sistema está buscando por idOs porem deveria buscar por iddetalhe e idusumestre
