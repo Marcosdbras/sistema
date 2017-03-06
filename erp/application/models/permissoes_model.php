@@ -35,9 +35,14 @@ class Permissoes_model extends CI_Model {
 
     function getActive($table,$fields){
         
+        $idusumestre = $this->session->userdata('idusumestre');
+        
         $this->db->select($fields);
         $this->db->from($table);
-        $this->db->where('situacao',1);
+        $this->db->where('situacao',1);      
+        
+        $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+        
         $query = $this->db->get();
         return $query->result();;
     }
