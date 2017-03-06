@@ -88,6 +88,20 @@ class Permissoes extends CI_Controller {
                   'dCliente' => $this->input->post('dCliente'),
                   'vCliente' => $this->input->post('vCliente'),
 
+                  /* 26/02/2017
+                     Programador: Marcos 
+                  */
+                
+                  'aFornecedor' => $this->input->post('aFornecedor'),
+                  'eFornecedor' => $this->input->post('eFornecedor'),
+                  'dFornecedor' => $this->input->post('dFornecedor'),
+                  'vFornecedor' => $this->input->post('vFornecedor'),
+
+
+                
+                  /* ---- */
+                
+                
                   'aProduto' => $this->input->post('aProduto'),
                   'eProduto' => $this->input->post('eProduto'),
                   'dProduto' => $this->input->post('dProduto'),
@@ -124,6 +138,10 @@ class Permissoes extends CI_Controller {
                   'cBackup' => $this->input->post('cBackup'),
 
                   'rCliente' => $this->input->post('rCliente'),
+                  
+                  /* Marcos 26/02/201*/                
+                  'rFornecedor' => $this->input->post('rFornecedor'),                
+                
                   'rProduto' => $this->input->post('rProduto'),
                   'rServico' => $this->input->post('rServico'),
                   'rOs' => $this->input->post('rOs'),
@@ -195,6 +213,15 @@ class Permissoes extends CI_Controller {
                   'dCliente' => $this->input->post('dCliente'),
                   'vCliente' => $this->input->post('vCliente'),
 
+                  /* Marcos 26/02/2017*/               
+                
+                  'aFornecedor' => $this->input->post('aFornecedor'),
+                  'eFornecedor' => $this->input->post('eFornecedor'),
+                  'dFornecedor' => $this->input->post('dFornecedor'),
+                  'vFornecedor' => $this->input->post('vFornecedor'),
+                
+                
+                
                   'aProduto' => $this->input->post('aProduto'),
                   'eProduto' => $this->input->post('eProduto'),
                   'dProduto' => $this->input->post('dProduto'),
@@ -231,6 +258,10 @@ class Permissoes extends CI_Controller {
                   'cBackup' => $this->input->post('cBackup'),
 
                   'rCliente' => $this->input->post('rCliente'),
+                  
+                  //26/02/2017
+                  'rFornecedor' => $this->input->post('rFornecedor'),
+                
                   'rProduto' => $this->input->post('rProduto'),
                   'rServico' => $this->input->post('rServico'),
                   'rOs' => $this->input->post('rOs'),

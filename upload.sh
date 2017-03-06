@@ -13,9 +13,9 @@ git push origin master
 
 
 echo 'retornando arquivos anexos mapos de local para servidor openshift'
-scp -r  ~/bkp/anexos    5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/anexos   
-scp -r  ~/bkp/arquivos  5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/arquivos 
-scp -r  ~/bkp/uploads   5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/uploads  
+scp -r  ~/bkp/anexos    5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/   
+scp -r  ~/bkp/arquivos  5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/ 
+scp -r  ~/bkp/uploads   5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/  
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-class Clientes extends CI_Controller {
+class Fornecedores extends CI_Controller {
 
     /**
      * author: Ramon Silva 
@@ -13,8 +13,8 @@ class Clientes extends CI_Controller {
             redirect('mapos/login');
         }
         $this->load->helper(array('codegen_helper'));
-        $this->load->model('clientes_model', '', TRUE);
-        $this->data['menuClientes'] = 'clientes';
+        $this->load->model('fornecedores_model', '', TRUE);
+        $this->data['menuFornecedores'] = 'fornecedores';
     }
 
     function index() {
@@ -23,16 +23,16 @@ class Clientes extends CI_Controller {
 
     function gerenciar() {
 
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'vCliente')) {
-            $this->session->set_flashdata('error', 'Você não tem permissão para visualizar clientes.');
+        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'vFornecedor')) {
+            $this->session->set_flashdata('error', 'Você não tem permissão para visualizar fornecedores.'.   $this->session->userdata('permissao')  );
             redirect(base_url());
         }
         $this->load->library('table');
         $this->load->library('pagination');
 
 
-        $config['base_url'] = base_url() . 'index.php/clientes/gerenciar/';
-        $config['total_rows'] = $this->clientes_model->count('clientes');
+        $config['base_url'] = base_url() . 'index.php/fornecedores/gerenciar/';
+        $config['total_rows'] = $this->fornecedores_model->count('fornecedores');
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -55,28 +55,29 @@ class Clientes extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        $this->data['results'] = $this->clientes_model->get('clientes', 'idClientes,nomeCliente,documento,telefone,celular,email,rua,numero,bairro,cidade,estado,cep,iddetalhe,ibge', '', $config['per_page'], $this->uri->segment(3));
+        $this->data['results'] = $this->fornecedores_model->get('fornecedores', 'idFornecedores,nomeFornecedor,documento,telefone,celular,email,rua,numero,bairro,cidade,estado,cep,iddetalhe,ibge', '', $config['per_page'], $this->uri->segment(3));
 
-        $this->data['view'] = 'clientes/clientes';
+        $this->data['view'] = 'fornecedores/fornecedores';
         $this->load->view('tema/topo', $this->data);
     }
 
     function adicionar() {
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'aCliente')) {
-            $this->session->set_flashdata('error', 'Você não tem permissão para adicionar clientes.');
+        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'aFornecedor')) {
+            $this->session->set_flashdata('error', 'Você não tem permissão para adicionar fornecedores.');
             redirect(base_url());
         }
 
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
 
-        if ($this->form_validation->run('clientes') == false) {
+        
+        if ($this->form_validation->run('fornecedores') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
 
             //Author: Marcos Brás--------------------- 
             $this->db->select('idusumestre');
-            $this->db->from('clientes');
+            $this->db->from('fornecedores');
             $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
             
             $totreg = $this->db->count_all_results()+1;
@@ -89,7 +90,7 @@ class Clientes extends CI_Controller {
             //----------------------------------------
             
             $data = array(
-                'nomeCliente' => set_value('nomeCliente'),
+                'nomeFornecedor' => set_value('nomeFornecedor'),
                 'documento' => set_value('documento'),
                 'telefone' => set_value('telefone'),
                 'celular' => $this->input->post('celular'),
@@ -108,14 +109,14 @@ class Clientes extends CI_Controller {
             );
 
 
-            if ($this->clientes_model->add('clientes', $data) == TRUE) {
-                $this->session->set_flashdata('success', 'Cliente adicionado com sucesso!');
-                redirect(base_url() . 'index.php/clientes/adicionar/');
+            if ($this->fornecedores_model->add('fornecedores', $data) == TRUE) {
+                $this->session->set_flashdata('success', 'fornecedor adicionado com sucesso!');
+                redirect(base_url() . 'index.php/fornecedores/adicionar/');
             } else {
                 $this->data['custom_error'] = '<div class="form_error"><p>Ocorreu um erro.</p></div>';
             }
         }
-        $this->data['view'] = 'clientes/adicionarCliente';
+        $this->data['view'] = 'fornecedores/adicionarFornecedor';
         $this->load->view('tema/topo', $this->data);
     }
 
@@ -127,19 +128,19 @@ class Clientes extends CI_Controller {
         }
 
 
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'eCliente')) {
-            $this->session->set_flashdata('error', 'Você não tem permissão para editar clientes.');
+        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'eFornecedor')) {
+            $this->session->set_flashdata('error', 'Você não tem permissão para editar fornecedores.');
             redirect(base_url());
         }
 
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
 
-        if ($this->form_validation->run('clientes') == false) {
+        if ($this->form_validation->run('fornecedores') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
             $data = array(
-                'nomeCliente' => $this->input->post('nomeCliente'),
+                'nomeFornecedor' => $this->input->post('nomeFornecedor'),
                 'documento' => $this->input->post('documento'),
                 'telefone' => $this->input->post('telefone'),
                 'celular' => $this->input->post('celular'),
@@ -154,17 +155,17 @@ class Clientes extends CI_Controller {
                 'ibge'=>$this->input->post('ibge')
             );
 
-            if ($this->clientes_model->edit('clientes', $data, 'idClientes', $this->input->post('idClientes')) == TRUE) {
-                $this->session->set_flashdata('success', 'Cliente editado com sucesso!');
-                redirect(base_url() . 'index.php/clientes/editar/' . $this->input->post('idClientes'));
+            if ($this->fornecedores_model->edit('fornecedores', $data, 'idFornecedores', $this->input->post('idFornecedores')) == TRUE) {
+                $this->session->set_flashdata('success', 'fornecedor editado com sucesso!');
+                redirect(base_url() . 'index.php/fornecedores/editar/' . $this->input->post('idFornecedores'));
             } else {
                 $this->data['custom_error'] = '<div class="form_error"><p>Ocorreu um erro</p></div>';
             }
         }
 
 
-        $this->data['result'] = $this->clientes_model->getById($this->uri->segment(3));
-        $this->data['view'] = 'clientes/editarCliente';
+        $this->data['result'] = $this->fornecedores_model->getById($this->uri->segment(3));
+        $this->data['view'] = 'fornecedores/editarFornecedor';
         $this->load->view('tema/topo', $this->data);
     }
 
@@ -175,23 +176,27 @@ class Clientes extends CI_Controller {
             redirect('mapos');
         }
 
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'vCliente')) {
-            $this->session->set_flashdata('error', 'Você não tem permissão para visualizar clientes.');
+        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'vFornecedor')) {
+            $this->session->set_flashdata('error', 'Você não tem permissão para visualizar fornecedores.');
             redirect(base_url());
         }
 
         $this->data['custom_error'] = '';
-        $this->data['result'] = $this->clientes_model->getById($this->uri->segment(3));
-        $this->data['results'] = $this->clientes_model->getOsByCliente($this->uri->segment(3));
-        $this->data['view'] = 'clientes/visualizar';
+        $this->data['result'] = $this->fornecedores_model->getById($this->uri->segment(3));
+        
+        /* 01/03/2017
+         Comentário: Carrega produdos do fornecedor
+        */
+        $this->data['results'] = $this->fornecedores_model->getProdByfornecedor($this->uri->segment(3));
+        $this->data['view'] = 'fornecedores/visualizar';
         $this->load->view('tema/topo', $this->data);
     }
 
     public function excluir() {
 
 
-        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'dCliente')) {
-            $this->session->set_flashdata('error', 'Você não tem permissão para excluir clientes.');
+        if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'dFornecedor')) {
+            $this->session->set_flashdata('error', 'Você não tem permissão para excluir fornecedores.');
             redirect(base_url());
         }
 
@@ -199,56 +204,22 @@ class Clientes extends CI_Controller {
         $id = $this->input->post('id');
         if ($id == null) {
 
-            $this->session->set_flashdata('error', 'Erro ao tentar excluir cliente.');
-            redirect(base_url() . 'index.php/clientes/gerenciar/');
+            $this->session->set_flashdata('error', 'Erro ao tentar excluir fornecedor.');
+            redirect(base_url() . 'index.php/fornecedores/gerenciar/');
         }
 
         //$id = 2;
-        // excluindo OSs vinculadas ao cliente
-        $this->db->where('clientes_id', $id);
-        $os = $this->db->get('os')->result();
 
-        if ($os != null) {
-
-            foreach ($os as $o) {
-                $this->db->where('os_id', $o->idOs);
-                $this->db->delete('servicos_os');
-
-                $this->db->where('os_id', $o->idOs);
-                $this->db->delete('produtos_os');
-
-
-                $this->db->where('idOs', $o->idOs);
-                $this->db->delete('os');
-            }
-        }
-
-        // excluindo Vendas vinculadas ao cliente
-        $this->db->where('clientes_id', $id);
-        $vendas = $this->db->get('vendas')->result();
-
-        if ($vendas != null) {
-
-            foreach ($vendas as $v) {
-                $this->db->where('vendas_id', $v->idVendas);
-                $this->db->delete('itens_de_vendas');
-
-
-                $this->db->where('idVendas', $v->idVendas);
-                $this->db->delete('vendas');
-            }
-        }
-
-        //excluindo receitas vinculadas ao cliente
-        $this->db->where('clientes_id', $id);
-        $this->db->delete('lancamentos');
+        //excluindo receitas vinculadas ao fornecedor
+        //$this->db->where('fornecedores_id', $id);
+        //$this->db->delete('lancamentos');
 
 
 
-        $this->clientes_model->delete('clientes', 'idClientes', $id);
+        $this->fornecedores_model->delete('fornecedores', 'idFornecedores', $id);
 
-        $this->session->set_flashdata('success', 'Cliente excluido com sucesso!');
-        redirect(base_url() . 'index.php/clientes/gerenciar/');
+        $this->session->set_flashdata('success', 'fornecedor excluido com sucesso!');
+        redirect(base_url() . 'index.php/fornecedores/gerenciar/');
     }
 
 }

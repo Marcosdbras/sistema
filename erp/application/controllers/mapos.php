@@ -75,6 +75,8 @@ class Mapos extends CI_Controller {
         $this->data['servicos'] = $data['results']['servicos'];
         $this->data['os'] = $data['results']['os'];
         $this->data['clientes'] = $data['results']['clientes'];
+        $this->data['fornecedores'] = $data['results']['fornecedores'];
+        
         $this->data['view'] = 'mapos/pesquisa';
         $this->load->view('tema/topo',  $this->data);
       

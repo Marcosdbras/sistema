@@ -1,5 +1,58 @@
 <?php
-$config = array('clientes' => array(array(
+$config = array( 'fornecedores' => array(array(
+                                	'field'=>'nomeFornecedor',
+                                	'label'=>'Nome',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'documento',
+                                	'label'=>'CPF/CNPJ',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'telefone',
+                                	'label'=>'Telefone',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'email',
+                                	'label'=>'Email',
+                                	'rules'=>'required|trim|valid_email|xss_clean'
+                                ),
+								array(
+                                	'field'=>'rua',
+                                	'label'=>'Rua',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'numero',
+                                	'label'=>'Número',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'bairro',
+                                	'label'=>'Bairro',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'cidade',
+                                	'label'=>'Cidade',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'estado',
+                                	'label'=>'Estado',
+                                	'rules'=>'required|trim|xss_clean'
+                                ),
+								array(
+                                	'field'=>'cep',
+                                	'label'=>'CEP',
+                                	'rules'=>'required|trim|xss_clean'
+                                ))
+    
+    ,
+    
+    'clientes' => array(array(
                                 	'field'=>'nomeCliente',
                                 	'label'=>'Nome',
                                 	'rules'=>'required|trim|xss_clean'

@@ -69,6 +69,12 @@ class Mapos_model extends CI_Model {
          $this->db->limit(5);
          $data['clientes'] = $this->db->get('clientes')->result();
 
+         // buscando fornecedores
+         $this->db->where('idusumestre',$idusumestre);     
+         $this->db->like('nomeFornecedor',$termo);
+         $this->db->limit(5);
+         $data['fornecedores'] = $this->db->get('fornecedores')->result();
+
          // buscando os
          $this->db->where('idusumestre',$idusumestre);
          //$this->db->like('idOs',$termo);

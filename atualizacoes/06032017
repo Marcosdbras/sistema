@@ -1,0 +1,185 @@
+#05/03/2017
+
+
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 06, 2017 at 02:18 
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.24
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sistema`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `indicegeral`
+--
+
+CREATE TABLE `indicegeral` (
+  `id` tinyint(4) NOT NULL,
+  `porc_aliq_inter` float(10,2) NOT NULL,
+  `motor_envio_nfe` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `indicegeral`
+--
+ALTER TABLE `indicegeral`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `indicegeral`
+--
+ALTER TABLE `indicegeral`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+###################################################################################################################
+
+
+alter table emitente ADD `fonte_transp_imposto` varchar(30) DEFAULT NULL;
+
+alter table emitente ADD `aliqfederal` float(8,2) DEFAULT NULL;
+
+alter table emitente ADD `aliqestadual` float(8,2) DEFAULT NULL;
+
+alter table emitente ADD `aliqmunicipal` float(8,2) DEFAULT NULL;
+
+alter table emitente ADD nnf int unsigned;
+
+
+######################################################################################################################
+
+# 28/02/2017 - Sistema Mapos
+CREATE TABLE `prodforn` (
+  `idProdForn` int(11) NOT NULL,
+  `idForn` int(11) NOT NULL,
+  `idProd` int(11) NOT NULL,
+  `codForn` varchar(25) DEFAULT NULL,
+  `ultcusto` decimal(15,2) DEFAULT NULL,
+  `ultqtde` decimal(15,3) DEFAULT NULL,
+  `idusumestre` int(11) DEFAULT NULL,
+  `iddetalhe` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `prodforn`
+  ADD PRIMARY KEY (`idProdForn`);
+
+ALTER TABLE `prodforn`
+  MODIFY `idProdForn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+ALTER TABLE `prodforn` ADD `datamov` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `iddetalhe`;
+
+# 25/02/2017 - Sistema Mapos
+CREATE TABLE `fornecedores` (
+  `idFornecedores` int(11) NOT NULL,
+  `nomeFornecedor` varchar(255) NOT NULL,
+  `documento` varchar(20) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `celular` varchar(20) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `dataCadastro` date DEFAULT NULL,
+  `rua` varchar(70) DEFAULT NULL,
+  `numero` varchar(15) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
+  `estado` varchar(20) DEFAULT NULL,
+  `cep` varchar(20) DEFAULT NULL,
+  `idusumestre` int(11) DEFAULT NULL,
+  `iddetalhe` int(11) DEFAULT NULL,
+  `ibge` varchar(7) DEFAULT NULL,
+  `nometipoParticipante` varchar(25) DEFAULT NULL,
+  `endent` varchar(70) DEFAULT NULL,
+  `nument` varchar(15) DEFAULT NULL,
+  `bairroent` varchar(45) DEFAULT NULL,
+  `cidadeent` varchar(45) DEFAULT NULL,
+  `estadoent` varchar(2) DEFAULT NULL,
+  `cepent` varchar(9) DEFAULT NULL,
+  `endfin` varchar(70) DEFAULT NULL,
+  `numfin` varchar(15) DEFAULT NULL,
+  `bairrofin` varchar(45) DEFAULT NULL,
+  `cidadefin` varchar(45) DEFAULT NULL,
+  `estadofin` varchar(2) DEFAULT NULL,
+  `cepfin` varchar(9) DEFAULT NULL,
+  `idtipoParticipante` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+ALTER TABLE `fornecedores`
+  ADD PRIMARY KEY (`idFornecedores`);
+
+
+ALTER TABLE `fornecedores`
+  MODIFY `idFornecedores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+# 07/02/2017- Sistema Mapos
+CREATE TABLE `sistema`.`grupo` ( `idgrupo` INT NOT NULL AUTO_INCREMENT , `descricao` VARCHAR(40) NULL DEFAULT NULL , PRIMARY KEY (`idgrupo`)) ENGINE = InnoDB;
+CREATE TABLE `sistema`.`marca` ( `idmarca` INT NOT NULL AUTO_INCREMENT , `descricao` VARCHAR(70) NULL DEFAULT NULL , PRIMARY KEY (`idmarca`)) ENGINE = InnoDB;
+CREATE TABLE `sistema`.`tipoParticipante` ( `idtipoParticipante` INT NOT NULL AUTO_INCREMENT , `descricao` VARCHAR(40) NULL DEFAULT NULL , PRIMARY KEY (`idtipoParticipante`)) ENGINE = InnoDB;
+
+ALTER TABLE `grupo` ADD `iddetalhe` INT(11) NULL DEFAULT NULL AFTER `descricao`;
+ALTER TABLE `marca` ADD `iddetalhe` INT(11) NULL DEFAULT NULL AFTER `descricao`;
+
+# 06/02/2017 - Sistema Mapos
+ALTER TABLE `clientes` 
+ADD `nometipoParticipante` VARCHAR(25) NULL DEFAULT NULL AFTER `ibge`;
+
+ALTER TABLE `clientes` 
+ADD `endent` VARCHAR(70) NULL DEFAULT NULL AFTER `tipo`, 
+ADD `nument` VARCHAR(15) NOT NULL AFTER `endent`, 
+ADD `bairroent` VARCHAR(45) NOT NULL AFTER `nument`, 
+ADD `cidadeent` VARCHAR(45) NOT NULL AFTER `bairroent`, 
+ADD `estadoent` VARCHAR(2) NOT NULL AFTER `cidadeent`, 
+ADD `cepent` VARCHAR(9) NOT NULL AFTER `estadoent`, 
+ADD `endfin` VARCHAR(70) NOT NULL AFTER `cepent`, 
+ADD `numfin` VARCHAR(15) NOT NULL AFTER `endfin`, 
+ADD `bairrofin` VARCHAR(45) NOT NULL AFTER `numfin`, 
+ADD `cidadefin` VARCHAR(45) NOT NULL AFTER `bairrofin`, 
+ADD `estadofin` VARCHAR(2) NOT NULL AFTER `cidadefin`, 
+ADD `cepfin` VARCHAR(9) NOT NULL AFTER `estadofin`;
+
+alter table 
+clientes add idtipoParticipante int(11) default null; 
+
+# 29/01/2017 - Sistema Mapos
+alter table clientes add ibge varchar(7);
+alter table emitente add ibge varchar(7);
+alter table usuarios add ibge varchar(7);
+alter table usuarios add cep varchar(20);
+alter table emitente add cep varchar(20);
+
+# 24/02/2017
+insert into tipoParticipante(idtipoParticipante,descricao) values (1,'Cliente');
+insert into tipoParticipante(idtipoParticipante,descricao) values (2,'Fornecedor');
+insert into tipoParticipante(idtipoParticipante,descricao) values (3,'Transportadora');
+
+# update clientes set idtipoParticipante = 1 where idtipoParticipante is null;
+

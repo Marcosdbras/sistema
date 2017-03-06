@@ -83,15 +83,50 @@ class Relatorios_model extends CI_Model {
         $query = "SELECT * FROM clientes WHERE  idusumestre = $idusumestre   and  dataCadastro BETWEEN ? AND ?";
         return $this->db->query($query, array($dataInicial,$dataFinal))->result();
     }
+    
+
+
+    public function fornecedoresCustom($dataInicial = null,$dataFinal = null){
+        
+        if($dataInicial == null || $dataFinal == null){
+            $dataInicial = date('Y-m-d');
+            $dataFinal = date('Y-m-d');
+        }
+        
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        
+        
+        $query = "SELECT * FROM fornecedores WHERE  idusumestre = $idusumestre   and  dataCadastro BETWEEN ? AND ?";
+        return $this->db->query($query, array($dataInicial,$dataFinal))->result();
+    }
+
+    
+    
 
     public function clientesRapid(){
         $idusumestre = $this->session->userdata('idusumestre');
         
         $this->db->where('idusumestre',$idusumestre);
         
+        
         $this->db->order_by('nomeCliente','asc');
         return $this->db->get('clientes')->result();
     }
+    
+    
+    public function fornecedoresRapid(){
+        $idusumestre = $this->session->userdata('idusumestre');
+        
+        $this->db->where('idusumestre',$idusumestre);
+        
+        
+        $this->db->order_by('nomeFornecedor','asc');
+        return $this->db->get('fornecedores')->result();
+    }
+
+    
+    
 
     public function produtosRapid(){
         $idusumestre = $this->session->userdata('idusumestre');

@@ -126,6 +126,8 @@ class Os_model extends CI_Model {
         $this->db->limit(5);
         $this->db->like('nomeCliente', $q);
         $this->db->where('idusumestre',$idusumestre);
+        
+        
         $query = $this->db->get('clientes');
         if($query->num_rows > 0){
             foreach ($query->result_array() as $row){

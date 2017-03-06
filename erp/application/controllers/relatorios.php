@@ -29,6 +29,16 @@ class Relatorios extends CI_Controller{
         $this->data['view'] = 'relatorios/rel_clientes';
        	$this->load->view('tema/topo',$this->data);
     }
+    
+    public function fornecedores(){
+
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'rCliente')){
+           $this->session->set_flashdata('error','Você não tem permissão para gerar relatórios de fornecedores.');
+           redirect(base_url());
+        }
+        $this->data['view'] = 'relatorios/rel_fornecedores';
+       	$this->load->view('tema/topo',$this->data);
+    }
 
     public function produtos(){
         if(!$this->permission->checkPermission($this->session->userdata('permissao'),'rProduto')){
@@ -39,7 +49,7 @@ class Relatorios extends CI_Controller{
        	$this->load->view('tema/topo',$this->data);
 
     }
-
+    
     public function clientesCustom(){
         if(!$this->permission->checkPermission($this->session->userdata('permissao'),'rCliente')){
            $this->session->set_flashdata('error','Você não tem permissão para gerar relatórios de clientes.');
@@ -58,18 +68,36 @@ class Relatorios extends CI_Controller{
     
     }
 
-    public function clientesRapid(){
+    public function fornecedoresCustom(){
         if(!$this->permission->checkPermission($this->session->userdata('permissao'),'rCliente')){
-           $this->session->set_flashdata('error','Você não tem permissão para gerar relatórios de clientes.');
+           $this->session->set_flashdata('error','Você não tem permissão para gerar relatórios de fornecedores.');
            redirect(base_url());
         }
 
-        $data['clientes'] = $this->Relatorios_model->clientesRapid();
+        $dataInicial = $this->input->get('dataInicial');
+        $dataFinal = $this->input->get('dataFinal');
+
+        $data['fornecedores'] = $this->Relatorios_model->fornecedoresCustom($dataInicial,$dataFinal);
 
         $this->load->helper('mpdf');
-        //$this->load->view('relatorios/imprimir/imprimirClientes', $data);
-        $html = $this->load->view('relatorios/imprimir/imprimirClientes', $data, true);
-        pdf_create($html, 'relatorio_clientes' . date('d/m/y'), TRUE);
+        //$this->load->view('relatorios/imprimir/imprimirFornecedores', $data);
+        $html = $this->load->view('relatorios/imprimir/imprimirFornecedores', $data, true);
+        pdf_create($html, 'relatorio_fornecedores' . date('d/m/y'), TRUE);
+    
+    }
+    
+    public function fornecedoresRapid(){
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'rCliente')){
+           $this->session->set_flashdata('error','Você não tem permissão para gerar relatórios de fornecedores.');
+           redirect(base_url());
+        }
+
+        $data['fornecedores'] = $this->Relatorios_model->fornecedoresRapid();
+
+        $this->load->helper('mpdf');
+        //$this->load->view('relatorios/imprimir/imprimirFornecedores', $data);
+        $html = $this->load->view('relatorios/imprimir/imprimirFornecedores', $data, true);
+        pdf_create($html, 'relatorio_fornecedores' . date('d/m/y'), TRUE);
     }
 
     public function produtosRapid(){

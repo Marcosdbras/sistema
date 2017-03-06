@@ -1,5 +1,5 @@
 <?php
-class Clientes_model extends CI_Model {
+class Fornecedores_model extends CI_Model {
 
     /**
      * author: Ramon Silva 
@@ -20,7 +20,7 @@ class Clientes_model extends CI_Model {
         $this->db->from($table);
         $this->db->where('idusumestre',$idusumestre);
         
-        //$this->db->order_by('idClientes','desc');
+        //$this->db->order_by('idFornecedores','desc');
         $this->db->order_by('iddetalhe','desc');
         $this->db->limit($perpage,$start);
         if($where){
@@ -34,9 +34,9 @@ class Clientes_model extends CI_Model {
     }
 
     function getById($id){
-        $this->db->where('idClientes',$id);
+        $this->db->where('idFornecedores',$id);
         $this->db->limit(1);
-        return $this->db->get('clientes')->row();
+        return $this->db->get('fornecedores')->row();
     }
     
     function add($table,$data){
@@ -76,12 +76,17 @@ class Clientes_model extends CI_Model {
         return $this->db->count_all($table);
     }
     
-    public function getOsByCliente($id){
-        $this->db->where('clientes_id',$id);
+    
+    /*
+     01/03/2017
+     Comentários: Executa carregamento de produtos do fornecedor
+    */
+    public function getProdByFornecedor($id){
+        $this->db->where('idForn',$id);
         //$this->db->order_by('idOs','desc');
         $this->db->order_by('iddetalhe','desc');
         $this->db->limit(10);
-        return $this->db->get('os')->result();
+        return $this->db->get('prodforn')->result();
     }
 
 }

@@ -124,6 +124,8 @@ class Vendas_model extends CI_Model {
         $this->db->select('*');
         $this->db->limit(5);
         $this->db->where('idusumestre',$idusumestre);
+        
+        
         $this->db->like('nomeCliente', $q);
         $query = $this->db->get('clientes');
         if($query->num_rows > 0){

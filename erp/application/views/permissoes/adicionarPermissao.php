@@ -63,6 +63,52 @@
                                     </td>
                                  
                                 </tr>
+                                
+                                
+                                
+                                <!-- Marcos 26/02/2016-->
+                                
+                                
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input name="vFornecedor" class="marcar" type="checkbox" checked="checked" value="1" />
+                                            <span class="lbl"> Visualizar Fornecedor</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="aFornecedor" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Fornecedor</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="eFornecedor" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Fornecedor</span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <input name="dFornecedor" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Fornecedor</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <!--   -->
+                                
 
                                 <tr><td colspan="4"></td></tr>
                                 <tr>
@@ -274,18 +320,11 @@
                                             <span class="lbl"> Relatório Cliente</span>
                                         </label>
                                     </td>
-
+                                    
                                     <td>
                                         <label>
-                                            <input name="rServico" class="marcar" type="checkbox" value="1" />
-                                            <span class="lbl"> Relatório Serviço</span>
-                                        </label>
-                                    </td>
-
-                                    <td>
-                                        <label>
-                                            <input name="rOs" class="marcar" type="checkbox" value="1" />
-                                            <span class="lbl"> Relatório OS</span>
+                                            <input name="rFornecedor" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Relatório Fornecedor</span>
                                         </label>
                                     </td>
 
@@ -295,10 +334,27 @@
                                             <span class="lbl"> Relatório Produto</span>
                                         </label>
                                     </td>
+                                    
+                                    
+
+                                    <td>
+                                        <label>
+                                            <input name="rServico" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Relatório Serviço</span>
+                                        </label>
+                                    </td>
+
+
                                  
                                 </tr>
 
                                 <tr>
+                                    <td>
+                                        <label>
+                                            <input name="rOs" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Relatório OS</span>
+                                        </label>
+                                    </td>
 
                                     <td>
                                         <label>
