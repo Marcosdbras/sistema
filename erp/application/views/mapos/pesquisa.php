@@ -10,8 +10,11 @@
         </form>
     </div>
     <div class="span12" style="margin-left: 0; margin-top: 0">
+    
+            
+        
     <!--Produtoss-->
-    <div class="span6" style="margin-left: 0; margin-top: 0">
+    <div class="span12" style="margin-left: 0; margin-top: 0">
         <div class="widget-box" style="min-height: 200px">
             <div class="widget-title">
                 <span class="icon">
@@ -72,7 +75,7 @@
 
 
     <!--Clientes-->
-    <div class="span6">
+    <div class="span12">
         <div class="widget-box" style="min-height: 200px">
             <div class="widget-title">
                 <span class="icon">
@@ -136,7 +139,7 @@
     </div>
     
     <!--Serviços-->
-    <div class="span6" style="margin-left: 0">
+    <div class="span12" style="margin-left: 0">
         <div class="widget-box" style="min-height: 200px">
             <div class="widget-title">
                 <span class="icon">
@@ -156,6 +159,7 @@
                             <th>Nome</th>
                             <th>Preço</th>
                             <th></th>
+                            <th>Id</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,7 +169,7 @@
                         }
                         foreach ($servicos as $r) {
                             echo '<tr>';
-                            echo '<td>' . $r->idServicos . '</td>';
+                            echo '<td>' . $r->iddetalhe . '</td>';
                             echo '<td>' . $r->nome . '</td>';
                             echo '<td>' . $r->preco . '</td>';
                             echo '<td>';
@@ -174,6 +178,9 @@
                             } 
                                 
                             echo '</td>';
+                            
+                            echo '<td>' . $r->idServicos . '</td>';
+                            
                             echo '</tr>';
                         }
                         ?>
@@ -188,7 +195,7 @@
 
 
     <!--Ordens de Serviço-->
-    <div class="span6">
+    <div class="span12">
          <div class="widget-box" style="min-height: 200px">
             <div class="widget-title">
                 <span class="icon">
@@ -207,8 +214,9 @@
                             <th>#</th>
                             <th>Data Inicial</th>
                             <th>Defeito</th>
-                            <th>id</th>
+                            
                             <th></th>
+                            <th>id</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -223,7 +231,7 @@
                             echo '<td>'.$r->iddetalhe.'</td>'    ;
                             echo '<td>' . $dataInicial . '</td>';
                             echo '<td>' . $r->defeito . '</td>';
-                            echo '<td>' . $r->idOs . '</td>';
+                            
 
                             echo '<td>';
                             if($this->permission->checkPermission($this->session->userdata('permissao'),'vOs')){
@@ -233,6 +241,9 @@
                                 echo '<a href="' . base_url() . 'index.php/os/editar/' . $r->idOs . '" class="btn btn-info tip-top" title="Editar OS"><i class="icon-pencil icon-white"></i></a>'; 
                             }  
                             echo '</td>';
+                            
+                            echo '<td>' . $r->idOs . '</td>';
+                            
                             echo '</tr>';
                         }
                         ?>
@@ -247,7 +258,7 @@
 
 
 <!--Fornecedores-->
-    <div class="span6">
+    <div class="span12">
         <div class="widget-box" style="min-height: 200px">
             <div class="widget-title">
                 <span class="icon">
@@ -267,6 +278,7 @@
                             <th>Nome</th>
                             <th>CPF/CNPJ</th>
                             <th></th>
+                            <th>Id</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -276,7 +288,7 @@
                         }
                         foreach ($fornecedores as $r) {
                             echo '<tr>';
-                            echo '<td>' . $r->idFornecedores . '</td>';
+                            echo '<td>' . $r->iddetalhe . '</td>';
                             echo '<td>' . $r->nomeFornecedor . '</td>';
                             echo '<td>' . $r->documento . '</td>';
                             echo '<td>';
@@ -288,6 +300,7 @@
                                 echo '<a href="' . base_url() . 'index.php/fornecedores/editar/' . $r->idFornecedores . '" class="btn btn-info tip-top" title="Editar Fornecedor"><i class="icon-pencil icon-white"></i></a>'; 
                             } 
                             
+                            echo '<td>' . $r->idFornecedores . '</td>';
                             
                             echo '</td>';
                             echo '</tr>';
