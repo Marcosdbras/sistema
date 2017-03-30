@@ -65,6 +65,11 @@
                     <a href="#"><i class="icon icon-folder-open"></i> <span>Cadastro Base</span> <span class="label"><i class="icon icon-chevron-down"></i></span></a>
                     <ul>
 
+                        <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vDepartamento')) { ?>
+                            <li class="<?php  if (isset($menuDepartamentos)) {  echo 'active';  }; ?>"><a href="<?php echo base_url() ?>index.php/departamentos"><i class="icon icon-file"></i> <span>Departamentos</span></a></li>
+                        <?php } ?>
+
+
                         <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vCliente')) { ?>
                             <li class="<?php  if (isset($menuClientes)) {  echo 'active'; };?>"><a href="<?php echo base_url() ?>index.php/clientes"><i class="icon icon-group"></i> <span>Clientes</span></a></li>
                         <?php } ?>
@@ -73,6 +78,25 @@
                             <li class="<?php if (isset($menuFornecedores)) { echo 'active'; }; ?>"><a href="<?php echo base_url() ?>index.php/fornecedores"><i class="icon icon-time"></i> <span>Fornecedores</span></a></li>
                         <?php } ?>
 
+                        <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vMarca')) { ?>
+                            <li class="<?php  if (isset($menuMarcas)) {  echo 'active';  }; ?>"><a href="<?php echo base_url() ?>index.php/marcas"><i class="icon icon-paper-clip"></i> <span>Marcas</span></a></li>
+                        <?php } ?>
+
+
+                        <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vGrupo')) { ?>
+                            <li class="<?php  if (isset($menuGrupos)) {  echo 'active';  }; ?>"><a href="<?php echo base_url() ?>index.php/grupos"><i class="icon icon-list-ol"></i> <span>Grupos</span></a></li>
+                        <?php } ?>
+                            
+                        <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vUnidade')) { ?>
+                            <li class="<?php  if (isset($menuUnidades)) {  echo 'active';  }; ?>"><a href="<?php echo base_url() ?>index.php/unidades"><i class="icon icon-inbox"></i> <span>Unidades</span></a></li>
+                        <?php } ?>
+
+
+
+                            
+                            
+
+
                         <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vProduto')) { ?>
                             <li class="<?php if (isset($menuProdutos)) { echo 'active';  };  ?>"><a href="<?php echo base_url() ?>index.php/produtos"><i class="icon icon-barcode"></i> <span>Produtos</span></a></li>
                         <?php } ?>
@@ -80,6 +104,9 @@
                         <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vServico')) { ?>
                             <li class="<?php  if (isset($menuServicos)) {  echo 'active';  }; ?>"><a href="<?php echo base_url() ?>index.php/servicos"><i class="icon icon-wrench"></i> <span>Serviços</span></a></li>
                         <?php } ?>
+                            
+                            
+                            
 
                     </ul>
                 </li>

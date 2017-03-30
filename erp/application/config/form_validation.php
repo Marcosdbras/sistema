@@ -344,5 +344,56 @@ $config = array( 'fornecedores' => array(array(
                                     'label'=>'usuarios_id',
                                     'rules'=>'trim|xss_clean|required'
                                 ))
+                ,
+    
+    
+    'departamentos' => array(array(
+
+                                    'field' => 'descricao',
+                                    'label' => 'descricao',
+                                    'rules' => 'required|trim|xss_clean'
+                                ))
+    
+    ,
+    
+    
+'marcas' => array(array(
+
+                                    'field' => 'descricao',
+                                    'label' => 'descricao',
+                                    'rules' => 'required|trim|xss_clean'
+                                ))
+
+
+    
+
+,
+
+
+'grupos' => array(array(
+
+                                    'field' => 'descricao',
+                                    'label' => 'descricao',
+                                    'rules' => 'required|trim|xss_clean'
+                                ))
+
+    
+    
+    
+,
+
+
+'unidades' => array(array(
+
+                                    'field' => 'descricao',
+                                    'label' => 'descricao',
+                                    'rules' => 'required|trim|xss_clean'
+                                ))
+    
+    
+    
+
+    
+    
 		);
 			   

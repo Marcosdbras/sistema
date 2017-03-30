@@ -1,6 +1,6 @@
 <?php
 
-class Produtos extends CI_Controller {
+class Grupos extends CI_Controller {
     
     /**
      * author: Ramon Silva 
@@ -15,8 +15,8 @@ class Produtos extends CI_Controller {
         }
 
         $this->load->helper(array('form', 'codegen_helper'));
-        $this->load->model('produtos_model', '', TRUE);
-        $this->data['menuProdutos'] = 'Produtos';
+        $this->load->model('grupos_model', '', TRUE);
+        $this->data['menuGrupos'] = 'Grupos';
     }
 
     function index(){
@@ -25,8 +25,8 @@ class Produtos extends CI_Controller {
 
     function gerenciar(){
         
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'vProduto')){
-           $this->session->set_flashdata('error','Você não tem permissão para visualizar produtos.');
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'vGrupo')){
+           $this->session->set_flashdata('error','Você não tem permissão para visualizar grupos.');
            redirect(base_url());
         }
 
@@ -34,8 +34,8 @@ class Produtos extends CI_Controller {
         $this->load->library('pagination');
         
         
-        $config['base_url'] = base_url().'index.php/produtos/gerenciar/';
-        $config['total_rows'] = $this->produtos_model->count('produtos');
+        $config['base_url'] = base_url().'index.php/grupos/gerenciar/';
+        $config['total_rows'] = $this->grupos_model->count('grupos');
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -58,9 +58,9 @@ class Produtos extends CI_Controller {
         
         $this->pagination->initialize($config); 	
 
-	    $this->data['results'] = $this->produtos_model->get('produtos','idProdutos,descricao,unidade,precoCompra,precoVenda,estoque,estoqueMinimo,iddetalhe, idmarca, idgrupo','',$config['per_page'],$this->uri->segment(3));
+	    $this->data['results'] = $this->grupos_model->get('grupos','id,descricao,iddetalhe,idusumestre','',$config['per_page'],$this->uri->segment(3));
        
-	    $this->data['view'] = 'produtos/produtos';
+	    $this->data['view'] = 'grupos/grupos';
        	$this->load->view('tema/topo',$this->data);
        
 		
@@ -68,26 +68,22 @@ class Produtos extends CI_Controller {
 	
     function adicionar() {
 
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'aProduto')){
-           $this->session->set_flashdata('error','Você não tem permissão para adicionar produtos.');
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'aGrupo')){
+           $this->session->set_flashdata('error','Você não tem permissão para adicionar grupos.');
            redirect(base_url());
         }
 
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
 
-        if ($this->form_validation->run('produtos') == false) {
+        if ($this->form_validation->run('grupos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
-            $precoCompra = $this->input->post('precoCompra');
-            $precoCompra = str_replace(",",".", $precoCompra);
-            
-            $precoVenda = $this->input->post('precoVenda');
-            $precoVenda = str_replace(",", ".", $precoVenda);
+           
             
             //Author: Marcos Brás--------------------- 
             $this->db->select('idusumestre');
-            $this->db->from('produtos');
+            $this->db->from('grupos');
             $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
             $totreg = $this->db->count_all_results()+1;
             /* Caso começar a ocorrer duplicidade de iddetalhe terei que 
@@ -100,25 +96,19 @@ class Produtos extends CI_Controller {
             
             $data = array(
                 'descricao' => set_value('descricao'),
-                'unidade' => set_value('unidade'),
-                'precoCompra' => $precoCompra,
-                'precoVenda' => $precoVenda,
-                'estoque' => set_value('estoque'),
-                'estoqueMinimo' => set_value('estoqueMinimo'),
+                
                 'idusumestre' => $this->session->userdata('idusumestre'),
-                'iddetalhe'=>$totreg,
-                'idgrupo'=>$this->input->post('grupo'),
-                'idmarca'=>$this->input->post('marca')
+                'iddetalhe'=>$totreg
             );
 
-            if ($this->produtos_model->add('produtos', $data) == TRUE) {
-                $this->session->set_flashdata('success','Produto adicionado com sucesso!');
-                redirect(base_url() . 'index.php/produtos/adicionar/');
+            if ($this->grupos_model->add('grupos', $data) == TRUE) {
+                $this->session->set_flashdata('success','Grupo adicionado com sucesso!');
+                redirect(base_url() . 'index.php/grupos/adicionar/');
             } else {
                 $this->data['custom_error'] = '<div class="form_error"><p>An Error Occured.</p></div>';
             }
         }
-        $this->data['view'] = 'produtos/adicionarProduto';
+        $this->data['view'] = 'grupos/adicionarGrupo';
         $this->load->view('tema/topo', $this->data);
      
     }
@@ -130,45 +120,35 @@ class Produtos extends CI_Controller {
             redirect('mapos');
         }
 
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'eProduto')){
-           $this->session->set_flashdata('error','Você não tem permissão para editar produtos.');
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'eGrupo')){
+           $this->session->set_flashdata('error','Você não tem permissão para editar grupos.');
            redirect(base_url());
         }
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
 
-        if ($this->form_validation->run('produtos') == false) {
+        if ($this->form_validation->run('grupos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
-            $precoCompra = $this->input->post('precoCompra');
-            $precoCompra = str_replace(",",".", $precoCompra);
-            
-            $precoVenda = $this->input->post('precoVenda');
-            $precoVenda = str_replace(",", ".", $precoVenda);
+           
             
             $data = array(
                 'descricao' => $this->input->post('descricao'),
-                'unidade' => $this->input->post('unidade'),
-                'precoCompra' => $precoCompra,
-                'precoVenda' => $precoVenda,
-                'estoque' => $this->input->post('estoque'),
-                'estoqueMinimo' => $this->input->post('estoqueMinimo'),
-                'idusumestre' => $this->session->userdata('idusumestre'),
-                'idgrupo'=>$this->input->post('grupo'),
-                'idmarca'=>$this->input->post('marca')
+                
+                'idusumestre' => $this->session->userdata('idusumestre')
             );
 
-            if ($this->produtos_model->edit('produtos', $data, 'idProdutos', $this->input->post('idProdutos')) == TRUE) {
-                $this->session->set_flashdata('success','Produto editado com sucesso!');
-                redirect(base_url() . 'index.php/produtos/editar/'.$this->input->post('idProdutos'));
+            if ($this->grupos_model->edit('grupos', $data, 'id', $this->input->post('id')) == TRUE) {
+                $this->session->set_flashdata('success','Grupo editado com sucesso!');
+                redirect(base_url() . 'index.php/grupos/editar/'.$this->input->post('id'));
             } else {
                 $this->data['custom_error'] = '<div class="form_error"><p>An Error Occured</p></div>';
             }
         }
 
-        $this->data['result'] = $this->produtos_model->getById($this->uri->segment(3));
+        $this->data['result'] = $this->grupos_model->getById($this->uri->segment(3));
 
-        $this->data['view'] = 'produtos/editarProduto';
+        $this->data['view'] = 'grupos/editarGrupo';
         $this->load->view('tema/topo', $this->data);
      
     }
@@ -181,27 +161,27 @@ class Produtos extends CI_Controller {
             redirect('mapos');
         }
         
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'vProduto')){
-           $this->session->set_flashdata('error','Você não tem permissão para visualizar produtos.');
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'vGrupo')){
+           $this->session->set_flashdata('error','Você não tem permissão para visualizar grupos.');
            redirect(base_url());
         }
 
-        $this->data['result'] = $this->produtos_model->getById($this->uri->segment(3));
+        $this->data['result'] = $this->grupos_model->getById($this->uri->segment(3));
 
         if($this->data['result'] == null){
-            $this->session->set_flashdata('error','Produto não encontrado.');
-            redirect(base_url() . 'index.php/produtos/editar/'.$this->input->post('idProdutos'));
+            $this->session->set_flashdata('error','Grupo não encontrado.');
+            redirect(base_url() . 'index.php/grupos/editar/'.$this->input->post('id'));
         }
 
-        $this->data['view'] = 'produtos/visualizarProduto';
+        $this->data['view'] = 'grupos/visualizarGrupo';
         $this->load->view('tema/topo', $this->data);
      
     }
 	
     function excluir(){
 
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'dProduto')){
-           $this->session->set_flashdata('error','Você não tem permissão para excluir produtos.');
+        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'dGrupo')){
+           $this->session->set_flashdata('error','Você não tem permissão para excluir grupos.');
            redirect(base_url());
         }
 
@@ -210,21 +190,16 @@ class Produtos extends CI_Controller {
         if ($id == null){
 
             $this->session->set_flashdata('error','Erro ao tentar excluir produto.');            
-            redirect(base_url().'index.php/produtos/gerenciar/');
+            redirect(base_url().'index.php/grupos/gerenciar/');
         }
 
-        $this->db->where('produtos_id', $id);
-        $this->db->delete('produtos_os');
-
-
-        $this->db->where('produtos_id', $id);
-        $this->db->delete('itens_de_vendas');
+       
         
-        $this->produtos_model->delete('produtos','idProdutos',$id);             
+        $this->grupos_model->delete('grupos','id',$id);             
         
 
-        $this->session->set_flashdata('success','Produto excluido com sucesso!');            
-        redirect(base_url().'index.php/produtos/gerenciar/');
+        $this->session->set_flashdata('success','Grupo excluido com sucesso!');            
+        redirect(base_url().'index.php/grupos/gerenciar/');
     }
 }
 

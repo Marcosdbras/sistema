@@ -19,6 +19,53 @@
                             <td style="text-align: right"><strong>Unidade</strong></td>
                             <td><?php echo $result->unidade ?></td>
                         </tr>
+                        
+                        <tr>
+                            <td style="text-align: right"><strong>Marca</strong></td>
+                            <td>
+                                <?php 
+                                    $this->db->select('idusumestre, iddetalhe, descricao, id');
+                                    $this->db->from('marcas');
+                                    $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+                                    $this->db->where('id',$result->idmarca);
+                                    $this->db->limit(1);
+                                    $marcas = $this->db->get();
+                               
+                                
+                                    foreach($marcas->result() as $mar){
+                                       echo $mar->descricao;  
+                                    } 
+                                    
+                                ?>
+                            </td>
+                        </tr>
+
+                        
+                        <tr>
+                            <td style="text-align: right"><strong>Grupo</strong></td>
+                            <td>
+                                <?php 
+                                    $this->db->select('idusumestre, iddetalhe, descricao, id');
+                                    $this->db->from('grupos');
+                                    $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+                                    $this->db->where('id',$result->idgrupo);
+                                    $this->db->limit(1);
+                                    $grupos = $this->db->get();
+                               
+                                
+                                    foreach($grupos->result() as $gru){
+                                       echo $gru->descricao;  
+                                    } 
+                                    
+                                ?>
+                            </td>
+                        </tr>
+                        
+                        
+
+
+                        
+                        
                         <tr>
                             <td style="text-align: right"><strong>Preço de Compra</strong></td>
                             <td>R$ <?php echo number_format($result->precoCompra,2,',',''); ?></td>

@@ -33,6 +33,44 @@
 
                         <table class="table table-bordered">
                             <tbody>
+                                <!-- Marcos 
+                                   26/02/2017
+                                   15/03/2017
+                                -->
+
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input name="vDepartamento" class="marcar" type="checkbox" checked="checked" value="1" />
+                                            <span class="lbl"> Visualizar Departamento</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="aDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Departamento</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="eDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Departamento</span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <input name="dDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Departamento</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
+                                
+                                
+                                
                                 <tr>
 
                                     <td>
@@ -63,10 +101,6 @@
                                     </td>
                                  
                                 </tr>
-                                
-                                
-                                
-                                <!-- Marcos 26/02/2016-->
                                 
                                 
                                 <tr>
@@ -100,17 +134,107 @@
                                  
                                 </tr>
                                 
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                <!--   -->
-                                
 
                                 <tr><td colspan="4"></td></tr>
+                                
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input name="vMarca" class="marcar" type="checkbox" checked="checked" value="1" />
+                                            <span class="lbl"> Visualizar Marca</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="aMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Marca</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="eMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Marca</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="dMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Marca</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input name="vGrupo" class="marcar" type="checkbox" checked="checked" value="1" />
+                                            <span class="lbl"> Visualizar Grupo</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="aGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Grupo</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="eGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Grupo</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="dGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Grupo</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
+                                
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input name="vUnidade" class="marcar" type="checkbox" checked="checked" value="1" />
+                                            <span class="lbl"> Visualizar Unidade</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="aUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Unidade</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="eUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Unidade</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="dUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Unidade</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>                                
+                                
+                                
                                 <tr>
 
                                     <td>
@@ -142,6 +266,10 @@
                                     </td>
                                  
                                 </tr>
+                                
+                                
+                                
+                                
                                 <tr><td colspan="4"></td></tr>
                                 
                                 <tr>

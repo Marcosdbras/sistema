@@ -275,7 +275,6 @@ class Mapos extends CI_Controller {
         $this->form_validation->set_rules('telefone','Telefone','required|xss_clean|trim');
         $this->form_validation->set_rules('email','E-mail','required|xss_clean|trim');
 
-
         
 
         if ($this->form_validation->run() == false) {
@@ -303,8 +302,12 @@ class Mapos extends CI_Controller {
             $cep=$this->input->post('cep');
             $ibge = $this->input->post('ibge');
 
+            $venda = $this->input->post('venda');
+            $os = $this->input->post('os');
+            $comanda = $this->input->post('comanda');
+            
 
-            $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo, $cep, $ibge);
+            $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo, $cep, $ibge, $venda, $os, $comanda);
             if($retorno){
 
                 $this->session->set_flashdata('success','As informações foram inseridas com sucesso.');
@@ -367,8 +370,11 @@ class Mapos extends CI_Controller {
             $cep = $this->input->post('cep');
             $ibge = $this->input->post('ibge');
 
-
-            $retorno = $this->mapos_model->editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $cep, $ibge);
+            $venda = $this->input->post('venda');
+            $os = $this->input->post('os');
+            $comanda = $this->input->post('comanda');
+            
+            $retorno = $this->mapos_model->editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $cep, $ibge, $venda, $os, $comanda);
             if($retorno){
 
                 $this->session->set_flashdata('success','As informações foram alteradas com sucesso.');

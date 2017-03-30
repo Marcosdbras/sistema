@@ -46,6 +46,46 @@
 
                         <table class="table table-bordered">
                             <tbody>
+                                
+                                <!-- 
+                                   27/02/2017 
+                                   15/03/2017
+                                     Programador: Marcos
+                                -->
+                                
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['vDepartamento'])){ if($permissoes['vDepartamento'] == '1'){echo 'checked';}}?> name="vDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Visualizar Departamento</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['aDepartamento'])){ if($permissoes['aDepartamento'] == '1'){echo 'checked';}}?> name="aDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Departamento</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['eDepartamento'])){ if($permissoes['eDepartamento'] == '1'){echo 'checked';}}?> name="eDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Departamento</span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['dDepartamento'])){ if($permissoes['dDepartamento'] == '1'){echo 'checked';}}?> name="dDepartamento" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Departamento</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>                                
+                                
+                                
+                                
                                 <tr>
 
                                     <td>
@@ -78,9 +118,7 @@
                                 </tr>
                                 
                                 
-                                <!-- 27/02/2017 
-                                     Programador: Marcos
-                                -->
+                               
                                 
                                 <tr>
 
@@ -117,6 +155,110 @@
                                 
 
                                 <tr><td colspan="4"></td></tr>
+                                
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['vMarca'])){ if($permissoes['vMarca'] == '1'){echo 'checked';}}?> name="vMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Visualizar Marca</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['aMarca'])){ if($permissoes['aMarca'] == '1'){echo 'checked';}}?> name="aMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Marca</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['eMarca'])){ if($permissoes['eMarca'] == '1'){echo 'checked';}}?> name="eMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Marca</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['dMarca'])){ if($permissoes['dMarca'] == '1'){echo 'checked';}}?> name="dMarca" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Marca</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>                                
+
+
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['vGrupo'])){ if($permissoes['vGrupo'] == '1'){echo 'checked';}}?> name="vGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Visualizar Grupo</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['aGrupo'])){ if($permissoes['aGrupo'] == '1'){echo 'checked';}}?> name="aGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Grupo</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['eGrupo'])){ if($permissoes['eGrupo'] == '1'){echo 'checked';}}?> name="eGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Grupo</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['dGrupo'])){ if($permissoes['dGrupo'] == '1'){echo 'checked';}}?> name="dGrupo" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Grupo</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['vUnidade'])){ if($permissoes['vUnidade'] == '1'){echo 'checked';}}?> name="vUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Visualizar Unidade</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['aUnidade'])){ if($permissoes['aUnidade'] == '1'){echo 'checked';}}?> name="aUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Adicionar Unidade</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['eUnidade'])){ if($permissoes['eUnidade'] == '1'){echo 'checked';}}?> name="eUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Editar Unidade</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['dUnidade'])){ if($permissoes['dUnidade'] == '1'){echo 'checked';}}?> name="dUnidade" class="marcar" type="checkbox" value="1" />
+                                            <span class="lbl"> Excluir Unidade</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>
+
+
+                                
+                                
+                                
+                                
                                 <tr>
 
                                     <td>

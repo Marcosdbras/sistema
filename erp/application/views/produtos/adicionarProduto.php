@@ -10,7 +10,7 @@
             <div class="widget-content nopadding">
                 <?php echo $custom_error; ?>
                 <form action="<?php echo current_url(); ?>" id="formProduto" method="post" class="form-horizontal" >
-                     <div class="control-group">
+                    <div class="control-group">
                         <label for="descricao" class="control-label">Descrição<span class="required">*</span></label>
                         <div class="controls">
                             <input id="descricao" type="text" name="descricao" value="<?php echo set_value('descricao'); ?>"  />
@@ -18,11 +18,86 @@
                     </div>
 
                     <div class="control-group">
+                        <label for="unidade" class="control-label">Unidade<span class="required">*</span></label>    
+                        <div class="controls">
+                            <select class="form-control" id="unidade"  name="unidade"  >
+                                <option selected="selected"></option>
+                                <?php  
+                                   
+                                   $this->db->select('idusumestre, iddetalhe, descricao, desc_reduzida'); 
+                                   $this->db->from('unidades');
+                                   $this->db->where('idusumestre',$this->session->userdata('idusumestre'));
+                                   $unidades = $this->db->get();
+                                   
+                                   foreach ($unidades->result() as $und){
+                                     echo  '<option>'.$und->desc_reduzida.'</option>'; 
+                                       
+                                   }
+                                ?>
+     
+                            </select>
+                        </div>    
+                    </div>    
+
+                    <!--
+                    <div class="control-group">
                         <label for="unidade" class="control-label">Unidade<span class="required">*</span></label>
                         <div class="controls">
-                            <input id="unidade" type="text" name="unidade" value="<?php echo set_value('unidade'); ?>"  />
+                            <input id="unidade" type="text" name="unidade" value="<?php //echo set_value('unidade'); ?>"  />
                         </div>
                     </div>
+                    -->
+
+
+                    <div class="control-group">
+                        <label for="marca" class="control-label">Marca</label>    
+                        <div class="controls">
+                            <select class="form-control" id="marca"  name="marca"  >
+                                <option value="0" selected="selected"></option>
+                                <?php  
+                                   
+                                   $this->db->select('idusumestre, iddetalhe, descricao, id'); 
+                                   $this->db->from('marcas');
+                                   $this->db->where('idusumestre',$this->session->userdata('idusumestre'));
+                                   $marcas = $this->db->get();
+                                   
+                                   foreach ($marcas->result() as $mar){
+                                     echo  '<option value="'. $mar->id.'">'.$mar->descricao.'</option>'; 
+                                       
+                                   }
+                                ?>
+     
+                            </select>
+                        </div>    
+                    </div>    
+
+
+
+                    <div class="control-group">
+                        <label for="grupo" class="control-label">Grupo</label>    
+                        <div class="controls">
+                            <select class="form-control" id="grupo"  name="grupo"  >
+                                <option value="0" selected="selected"></option>
+                                <?php  
+                                   
+                                   $this->db->select('idusumestre, iddetalhe, descricao, id'); 
+                                   $this->db->from('grupos');
+                                   $this->db->where('idusumestre',$this->session->userdata('idusumestre'));
+                                   $grupos = $this->db->get();
+                                   
+                                   foreach ($grupos->result() as $gru){
+                                     echo  '<option value="'. $gru->id.'">'.$gru->descricao.'</option>'; 
+                                       
+                                   }
+                                ?>
+     
+                            </select>
+                        </div>    
+                    </div>                    
+                    
+                    
+                    
+
 
                     <div class="control-group">
                         <label for="precoCompra" class="control-label">Preço de Compra<span class="required">*</span></label>
@@ -61,48 +136,47 @@
                         </div>
                     </div>
 
-                    
+
                 </form>
             </div>
 
-         </div>
-     </div>
+        </div>
+    </div>
 </div>
 
-<script src="<?php echo base_url()?>js/jquery.validate.js"></script>
-<script src="<?php echo base_url();?>js/maskmoney.js"></script>
+<script src="<?php echo base_url() ?>js/jquery.validate.js"></script>
+<script src="<?php echo base_url(); ?>js/maskmoney.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         //$(".money").maskMoney();
-        
-        $(".money").maskMoney({ decimal: ",", thousands: "" });
+
+        $(".money").maskMoney({decimal: ",", thousands: ""});
 
         $('#formProduto').validate({
-            rules :{
-                  descricao: { required: true},
-                  unidade: { required: true},
-                  precoCompra: { required: true},
-                  precoVenda: { required: true},
-                  estoque: { required: true}
+            rules: {
+                descricao: {required: true},
+                unidade: {required: true},
+                precoCompra: {required: true},
+                precoVenda: {required: true},
+                estoque: {required: true}
             },
-            messages:{
-                  descricao: { required: 'Campo Requerido.'},
-                  unidade: {required: 'Campo Requerido.'},
-                  precoCompra: { required: 'Campo Requerido.'},
-                  precoVenda: { required: 'Campo Requerido.'},
-                  estoque: { required: 'Campo Requerido.'}
+            messages: {
+                descricao: {required: 'Campo Requerido.'},
+                unidade: {required: 'Campo Requerido.'},
+                precoCompra: {required: 'Campo Requerido.'},
+                precoVenda: {required: 'Campo Requerido.'},
+                estoque: {required: 'Campo Requerido.'}
             },
-
             errorClass: "help-inline",
             errorElement: "span",
-            highlight:function(element, errorClass, validClass) {
+            highlight: function (element, errorClass, validClass) {
                 $(element).parents('.control-group').addClass('error');
             },
-            unhighlight: function(element, errorClass, validClass) {
+            unhighlight: function (element, errorClass, validClass) {
                 $(element).parents('.control-group').removeClass('error');
                 $(element).parents('.control-group').addClass('success');
             }
-           });
+        });
     });
 </script>
 

@@ -83,23 +83,38 @@ class Permissoes extends CI_Controller {
 
             $permissoes = array(
 
+                 /* 
+                  * 26/02/2017
+                  * 15/03/2017
+                     Programador: Marcos 
+                  */
+                
+                  'aDepartamento' => $this->input->post('aDepartamento'),
+                  'eDepartamento' => $this->input->post('eDepartamento'),
+                  'dDepartamento' => $this->input->post('dDepartamento'),
+                  'vDepartamento' => $this->input->post('vDepartamento'),        
+                
+
                   'aCliente' => $this->input->post('aCliente'),
                   'eCliente' => $this->input->post('eCliente'),
                   'dCliente' => $this->input->post('dCliente'),
-                  'vCliente' => $this->input->post('vCliente'),
-
-                  /* 26/02/2017
-                     Programador: Marcos 
-                  */
+                  'vCliente' => $this->input->post('vCliente'),                 
                 
                   'aFornecedor' => $this->input->post('aFornecedor'),
                   'eFornecedor' => $this->input->post('eFornecedor'),
                   'dFornecedor' => $this->input->post('dFornecedor'),
                   'vFornecedor' => $this->input->post('vFornecedor'),
-
-
                 
                   /* ---- */
+                  'aGrupo' => $this->input->post('aGrupo'),
+                  'eGrupo' => $this->input->post('eGrupo'),
+                  'dGrupo' => $this->input->post('dGrupo'),
+                  'vGrupo' => $this->input->post('vGrupo'),
+                
+                  'aMarca' => $this->input->post('aMarca'),
+                  'eMarca' => $this->input->post('eMarca'),
+                  'dMarca' => $this->input->post('dMarca'),
+                  'vMarca' => $this->input->post('vMarca'),                
                 
                 
                   'aProduto' => $this->input->post('aProduto'),
@@ -139,7 +154,7 @@ class Permissoes extends CI_Controller {
 
                   'rCliente' => $this->input->post('rCliente'),
                   
-                  /* Marcos 26/02/201*/                
+                               
                   'rFornecedor' => $this->input->post('rFornecedor'),                
                 
                   'rProduto' => $this->input->post('rProduto'),
@@ -207,25 +222,46 @@ class Permissoes extends CI_Controller {
             $nomePermissao = $this->input->post('nome');
             $situacao = $this->input->post('situacao');
             $permissoes = array(
-
+                   /* Marcos 
+                   * 26/02/2017
+                   * 15/02/2017
+                   */ 
+                  'aDepartamento' => $this->input->post('aDepartamento'),
+                  'eDepartamento' => $this->input->post('eDepartamento'),
+                  'dDepartamento' => $this->input->post('dDepartamento'),
+                  'vDepartamento' => $this->input->post('vDepartamento'),
+                
                   'aCliente' => $this->input->post('aCliente'),
                   'eCliente' => $this->input->post('eCliente'),
                   'dCliente' => $this->input->post('dCliente'),
-                  'vCliente' => $this->input->post('vCliente'),
-
-                  /* Marcos 26/02/2017*/               
+                  'vCliente' => $this->input->post('vCliente'),                               
                 
                   'aFornecedor' => $this->input->post('aFornecedor'),
                   'eFornecedor' => $this->input->post('eFornecedor'),
                   'dFornecedor' => $this->input->post('dFornecedor'),
                   'vFornecedor' => $this->input->post('vFornecedor'),
                 
-                
-                
                   'aProduto' => $this->input->post('aProduto'),
                   'eProduto' => $this->input->post('eProduto'),
                   'dProduto' => $this->input->post('dProduto'),
                   'vProduto' => $this->input->post('vProduto'),
+                
+                  'aGrupo' => $this->input->post('aGrupo'),
+                  'eGrupo' => $this->input->post('eGrupo'),
+                  'dGrupo' => $this->input->post('dGrupo'),
+                  'vGrupo' => $this->input->post('vGrupo'),
+                
+                  'aMarca' => $this->input->post('aMarca'),
+                  'eMarca' => $this->input->post('eMarca'),
+                  'dMarca' => $this->input->post('dMarca'),
+                  'vMarca' => $this->input->post('vMarca'),
+                
+                  'aUnidade' => $this->input->post('aUnidade'),
+                  'eUnidade' => $this->input->post('eUnidade'),
+                  'dUnidade' => $this->input->post('dUnidade'),
+                  'vUnidade' => $this->input->post('vUnidade'),
+                
+                
 
                   'aServico' => $this->input->post('aServico'),
                   'eServico' => $this->input->post('eServico'),

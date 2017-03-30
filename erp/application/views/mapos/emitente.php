@@ -110,6 +110,42 @@
                     </div>
                 </div>
 
+
+
+                <div class="control-group">
+                    <label for="venda" class="control-label">Permite Emitir Venda?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="venda"  name="venda"  >
+                            <option  value="0" selected="selected">Não</option>
+                            <option  value="1">Sim</option> 
+                        </select>
+                    </div>    
+                </div>    
+
+                <div class="control-group">
+                    <label for="os" class="control-label">Permite Emitir Ordem de Serviço?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="os"  name="os"  >
+                            <option  value="0" selected="selected">Não</option>
+                            <option  value="1">Sim</option> 
+                        </select>
+                    </div>    
+                </div>    
+
+                <div class="control-group">
+                    <label for="comanda" class="control-label">Permite Emitir Comanda?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="comanda"  name="comanda"  >
+                            <option  value="0" selected="selected">Não</option>
+                            <option  value="1">Sim</option> 
+                        </select>
+                    </div>    
+                </div> 
+                
+                
+                
+                
+
                 <div class="control-group">
                     <label for="logo" class="control-label"><span class="required">Logomarca*</span></label>
                     <div class="controls">
@@ -252,6 +288,42 @@
                         <input type="text" name="email" value="<?php echo $dados[0]->email; ?>" />
                     </div>
                 </div>
+                
+
+                <!-- selected="selected"  -->
+                
+                
+                <div class="control-group">
+                    <label for="venda" class="control-label">Permite Emitir Venda?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="venda"  name="venda"  >
+                            <option  value="0" <?php   if (  $dados[0]->venda == 0 ){ echo 'selected="selected"';  }   ?>   >Não</option>
+                            <option  value="1" <?php   if (  $dados[0]->venda == 1 ){ echo 'selected="selected"';  }   ?>    >Sim</option> 
+                        </select>
+                    </div>    
+                </div>    
+
+                <div class="control-group">
+                    <label for="os" class="control-label">Permite Emitir Ordem de Serviço?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="os"  name="os"  >
+                            <option  value="0" <?php   if (  $dados[0]->os == 0 ){ echo 'selected="selected"';  }   ?>  >Não</option>
+                            <option  value="1" <?php   if (  $dados[0]->os == 1 ){ echo 'selected="selected"';  }   ?>   >Sim</option> 
+                        </select>
+                    </div>    
+                </div>    
+
+                <div class="control-group">
+                    <label for="comanda" class="control-label">Permite Emitir Comanda?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="comanda"  name="comanda"  >
+                            <option  value="0" <?php   if (  $dados[0]->comanda == 0 ){ echo 'selected="selected"';  }   ?>  >Não</option>
+                            <option  value="1" <?php   if (  $dados[0]->comanda == 1 ){ echo 'selected="selected"';  }   ?>  >Sim</option> 
+                        </select>
+                    </div>    
+                </div> 
+                
+                
 
 
 
