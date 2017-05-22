@@ -1,3 +1,25 @@
+<?php
+    $this->db->select('idusumestre, os, venda, comanda');
+    $this->db->from('emitente');
+    $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+    $this->db->limit(1);
+    $emitente = $this->db->get();
+                                
+    foreach($emitente->result() as $emi){
+           $os = $emi->os;
+           $comanda = $emi->comanda;
+           $venda = $emi->venda;
+    }
+    
+    if (!$emitente->result()){
+       $os = 0;
+       $comanda = 0;
+       $venda = 0; 
+        
+    }  
+
+?>
+
 <div class="span12" style="margin-left: 0">
     <form action="<?php echo base_url();?>index.php/permissoes/adicionar" id="formPermissao" method="post">
 
@@ -308,29 +330,30 @@
                                 <tr>
 
                                     <td>
+                                        
                                         <label>
-                                            <input name="vOs" class="marcar" type="checkbox" checked="checked" value="1" />
-                                            <span class="lbl"> Visualizar OS</span>
+                                            <input name="vOs" class="marcar" type="checkbox" checked="checked" value="1" <?php if ($os!=1){ echo 'disabled'; }?>  />
+                                            <span class="lbl"> Visualizar OS <?php if ($os!=1){ echo '<SUP>*</SUP>'; }?>  </span>
                                         </label>
                                     </td>
 
                                     <td>
                                         <label>
-                                            <input name="aOs" class="marcar" type="checkbox" value="1" />
+                                            <input name="aOs" class="marcar" type="checkbox" value="1" <?php if ($os!=1){ echo 'disabled'; }?>  />
                                             <span class="lbl"> Adicionar OS</span>
                                         </label>
                                     </td>
 
                                     <td>
                                         <label>
-                                            <input name="eOs" class="marcar" type="checkbox" value="1" />
+                                            <input name="eOs" class="marcar" type="checkbox" value="1" <?php if ($os!=1){ echo 'disabled'; }?> />
                                             <span class="lbl"> Editar OS</span>
                                         </label>
                                     </td>
 
                                     <td>
                                         <label>
-                                            <input name="dOs" class="marcar" type="checkbox" value="1" />
+                                            <input name="dOs" class="marcar" type="checkbox" value="1" <?php if ($os!=1){ echo 'disabled'; }?> />
                                             <span class="lbl"> Excluir OS</span>
                                         </label>
                                     </td>
@@ -341,29 +364,30 @@
                                 <tr>
 
                                     <td>
+                                        
                                         <label>
-                                            <input name="vVenda" class="marcar" type="checkbox" checked="checked" value="1" />
-                                            <span class="lbl"> Visualizar Venda</span>
+                                            <input name="vVenda" class="marcar" type="checkbox" checked="checked" value="1"  <?php if ($venda!=1){ echo 'disabled'; }?>  />
+                                            <span class="lbl"> Visualizar Venda  <?php if ($venda!=1){ echo '<SUP>*</SUP>'; }?>  </span>
                                         </label>
                                     </td>
 
                                     <td>
                                         <label>
-                                            <input name="aVenda" class="marcar" type="checkbox" value="1" />
+                                            <input name="aVenda" class="marcar" type="checkbox" value="1"  <?php if ($venda!=1){ echo 'disabled'; }?> />
                                             <span class="lbl"> Adicionar Venda</span>
                                         </label>
                                     </td>
 
                                     <td>
                                         <label>
-                                            <input name="eVenda" class="marcar" type="checkbox" value="1" />
+                                            <input name="eVenda" class="marcar" type="checkbox" value="1" <?php if ($venda!=1){ echo 'disabled'; }?> />
                                             <span class="lbl"> Editar Venda</span>
                                         </label>
                                     </td>
 
                                     <td>
                                         <label>
-                                            <input name="dVenda" class="marcar" type="checkbox" value="1" />
+                                            <input name="dVenda" class="marcar" type="checkbox" value="1" <?php if ($venda!=1){ echo 'disabled'; }?>  />
                                             <span class="lbl"> Excluir Venda</span>
                                         </label>
                                     </td>
@@ -372,6 +396,42 @@
                                 
                                 <tr><td colspan="4"></td></tr>
 
+                                <tr>
+
+                                    <td>
+                                        
+                                        <label>
+                                            <input name="vComanda" class="marcar" type="checkbox" checked="checked" value="1"  <?php if ($comanda!=1){ echo 'disabled'; }?>  />
+                                            <span class="lbl"> Visualizar Comanda   <?php if ($comanda!=1){ echo '<SUP>*</SUP>'; }?> </span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="aComanda" class="marcar" type="checkbox" value="1"  <?php if ($comanda!=1){ echo 'disabled'; }?> />
+                                            <span class="lbl"> Adicionar Comanda</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="eComanda" class="marcar" type="checkbox" value="1" <?php if ($comanda!=1){ echo 'disabled'; }?> />
+                                            <span class="lbl"> Editar Comanda</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input name="dComanda" class="marcar" type="checkbox" value="1" <?php if ($comanda!=1){ echo 'disabled'; }?>  />
+                                            <span class="lbl"> Excluir Comanda</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr>                                
+                                
+                                <tr><td colspan="4"></td></tr>
+                                
+                                
                                 <tr>
 
                                     <td>
@@ -543,6 +603,8 @@
     
             <div class="form-actions">
                 <div class="span12">
+                    <p>* Bloqueado, acesse a opção Emitente no menu lateral para desbloquear a opção desejada</p>
+                    
                     <div class="span6 offset3">
                         <button type="submit" class="btn btn-success"><i class="icon-plus icon-white"></i> Adicionar</button>
                         <a href="<?php echo base_url() ?>index.php/permissoes" id="" class="btn"><i class="icon-arrow-left"></i> Voltar</a>

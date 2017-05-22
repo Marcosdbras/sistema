@@ -18,6 +18,26 @@
                         </div>
                     </div>
 
+                     <div class="control-group">
+                        <label for="desc_ponto_atendimento" class="control-label">Ponto de atendimento<span class=""></span></label>
+                        <div class="controls">
+                            <input id="desc_ponto_atendimento" type="text" name="desc_ponto_atendimento" value="<?php echo $result->desc_ponto_atendimento; ?>"  />
+                        </div>
+                    </div>
+                      
+                     <div class="control-group">
+                        <label for="ponto_inicial" class="control-label">Posição Inicial<span class=""></span></label>
+                        <div class="controls">
+                            <input id="ponto_inicial" type="text" name="ponto_inicial" value="<?php echo $result->ponto_inicial; ?>"  />
+                        </div>
+                    </div>
+                       
+                     <div class="control-group">
+                        <label for="ponto_final" class="control-label">Posição Final<span class=""></span></label>
+                        <div class="controls">
+                            <input id="ponto_final" type="text" name="ponto_final" value="<?php echo $result->ponto_final; ?>"  />
+                        </div>
+                    </div>                   
 
                     <div class="form-actions">
                         <div class="span12">

@@ -392,8 +392,49 @@ $config = array( 'fornecedores' => array(array(
     
     
     
+,
+    
+    
+'comandas' => array(
+                                array(
 
+                                    'field' => 'dataVenda',
+                                    'label' => 'Data da Venda',
+                                    'rules' => 'required|trim|xss_clean'
+                                ),
+    
+                                array(
+                                    'field'=>'clientes_id',
+                                    'label'=>'clientes_id',
+                                    'rules'=>'trim|xss_clean|required'
+                                ),
+    
+                                array(
+                                    'field'=>'usuarios_id',
+                                    'label'=>'usuarios_id',
+                                    'rules'=>'trim|xss_clean|required'
+                                ),
+    
+    
+                                array(
+                                    'field'=>'tecnico',
+                                    'label'=>'tecnico',
+                                    'rules'=>'trim|xss_clean|required'
+                                )
+    
+                     )    
+    
     
     
 		);
+
+
+   //array('field'=>'departamento',
+   //      'label'=>'departamento',
+   //      'rules'=>'trim|xss_clean|required'
+   //      ),
+   //array('field'=>'atender',
+   //      'label'=>'atender',
+   //      'rules'=>'trim|xss_clean|required'
+   // ),
 			   

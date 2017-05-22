@@ -58,7 +58,7 @@ class Departamentos extends CI_Controller {
         
         $this->pagination->initialize($config); 	
 
-	    $this->data['results'] = $this->departamentos_model->get('departamentos','id,descricao,iddetalhe,idusumestre','',$config['per_page'],$this->uri->segment(3));
+	    $this->data['results'] = $this->departamentos_model->get('departamentos','id,descricao,iddetalhe,idusumestre, desc_ponto_atendimento, ponto_inicial, ponto_final','',$config['per_page'],$this->uri->segment(3));
        
 	    $this->data['view'] = 'departamentos/departamentos';
        	$this->load->view('tema/topo',$this->data);
@@ -97,6 +97,11 @@ class Departamentos extends CI_Controller {
             $data = array(
                 'descricao' => set_value('descricao'),
                 
+                'desc_ponto_atendimento'=> $this->input->post('desc_ponto_atendimento'),
+                'ponto_inicial'=> $this->input->post('ponto_inicial'),
+                'ponto_final'=>$this->input->post('ponto_final'),
+             
+                
                 'idusumestre' => $this->session->userdata('idusumestre'),
                 'iddetalhe'=>$totreg
             );
@@ -134,6 +139,13 @@ class Departamentos extends CI_Controller {
             
             $data = array(
                 'descricao' => $this->input->post('descricao'),
+
+                'desc_ponto_atendimento'=> $this->input->post('desc_ponto_atendimento'),
+                'ponto_inicial'=> $this->input->post('ponto_inicial'),
+                'ponto_final'=>$this->input->post('ponto_final'),
+
+
+
                 
                 'idusumestre' => $this->session->userdata('idusumestre')
             );

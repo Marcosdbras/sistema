@@ -18,10 +18,10 @@
 */
 
 //Executar em rhcloud.com ou openshift
-$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/'; 
+//$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/'; 
 
 //Executar no local
-//$config['base_url']	= 'http://mapos.dev/';
+$config['base_url']	= 'http://mapos.dev/';
 
 
 /*

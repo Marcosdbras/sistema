@@ -16,6 +16,22 @@
                             <td><?php echo $result->descricao ?></td>
                         </tr>
                   
+                        <tr>
+                            <td style="text-align: right; width: 30%"><strong>Ponto de atendimento</strong></td>
+                            <td><?php echo $result->desc_ponto_atendimento ?></td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right; width: 30%"><strong>Posição Inicial</strong></td>
+                            <td><?php echo $result->ponto_inicial ?></td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: right; width: 30%"><strong>Posição Final</strong></td>
+                            <td><?php echo $result->ponto_final ?></td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
             </div>

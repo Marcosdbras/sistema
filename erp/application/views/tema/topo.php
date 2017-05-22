@@ -1,4 +1,26 @@
+<?php
+    $this->db->select('idusumestre, os, venda, comanda');
+    $this->db->from('emitente');
+    $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
+    $this->db->limit(1);
+    $emitente = $this->db->get();
+                                
+    foreach($emitente->result() as $emi){
+           $os = $emi->os;
+           $comanda = $emi->comanda;
+           $venda = $emi->venda;
+    } 
+    
+    if (!$emitente->result()){
+       $os = 0;
+       $comanda = 0;
+       $venda = 0; 
+        
+    }  
 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -112,7 +134,7 @@
                 </li>
 
 
-                <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vOs')) { ?>
+                <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vOs') && $os == 1) { ?>
                     <li class="<?php
                     if (isset($menuOs)) {
                         echo 'active';
@@ -120,13 +142,28 @@
                     ?>"><a href="<?php echo base_url() ?>index.php/os"><i class="icon icon-tags"></i> <span>Ordens de Serviço</span></a></li>
                     <?php } ?>
 
-                <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vVenda')) { ?>
+                <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vVenda') && $venda == 1) { ?>
                     <li class="<?php
                     if (isset($menuVendas)) {
                         echo 'active';
                     };
                     ?>"><a href="<?php echo base_url() ?>index.php/vendas"><i class="icon icon-shopping-cart"></i> <span>Vendas</span></a></li>
                     <?php } ?>
+
+
+                <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vComanda') && $comanda == 1) { ?>
+                    <li class="<?php
+                    if (isset($menuComandas)) {
+                        echo 'active';
+                    };
+                    ?>"><a href="<?php echo base_url() ?>index.php/comandas"><i class="icon icon-shopping-cart"></i> <span>Comandas</span></a></li>
+                    <?php } ?>
+
+
+
+
+
+
 
                 <?php if ($this->permission->checkPermission($this->session->userdata('permissao'), 'vArquivo')) { ?>
                     <li class="<?php
