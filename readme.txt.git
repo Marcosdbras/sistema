@@ -1,3 +1,7 @@
+Documentação git
+https://git-scm.com/book/pt-br/v1/Git-Essencial-Trabalhando-com-Remotos
+
+
 repositório novo 
 echo "# sistema" >> README.md
 git init
@@ -9,4 +13,22 @@ git push -u origin master
 repositório que já existe
 git remote add origin git@github.com:Marcosdbras/sistema.git
 git push -u origin master
+
+
+oc login https://api.starter-us-west-1.openshift.com
+oc project sistema
+oc status
+
+https://api.starter-us-west-1.openshift.com/oapi/v1/namespaces/sistema/buildconfigs/app/webhooks/b20facf51a92ff99/github
+
+
+ Username: user 
+Password: bios2805 
+Database Name: mapos 
+Connection URL: mysql://mysql:3306/ 
+
+For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/mysql-container/blob/master/5.7/README.md.
+
+
+https://www.youtube.com/watch?v=pFUQpDR7qtc
 
