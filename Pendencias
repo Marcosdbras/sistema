@@ -13,6 +13,9 @@ cd sistema
 ==================================================================================================================================================================================
 Pendências
 ==================================================================================================================================================================================
+Em Aplicaivos, ler arquivo xml do sat e gerar relatório de resumo de acordo com relatórios enviados para Fagner
+
+
 - Quando realiza o push no repositório está sumindo os arquivos anexos e dos uploads
 - Quando fatura ainda está indo o idOs ou idVenda como referência na descrição do faturamento o correto é trocar esta informação pelo iddetalhe da OS ou Venda
 - OS por cliente ainda está apresentado idOs e o correto seria apresentar iddetalhe e idusumestre
@@ -20,6 +23,7 @@ Pendências
 
 - Relatórios de vendas e OS não tem totalização
 - Trocar título rua para endereço em todos os cadastros
+
 
 - Fazer página de apresentação com possível anuncios
 - Fazer blog com assuntos sobre empresa

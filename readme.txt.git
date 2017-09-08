@@ -1,0 +1,12 @@
+repositório novo 
+echo "# sistema" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:Marcosdbras/sistema.git
+git push -u origin master
+
+repositório que já existe
+git remote add origin git@github.com:Marcosdbras/sistema.git
+git push -u origin master
+

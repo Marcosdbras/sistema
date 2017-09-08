@@ -6,7 +6,7 @@ scp -r  5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/er
 scp -r  5834494b2d5271f7fe0000cb@sistema-marcosbras.rhcloud.com:app-root/repo/erp/assets/uploads  ~/bkp/
 
 echo 'realizando uploads via gitbash...'
-cd ~/sistema
+cd ~/php-sistema
 git add .
 git commit -m "upload alteracao padrao"
 git push origin master
