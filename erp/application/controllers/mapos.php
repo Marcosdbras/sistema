@@ -305,9 +305,11 @@ class Mapos extends CI_Controller {
             $venda = $this->input->post('venda');
             $os = $this->input->post('os');
             $comanda = $this->input->post('comanda');
+            $nfe = $this->input->post('nfe');
+            
             
 
-            $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo, $cep, $ibge, $venda, $os, $comanda);
+            $retorno = $this->mapos_model->addEmitente($nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $logo, $cep, $ibge, $venda, $os, $comanda, $nfe);
             if($retorno){
 
                 $this->session->set_flashdata('success','As informações foram inseridas com sucesso.');
@@ -373,8 +375,10 @@ class Mapos extends CI_Controller {
             $venda = $this->input->post('venda');
             $os = $this->input->post('os');
             $comanda = $this->input->post('comanda');
+            $nfe = $this->input->post('nfe');
             
-            $retorno = $this->mapos_model->editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $cep, $ibge, $venda, $os, $comanda);
+            
+            $retorno = $this->mapos_model->editEmitente($id, $nome, $cnpj, $ie, $logradouro, $numero, $bairro, $cidade, $uf,$telefone,$email, $cep, $ibge, $venda, $os, $comanda, $nfe);
             if($retorno){
 
                 $this->session->set_flashdata('success','As informações foram alteradas com sucesso.');

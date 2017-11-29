@@ -140,8 +140,12 @@ class Permissoes extends CI_Controller {
                   'aComanda' => $this->input->post('aComanda'),
                   'eComanda' => $this->input->post('eComanda'),
                   'dComanda' => $this->input->post('dComanda'),
-                  'vComanda' => $this->input->post('vComanda'),          
+                  'vComanda' => $this->input->post('vComanda'),
                 
+                  'aNfe' => $this->input->post('aNfe'),
+                  'eNfe' => $this->input->post('eNfe'),
+                  'dNfe' => $this->input->post('dNfe'),
+                  'vNfe' => $this->input->post('vNfe'),
 
                   'aArquivo' => $this->input->post('aArquivo'),
                   'eArquivo' => $this->input->post('eArquivo'),
@@ -167,6 +171,8 @@ class Permissoes extends CI_Controller {
                   'rServico' => $this->input->post('rServico'),
                   'rOs' => $this->input->post('rOs'),
                   'rComanda' => $this->input->post('rComanda'),
+                  'rNfe' => $this->input->post('rNfe'),               
+                
                   'rFinanceiro' => $this->input->post('rFinanceiro'),
 
             );
@@ -288,6 +294,13 @@ class Permissoes extends CI_Controller {
                   'eComanda' => $this->input->post('eComanda'),
                   'dComanda' => $this->input->post('dComanda'),
                   'vComanda' => $this->input->post('vComanda'),             
+
+                  'aNfe' => $this->input->post('aNfe'),
+                  'eNfe' => $this->input->post('eNfe'),
+                  'dNfe' => $this->input->post('dNfe'),
+                  'vNfe' => $this->input->post('vNfe'),             
+
+
                 
 
                   'aArquivo' => $this->input->post('aArquivo'),

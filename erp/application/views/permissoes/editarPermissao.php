@@ -2,7 +2,7 @@
 
     $permissoes = unserialize($result->permissoes);
 
-    $this->db->select('idusumestre, os, venda, comanda');
+    $this->db->select('idusumestre, os, venda, comanda, nfe');
     $this->db->from('emitente');
     $this->db->where('idusumestre', $this->session->userdata('idusumestre'));
     $this->db->limit(1);
@@ -12,12 +12,14 @@
            $os = $emi->os;
            $comanda = $emi->comanda;
            $venda = $emi->venda;
+           $nfe = $emi->nfe;
     }
     
     if (!$emitente->result()){
        $os = 0;
        $comanda = 0;
        $venda = 0; 
+       $nfe =0;
         
     }  
 
@@ -452,6 +454,56 @@
                                 
                                 
                                 <tr><td colspan="4"></td></tr>
+
+
+
+
+                                 <tr>
+
+                                    <td>
+                                        
+                                        <label>
+                                            <input  <?php if(isset($permissoes['vNfe'])){ if($permissoes['vNfe'] == '1'){echo 'checked';}}?>   name="vNfe" class="marcar" type="checkbox" checked="checked" value="1"  <?php if ($nfe!=1){ echo 'disabled'; }?>  />
+                                            <span class="lbl"> Visualizar Nfe   <?php if ($nfe!=1){ echo '<SUP>*</SUP>'; }?> </span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['aNfe'])){ if($permissoes['aNfe'] == '1'){echo 'checked';}}?>   name="aNfe" class="marcar" type="checkbox" value="1"  <?php if ($nfe!=1){ echo 'disabled'; }?> />
+                                            <span class="lbl"> Adicionar Nfe</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['eNfe'])){ if($permissoes['eNfe'] == '1'){echo 'checked';}}?>    name="eNfe" class="marcar" type="checkbox" value="1" <?php if ($nfe!=1){ echo 'disabled'; }?> />
+                                            <span class="lbl"> Editar Nfe</span>
+                                        </label>
+                                    </td>
+
+                                    <td>
+                                        <label>
+                                            <input <?php if(isset($permissoes['dNfe'])){ if($permissoes['dNfe'] == '1'){echo 'checked';}}?>   name="dNfe" class="marcar" type="checkbox" value="1" <?php if ($nfe!=1){ echo 'disabled'; }?>  />
+                                            <span class="lbl"> Excluir Nfe</span>
+                                        </label>
+                                    </td>
+                                 
+                                </tr> 
+                                
+                                
+                                
+                                
+                                <tr><td colspan="4"></td></tr>
+
+
+
+
+
+
+
+
+
 
                                 <tr>
 

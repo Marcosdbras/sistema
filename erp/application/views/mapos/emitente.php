@@ -141,6 +141,17 @@
                         </select>
                     </div>    
                 </div> 
+
+
+                <div class="control-group">
+                    <label for="nfe" class="control-label">Permite Emitir NFE?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="nfe"  name="nfe"  >
+                            <option  value="0" selected="selected">Não</option>
+                            <option  value="1">Sim</option> 
+                        </select>
+                    </div>    
+                </div> 
                 
                 
                 
@@ -324,9 +335,30 @@
                 </div> 
                 
                 
+                <div class="control-group">
+                    <label for="comanda" class="control-label">Permite Emitir Comanda?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="comanda"  name="comanda"  >
+                            <option  value="0" <?php   if (  $dados[0]->comanda == 0 ){ echo 'selected="selected"';  }   ?>  >Não</option>
+                            <option  value="1" <?php   if (  $dados[0]->comanda == 1 ){ echo 'selected="selected"';  }   ?>  >Sim</option> 
+                        </select>
+                    </div>    
+                </div> 
 
 
+                <div class="control-group">
+                    <label for="nfe" class="control-label">Permite Emitir NFE?<span class="required">*</span></label>    
+                    <div class="controls">
+                        <select class="form-control" id="nfe"  name="nfe"  >
+                            <option  value="0" <?php   if (  $dados[0]->nfe == 0 ){ echo 'selected="selected"';  }   ?>  >Não</option>
+                            <option  value="1" <?php   if (  $dados[0]->nfe == 1 ){ echo 'selected="selected"';  }   ?>  >Sim</option> 
+                        </select>
+                    </div>    
+                </div> 
 
+                
+                
+                
 
             </div>
             <div class="modal-footer">
