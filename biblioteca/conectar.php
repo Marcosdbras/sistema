@@ -13,13 +13,23 @@ function DBClose($mysqli) {
 }
 
 function DBConnect() {
+    
+   //Acesso absam
+   $servidor = 'localhost';
+   $usuario = 'admin';
+   $senha = 'bios2805';
+   $banco = 'sistema_erp';
+    
 
-        
-   $servidor = $_ENV['OPENSHIFT_MYSQL_DB_HOST'];
-   $usuario = $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'];
-   $senha = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];
-   $banco = $_ENV['OPENSHIFT_APP_NAME'];
+   //Openshift     
+   //$servidor = $_ENV['OPENSHIFT_MYSQL_DB_HOST'];
+   //$usuario = $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'];
+   //$senha = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];
+   //$banco = $_ENV['OPENSHIFT_APP_NAME'];
 
+    
+    
+    
        $mysqli = new mysqli($servidor, 
                              $usuario, 
                              $senha, 
