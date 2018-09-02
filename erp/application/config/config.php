@@ -17,11 +17,14 @@
 |
 */
 
+//Executar no absam
+$config['base_url']	= 'http://167.114.39.253/sistema_php/sistema/erp/';
+
 //Executar em rhcloud.com ou openshift
 //$config['base_url']	= 'https://sistema-marcosbras.rhcloud.com/erp/'; 
 
 //Executar no local
-$config['base_url']	= 'http://mapos.dev/';
+//$config['base_url']	= 'http://mapos.dev/';
 
 
 /*
