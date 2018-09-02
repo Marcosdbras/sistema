@@ -190,7 +190,8 @@ require_once '../../biblioteca/funcoes.php';
                             </div>                            
 
                             <div class = "form-group">
-                                <div class="col-md-4 g-recaptcha" data-sitekey="6Lf8yA0UAAAAAHDCinNV3ppOcosQnjjrmK_Pdo7j"></div>
+                                <div class="col-md-4 g-recaptcha" data-sitekey="6LfA320UAAAAAP5KFoGWmdkJxjFwUb0qEgmPhzvK"></div>
+                                
                             </div> 
 
                             <!-- Button (Double) -->
