@@ -12,7 +12,7 @@ $active_record = TRUE;
 
 //Executar em Absam
 //Executar no local
-$db['default']['hostname'] = '127.0.0.1'; 
+$db['default']['hostname'] = 'localhost'; 
 $db['default']['username'] = 'admin';
 $db['default']['password'] = 'bios2805';
 $db['default']['database'] = 'sistema_erp';
