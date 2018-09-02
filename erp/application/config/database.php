@@ -10,6 +10,12 @@ $active_record = TRUE;
  * openshift.com
 */
 
+//Executar em Absam
+//Executar no local
+$db['default']['hostname'] = '127.0.0.1'; 
+$db['default']['username'] = 'admin';
+$db['default']['password'] = 'bios2805';
+$db['default']['database'] = 'sistema_erp';
 
 //Executar em rhcloud.com ou openshift
 //$db['default']['hostname'] = $_ENV['OPENSHIFT_MYSQL_DB_HOST']; 
@@ -19,10 +25,10 @@ $active_record = TRUE;
 
 
 //Executar no local
-$db['default']['hostname'] = '127.0.0.1'; 
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'UTSETaoiom';
-$db['default']['database'] = 'sistema';
+//$db['default']['hostname'] = '127.0.0.1'; 
+//$db['default']['username'] = 'root';
+//$db['default']['password'] = 'UTSETaoiom';
+//$db['default']['database'] = 'sistema';
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
