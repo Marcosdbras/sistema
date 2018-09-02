@@ -29,6 +29,7 @@ $config['base_url']	= 'http://marcosbras.com/sistema_erp/sistema/erp/';
 //Executar no ip
 //$config['base_url']	= 'http://167.114.39.253/sistema_erp/sistema/erp/';
 
+
 /*
 |--------------------------------------------------------------------------
 | Index File
