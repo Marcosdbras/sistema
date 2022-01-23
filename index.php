@@ -71,12 +71,15 @@ require_once 'biblioteca/funcoes.php';
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-                <h1>Aplicativos & Sistemas</h1>
-                <p>Nossos sistemas tem mensalidade, mas não se assuste! O valor pago por mês é a garantia de um serviço de qualidade, pois, promove a constante evolução de nossos sistemas e a correção de eventuais bugs ou problemas sem a necessidade de gastos adicionais com atualizações frequentes.</p>
-                <p>Conheça nossos sistemas online</p>
-                <p><a class="btn btn-primary btn-lg" href="https://sistema-marcosbras.rhcloud.com/erp" role="button">Gestão Online&raquo;</a></p>
 
-                <p>Management Applications and Statistics & Order of Service (MAPOS - Aplicações de Gestão e Estatísticas & Ordem de Serviço)  <br />É um sistema de gerenciamento de ordem de serviço e registro de vendas totalmente online, funciona em tablet e celular. Este é um excelente sistema para ser usado quando a capitação de equipamento para conserto fica distante do seu laboratório de manutenção e você precisa de uma comunicação rápida entre os dois pontos, com ele você controla toda rotina de uma oficina mecânica, assistência técnica, entre outras, porém, não precisa instalar no seu equipamento. Clique no botão acima, registre-se e já comece a usar.</p> 
+            <h1>Personal Banker, agente financeiro e desenvolvedor de sistema e aplicativos</h1>
+            <p>Para quem não me conhece meu nome é marcos, atuo como agente financeiro e também sou desenvolvedor de sistemas e aplicativos</p>
+            <p>Conheça </P>
+            <p>Sistemas e Aplicativos</p>
+
+            <p><a class="btn btn-primary btn-lg" href="https://sistema-marcosbras.rhcloud.com/erp" role="button">Gestão Online&raquo;</a></p>
+
+                <p>Management Applications  & Order of Service (MAPOS - Aplicação e Gestão  & Ordem de Serviço)  <br />É um sistema de gerenciamento de ordem de serviço e registro de vendas totalmente online, funciona em tablet e celular. Este é um excelente sistema para ser usado quando a capitação de equipamento para conserto fica distante do seu laboratório de manutenção e você precisa de uma comunicação rápida entre os dois pontos, com ele você controla toda rotina de uma oficina mecânica, assistência técnica, entre outras, porém, não precisa instalar no seu equipamento. Clique no botão acima, registre-se e já comece a usar.</p> 
                 <p><a class="btn btn-primary btn-lg" href="erp/empresa/registrar.php" role="button">Registrar-se&raquo;</a></p>
 
                 <p>Caso não tenha a senha de acesso ao sistema ainda, por gentileza clique em registra-se para que você consiga cadastrar sua empresa e um usuário principal que lhe permitirá realizar cadastro de clientes, produtos, verificar finanças, abrir ordem de serviço, venda, entre outras.</p> 
